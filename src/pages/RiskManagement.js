@@ -12,7 +12,7 @@ const RiskManagement = () => {
       </div>
       <CurrentPortfolio />
       <RiskManagementModelDetails />
-      <PerformanceLineCharts />
+      {/* <PerformanceLineCharts /> */}
       {/* <h1>Hello brother</h1> */}
     </div>
   );

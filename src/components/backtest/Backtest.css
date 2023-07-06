@@ -131,11 +131,29 @@
 .btn-div-backtest {
   display: flex;
   justify-content: center;
+  margin-top: -0.2rem;
+}
+.btn-div-backtest-result {
+  display: flex;
+  justify-content: center;
   margin-top: 0.8rem;
 }
 
 .btn-contact-backtest {
-  width: 131px;
+  width: 100px;
+  height: 30px;
+  background: #fdd835;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+.backtest-result-btn {
+  display: flex;
+  justify-content: left;
+}
+.btn-contact-backtest-result {
+  width: 130px;
   height: 30px;
   background: #fdd835;
   border-radius: 10px;
@@ -146,7 +164,7 @@
 
 .btn-contact-backtest-mobile {
   margin-top: 1rem;
-  width: 131px;
+  width: 100px;
   height: 30px;
   background: #fdd835;
   border-radius: 10px;

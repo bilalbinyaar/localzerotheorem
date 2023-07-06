@@ -47,6 +47,10 @@ import GraphsTableBacktest from "../models/graphsTable/GraphsTableBacktest";
 import { faLariSign, faListAlt } from "@fortawesome/free-solid-svg-icons";
 import { ThreeDots } from "react-loader-spinner";
 import { isNumber } from "@amcharts/amcharts5/.internal/core/util/Type";
+import jsonexport from "jsonexport/dist";
+import download from "downloadjs";
+import * as XLSX from "xlsx";
+
 const BacktestRouteComponentStrategies = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -80,6 +84,16 @@ const BacktestRouteComponentStrategies = () => {
       set_date_selected_for_backtest(timestamp);
     }
   };
+  const handleDateChangeCalenderEnd = (date) => {
+    if (date > now || date < disableBefore) {
+      setSelectedDateEnd(null); // reset selectedDate to null if date is invalid
+    } else {
+      setSelectedDateEnd(date);
+      const parsedDate = dayjs(date).toDate();
+      const timestamp = parsedDate.getTime() / 1000;
+      set_date_selected_for_backtest_end(timestamp);
+    }
+  };
   const handleDateChangeCalenderMobile = (date) => {
     if (date > now || date < disableBefore) {
       setSelectedDate(null); // reset selectedDate to null if date is invalid
@@ -88,6 +102,16 @@ const BacktestRouteComponentStrategies = () => {
       const parsedDate = dayjs(date).toDate();
       const timestamp = parsedDate.getTime() / 1000;
       set_date_selected_for_backtest_mobile(timestamp);
+    }
+  };
+  const handleDateChangeCalenderMobileEnd = (date) => {
+    if (date > now || date < disableBefore) {
+      setSelectedDateEnd(null); // reset selectedDate to null if date is invalid
+    } else {
+      setSelectedDateEnd(date);
+      const parsedDate = dayjs(date).toDate();
+      const timestamp = parsedDate.getTime() / 1000;
+      set_date_selected_for_backtest_mobile_end(timestamp);
     }
   };
   // console.log("I am called here to due to dark mode");
@@ -568,6 +592,9 @@ const BacktestRouteComponentStrategies = () => {
   var time_stop = "";
   var backtest_start_date = "";
   var default_date_selected_for_backtest = "";
+  var default_date_selected_for_backtest_end = "";
+  const current_time_unix = Math.floor(new Date(now).getTime() / 1000);
+  default_date_selected_for_backtest_end = current_time_unix;
   if (location.state) {
     model_name = location.state.model_name.replace(/_/g, "-");
     // currency = location.state.currency;
@@ -581,6 +608,7 @@ const BacktestRouteComponentStrategies = () => {
     const unixTimestamp = Math.floor(new Date(dateStr).getTime() / 1000);
     backtest_start_date = dayjs.unix(unixTimestamp);
     default_date_selected_for_backtest = unixTimestamp;
+
     // console.log(location.state);
   }
   const [time_horizon_for_stop_time, set_time_horizon_for_stop_time] =
@@ -598,9 +626,14 @@ const BacktestRouteComponentStrategies = () => {
   const [model_selected_for_backted, set_model_selected_for_backtest] =
     useState(model_name.replace(/-/g, "_"));
   const [selectedDate, setSelectedDate] = useState(backtest_start_date);
+
+  const [selectedDateEnd, setSelectedDateEnd] = useState(now);
+
   const [date_selected_for_backtest, set_date_selected_for_backtest] = useState(
     default_date_selected_for_backtest
   );
+  const [date_selected_for_backtest_end, set_date_selected_for_backtest_end] =
+    useState(default_date_selected_for_backtest_end);
   const [
     take_profit_selected_for_backtest,
     set_take_profit_selected_for_backtest,
@@ -622,6 +655,11 @@ const BacktestRouteComponentStrategies = () => {
     date_selected_for_backtest_mobile,
     set_date_selected_for_backtest_mobile,
   ] = useState(default_date_selected_for_backtest);
+
+  const [
+    date_selected_for_backtest_mobile_end,
+    set_date_selected_for_backtest_mobile_end,
+  ] = useState(default_date_selected_for_backtest_end);
   const [
     take_profit_selected_for_backtest_mobile,
     set_take_profit_selected_for_backtest_mobile,
@@ -680,7 +718,8 @@ const BacktestRouteComponentStrategies = () => {
         !take_profit_selected_for_backtest ||
         !stop_loss_selected_for_backtest ||
         !fee_selected_for_backtest ||
-        !model_selected_for_backted
+        !model_selected_for_backted ||
+        !date_selected_for_backtest_end
       ) {
         //   alert("Kindly input all fields to run backtest");
         Swal.fire({
@@ -722,7 +761,21 @@ const BacktestRouteComponentStrategies = () => {
             showConfirmButton: false,
           });
         }
+        if (date_selected_for_backtest_end <= date_selected_for_backtest) {
+          check = false;
+          setIsButtonDisabled(false);
 
+          // alert("Take profit should be in range 0-100%");
+          Swal.fire({
+            title: "Kindly enter start date and end date properly",
+            icon: "error",
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: "top-right",
+            showConfirmButton: false,
+          });
+        }
         if (!validator.isNumeric(take_profit_selected_for_backtest + "")) {
           check = false;
           // alert("Kindly input value in numbers for take profit");
@@ -843,7 +896,7 @@ const BacktestRouteComponentStrategies = () => {
               id: "user_" + id,
               modelName: model_selected_for_backted,
               start_date: date_selected_for_backtest,
-              end_date: "1677555199",
+              end_date: date_selected_for_backtest_end,
               take_profit: take_profit_selected_for_backtest,
               stop_loss: stop_loss_selected_for_backtest,
               transaction_fee: fee_selected_for_backtest,
@@ -859,7 +912,114 @@ const BacktestRouteComponentStrategies = () => {
       }
     }
   };
+  const [flagDownload, setFlagDownload] = useState(false);
+  const handleDownloadLedger = (name) => {
+    // console.log("Here is ledger name for download ", name);
+    setFlagDownload(new Date());
+  };
+  const downloadCSV = (jsonData, fileName) => {
+    try {
+      console.log("Here is data to downloaded in csv -->", typeof jsonData);
+      jsonexport(jsonData, (err, csvData) => {
+        if (err) {
+          console.error("Error converting JSON to CSV:", err);
+          return;
+        }
+        download(csvData, `${fileName}.csv`, "text/csv");
+      });
+    } catch (error) {
+      console.error("Error converting JSON to CSV:", error);
+    }
+  };
+  function convertToExcel(jsonData1, jsonData2, name) {
+    const workbook = XLSX.utils.book_new();
 
+    const worksheet1 = XLSX.utils.json_to_sheet(jsonData1);
+    XLSX.utils.book_append_sheet(workbook, worksheet1, "Ledger");
+
+    const worksheet2 = XLSX.utils.json_to_sheet(jsonData2);
+    XLSX.utils.book_append_sheet(workbook, worksheet2, "Stats");
+
+    const workbookOutput = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+
+    const fileName = name + ".xlsx";
+    const blob = new Blob([workbookOutput], {
+      type: "application/octet-stream",
+    });
+
+    if (typeof window.navigator.msSaveBlob !== "undefined") {
+      // For IE and Edge
+      window.navigator.msSaveBlob(blob, fileName);
+    } else {
+      // For other browsers
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", fileName);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
+  useEffect(() => {
+    try {
+      if (flagDownload == false) {
+        return;
+      } else {
+        fetch(
+          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
+            model_name_for_result_backtest_result +
+            "_results",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((ledgerData) => {
+            // if (data.length > 0) {
+
+            // downloadCSV(data["response"], "Backtest_Result_" + new Date());
+            fetch(
+              "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
+                model_name_for_result_backtest_result +
+                "_stats",
+              {
+                method: "GET",
+                headers: {
+                  Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                },
+              }
+            )
+              .then((response) => response.json())
+              .then((statsData) => {
+                // console.log(
+                //   "Here is data for xl file -->",
+                //   ledgerData,
+                //   statsData
+                // );
+                convertToExcel(
+                  ledgerData["response"],
+                  statsData["response"],
+                  "ledger_" + model_selected_for_backted + "_" + new Date()
+                );
+
+                // if (data.length > 0) {
+                // downloadCSV(data["response"], "Backtest_Result_" + new Date());
+              })
+              .catch((err) => console.log(err));
+          })
+          .catch((err) => console.log(err));
+      }
+    } catch (error) {
+      console.log("Error occured");
+    }
+  }, [flagDownload]);
   const handleRunBacktestChangeMobile = () => {
     if (isButtonDisabled == false) {
       if (
@@ -867,7 +1027,8 @@ const BacktestRouteComponentStrategies = () => {
         !take_profit_selected_for_backtest_mobile ||
         !stop_loss_selected_for_backtest_mobile ||
         !fee_selected_for_backtest_mobile ||
-        !model_selected_for_backted
+        !model_selected_for_backted ||
+        !date_selected_for_backtest_mobile_end
       ) {
         //   alert("Kindly input all fields to run backtest");
         setIsButtonDisabled(false);
@@ -905,6 +1066,25 @@ const BacktestRouteComponentStrategies = () => {
             showConfirmButton: false,
           });
         }
+
+        if (
+          date_selected_for_backtest_mobile_end <=
+          date_selected_for_backtest_mobile
+        ) {
+          check = false;
+          setIsButtonDisabled(false);
+          // alert("Take profit should be in range 0-100%");
+          Swal.fire({
+            title: "Kindly enter start date and end date properly",
+            icon: "error",
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: "top-right",
+            showConfirmButton: false,
+          });
+        }
+
         if (
           !validator.isNumeric(take_profit_selected_for_backtest_mobile + "")
         ) {
@@ -1029,7 +1209,7 @@ const BacktestRouteComponentStrategies = () => {
               id: "user_" + id,
               modelName: model_selected_for_backted,
               start_date: date_selected_for_backtest_mobile,
-              end_date: "1677555199",
+              end_date: date_selected_for_backtest_mobile_end,
               take_profit: take_profit_selected_for_backtest_mobile,
               stop_loss: stop_loss_selected_for_backtest_mobile,
               transaction_fee: fee_selected_for_backtest_mobile,
@@ -1089,6 +1269,18 @@ const BacktestRouteComponentStrategies = () => {
                 Swal.fire({
                   title: "Backtest is not successful",
                   icon: "error",
+                  timer: 2000,
+                  timerProgressBar: true,
+                  toast: true,
+                  position: "top-right",
+                  showConfirmButton: false,
+                });
+                setIsLoading(false);
+                setIsButtonDisabled(false);
+              } else if (data.status == 3) {
+                Swal.fire({
+                  title: "Zero Trade Executed",
+                  icon: "success",
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
@@ -2004,6 +2196,36 @@ const BacktestRouteComponentStrategies = () => {
               <DateField label="" />
             </LocalizationProvider> */}
           </div>
+          <div className="date-picker flex-display">
+            <h3>End Date:</h3>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label=""
+                value={selectedDateEnd}
+                onChange={handleDateChangeCalenderEnd}
+                minDate={disableBefore}
+                maxDate={now}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    error={
+                      selectedDate !== null &&
+                      (selectedDate < now || selectedDate > disableBefore)
+                    }
+                    helperText={
+                      selectedDate !== null &&
+                      (selectedDate < now || selectedDate > disableBefore)
+                        ? "Invalid date"
+                        : ""
+                    }
+                  />
+                )}
+              />
+            </LocalizationProvider>
+            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateField label="" />
+            </LocalizationProvider> */}
+          </div>
           <div className="profit-input flex-display">
             <h3>Take Profit:</h3>
             <TextField
@@ -2105,6 +2327,42 @@ const BacktestRouteComponentStrategies = () => {
                 <DateField label="" />
               </LocalizationProvider> */}
             </div>
+            <div className="date-picker flex-display">
+              <h3>End Date:</h3>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  label=""
+                  value={selectedDateEnd}
+                  onChange={handleDateChangeCalenderMobileEnd}
+                  minDate={disableBefore}
+                  maxDate={now}
+                  sx={{
+                    width: 130,
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      error={
+                        selectedDate !== null &&
+                        (selectedDate < now || selectedDate > disableBefore)
+                      }
+                      helperText={
+                        selectedDate !== null &&
+                        (selectedDate < now || selectedDate > disableBefore)
+                          ? "Invalid date"
+                          : ""
+                      }
+                    />
+                  )}
+                />
+              </LocalizationProvider>
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateField label="" />
+              </LocalizationProvider> */}
+            </div>
+          </div>
+
+          <div className="sec-2 flex-display justify-content">
             <div className="profit-input flex-display">
               <h3>Take Profit:</h3>
               <TextField
@@ -2118,9 +2376,6 @@ const BacktestRouteComponentStrategies = () => {
                 }}
               />
             </div>
-          </div>
-
-          <div className="sec-2 flex-display justify-content">
             <div className="loss-input flex-display">
               <h3>Stop Loss:</h3>
               <TextField
@@ -2134,6 +2389,8 @@ const BacktestRouteComponentStrategies = () => {
                 }}
               />
             </div>
+          </div>
+          <div className="sec-2 flex-display justify-content">
             <div className="loss-input flex-display">
               <h3>Fee:</h3>
               <TextField
@@ -2190,6 +2447,24 @@ const BacktestRouteComponentStrategies = () => {
         </div>
       ) : (
         <div>
+          <div className="container">
+            {model_name_for_result_backtest_result ? (
+              <div className="backtest-result-btn">
+                <div className="">
+                  <button
+                    className="btn-contact-backtest-result"
+                    onClick={() =>
+                      handleDownloadLedger(
+                        model_name_for_result_backtest_result
+                      )
+                    }
+                  >
+                    Download Ledger
+                  </button>
+                </div>
+              </div>
+            ) : null}
+          </div>
           {model_name_for_result_backtest_result ? (
             <CumulativePNL model_name={model_name_for_result_backtest_result} />
           ) : null}
@@ -2206,11 +2481,9 @@ const BacktestRouteComponentStrategies = () => {
               }
             />
           ) : null}
-
           {model_name_for_result_backtest_result ? (
             <DrawDown model_name={model_name_for_result_backtest_result} />
           ) : null}
-
           {model_name_for_result_backtest_result ? (
             <CanvasjsDrawdownWithSliderRange
               model_name={model_name_for_result_backtest_result}
@@ -2221,7 +2494,6 @@ const BacktestRouteComponentStrategies = () => {
               model_name={model_name_for_result_backtest_result + "_stats"}
             />
           ) : null}
-
           <RecentlyViewed />
         </div>
       )}

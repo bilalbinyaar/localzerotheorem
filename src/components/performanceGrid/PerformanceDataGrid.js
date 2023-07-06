@@ -710,7 +710,7 @@ const PerformanceDataGrid = () => {
       field: "beta",
       headerName: "Beta",
       width: 120,
-      sortable: false,
+      sortable: true,
       headerAlign: "center",
       flex: 1.5,
 

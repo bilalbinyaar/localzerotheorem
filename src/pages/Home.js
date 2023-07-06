@@ -16,10 +16,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>
-          Zero Theorem | An Economic Framework for Valuing (Forecasting) Bitcoin
-          Price
-        </title>
+        <title>Zero Theorem | A proprietary Bitcoin trading fund</title>
         <meta
           name="description"
           content="An economic framework for the prediction/forecast of Bitcoin and other cryptocurrencies using AI and ML models with a comprehensive evaluation of back and forward tests."

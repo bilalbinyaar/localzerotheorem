@@ -26,10 +26,13 @@
     "crypto-browserify": "^3.12.0",
     "crypto-random-string": "^5.0.0",
     "dotenv": "^16.0.3",
+    "downloadjs": "^1.4.7",
     "env-cmd": "^10.1.0",
     "firebase": "^9.18.0",
     "font-awesome": "^4.7.0",
     "fs": "^0.0.1-security",
+    "json2csv": "^6.0.0-alpha.2",
+    "jsonexport": "^3.2.0",
     "lightweight-charts": "^4.0.0",
     "mathjax-react": "^2.0.1",
     "moment": "^2.29.4",
@@ -65,7 +68,8 @@
     "sweetalert2": "^11.7.3",
     "validator": "^13.9.0",
     "web-vitals": "^2.1.4",
-    "webpack": "^5.76.3"
+    "webpack": "^5.76.3",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",

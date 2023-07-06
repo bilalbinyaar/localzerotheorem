@@ -6,7 +6,7 @@ import { RiCheckboxBlankFill } from "react-icons/ri";
 const PR = () => {
   return (
     <div className="test-dr">
-      <div className="portfolio-indicators">
+      <div className="for-mb-returns">
         <h2>Portfolio Returns</h2>
 
         {/* <div className="inter-grad-indicators">
@@ -21,7 +21,7 @@ const PR = () => {
         </div> */}
       </div>
 
-      <div className="overview-indicators for-performance-legends">
+      {/* <div className="overview-indicators for-performance-legends">
         <div className="indicator">
           <RiCheckboxBlankFill className="indicator-long" />
           <p>PNL Sum</p>
@@ -30,7 +30,7 @@ const PR = () => {
           <RiCheckboxBlankFill className="indicator-smooth" />
           <p>Smooth PNL Sum</p>
         </div>
-      </div>
+      </div> */}
       <PerformanceMultiLine model_name={"ZT1_0M24BTC1"} />
     </div>
   );

@@ -35,13 +35,13 @@ const MR = () => {
       <h2 className="for-mb-returns">Market Comparison Rate</h2>
       <div className="inter-grad for-mb-returns">
         <div className="inter-grad-sep">
-          <h3>Intercept : </h3>
+          <h3>Alpha : </h3>
           <h3 className="fw-inter-grad ml-inner-inter-grad">
             {stats[0] ? stats[0][0] : null}
           </h3>
         </div>
         <div className="inter-grad-sep ml-inter-grad">
-          <h3>Gradient : </h3>
+          <h3>Beta : </h3>
           <h3 className="fw-inter-grad ml-inner-inter-grad">
             {stats[0] ? stats[0][1] : null}
           </h3>

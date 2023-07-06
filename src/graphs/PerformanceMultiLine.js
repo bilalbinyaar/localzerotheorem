@@ -228,13 +228,16 @@ const PerformanceMultiLine = (props) => {
         legend: {
           fontSize: 15,
           verticalAlign: "top",
+          horizontalAlign: "left",
+          markerMargin: 4,
         },
         data: [
           {
-            showInLegend: false,
+            showInLegend: true,
             legendText: "PNL Sum",
             color: "#16c784",
             fontSize: 40,
+            margin: 20, // Adjust the value as per your requirements
 
             type: "spline",
             yValueFormatString: "#,##0",
@@ -249,9 +252,9 @@ const PerformanceMultiLine = (props) => {
             })),
           },
           {
-            showInLegend: false,
+            showInLegend: true,
             type: "spline",
-            legendText: "30d Moving Average",
+            legendText: "30d PNL Sum",
             color: "#fddd4e",
 
             yValueFormatString: "#,##0",

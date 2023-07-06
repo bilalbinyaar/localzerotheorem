@@ -1985,6 +1985,7 @@ const BacktestRouteComponentModels = () => {
               <DateField label="" />
             </LocalizationProvider> */}
           </div>
+
           <div className="profit-input flex-display">
             <h3>Take Profit:</h3>
             <TextField

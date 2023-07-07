@@ -117,7 +117,7 @@
   .for-flex-end {
     justify-content: start;
     display: flex;
-    margin-top: 4%;
+    margin-top: 1rem;
   }
 
   .backtest-btn-page {

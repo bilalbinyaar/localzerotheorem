@@ -509,7 +509,7 @@ export default function NavMobile(props) {
                   <BiColumns className="nav-icons nav-icons-mobile" />
                   Compare
                 </CustomLink>
-                <CustomLink to="/backtest" onClick={toCloseNav}>
+                <CustomLink to="/backtest-models" onClick={toCloseNav}>
                   <BsGraphUp className="nav-icons nav-icons-mobile" />
                   Backtest
                 </CustomLink>

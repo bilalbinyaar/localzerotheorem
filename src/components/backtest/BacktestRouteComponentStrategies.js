@@ -2238,7 +2238,7 @@ const BacktestRouteComponentStrategies = () => {
               value={take_profit_selected_for_backtest}
               onChange={handleProfitChange}
               sx={{
-                width: 85,
+                width: 80,
               }}
             />
           </div>
@@ -2251,7 +2251,7 @@ const BacktestRouteComponentStrategies = () => {
               value={stop_loss_selected_for_backtest}
               onChange={handleLossChange}
               sx={{
-                width: 85,
+                width: 80,
               }}
             />
           </div>
@@ -2264,7 +2264,7 @@ const BacktestRouteComponentStrategies = () => {
               value={fee_selected_for_backtest}
               onChange={handleFeeChange}
               sx={{
-                width: 85,
+                width: 80,
               }}
             />
           </div>
@@ -2278,7 +2278,7 @@ const BacktestRouteComponentStrategies = () => {
               value={stop_time_selected_for_backtest}
               onChange={handleStopTimeChange}
               sx={{
-                width: 85,
+                width: 80,
               }}
             />
           </div>

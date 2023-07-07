@@ -135,12 +135,11 @@
 }
 
 @media screen and (max-width: 568px) {
-
   .horizon {
     padding: 0rem 0rem 0.8rem 0rem;
     justify-content: center;
     align-items: center;
-  } 
+  }
 
   .horizon-left {
     padding: 0rem 0rem 0rem 0rem;

@@ -1006,7 +1006,10 @@ const BacktestRouteComponentStrategies = () => {
                 convertToExcel(
                   ledgerData["response"],
                   statsData["response"],
-                  "ledger_" + model_selected_for_backted + "_" + new Date()
+                  "ledger_" +
+                    model_selected_for_backted +
+                    "_" +
+                    Math.floor(Date.now() / 1000)
                 );
 
                 // if (data.length > 0) {
@@ -2448,22 +2451,24 @@ const BacktestRouteComponentStrategies = () => {
       ) : (
         <div>
           <div className="container">
-            {model_name_for_result_backtest_result ? (
-              <div className="backtest-result-btn">
-                <div className="">
-                  <button
-                    className="btn-contact-backtest-result"
-                    onClick={() =>
-                      handleDownloadLedger(
-                        model_name_for_result_backtest_result
-                      )
-                    }
-                  >
-                    Download Ledger
-                  </button>
+            <div className="downloadLedger">
+              {model_name_for_result_backtest_result ? (
+                <div className="backtest-result-btn">
+                  <div className="">
+                    <button
+                      className="btn-contact-backtest-result"
+                      onClick={() =>
+                        handleDownloadLedger(
+                          model_name_for_result_backtest_result
+                        )
+                      }
+                    >
+                      Download Ledger
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ) : null}
+              ) : null}
+            </div>
           </div>
           {model_name_for_result_backtest_result ? (
             <CumulativePNL model_name={model_name_for_result_backtest_result} />

@@ -117,6 +117,7 @@
   .for-flex-end {
     justify-content: start;
     display: flex;
+    margin-top: 4%;
   }
 
   .backtest-btn-page {
@@ -171,4 +172,9 @@
   border: none;
   cursor: pointer;
   font-weight: 500;
+}
+.downloadLedger {
+  display: flex;
+  justify-content: left;
+  /* align-items: center; */
 }

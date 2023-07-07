@@ -84,6 +84,11 @@ body {
   margin: 0 auto;
   padding: 4rem 3.4rem;
 }
+.ledgerDownload {
+  width: 74% !important;
+  margin: 0 auto !important;
+  padding: 2rem 3.4rem !important;
+}
 
 @media screen and (min-width: 1880px) {
   .container {
@@ -136,12 +141,7 @@ p {
     font-size: 10px;
     margin-top: 6px;
   }
-
-  
-
 }
-
-
 
 /* MUI CSS */
 .MuiTablePagination-displayedRows {
@@ -1517,13 +1517,11 @@ pre[class*="language-"] {
   } */
 }
 
-
 .loader-container {
- display: flex !important;
+  display: flex !important;
   justify-content: center !important;
-  align-items: center !important; 
+  align-items: center !important;
 }
-
 
 .backtest-loader {
   display: flex !important;
@@ -1542,5 +1540,3 @@ pre[class*="language-"] {
     height: 20px !important;
   }
 }
-
-

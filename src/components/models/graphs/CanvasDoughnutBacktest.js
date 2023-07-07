@@ -80,6 +80,8 @@ const CanvasDoughnutBacktest = (props) => {
               win_loss_ratio: data["response"][0].win_loss_ratio,
 
               rank: data["response"][0].rank,
+              alpha: data["response"][0].alpha,
+              beta: data["response"][0].beta,
             };
             if (JSON.stringify(model_names) !== "{}") {
               // console.log("Sortable -->", model_names);
@@ -212,6 +214,8 @@ const CanvasDoughnutBacktest = (props) => {
                   win_loss_ratio: data["response"][i].win_loss_ratio,
 
                   rank: data["response"][i].rank,
+                  alpha: data["response"][i].alpha,
+                  beta: data["response"][i].beta,
                 };
               }
               if (JSON.stringify(model_names) !== "{}") {

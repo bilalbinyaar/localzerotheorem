@@ -121,6 +121,8 @@ const DrawDownTable = (props) => {
                 win_loss_ratio: data["response"][i].win_loss_ratio,
 
                 rank: data["response"][i].rank,
+                alpha: data["response"][i].alpha,
+                beta: data["response"][i].beta,
               };
             }
             if (JSON.stringify(model_names) !== "{}") {

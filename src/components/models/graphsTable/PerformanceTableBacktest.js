@@ -162,7 +162,7 @@ const PerformanceTableBacktest = (props) => {
                 // console.log(data["response"].length);
                 var model_names = {};
                 for (var i = 0; i < data["response"].length; i++) {
-                  // console.log(data["response"][i].strategy_name);
+                  console.log("Stats", data["response"]);
                   var name = data["response"][i].strategy_name;
                   model_names[props.model_name] = {
                     strategy_name: data["response"][i].strategy_name,
@@ -199,7 +199,6 @@ const PerformanceTableBacktest = (props) => {
                     rank: data["response"][i].rank,
                     alpha: data["response"][i].alpha,
                     beta: data["response"][i].beta,
-                    rank: data["response"][i].rank,
                   };
                 }
                 if (JSON.stringify(model_names) !== "{}") {

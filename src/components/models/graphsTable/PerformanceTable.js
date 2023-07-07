@@ -53,6 +53,8 @@ const PerformanceTable = (props) => {
               pnl_sum_60: data["response"][i].pnl_sum_60,
               average_daily_pnl: data["response"][i].average_daily_pnl,
               win_loss_ratio: data["response"][i].win_loss_ratio,
+              alpha: data["response"][i].alpha,
+              beta: data["response"][i].beta,
             };
           }
           if (JSON.stringify(model_names) !== "{}") {

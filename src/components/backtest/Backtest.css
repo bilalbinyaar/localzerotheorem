@@ -12,10 +12,12 @@
 .flex-display {
   display: flex;
   align-items: center;
+  margin-right: 0.2rem;
 }
 
 .flex-display h3 {
-  margin-right: 0.6rem;
+  margin-right: 0.2rem;
+  font-size: 12px;
 }
 
 .backtest-btn-page {
@@ -54,6 +56,7 @@
 
 .backtest-for-web {
   display: flex;
+  align-items: baseline;
 }
 
 .sec-2 {
@@ -93,6 +96,7 @@
 
   .flex-display h3 {
     margin-right: 0.3rem;
+    font-size: 11px;
   }
 }
 

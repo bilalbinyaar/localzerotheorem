@@ -2029,7 +2029,7 @@ const BacktestRouteComponentModels = () => {
           </div>
 
           <div className="fee-input flex-display">
-            <h3>Stop Time</h3>
+            <h3>Stop Time:</h3>
             <TextField
               id="fee"
               placeholder="0-24"

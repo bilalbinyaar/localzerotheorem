@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { BsFillMoonFill, BsFillSunFill, BsGraphUp } from "react-icons/bs";
-import logoBlack from "../../assets/logo-black.svg";
-import logoWhite from "../../assets/logo-white.svg";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import { useStateContext } from "../../ContextProvider";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { BsFillMoonFill, BsFillSunFill, BsGraphUp } from 'react-icons/bs';
+import logoBlack from '../../assets/logo-black.svg';
+import logoWhite from '../../assets/logo-white.svg';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { useStateContext } from '../../ContextProvider';
+import Swal from 'sweetalert2';
 import {
   AiFillHome,
   AiOutlineApi,
@@ -16,18 +16,18 @@ import {
   AiOutlineLogout,
   AiFillWallet,
   AiOutlineAppstore,
-} from "react-icons/ai";
+} from 'react-icons/ai';
 
-import { MdOutlineSource, MdManageAccounts } from "react-icons/md";
-import { useSelector, useDispatch } from "react-redux";
-import { set_day_mode, set_night_mode, set_login_flase } from "../../store";
-import { useNavigate } from "react-router-dom";
-import { BsFillLayersFill, BsFillInfoCircleFill } from "react-icons/bs";
-import { BiColumns } from "react-icons/bi";
-import { FaQuestionCircle, FaRegEdit } from "react-icons/fa";
-import "../../components/navbar/Navbar.css";
-import { AiOutlineContacts } from "react-icons/ai";
-import { auth, provider } from "../../firebase_config";
+import { MdOutlineSource, MdManageAccounts } from 'react-icons/md';
+import { useSelector, useDispatch } from 'react-redux';
+import { set_day_mode, set_night_mode, set_login_flase } from '../../store';
+import { useNavigate } from 'react-router-dom';
+import { BsFillLayersFill, BsFillInfoCircleFill } from 'react-icons/bs';
+import { BiColumns, BiDetail } from 'react-icons/bi';
+import { FaQuestionCircle, FaRegEdit } from 'react-icons/fa';
+import '../../components/navbar/Navbar.css';
+import { AiOutlineContacts } from 'react-icons/ai';
+import { auth, provider } from '../../firebase_config';
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -35,7 +35,7 @@ import {
   signInWithRedirect,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-} from "firebase/auth";
+} from 'firebase/auth';
 
 export default function NavMobile(props) {
   const [click, setClick] = useState(false);
@@ -74,12 +74,12 @@ export default function NavMobile(props) {
 
   // Dark Light Mode
   const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
+    if (theme === 'dark-theme') {
+      setTheme('light-theme');
       handleDayModeTheme();
       handleiamClick();
     } else {
-      setTheme("dark-theme");
+      setTheme('dark-theme');
       handleNightModeTheme();
       handleiamClick();
     }
@@ -120,8 +120,8 @@ export default function NavMobile(props) {
     setShowPopup(false);
   };
 
-  const [details, setDetails] = useState({ name: "", email: "", password: "" });
-  const [error, setError] = useState("");
+  const [details, setDetails] = useState({ name: '', email: '', password: '' });
+  const [error, setError] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -138,12 +138,12 @@ export default function NavMobile(props) {
         // console.log(user);
         // alert("Successfully login with email " + user);
         Swal.fire({
-          title: "Login successful",
-          icon: "success",
+          title: 'Login successful',
+          icon: 'success',
           timer: 2000,
           timerProgressBar: true,
           toast: true,
-          position: "top-right",
+          position: 'top-right',
           showConfirmButton: false,
         });
         setAuthCheckLogin(true);
@@ -158,12 +158,12 @@ export default function NavMobile(props) {
         const email = error.customData.email;
         // console.log("Error occured");
         Swal.fire({
-          title: "Login not successful",
-          icon: "error",
+          title: 'Login not successful',
+          icon: 'error',
           timer: 2000,
           timerProgressBar: true,
           toast: true,
-          position: "top-right",
+          position: 'top-right',
           showConfirmButton: false,
         });
 
@@ -223,17 +223,17 @@ export default function NavMobile(props) {
         value="Log In"
         onClick={() => {
           // console.log("Submit button is clicked");
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
           if (!email || !password) {
             // alert("Kindly enter input details for signup");
             Swal.fire({
-              title: "Kindly enter input details",
-              icon: "error",
+              title: 'Kindly enter input details',
+              icon: 'error',
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: "top-right",
+              position: 'top-right',
               showConfirmButton: false,
             });
           } else {
@@ -243,12 +243,12 @@ export default function NavMobile(props) {
                 // Signed in
                 const user = userCredential.user;
                 Swal.fire({
-                  title: "Login successful",
-                  icon: "success",
+                  title: 'Login successful',
+                  icon: 'success',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
                 handleClosePopup();
@@ -261,12 +261,12 @@ export default function NavMobile(props) {
                 const errorMessage = error.message;
                 // alert("Email or password is incorrect");
                 Swal.fire({
-                  title: "Login not successful",
-                  icon: "error",
+                  title: 'Login not successful',
+                  icon: 'error',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
               });
@@ -302,9 +302,9 @@ export default function NavMobile(props) {
             <Link to="/signup">New to Zero Theorem? Join now!</Link>
           </p> */}
         <p>
-          Don’t have an account?{" "}
+          Don’t have an account?{' '}
           <strong
-            className={selectedHeadingIndex === 1 ? "active" : "color-yellow"}
+            className={selectedHeadingIndex === 1 ? 'active' : 'color-yellow'}
             onClick={() => handleClickForPopups(1)}
           >
             Sign Up
@@ -363,28 +363,28 @@ export default function NavMobile(props) {
         value="Sign Up"
         onClick={() => {
           // console.log("Submit button is clicked");
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
           if (!email || !password) {
             // console.log();
             // alert("Kindly enter input details for signup");
             Swal.fire({
-              title: "Kindly enter input details",
-              icon: "error",
+              title: 'Kindly enter input details',
+              icon: 'error',
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: "top-right",
+              position: 'top-right',
               showConfirmButton: false,
             });
           } else if (isChecked == false) {
             Swal.fire({
-              title: "Kindly agree to our term and conditions",
-              icon: "error",
+              title: 'Kindly agree to our term and conditions',
+              icon: 'error',
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: "top-right",
+              position: 'top-right',
               showConfirmButton: false,
             });
           } else {
@@ -394,12 +394,12 @@ export default function NavMobile(props) {
                 // Signed in
                 const user = userCredential.user;
                 Swal.fire({
-                  title: "User account is created successfully",
-                  icon: "success",
+                  title: 'User account is created successfully',
+                  icon: 'success',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
                 handleClosePopup();
@@ -412,12 +412,12 @@ export default function NavMobile(props) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 Swal.fire({
-                  title: "Unable to create account with your credentials",
-                  icon: "error",
+                  title: 'Unable to create account with your credentials',
+                  icon: 'error',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
                 // alert("Unable to create account with your credentials");
@@ -445,9 +445,9 @@ export default function NavMobile(props) {
 
       <div className="register-text">
         <p>
-          Already have an account?{" "}
+          Already have an account?{' '}
           <strong
-            className={selectedHeadingIndex === 0 ? "active" : "color-yellow"}
+            className={selectedHeadingIndex === 0 ? 'active' : 'color-yellow'}
             onClick={() => handleClickForPopups(0)}
           >
             Log In
@@ -480,7 +480,7 @@ export default function NavMobile(props) {
         </div>
 
         <div className="nav-logo-div">
-          {theme === "dark-theme" ? (
+          {theme === 'dark-theme' ? (
             <Link to="/">
               <img className="nav-logo-img" src={logoWhite} alt="logo" />
             </Link>
@@ -495,8 +495,8 @@ export default function NavMobile(props) {
           //   <ul className={click ? "nav-menu active" : "nav-menu"}>
 
           <div>
-            {authCheckLoginInvestor == "TrueSignal" ? (
-              <ul className={click ? "nav-menu active" : "nav-menu"}>
+            {authCheckLoginInvestor == 'TrueSignal' ? (
+              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <CustomLink to="/" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
                   Performance
@@ -504,6 +504,10 @@ export default function NavMobile(props) {
                 <CustomLink to="/risk-management" onClick={toCloseNav}>
                   <MdManageAccounts className="nav-icons" />
                   Risk Management
+                </CustomLink>
+                <CustomLink to="/account-details" onClick={toCloseNav}>
+                  <BiDetail className="nav-icons nav-icons-mobile" />
+                  Account Details
                 </CustomLink>
                 <CustomLink to="/compare-models" onClick={toCloseNav}>
                   <BiColumns className="nav-icons nav-icons-mobile" />
@@ -525,12 +529,12 @@ export default function NavMobile(props) {
                   to=""
                   onClick={() => {
                     Swal.fire({
-                      title: "Logout successful",
-                      icon: "success",
+                      title: 'Logout successful',
+                      icon: 'success',
                       timer: 2000,
                       timerProgressBar: true,
                       toast: true,
-                      position: "top-right",
+                      position: 'top-right',
                       showConfirmButton: false,
                     });
                     toCloseNav();
@@ -545,7 +549,7 @@ export default function NavMobile(props) {
                 </CustomLink>
               </ul>
             ) : (
-              <ul className={click ? "nav-menu active" : "nav-menu"}>
+              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <CustomLink to="/" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
                   Performance
@@ -640,12 +644,12 @@ export default function NavMobile(props) {
                   to=""
                   onClick={() => {
                     Swal.fire({
-                      title: "Logout successful",
-                      icon: "success",
+                      title: 'Logout successful',
+                      icon: 'success',
                       timer: 2000,
                       timerProgressBar: true,
                       toast: true,
-                      position: "top-right",
+                      position: 'top-right',
                       showConfirmButton: false,
                     });
                     toCloseNav();
@@ -693,10 +697,10 @@ export default function NavMobile(props) {
         )}
 
         <div className="dark-lite" onClick={() => toggleTheme()}>
-          {(iamClick && theme === "dark-theme") || theme == "dark-theme" ? (
-            <BsFillSunFill size={16} style={{ color: "#fff" }} />
+          {(iamClick && theme === 'dark-theme') || theme == 'dark-theme' ? (
+            <BsFillSunFill size={16} style={{ color: '#fff' }} />
           ) : (
-            <BsFillMoonFill size={16} style={{ color: "#000" }} />
+            <BsFillMoonFill size={16} style={{ color: '#000' }} />
           )}
         </div>
       </div>
@@ -709,7 +713,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
-    <li className={isActive ? "active" : ""}>
+    <li className={isActive ? 'active' : ''}>
       <Link to={to} {...props}>
         {children}
       </Link>

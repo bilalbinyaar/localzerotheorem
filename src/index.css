@@ -1543,14 +1543,17 @@ pre[class*='language-'] {
 
 /* ACCOUNT DETAILS CSS */
 .balance-details .container {
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
 }
 
 .balance-details-wrapper {
   display: flex;
-  padding-top: 3rem;
   justify-content: space-between;
   align-items: center;
+}
+
+.heading-accounts {
+  padding-bottom: 3rem;
 }
 
 .balance-details-content {
@@ -1574,4 +1577,52 @@ pre[class*='language-'] {
 .balance-details-content h3 {
   font-size: 16px;
   font-weight: 500;
+}
+
+.balance-details-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-heading {
+  text-align: center;
+}
+
+.balance-details-strategies {
+  padding-bottom: 3rem;
+}
+
+.balance-details-strategies-heading {
+  padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 568px) {
+  .balance-details-wrapper{
+    flex-direction: column;
+  }
+
+  .balance-details-content {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1.6rem 2rem 3rem 2rem;
+  }
+
+  .heading-accounts {
+    padding-bottom: 1rem;
+  }
+
+  .balance-details .container {
+    padding: 3rem 0 0 0 ;
+  }
+
+  .accounts-chart {
+    margin: 1rem 0;
+  }
+
+  .balance-details-content h2 {
+    font-size: 30px;
+  }
 }

@@ -4,7 +4,7 @@ const AccountBalance = () => {
   return (
     <div className="balance-details">
       <div className="container">
-        <div className="top-div">
+        <div className="top-div heading-accounts">
           <h1>Account Detail</h1>
         </div>
         <div className="balance-details-wrapper">

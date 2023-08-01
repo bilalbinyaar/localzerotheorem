@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -210,7 +210,7 @@ p {
 }
 
 form:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: -1px;
@@ -280,7 +280,7 @@ form .form-inner .form-group textarea {
   color: black;
 }
 
-form .form-inner input[type="submit"] {
+form .form-inner input[type='submit'] {
   display: block;
   padding: 10px 15px;
   border-radius: 8px;
@@ -294,7 +294,7 @@ form .form-inner input[type="submit"] {
   /* margin: 0 auto; */
 }
 
-form .form-inner input[type="submit"]:hover {
+form .form-inner input[type='submit']:hover {
   background-position: 100% 0%;
   transform: scale(1.1);
 }
@@ -780,12 +780,12 @@ a:-webkit-any-link {
   color: var(--color-day-black) !important;
 }
 
-.MuiAutocomplete-option[aria-selected="true"].Mui-focused {
+.MuiAutocomplete-option[aria-selected='true'].Mui-focused {
   background-color: var(--color-day-yellow) !important;
   color: #000000 !important;
 }
 
-.css-ue1yok .MuiAutocomplete-option[aria-selected="true"] {
+.css-ue1yok .MuiAutocomplete-option[aria-selected='true'] {
   background-color: var(--color-day-yellow) !important;
   color: #000000 !important;
 }
@@ -1007,11 +1007,11 @@ a:-webkit-any-link {
 }
 
 /* MATH JAX */
-mjx-container[jax="SVG"] > svg {
+mjx-container[jax='SVG'] > svg {
   color: var(--color-day-black);
 }
 @media screen and (max-width: 568px) {
-  mjx-container[jax="SVG"] > svg {
+  mjx-container[jax='SVG'] > svg {
     width: 92%;
     height: 100%;
   }
@@ -1255,7 +1255,7 @@ pre.language-python code {
   margin-left: 1rem;
 }
 
-pre[class*="language-"] {
+pre[class*='language-'] {
   background: var(--color-code-snippet) !important;
 }
 
@@ -1268,8 +1268,8 @@ pre[class*="language-"] {
   color: var(--color-day-black) !important;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   text-shadow: none !important;
   color: var(--color-day-black) !important;
   line-height: 2 !important;
@@ -1333,8 +1333,8 @@ pre[class*="language-"] {
     padding: 1rem !important;
   }
 
-  code[class*="language-"],
-  pre[class*="language-"] {
+  code[class*='language-'],
+  pre[class*='language-'] {
     font-size: 12px !important;
   }
 
@@ -1538,5 +1538,91 @@ pre[class*="language-"] {
     align-items: center;
     width: 20px !important;
     height: 20px !important;
+  }
+}
+
+/* ACCOUNT DETAILS CSS */
+.balance-details .container {
+  padding: 4rem 0 0 0;
+}
+
+.balance-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading-accounts {
+  padding-bottom: 3rem;
+}
+
+.balance-details-content {
+  background-color: var(--color-forecasts-card);
+  padding: 1.6rem 2rem 4rem 2rem;
+  width: 49%;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
+}
+
+.balance-details-content h2 {
+  margin-top: 3rem;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.balance-details-content h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.balance-details-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-heading {
+  text-align: center;
+}
+
+.balance-details-strategies {
+  padding-bottom: 3rem;
+}
+
+.balance-details-strategies-heading {
+  padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 568px) {
+  .balance-details-wrapper{
+    flex-direction: column;
+  }
+
+  .balance-details-content {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1.6rem 2rem 3rem 2rem;
+  }
+
+  .heading-accounts {
+    padding-bottom: 1rem;
+  }
+
+  .balance-details .container {
+    padding: 3rem 0 0 0 ;
+  }
+
+  .accounts-chart {
+    margin: 1rem 0;
+  }
+
+  .balance-details-content h2 {
+    font-size: 30px;
   }
 }

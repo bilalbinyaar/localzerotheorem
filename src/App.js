@@ -1,48 +1,49 @@
-import React, { useRef, memo, useEffect } from "react";
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/Home";
-import Resources from "./pages/Resources";
-import Models from "./pages/Models";
-import { Routes, Route, useLocation } from "react-router-dom";
-import LoginForm from "./components/loginPrompt/LoginForm";
-import { useStateContext } from "./ContextProvider";
-import Footer from "./components/footer/Footer";
-import About from "./pages/About";
-import Introduction from "./components/resources/resourcestextual/Introduction";
-import FAQ from "./pages/FAQ";
-import Compare from "./pages/Compare";
-import AlternativeBassModelforAlpha from "../src/components/resources/derivations/AlternativeBassModelforAlpha";
-import AlternativeFrechetModelforAlpha from "../src/components/resources/derivations/AlternativeFrechetModelforAlpha";
-import AlternativeGumbelModelforAlpha from "../src/components/resources/derivations/AlternativeGumbelModelforAlpha";
-import AlternativeShiftedGompertzModelforAlpha from "../src/components/resources/derivations/AlternativeShiftedGompertzModelforAlpha";
-import AlternativeWeibulModelforAlpha from "../src/components/resources/derivations/AlternativeWeibulModelforAlpha";
-import AnInitialSolution from "../src/components/resources/derivations/AnInitialSolution";
-import Derivations from "../src/components/resources/derivations/Derivations";
-import FurtherDerivations from "../src/components/resources/derivations/FurtherDerivations";
-import InvestigatingAlpha from "../src/components/resources/derivations/InvestigatingAlpha";
-import RepresentationofaNewAssetClassviaSubstitution from "../src/components/resources/derivations/RepresentationofaNewAssetClassviaSubstitution";
-import SensitivityAnalysisGeneralCase from "../src/components/resources/derivations/SensitivityAnalysisGeneralCase";
-import SenstitivityAnalysisMarketSpecificAlpha from "../src/components/resources/derivations/SenstitivityAnalysisMarketSpecificAlpha";
-import SenstitivityAnalysisSingleAlphaCas from "../src/components/resources/derivations/SenstitivityAnalysisSingleAlphaCas";
-import TheGoverningEquation from "../src/components/resources/derivations/TheGoverningEquation";
-import TheUnderlyingAssumptions from "../src/components/resources/derivations/TheUnderlyingAssumptions";
+import React, { useRef, memo, useEffect } from 'react';
+import Navbar from './components/navbar/Navbar';
+import Home from './pages/Home';
+import Resources from './pages/Resources';
+import Models from './pages/Models';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import LoginForm from './components/loginPrompt/LoginForm';
+import { useStateContext } from './ContextProvider';
+import Footer from './components/footer/Footer';
+import About from './pages/About';
+import Introduction from './components/resources/resourcestextual/Introduction';
+import FAQ from './pages/FAQ';
+import Compare from './pages/Compare';
+import AlternativeBassModelforAlpha from '../src/components/resources/derivations/AlternativeBassModelforAlpha';
+import AlternativeFrechetModelforAlpha from '../src/components/resources/derivations/AlternativeFrechetModelforAlpha';
+import AlternativeGumbelModelforAlpha from '../src/components/resources/derivations/AlternativeGumbelModelforAlpha';
+import AlternativeShiftedGompertzModelforAlpha from '../src/components/resources/derivations/AlternativeShiftedGompertzModelforAlpha';
+import AlternativeWeibulModelforAlpha from '../src/components/resources/derivations/AlternativeWeibulModelforAlpha';
+import AnInitialSolution from '../src/components/resources/derivations/AnInitialSolution';
+import Derivations from '../src/components/resources/derivations/Derivations';
+import FurtherDerivations from '../src/components/resources/derivations/FurtherDerivations';
+import InvestigatingAlpha from '../src/components/resources/derivations/InvestigatingAlpha';
+import RepresentationofaNewAssetClassviaSubstitution from '../src/components/resources/derivations/RepresentationofaNewAssetClassviaSubstitution';
+import SensitivityAnalysisGeneralCase from '../src/components/resources/derivations/SensitivityAnalysisGeneralCase';
+import SenstitivityAnalysisMarketSpecificAlpha from '../src/components/resources/derivations/SenstitivityAnalysisMarketSpecificAlpha';
+import SenstitivityAnalysisSingleAlphaCas from '../src/components/resources/derivations/SenstitivityAnalysisSingleAlphaCas';
+import TheGoverningEquation from '../src/components/resources/derivations/TheGoverningEquation';
+import TheUnderlyingAssumptions from '../src/components/resources/derivations/TheUnderlyingAssumptions';
 // import BactestRouteComponent from "./components/backtest/BacktestRouteComponentStrategies";
-import Documentation from "./pages/Documentation";
+import Documentation from './pages/Documentation';
 // import { database } from "./firebase_config";
 // import { ref, onValue, set } from "firebase/database";
 // import cryptoRandomString from "crypto-random-string";
-import Backtest from "./pages/Backtest";
-import Login from "./components/Authentication/Login";
-import Signup from "./components/Authentication/Signup";
-import RegistrationForm from "./components/apiRegistrationForm/RegistrationForm";
-import Contact from "./components/contact/Contact";
-import Performance from "./pages/Performance";
-import { useSelector, useDispatch } from "react-redux";
-import { set_login } from "./store";
-import RiskManagement from "./pages/RiskManagement";
-import BacktestRouteComponentModels from "./components/backtest/BacktestRouteComponentModels";
-import BacktestRouteComponentStrategies from "./components/backtest/BacktestRouteComponentStrategies";
-import CompareStrategies from "./pages/CompareStrategies";
+import Backtest from './pages/Backtest';
+import Login from './components/Authentication/Login';
+import Signup from './components/Authentication/Signup';
+import RegistrationForm from './components/apiRegistrationForm/RegistrationForm';
+import Contact from './components/contact/Contact';
+import Performance from './pages/Performance';
+import { useSelector, useDispatch } from 'react-redux';
+import { set_login } from './store';
+import RiskManagement from './pages/RiskManagement';
+import BacktestRouteComponentModels from './components/backtest/BacktestRouteComponentModels';
+import BacktestRouteComponentStrategies from './components/backtest/BacktestRouteComponentStrategies';
+import CompareStrategies from './pages/CompareStrategies';
+import AccountDetails from './pages/AccountDetails';
 // import dotenv from "dotenv";
 function App() {
   // const id = cryptoRandomString({ length: 10, type: "alphanumeric" });
@@ -89,14 +90,15 @@ function App() {
   return (
     !loading && (
       <React.Fragment>
-        {checkLoginMain == true || authCheckLoginInvestor == "TrueSignal" ? (
-          authCheckLoginInvestor == "TrueSignal" ? (
+        {checkLoginMain == true || authCheckLoginInvestor == 'TrueSignal' ? (
+          authCheckLoginInvestor == 'TrueSignal' ? (
             <div>
               <Navbar />
               <Routes basename="/zero-theorem">
                 <Route path="/" element={<Performance />} />
                 <Route path="/theory" element={<TheUnderlyingAssumptions />} />
                 <Route path="/:name" element={<Models />} />
+                <Route path="/account-details" element={<AccountDetails />} />
                 {/* <Route path="/all-models/:name" element={<Models />} /> */}
 
                 {/* <Route path="/about" element={<About />} /> */}

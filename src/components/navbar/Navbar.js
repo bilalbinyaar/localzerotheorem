@@ -1,35 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Navbar.css";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import logoBlack from "../../assets/logo-black.svg";
-import logoWhite from "../../assets/logo-white.svg";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import { useStateContext } from "../../ContextProvider";
+import React, { useState, useEffect, useRef } from 'react';
+import './Navbar.css';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+import logoBlack from '../../assets/logo-black.svg';
+import logoWhite from '../../assets/logo-white.svg';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { useStateContext } from '../../ContextProvider';
 // import UserOptions from './components/UserOptions';
-import { AiOutlineClose, AiFillGoogleCircle } from "react-icons/ai";
-import NavMobile from "../../mobile-components/nav/NavMobile";
-import { useSelector, useDispatch } from "react-redux";
+import { AiOutlineClose, AiFillGoogleCircle } from 'react-icons/ai';
+import NavMobile from '../../mobile-components/nav/NavMobile';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   set_day_mode,
   set_login,
   set_night_mode,
   set_login_flase,
-} from "../../store";
-import LoginPopup from "../login-popup/LoginPopup";
-import { auth, provider } from "../../firebase_config";
-import Swal from "sweetalert2";
+} from '../../store';
+import LoginPopup from '../login-popup/LoginPopup';
+import { auth, provider } from '../../firebase_config';
+import Swal from 'sweetalert2';
 import {
   signInWithPopup,
   GoogleAuthProvider,
   getRedirectResult,
   signInWithRedirect,
-} from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+} from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-} from "firebase/auth";
+} from 'firebase/auth';
 
 export default function Navbar() {
   const linkModels = useNavigate();
@@ -85,12 +85,12 @@ export default function Navbar() {
 
   // Dark Light Mode
   const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
+    if (theme === 'dark-theme') {
+      setTheme('light-theme');
       handleDayModeTheme();
       handleiamClick();
     } else {
-      setTheme("dark-theme");
+      setTheme('dark-theme');
       handleNightModeTheme();
       handleiamClick();
     }
@@ -128,8 +128,8 @@ export default function Navbar() {
     setShowPopup(false);
   };
 
-  const [details, setDetails] = useState({ name: "", email: "", password: "" });
-  const [error, setError] = useState("");
+  const [details, setDetails] = useState({ name: '', email: '', password: '' });
+  const [error, setError] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -146,12 +146,12 @@ export default function Navbar() {
         // console.log(user);
         // alert("Successfully login with email " + user);
         Swal.fire({
-          title: "Login successful",
-          icon: "success",
+          title: 'Login successful',
+          icon: 'success',
           timer: 2000,
           timerProgressBar: true,
           toast: true,
-          position: "top-right",
+          position: 'top-right',
           showConfirmButton: false,
         });
         setAuthCheckLogin(true);
@@ -166,12 +166,12 @@ export default function Navbar() {
         const email = error.customData.email;
         // console.log("Error occured");
         Swal.fire({
-          title: "Login not successful",
-          icon: "error",
+          title: 'Login not successful',
+          icon: 'error',
           timer: 2000,
           timerProgressBar: true,
           toast: true,
-          position: "top-right",
+          position: 'top-right',
           showConfirmButton: false,
         });
 
@@ -191,7 +191,7 @@ export default function Navbar() {
         setAuthCheckLogin(true);
       } else {
         // User is signed out
-        setUid("");
+        setUid('');
       }
     });
 
@@ -249,17 +249,17 @@ export default function Navbar() {
         value="Log In"
         onClick={() => {
           // console.log("Submit button is clicked");
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
           if (!email || !password) {
             // alert("Kindly enter input details for signup");
             Swal.fire({
-              title: "Kindly enter input details",
-              icon: "error",
+              title: 'Kindly enter input details',
+              icon: 'error',
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: "top-right",
+              position: 'top-right',
               showConfirmButton: false,
             });
           } else {
@@ -269,12 +269,12 @@ export default function Navbar() {
                 // Signed in
                 const user = userCredential.user;
                 Swal.fire({
-                  title: "Login successful",
-                  icon: "success",
+                  title: 'Login successful',
+                  icon: 'success',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
                 handleClosePopup();
@@ -287,12 +287,12 @@ export default function Navbar() {
                 const errorMessage = error.message;
                 // alert("Email or password is incorrect");
                 Swal.fire({
-                  title: "Login not successful",
-                  icon: "error",
+                  title: 'Login not successful',
+                  icon: 'error',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
               });
@@ -328,9 +328,9 @@ export default function Navbar() {
             <Link to="/signup">New to Zero Theorem? Join now!</Link>
           </p> */}
         <p>
-          Don’t have an account?{" "}
+          Don’t have an account?{' '}
           <strong
-            className={selectedHeadingIndex === 1 ? "active" : "color-yellow"}
+            className={selectedHeadingIndex === 1 ? 'active' : 'color-yellow'}
             onClick={() => handleClickForPopups(1)}
           >
             Sign Up
@@ -389,28 +389,28 @@ export default function Navbar() {
         value="Sign Up"
         onClick={() => {
           // console.log("Submit button is clicked");
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
           if (!email || !password) {
             // console.log();
             // alert("Kindly enter input details for signup");
             Swal.fire({
-              title: "Kindly enter input details",
-              icon: "error",
+              title: 'Kindly enter input details',
+              icon: 'error',
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: "top-right",
+              position: 'top-right',
               showConfirmButton: false,
             });
           } else if (isChecked == false) {
             Swal.fire({
-              title: "Kindly agree to our term and conditions",
-              icon: "error",
+              title: 'Kindly agree to our term and conditions',
+              icon: 'error',
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: "top-right",
+              position: 'top-right',
               showConfirmButton: false,
             });
           } else {
@@ -420,12 +420,12 @@ export default function Navbar() {
                 // Signed in
                 const user = userCredential.user;
                 Swal.fire({
-                  title: "User account is created successfully",
-                  icon: "success",
+                  title: 'User account is created successfully',
+                  icon: 'success',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
                 handleClosePopup();
@@ -438,12 +438,12 @@ export default function Navbar() {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 Swal.fire({
-                  title: "Unable to create account with your credentials",
-                  icon: "error",
+                  title: 'Unable to create account with your credentials',
+                  icon: 'error',
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
                 // alert("Unable to create account with your credentials");
@@ -471,9 +471,9 @@ export default function Navbar() {
 
       <div className="register-text">
         <p>
-          Already have an account?{" "}
+          Already have an account?{' '}
           <strong
-            className={selectedHeadingIndex === 0 ? "active" : "color-yellow"}
+            className={selectedHeadingIndex === 0 ? 'active' : 'color-yellow'}
             onClick={() => handleClickForPopups(0)}
           >
             Log In
@@ -490,7 +490,7 @@ export default function Navbar() {
       ) : (
         <div className="container">
           <div className="nav-logo-div">
-            {theme === "dark-theme" ? (
+            {theme === 'dark-theme' ? (
               <Link to="/">
                 <img className="nav-logo-img" src={logoWhite} alt="logo" />
               </Link>
@@ -501,16 +501,19 @@ export default function Navbar() {
             )}
           </div>
 
-          {authCheckLoginInvestor == "TrueSignal" ? (
+          {authCheckLoginInvestor == 'TrueSignal' ? (
             <ul
               id="mobile-nav"
-              className={click ? "nav-menu active" : "nav-menu"}
+              className={click ? 'nav-menu active' : 'nav-menu'}
             >
               <CustomLink to="/" onClick={toCloseNav}>
                 Performance
               </CustomLink>
               <CustomLink to="/risk-management" onClick={toCloseNav}>
                 Risk Management
+              </CustomLink>
+              <CustomLink to="/account-details" className="menu-item">
+                Account Details
               </CustomLink>
               <CustomLink to="/compare-strategies" className="menu-item">
                 Compare
@@ -529,7 +532,7 @@ export default function Navbar() {
           ) : (
             <ul
               id="mobile-nav"
-              className={click ? "nav-menu active" : "nav-menu"}
+              className={click ? 'nav-menu active' : 'nav-menu'}
             >
               <CustomLink to="/" onClick={toCloseNav}>
                 Performance
@@ -628,8 +631,8 @@ export default function Navbar() {
           )}
 
           {toggle && (
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
-              {authCheckLoginInvestor === "TrueSignal" ? (
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+              {authCheckLoginInvestor === 'TrueSignal' ? (
                 <div>
                   <p className="welcome-user welcome-user-mobile">
                     Welcome, {userEmail}
@@ -726,19 +729,19 @@ export default function Navbar() {
           )} */}
 
           <div className="dark-lite">
-            {(iamClick && theme === "dark-theme") || theme == "dark-theme" ? (
+            {(iamClick && theme === 'dark-theme') || theme == 'dark-theme' ? (
               <BsFillSunFill
                 className="dark-lite-icon"
                 onClick={() => toggleTheme()}
                 size={20}
-                style={{ color: "#fff" }}
+                style={{ color: '#fff' }}
               />
             ) : (
               <BsFillMoonFill
                 className="dark-lite-icon"
                 onClick={() => toggleTheme()}
                 size={20}
-                style={{ color: "#000" }}
+                style={{ color: '#000' }}
               />
             )}
           </div>
@@ -844,18 +847,18 @@ export default function Navbar() {
             </div>
           ) } */}
 
-          {authCheckLoginInvestor == "TrueSignal" ? (
+          {authCheckLoginInvestor == 'TrueSignal' ? (
             <div className="btn-group nav-btn">
               <button
                 className="btn btn-nav"
                 onClick={() => {
                   Swal.fire({
-                    title: "Logout successful",
-                    icon: "success",
+                    title: 'Logout successful',
+                    icon: 'success',
                     timer: 2000,
                     timerProgressBar: true,
                     toast: true,
-                    position: "top-right",
+                    position: 'top-right',
                     showConfirmButton: false,
                   });
                   setAuthCheckLoginInvestor(false);
@@ -874,12 +877,12 @@ export default function Navbar() {
                 className="btn btn-nav"
                 onClick={() => {
                   Swal.fire({
-                    title: "Logout successful",
-                    icon: "success",
+                    title: 'Logout successful',
+                    icon: 'success',
                     timer: 2000,
                     timerProgressBar: true,
                     toast: true,
-                    position: "top-right",
+                    position: 'top-right',
                     showConfirmButton: false,
                   });
                   setCheckLoginMain(false);
@@ -894,9 +897,9 @@ export default function Navbar() {
 
           <div className="hamburger" onClick={oneClick}>
             {click ? (
-              <FaTimes size={20} style={{ color: "#333" }} />
+              <FaTimes size={20} style={{ color: '#333' }} />
             ) : (
-              <FaBars size={20} style={{ color: "#333" }} />
+              <FaBars size={20} style={{ color: '#333' }} />
             )}
           </div>
         </div>
@@ -910,7 +913,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
-    <li className={isActive ? "active" : ""}>
+    <li className={isActive ? 'active' : ''}>
       <Link to={to} {...props}>
         {children}
       </Link>

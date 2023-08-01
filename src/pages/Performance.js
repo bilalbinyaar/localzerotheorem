@@ -11,6 +11,7 @@ import PerformanceLineCharts from "../components/performanceLineCharts/Performan
 import PortfolioDaily from "../components/portfolioDaily/PortfolioDaily";
 import MarketRate from "../components/marketRate/MarketRate";
 import { Helmet } from "react-helmet";
+import PortfolioDaily2 from "../components/win_loss_rate/PortfolioDaily";
 // import * as XLSX from "xlsx";
 
 const Performance = () => {
@@ -77,6 +78,7 @@ const Performance = () => {
       <PortfolioDaily />
       <MarketRate />
       <LivePNL />
+      {/* <PortfolioDaily2 /> */}
       {/* <PerformanceGraphs /> */}
       <PerformanceDataGrid />
 

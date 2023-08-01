@@ -1,55 +1,55 @@
-import React, { useEffect, useState, memo, useRef } from 'react';
-import { useBeforeUnload, useLocation } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import validator from 'validator';
-import DrawDown from '../models/drawDown/DrawDown';
+import React, { useEffect, useState, memo, useRef } from "react";
+import { useBeforeUnload, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
+import validator from "validator";
+import DrawDown from "../models/drawDown/DrawDown";
 
-import './Backtest.css';
-import clsx from 'clsx';
-import dayjs from 'dayjs';
-import InDepthBacktest from '../models/inDepth/InDepthBacktest';
-import { useNavigate } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import Timer from '../timer/Timer';
-import { useStateContext } from '../../ContextProvider';
-import ModelNameCol from '../../mobile-components/data-grid/ModelNameCol';
-import { BsFillInfoCircleFill } from 'react-icons/bs';
-import { Tooltip } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
+import "./Backtest.css";
+import clsx from "clsx";
+import dayjs from "dayjs";
+import InDepthBacktest from "../models/inDepth/InDepthBacktest";
+import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import Timer from "../timer/Timer";
+import { useStateContext } from "../../ContextProvider";
+import ModelNameCol from "../../mobile-components/data-grid/ModelNameCol";
+import { BsFillInfoCircleFill } from "react-icons/bs";
+import { Tooltip } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 // import { DatePicker } from '@material-ui/pickers';
 // import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 // import DateFnsUtils from '@date-io/date-fns';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateField } from '@mui/x-date-pickers/DateField';
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateField } from "@mui/x-date-pickers/DateField";
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { Link } from 'react-router-dom';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Link } from "react-router-dom";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
 
-import { database } from '../../firebase_config';
-import { ref, onValue, set } from 'firebase/database';
-import cryptoRandomString from 'crypto-random-string';
-import GraphsTable from '../models/graphsTable/GraphsTable';
-import InDepth from '../models/inDepth/InDepth';
-import RecentlyViewed from '../recentlyViewed/RecentlyViewed';
-import CanvasjsSplineAreaChartWithRangeSelecetor from '../models/graphs/CanvasjsSplineAreaChartWithRangeSelecetor';
-import CanvasjsDrawdownWithSliderRange from '../models/graphs/CanvasjsDrawdownWithSliderRange';
-import CumulativePNL from '../models/cumulativePNL/CumulativePNL';
-import GraphsTableBacktest from '../models/graphsTable/GraphsTableBacktest';
-import { faLariSign, faListAlt } from '@fortawesome/free-solid-svg-icons';
-import { ThreeDots } from 'react-loader-spinner';
-import { isNumber } from '@amcharts/amcharts5/.internal/core/util/Type';
-import jsonexport from 'jsonexport/dist';
-import download from 'downloadjs';
-import * as XLSX from 'xlsx';
+import { database } from "../../firebase_config";
+import { ref, onValue, set } from "firebase/database";
+import cryptoRandomString from "crypto-random-string";
+import GraphsTable from "../models/graphsTable/GraphsTable";
+import InDepth from "../models/inDepth/InDepth";
+import RecentlyViewed from "../recentlyViewed/RecentlyViewed";
+import CanvasjsSplineAreaChartWithRangeSelecetor from "../models/graphs/CanvasjsSplineAreaChartWithRangeSelecetor";
+import CanvasjsDrawdownWithSliderRange from "../models/graphs/CanvasjsDrawdownWithSliderRange";
+import CumulativePNL from "../models/cumulativePNL/CumulativePNL";
+import GraphsTableBacktest from "../models/graphsTable/GraphsTableBacktest";
+import { faLariSign, faListAlt } from "@fortawesome/free-solid-svg-icons";
+import { ThreeDots } from "react-loader-spinner";
+import { isNumber } from "@amcharts/amcharts5/.internal/core/util/Type";
+import jsonexport from "jsonexport/dist";
+import download from "downloadjs";
+import * as XLSX from "xlsx";
 
 const BacktestRouteComponentStrategies = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -122,20 +122,20 @@ const BacktestRouteComponentStrategies = () => {
 
   const handleChangeForCoinSelection = (event, values) => {
     if (values != null) {
-      if (selectedItem == 'All') {
-        set_model_search_selection(model_selection_cache['model_names']);
+      if (selectedItem == "All") {
+        set_model_search_selection(model_selection_cache["model_names"]);
       } else {
-        let output = model_selection_cache['model_names'].filter((obj) => {
+        let output = model_selection_cache["model_names"].filter((obj) => {
           return obj.currency === values.label && obj.value == selectedItem;
         });
         set_model_search_selection(output);
       }
       // setRows({});
     } else {
-      if (selectedItem === 'All') {
-        set_model_search_selection(model_selection_cache['model_names']);
+      if (selectedItem === "All") {
+        set_model_search_selection(model_selection_cache["model_names"]);
       } else {
-        let output = model_selection_cache['model_names'].filter((obj) => {
+        let output = model_selection_cache["model_names"].filter((obj) => {
           return obj.value === selectedItem;
         });
         set_model_search_selection(output);
@@ -176,14 +176,14 @@ const BacktestRouteComponentStrategies = () => {
     // console.log("Search dropdown -->", values);
     if (values != null) {
       // setRows({});
-      set_model_selected_for_backtest(values.label.replace(/-/g, '_'));
+      set_model_selected_for_backtest(values.label.replace(/-/g, "_"));
       const res = rows_cached.filter((item) => {
         return item.modelName == values.label;
       });
       // handleChangePage("", 1);
       // setRows(res);
     } else {
-      set_model_selected_for_backtest('');
+      set_model_selected_for_backtest("");
       // setRows(rows_cached);
     }
   };
@@ -212,26 +212,26 @@ const BacktestRouteComponentStrategies = () => {
 
     if (values != null) {
       setTimeH(values.props.value);
-      if (values.props.value === 'All') {
+      if (values.props.value === "All") {
         // let output = model_selection_cache["model_names"].filter((obj) => {
         //   return obj.value === values.label;
         // });
-        set_model_search_selection(model_selection_cache['model_names']);
+        set_model_search_selection(model_selection_cache["model_names"]);
       } else {
-        let output = model_selection_cache['model_names'].filter((obj) => {
+        let output = model_selection_cache["model_names"].filter((obj) => {
           return obj.value === values.props.value;
         });
         set_model_search_selection(output);
       }
     } else {
-      setTimeH('All');
-      set_model_search_selection(model_selection_cache['model_names']);
+      setTimeH("All");
+      set_model_search_selection(model_selection_cache["model_names"]);
     }
   };
 
   const styles = {
-    container: (css) => ({ ...css, width: '200px' }),
-    indicatorSeparator: () => ({ display: 'none' }),
+    container: (css) => ({ ...css, width: "200px" }),
+    indicatorSeparator: () => ({ display: "none" }),
   };
 
   // const DropdownIndicator = (props) => {
@@ -288,7 +288,7 @@ const BacktestRouteComponentStrategies = () => {
               key,
               strategies[key].current_position,
             ],
-            modelName: key.replace(/_/g, '-'),
+            modelName: key.replace(/_/g, "-"),
             currency: strategies[key].currency,
             timeHorizon: strategies[key].time_horizon,
             dateAdded: strategies[key].date_started,
@@ -300,7 +300,7 @@ const BacktestRouteComponentStrategies = () => {
             ],
             avg_daily_pnl: pnl_for_each_strategy[key].average_daily_pnl,
             forecast_time: strategies[key].forecast_time,
-            tpsl: '$186 / $740',
+            tpsl: "$186 / $740",
 
             totalpnl: pnl_for_each_strategy[key].total_pnl,
             pnlGraph: `${key}`,
@@ -314,7 +314,7 @@ const BacktestRouteComponentStrategies = () => {
         }
       }
     } catch (error) {
-      console.log('Error occured');
+      console.log("Error occured");
     }
   }, [strategies]);
 
@@ -324,9 +324,9 @@ const BacktestRouteComponentStrategies = () => {
         return;
       } else {
         fetch(
-          'https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies',
+          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
           {
-            method: 'GET',
+            method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
             },
@@ -340,72 +340,72 @@ const BacktestRouteComponentStrategies = () => {
             var coin_names = [];
             var unique_coins = {};
             var index = 0;
-            for (var i = 0; i < data['response'].length; i++) {
+            for (var i = 0; i < data["response"].length; i++) {
               // var name = data["response"][i].strategy_name.replace(/_/g, "-");
               model_names.push({
-                label: data['response'][i].strategy_name.replace(/_/g, '-'),
-                value: data['response'][i].time_horizon,
-                currency: data['response'][i].currency,
+                label: data["response"][i].strategy_name.replace(/_/g, "-"),
+                value: data["response"][i].time_horizon,
+                currency: data["response"][i].currency,
               });
-              if (!unique_coins[data['response'][i].currency]) {
-                unique_coins[data['response'][i].currency] = 1;
+              if (!unique_coins[data["response"][i].currency]) {
+                unique_coins[data["response"][i].currency] = 1;
                 coin_names.push({
-                  label: data['response'][i].currency,
+                  label: data["response"][i].currency,
                   // value: i,
                 });
               }
               var dt = new Date(
-                parseInt(data['response'][i].forecast_time) * 1000
+                parseInt(data["response"][i].forecast_time) * 1000
               ).toLocaleString();
               // console.log("Locale string -->", dt);
-              var year = dt.split('/')[2].split(',')[0];
-              var month = dt.split('/')[0];
+              var year = dt.split("/")[2].split(",")[0];
+              var month = dt.split("/")[0];
               if (month.length == 1) {
-                month = '0' + month;
+                month = "0" + month;
               }
-              var day = dt.split('/')[1];
+              var day = dt.split("/")[1];
               if (day.length == 1) {
-                day = '0' + day;
+                day = "0" + day;
               }
-              var hours = dt.split(', ')[1].split(':')[0];
+              var hours = dt.split(", ")[1].split(":")[0];
               if (hours.length == 1) {
-                hours = '0' + hours;
+                hours = "0" + hours;
               }
-              var minutes = dt.split(':')[1];
+              var minutes = dt.split(":")[1];
               if (minutes.length == 1) {
-                minutes = '0' + minutes;
+                minutes = "0" + minutes;
               }
-              var curr_time_version = dt.split(' ')[2];
-              if (curr_time_version == 'PM') {
+              var curr_time_version = dt.split(" ")[2];
+              if (curr_time_version == "PM") {
                 hours = parseInt(hours) + 12;
               }
               var dt_str =
-                year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
+                year + "-" + month + "-" + day + " " + hours + ":" + minutes;
               // console.log("DT", dt, dt_str);
 
-              data_for_strategies[data['response'][i].strategy_name] = {
-                current_position: data['response'][i].current_position,
-                time_horizon: data['response'][i].time_horizon,
-                currency: data['response'][i].currency,
-                date_started: data['response'][i].date_started,
-                entry_price: data['response'][i].entry_price,
+              data_for_strategies[data["response"][i].strategy_name] = {
+                current_position: data["response"][i].current_position,
+                time_horizon: data["response"][i].time_horizon,
+                currency: data["response"][i].currency,
+                date_started: data["response"][i].date_started,
+                entry_price: data["response"][i].entry_price,
                 forecast_time: dt_str,
                 // .split(".")[0]
                 // .slice(0, -3),
-                next_forecast: data['response'][i].next_forecast,
-                current_price: data['response'][i].current_price,
-                strategy_name: data['response'][i].strategy_name,
-                current_pnl: data['response'][i].current_pnl,
-                position_start_time: data['response'][i].position_start_time,
-                fee: data['response'][i].fee,
-                stop_loss: data['response'][i].stop_loss,
-                take_profit: data['response'][i].take_profit,
-                backtest_start_date: data['response'][i].backtest_start_date,
-                time_stop: data['response'][i].time_stop,
+                next_forecast: data["response"][i].next_forecast,
+                current_price: data["response"][i].current_price,
+                strategy_name: data["response"][i].strategy_name,
+                current_pnl: data["response"][i].current_pnl,
+                position_start_time: data["response"][i].position_start_time,
+                fee: data["response"][i].fee,
+                stop_loss: data["response"][i].stop_loss,
+                take_profit: data["response"][i].take_profit,
+                backtest_start_date: data["response"][i].backtest_start_date,
+                time_stop: data["response"][i].time_stop,
               };
               index++;
             }
-            if (JSON.stringify(data_for_strategies) !== '{}') {
+            if (JSON.stringify(data_for_strategies) !== "{}") {
               setStrategies(data_for_strategies);
               set_model_search_selection(model_names);
               set_coin_search_selection(coin_names);
@@ -425,15 +425,15 @@ const BacktestRouteComponentStrategies = () => {
           .catch((err) => console.log(err));
       }
     } catch (error) {
-      console.log('Error occured');
+      console.log("Error occured");
     }
   }, [topPerformerModels]);
 
   useEffect(() => {
     try {
       if (Flag == null) {
-        fetch('https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats', {
-          method: 'GET',
+        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+          method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
           },
@@ -442,45 +442,45 @@ const BacktestRouteComponentStrategies = () => {
           .then((data) => {
             // console.log(data["response"].length);
             var model_names = {};
-            for (var i = 0; i < data['response'].length; i++) {
+            for (var i = 0; i < data["response"].length; i++) {
               // console.log(data["response"][i].strategy_name);
               // var name = data["response"][i].strategy_name;
-              model_names[data['response'][i].strategy_name] = {
-                strategy_name: data['response'][i].strategy_name,
-                current_drawdown: data['response'][i].current_drawdown,
+              model_names[data["response"][i].strategy_name] = {
+                strategy_name: data["response"][i].strategy_name,
+                current_drawdown: data["response"][i].current_drawdown,
                 curr_drawdown_duration:
-                  data['response'][i].curr_drawdown_duration,
-                average_drawdown: data['response'][i].average_drawdown,
+                  data["response"][i].curr_drawdown_duration,
+                average_drawdown: data["response"][i].average_drawdown,
                 average_drawdown_duration:
-                  data['response'][i].average_drawdown_duration,
-                max_drawdown: data['response'][i].max_drawdown,
+                  data["response"][i].average_drawdown_duration,
+                max_drawdown: data["response"][i].max_drawdown,
                 max_drawdown_duration:
-                  data['response'][i].max_drawdown_duration,
-                r2_score: data['response'][i].r2_score,
-                sharpe: data['response'][i].sharpe,
-                sortino: data['response'][i].sortino,
-                total_pnl: data['response'][i].total_pnl,
-                total_positive_pnl: data['response'][i].total_positive_pnl,
-                total_negative_pnl: data['response'][i].total_negative_pnl,
-                total_wins: data['response'][i].total_wins,
-                total_losses: data['response'][i].total_losses,
-                consective_wins: data['response'][i].consective_wins,
-                consective_losses: data['response'][i].consective_losses,
-                win_percentage: data['response'][i].win_percentage,
-                loss_percentage: data['response'][i].loss_percentage,
-                pnl_sum_1: data['response'][i].pnl_sum_1,
-                pnl_sum_7: data['response'][i].pnl_sum_7,
-                pnl_sum_15: data['response'][i].pnl_sum_15,
-                pnl_sum_30: data['response'][i].pnl_sum_30,
-                pnl_sum_45: data['response'][i].pnl_sum_45,
-                pnl_sum_60: data['response'][i].pnl_sum_60,
-                average_daily_pnl: data['response'][i].average_daily_pnl,
-                win_loss_ratio: data['response'][i].win_loss_ratio,
+                  data["response"][i].max_drawdown_duration,
+                r2_score: data["response"][i].r2_score,
+                sharpe: data["response"][i].sharpe,
+                sortino: data["response"][i].sortino,
+                total_pnl: data["response"][i].total_pnl,
+                total_positive_pnl: data["response"][i].total_positive_pnl,
+                total_negative_pnl: data["response"][i].total_negative_pnl,
+                total_wins: data["response"][i].total_wins,
+                total_losses: data["response"][i].total_losses,
+                consective_wins: data["response"][i].consective_wins,
+                consective_losses: data["response"][i].consective_losses,
+                win_percentage: data["response"][i].win_percentage,
+                loss_percentage: data["response"][i].loss_percentage,
+                pnl_sum_1: data["response"][i].pnl_sum_1,
+                pnl_sum_7: data["response"][i].pnl_sum_7,
+                pnl_sum_15: data["response"][i].pnl_sum_15,
+                pnl_sum_30: data["response"][i].pnl_sum_30,
+                pnl_sum_45: data["response"][i].pnl_sum_45,
+                pnl_sum_60: data["response"][i].pnl_sum_60,
+                average_daily_pnl: data["response"][i].average_daily_pnl,
+                win_loss_ratio: data["response"][i].win_loss_ratio,
 
-                rank: data['response'][i].rank,
+                rank: data["response"][i].rank,
               };
             }
-            if (JSON.stringify(model_names) !== '{}') {
+            if (JSON.stringify(model_names) !== "{}") {
               // console.log("Sortable -->", model_names);
 
               const sorted = Object.keys(model_names)
@@ -497,7 +497,7 @@ const BacktestRouteComponentStrategies = () => {
           .catch((err) => console.log(err));
       }
     } catch (error) {
-      console.log('Error occured');
+      console.log("Error occured");
     }
   }, [Flag]);
 
@@ -510,16 +510,16 @@ const BacktestRouteComponentStrategies = () => {
     // document.getElementById(id).style = "background-color : green !important";
     // console.log("Current active is -->", id);
 
-    if (timeH == 'All') {
+    if (timeH == "All") {
       setRows(rows_cached);
-      set_model_search_selection(model_selection_cache['model_names']);
+      set_model_search_selection(model_selection_cache["model_names"]);
     } else {
-      handleChangePage('', 1);
+      handleChangePage("", 1);
 
       const res = rows_cached.filter((item) => {
         return item.timeHorizon == timeH;
       });
-      let output = model_selection_cache['model_names'].filter((obj) => {
+      let output = model_selection_cache["model_names"].filter((obj) => {
         return obj.value === timeH;
       });
       set_model_search_selection(output);
@@ -548,7 +548,7 @@ const BacktestRouteComponentStrategies = () => {
     }
   };
 
-  const [isActive, setActive] = useState('true');
+  const [isActive, setActive] = useState("true");
   // const [isActive1, setActive1] = useState('false');
   // const activeList = () => {
   //   setActive(!isActive);
@@ -560,7 +560,7 @@ const BacktestRouteComponentStrategies = () => {
   const [pageSize, setPageSize] = React.useState(20);
 
   const { data } = {
-    dataSet: 'Commodity',
+    dataSet: "Commodity",
     rowLength: 540,
     maxColumns: 6,
   };
@@ -582,28 +582,29 @@ const BacktestRouteComponentStrategies = () => {
   const end = page * rows.length;
   const location = useLocation();
 
-  var model_name = '';
-  var currency = '';
-  var time_horizon = '';
-  var time_horizon2 = 'All';
-  var take_profit = '';
-  var stop_loss = '';
-  var fee = '';
-  var time_stop = '';
-  var backtest_start_date = '';
-  var default_date_selected_for_backtest = '';
-  var default_date_selected_for_backtest_end = '';
+  var model_name = "";
+  var currency = "";
+  var time_horizon = "";
+  var time_horizon2 = "All";
+  var take_profit = "";
+  var stop_loss = "";
+  var fee = "";
+  var time_stop = "";
+  var backtest_start_date = "";
+  var default_date_selected_for_backtest = "";
+  var default_date_selected_for_backtest_end = "";
   const current_time_unix = Math.floor(new Date(now).getTime() / 1000);
   default_date_selected_for_backtest_end = current_time_unix;
   if (location.state) {
-    model_name = location.state.model_name.replace(/_/g, '-');
+    model_name = location.state.model_name.replace(/_/g, "-");
     // currency = location.state.currency;
     // time_horizon = location.state.time_horizon;
     // time_horizon2 = location.state.time_horizon;
     take_profit = location.state.take_profit;
     stop_loss = location.state.stop_loss;
     time_stop = location.state.time_stop;
-    fee = location.state.fee;
+    // fee = location.state.fee;
+    fee = 0.1;
     const dateStr = location.state.backtest_start_date;
     const unixTimestamp = Math.floor(new Date(dateStr).getTime() / 1000);
     backtest_start_date = dayjs.unix(unixTimestamp);
@@ -624,7 +625,7 @@ const BacktestRouteComponentStrategies = () => {
     label: currency,
   });
   const [model_selected_for_backted, set_model_selected_for_backtest] =
-    useState(model_name.replace(/-/g, '_'));
+    useState(model_name.replace(/-/g, "_"));
   const [selectedDate, setSelectedDate] = useState(backtest_start_date);
 
   const [selectedDateEnd, setSelectedDateEnd] = useState(now);
@@ -723,12 +724,12 @@ const BacktestRouteComponentStrategies = () => {
       ) {
         //   alert("Kindly input all fields to run backtest");
         Swal.fire({
-          title: 'Kindly input all fields to run backtest',
-          icon: 'error',
+          title: "Kindly input all fields to run backtest",
+          icon: "error",
           timer: 2000,
           timerProgressBar: true,
           toast: true,
-          position: 'top-right',
+          position: "top-right",
           showConfirmButton: false,
           date_selected_for_backtest,
           take_profit_selected_for_backtest,
@@ -738,7 +739,7 @@ const BacktestRouteComponentStrategies = () => {
         });
       } else {
         setIsButtonDisabled(true);
-        const id = cryptoRandomString({ length: 10, type: 'alphanumeric' });
+        const id = cryptoRandomString({ length: 10, type: "alphanumeric" });
         set_backtest_table_name(id);
         var current_time = new Date();
         const timestamp = current_time.getTime();
@@ -752,12 +753,12 @@ const BacktestRouteComponentStrategies = () => {
 
           // alert("Take profit should be in range 0-100%");
           Swal.fire({
-            title: 'Take profit should be in range 0-100%',
-            icon: 'error',
+            title: "Take profit should be in range 0-100%",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -767,27 +768,27 @@ const BacktestRouteComponentStrategies = () => {
 
           // alert("Take profit should be in range 0-100%");
           Swal.fire({
-            title: 'Kindly enter start date and end date properly',
-            icon: 'error',
+            title: "Kindly enter start date and end date properly",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(take_profit_selected_for_backtest + '')) {
+        if (!validator.isNumeric(take_profit_selected_for_backtest + "")) {
           check = false;
           // alert("Kindly input value in numbers for take profit");
           setIsButtonDisabled(false);
 
           Swal.fire({
-            title: 'Kindly input value in numbers for take profit',
-            icon: 'error',
+            title: "Kindly input value in numbers for take profit",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -800,27 +801,27 @@ const BacktestRouteComponentStrategies = () => {
 
           // alert("Stop loss should be in range 0-100%");
           Swal.fire({
-            title: 'Stop loss should be in range 0-100%',
-            icon: 'error',
+            title: "Stop loss should be in range 0-100%",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(stop_loss_selected_for_backtest + '')) {
+        if (!validator.isNumeric(stop_loss_selected_for_backtest + "")) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for stop loss");
           Swal.fire({
-            title: 'Kindly input value in numbers for stop profit',
-            icon: 'error',
+            title: "Kindly input value in numbers for stop profit",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -830,42 +831,42 @@ const BacktestRouteComponentStrategies = () => {
 
           // alert("Fee should be in range 0-1%");
           Swal.fire({
-            title: 'Fee should be in range 0-1%',
-            icon: 'error',
+            title: "Fee should be in range 0-1%",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(fee_selected_for_backtest + '')) {
+        if (!validator.isNumeric(fee_selected_for_backtest + "")) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for fee");
           Swal.fire({
-            title: 'Kindly input value in numbers for fee',
-            icon: 'error',
+            title: "Kindly input value in numbers for fee",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(stop_time_selected_for_backtest + '')) {
+        if (!validator.isNumeric(stop_time_selected_for_backtest + "")) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for fee");
           Swal.fire({
-            title: 'Kindly input value in numbers for stop time',
-            icon: 'error',
+            title: "Kindly input value in numbers for stop time",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -882,18 +883,18 @@ const BacktestRouteComponentStrategies = () => {
             // alert("Fee should be in range 0-1%");
             Swal.fire({
               title:
-                'Stop time should be in time horizon range of selected model',
-              icon: 'error',
+                "Stop time should be in time horizon range of selected model",
+              icon: "error",
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: 'top-right',
+              position: "top-right",
               showConfirmButton: false,
             });
           } else {
             setIsLoading(true);
-            set(ref(database, 'backtest_queue/' + 'user_' + id), {
-              id: 'user_' + id,
+            set(ref(database, "backtest_queue/" + "user_" + id), {
+              id: "user_" + id,
               modelName: model_selected_for_backted,
               start_date: date_selected_for_backtest,
               end_date: date_selected_for_backtest_end,
@@ -919,46 +920,46 @@ const BacktestRouteComponentStrategies = () => {
   };
   const downloadCSV = (jsonData, fileName) => {
     try {
-      console.log('Here is data to downloaded in csv -->', typeof jsonData);
+      console.log("Here is data to downloaded in csv -->", typeof jsonData);
       jsonexport(jsonData, (err, csvData) => {
         if (err) {
-          console.error('Error converting JSON to CSV:', err);
+          console.error("Error converting JSON to CSV:", err);
           return;
         }
-        download(csvData, `${fileName}.csv`, 'text/csv');
+        download(csvData, `${fileName}.csv`, "text/csv");
       });
     } catch (error) {
-      console.error('Error converting JSON to CSV:', error);
+      console.error("Error converting JSON to CSV:", error);
     }
   };
   function convertToExcel(jsonData1, jsonData2, name) {
     const workbook = XLSX.utils.book_new();
 
     const worksheet1 = XLSX.utils.json_to_sheet(jsonData1);
-    XLSX.utils.book_append_sheet(workbook, worksheet1, 'Ledger');
+    XLSX.utils.book_append_sheet(workbook, worksheet1, "Ledger");
 
     const worksheet2 = XLSX.utils.json_to_sheet(jsonData2);
-    XLSX.utils.book_append_sheet(workbook, worksheet2, 'Stats');
+    XLSX.utils.book_append_sheet(workbook, worksheet2, "Stats");
 
     const workbookOutput = XLSX.write(workbook, {
-      bookType: 'xlsx',
-      type: 'array',
+      bookType: "xlsx",
+      type: "array",
     });
 
-    const fileName = name + '.xlsx';
+    const fileName = name + ".xlsx";
     const blob = new Blob([workbookOutput], {
-      type: 'application/octet-stream',
+      type: "application/octet-stream",
     });
 
-    if (typeof window.navigator.msSaveBlob !== 'undefined') {
+    if (typeof window.navigator.msSaveBlob !== "undefined") {
       // For IE and Edge
       window.navigator.msSaveBlob(blob, fileName);
     } else {
       // For other browsers
       const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = url;
-      link.setAttribute('download', fileName);
+      link.setAttribute("download", fileName);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -970,11 +971,11 @@ const BacktestRouteComponentStrategies = () => {
         return;
       } else {
         fetch(
-          'https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/' +
+          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
             model_name_for_result_backtest_result +
-            '_results',
+            "_results",
           {
-            method: 'GET',
+            method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
             },
@@ -986,11 +987,11 @@ const BacktestRouteComponentStrategies = () => {
 
             // downloadCSV(data["response"], "Backtest_Result_" + new Date());
             fetch(
-              'https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/' +
+              "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
                 model_name_for_result_backtest_result +
-                '_stats',
+                "_stats",
               {
-                method: 'GET',
+                method: "GET",
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
                 },
@@ -1004,11 +1005,11 @@ const BacktestRouteComponentStrategies = () => {
                 //   statsData
                 // );
                 convertToExcel(
-                  ledgerData['response'],
-                  statsData['response'],
-                  'ledger_' +
+                  ledgerData["response"],
+                  statsData["response"],
+                  "ledger_" +
                     model_selected_for_backted +
-                    '_' +
+                    "_" +
                     Math.floor(Date.now() / 1000)
                 );
 
@@ -1020,7 +1021,7 @@ const BacktestRouteComponentStrategies = () => {
           .catch((err) => console.log(err));
       }
     } catch (error) {
-      console.log('Error occured');
+      console.log("Error occured");
     }
   }, [flagDownload]);
   const handleRunBacktestChangeMobile = () => {
@@ -1037,17 +1038,17 @@ const BacktestRouteComponentStrategies = () => {
         setIsButtonDisabled(false);
 
         Swal.fire({
-          title: 'Kindly input all fields to run backtest',
-          icon: 'error',
+          title: "Kindly input all fields to run backtest",
+          icon: "error",
           timer: 2000,
           timerProgressBar: true,
           toast: true,
-          position: 'top-right',
+          position: "top-right",
           showConfirmButton: false,
         });
       } else {
         setIsButtonDisabled(true);
-        const id = cryptoRandomString({ length: 10, type: 'alphanumeric' });
+        const id = cryptoRandomString({ length: 10, type: "alphanumeric" });
         set_backtest_table_name(id);
         var current_time = new Date();
         const timestamp = current_time.getTime();
@@ -1060,12 +1061,12 @@ const BacktestRouteComponentStrategies = () => {
           setIsButtonDisabled(false);
           // alert("Take profit should be in range 0-100%");
           Swal.fire({
-            title: 'Take profit should be in range 0-100%',
-            icon: 'error',
+            title: "Take profit should be in range 0-100%",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -1078,30 +1079,30 @@ const BacktestRouteComponentStrategies = () => {
           setIsButtonDisabled(false);
           // alert("Take profit should be in range 0-100%");
           Swal.fire({
-            title: 'Kindly enter start date and end date properly',
-            icon: 'error',
+            title: "Kindly enter start date and end date properly",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
 
         if (
-          !validator.isNumeric(take_profit_selected_for_backtest_mobile + '')
+          !validator.isNumeric(take_profit_selected_for_backtest_mobile + "")
         ) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for take profit");
           Swal.fire({
-            title: 'Kindly input value in numbers for take profit',
-            icon: 'error',
+            title: "Kindly input value in numbers for take profit",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -1114,27 +1115,27 @@ const BacktestRouteComponentStrategies = () => {
 
           // alert("Stop loss should be in range 0-100%");
           Swal.fire({
-            title: 'Stop loss should be in range 0-100%',
-            icon: 'error',
+            title: "Stop loss should be in range 0-100%",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(stop_loss_selected_for_backtest_mobile + '')) {
+        if (!validator.isNumeric(stop_loss_selected_for_backtest_mobile + "")) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for stop loss");
           Swal.fire({
-            title: 'Kindly input value in numbers for stop profit',
-            icon: 'error',
+            title: "Kindly input value in numbers for stop profit",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -1147,42 +1148,42 @@ const BacktestRouteComponentStrategies = () => {
 
           // alert("Fee should be in range 0-1%");
           Swal.fire({
-            title: 'Fee should be in range 0-1%',
-            icon: 'error',
+            title: "Fee should be in range 0-1%",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(fee_selected_for_backtest_mobile + '')) {
+        if (!validator.isNumeric(fee_selected_for_backtest_mobile + "")) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for fee");
           Swal.fire({
-            title: 'Kindly input value in numbers for fee',
-            icon: 'error',
+            title: "Kindly input value in numbers for fee",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
-        if (!validator.isNumeric(stop_time_selected_for_backtest_mobile + '')) {
+        if (!validator.isNumeric(stop_time_selected_for_backtest_mobile + "")) {
           check = false;
           setIsButtonDisabled(false);
 
           // alert("Kindly input value in numbers for fee");
           Swal.fire({
-            title: 'Kindly input value in numbers for stop time',
-            icon: 'error',
+            title: "Kindly input value in numbers for stop time",
+            icon: "error",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-right',
+            position: "top-right",
             showConfirmButton: false,
           });
         }
@@ -1198,18 +1199,18 @@ const BacktestRouteComponentStrategies = () => {
             // alert("Fee should be in range 0-1%");
             Swal.fire({
               title:
-                'Stop time should be in time horizon range of selected model',
-              icon: 'error',
+                "Stop time should be in time horizon range of selected model",
+              icon: "error",
               timer: 2000,
               timerProgressBar: true,
               toast: true,
-              position: 'top-right',
+              position: "top-right",
               showConfirmButton: false,
             });
           } else {
             setIsLoading(true);
-            set(ref(database, 'backtest_queue/' + 'user_' + id), {
-              id: 'user_' + id,
+            set(ref(database, "backtest_queue/" + "user_" + id), {
+              id: "user_" + id,
               modelName: model_selected_for_backted,
               start_date: date_selected_for_backtest_mobile,
               end_date: date_selected_for_backtest_mobile_end,
@@ -1241,7 +1242,7 @@ const BacktestRouteComponentStrategies = () => {
         setTimeout(() => {
           const starCountRef = ref(
             database,
-            'backtest_queue/user_' + backtest_table_name
+            "backtest_queue/user_" + backtest_table_name
           );
           onValue(starCountRef, (snapshot) => {
             const data = snapshot.val();
@@ -1255,39 +1256,39 @@ const BacktestRouteComponentStrategies = () => {
                 //   backtest_table_name
                 // );
                 set_model_name_for_result_backtest_result(
-                  'user_' + backtest_table_name
+                  "user_" + backtest_table_name
                 );
                 Swal.fire({
-                  title: 'Backtest is successful',
-                  icon: 'success',
+                  title: "Backtest is successful",
+                  icon: "success",
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: 'top-right',
+                  position: "top-right",
                   showConfirmButton: false,
                 });
                 setIsLoading(false);
                 setIsButtonDisabled(false);
               } else if (data.status == 2) {
                 Swal.fire({
-                  title: 'Backtest is not successful',
-                  icon: 'error',
+                  title: "Backtest is not successful",
+                  icon: "error",
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: 'top-right',
+                  position: "top-right",
                   showConfirmButton: false,
                 });
                 setIsLoading(false);
                 setIsButtonDisabled(false);
               } else if (data.status == 3) {
                 Swal.fire({
-                  title: 'Zero Trade Executed',
-                  icon: 'success',
+                  title: "Zero Trade Executed",
+                  icon: "success",
                   timer: 2000,
                   timerProgressBar: true,
                   toast: true,
-                  position: 'top-right',
+                  position: "top-right",
                   showConfirmButton: false,
                 });
                 setIsLoading(false);
@@ -1301,7 +1302,7 @@ const BacktestRouteComponentStrategies = () => {
         }, 1000);
       }
     } catch (error) {
-      console.log('Error occured');
+      console.log("Error occured");
     }
     // console.log("I am called again bro");
   }, [flag_for_backtest_result]);
@@ -1312,7 +1313,7 @@ const BacktestRouteComponentStrategies = () => {
         return;
       } else {
         // console.log("Here is strategies for date picker -->", strategies);
-        if (model_selected_for_backted != '') {
+        if (model_selected_for_backted != "") {
           const model = model_selected_for_backted;
           const dateStr = strategies[model].backtest_start_date;
           if (strategies[model].time_horizon) {
@@ -1322,41 +1323,42 @@ const BacktestRouteComponentStrategies = () => {
           setSelectedDate(dayjs.unix(unixTimestamp));
 
           // setDisableBefore(dayjs.unix(unixTimestamp));
-          if (model.replace(/-/g, '_')) {
-            set_model_selected_for_backtest(model.replace(/-/g, '_'));
+          if (model.replace(/-/g, "_")) {
+            set_model_selected_for_backtest(model.replace(/-/g, "_"));
           }
           set_take_profit_selected_for_backtest(
-            parseFloat(strategies[model].take_profit) + ''
+            parseFloat(strategies[model].take_profit) + ""
           );
 
           set_stop_loss_selected_for_backtest(
-            parseFloat(strategies[model].stop_loss) + ''
+            parseFloat(strategies[model].stop_loss) + ""
           );
 
           set_stop_time_selected_for_backtest(
-            parseFloat(strategies[model].time_stop) + ''
+            parseFloat(strategies[model].time_stop) + ""
           );
 
-          set_fee_selected_for_backtest(parseFloat(strategies[model].fee) + '');
-
-          set_model_selected_for_backtest_mobile(model.replace(/-/g, '_'));
+          // set_fee_selected_for_backtest(parseFloat(strategies[model].fee) + "");
+          set_fee_selected_for_backtest("0.1");
+          // set_model_selected_for_backtest_mobile("0.1");
+          set_model_selected_for_backtest_mobile(model.replace(/-/g, "_"));
 
           set_take_profit_selected_for_backtest_mobile(
-            parseFloat(strategies[model].take_profit) + ''
+            parseFloat(strategies[model].take_profit) + ""
           );
 
           set_stop_loss_selected_for_backtest_mobile(
-            parseFloat(strategies[model].stop_loss) + ''
+            parseFloat(strategies[model].stop_loss) + ""
           );
 
           set_stop_time_selected_for_backtest_mobile(
-            parseFloat(strategies[model].time_stop) + ''
+            parseFloat(strategies[model].time_stop) + ""
           );
 
-          set_fee_selected_for_backtest_mobile(
-            parseFloat(strategies[model].fee) + ''
-          );
-
+          // set_fee_selected_for_backtest_mobile(
+          //   parseFloat(strategies[model].fee) + ""
+          // );
+          set_fee_selected_for_backtest_mobile("0.1");
           // console.log("Strategies -->", parseFloat(strategies[model].fee));
           setDisableBefore(dayjs.unix(unixTimestamp));
           set_date_selected_for_backtest(unixTimestamp);
@@ -1372,7 +1374,7 @@ const BacktestRouteComponentStrategies = () => {
         }
       }
     } catch (error) {
-      console.log('Error occured');
+      console.log("Error occured");
     }
   }, [strategies, model_selected_for_backted]);
   // console.log(model_name_for_result_backtest_result);
@@ -1410,12 +1412,12 @@ const BacktestRouteComponentStrategies = () => {
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
                     sx={{
-                      backgroundColor: 'var(--color-forecasts-card)',
-                      borderRadius: '5px',
-                      padding: '3.8px 8px 3.8px 11px',
-                      fontSize: '11px',
-                      marginRight: '0.4rem',
-                      borderBottom: '0 !important',
+                      backgroundColor: "var(--color-forecasts-card)",
+                      borderRadius: "5px",
+                      padding: "3.8px 8px 3.8px 11px",
+                      fontSize: "11px",
+                      marginRight: "0.4rem",
+                      borderBottom: "0 !important",
                     }}
                     select
                     value={timeH}
@@ -1423,12 +1425,12 @@ const BacktestRouteComponentStrategies = () => {
                     label="age"
                   >
                     <MenuItem value="All">Horizons</MenuItem>
-                    <MenuItem value={'24h'}>24h</MenuItem>
-                    <MenuItem value={'13h'}>13h</MenuItem>
-                    <MenuItem value={'12h'}>12h</MenuItem>
-                    <MenuItem value={'11h'}>11h</MenuItem>
-                    <MenuItem value={'9h'}>9h</MenuItem>
-                    <MenuItem value={'8h'}>8h</MenuItem>
+                    <MenuItem value={"24h"}>24h</MenuItem>
+                    <MenuItem value={"13h"}>13h</MenuItem>
+                    <MenuItem value={"12h"}>12h</MenuItem>
+                    <MenuItem value={"11h"}>11h</MenuItem>
+                    <MenuItem value={"9h"}>9h</MenuItem>
+                    <MenuItem value={"8h"}>8h</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -1662,207 +1664,207 @@ const BacktestRouteComponentStrategies = () => {
                   id="country-select-demo"
                   className="model-auto"
                   sx={{
-                    backgroundColor: 'var(--color-forecasts-card)',
-                    borderRadius: '5px',
-                    labelColor: 'red',
-                    fontSize: '11px',
-                    marginLeft: '0.4rem',
-                    '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                      color: 'var(--color-day-black)',
+                    backgroundColor: "var(--color-forecasts-card)",
+                    borderRadius: "5px",
+                    labelColor: "red",
+                    fontSize: "11px",
+                    marginLeft: "0.4rem",
+                    "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
+                      color: "var(--color-day-black)",
                     },
 
-                    '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
+                    "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
                       {
-                        color: 'var(--color-day-black)',
+                        color: "var(--color-day-black)",
                       },
-                    '& div  >.MuiAutocomplete-option.Mui-focused': {
-                      backgroundColor: 'var(--color-day-yellow)',
-                      color: '#000000',
+                    "& div  >.MuiAutocomplete-option.Mui-focused": {
+                      backgroundColor: "var(--color-day-yellow)",
+                      color: "#000000",
                     },
 
-                    '& div >.MuiOutlinedInput-root': {
-                      padding: '4px',
+                    "& div >.MuiOutlinedInput-root": {
+                      padding: "4px",
                     },
 
-                    '& div div >.MuiAutocomplete-input': {
-                      padding: '4.5px 4px 4.5px 6px',
+                    "& div div >.MuiAutocomplete-input": {
+                      padding: "4.5px 4px 4.5px 6px",
                     },
 
-                    '& div >.MuiAutocomplete-option': {
-                      fontSize: '12px',
-                      margin: '0',
-                      color: 'var(--color-day-black)',
+                    "& div >.MuiAutocomplete-option": {
+                      fontSize: "12px",
+                      margin: "0",
+                      color: "var(--color-day-black)",
                     },
 
-                    '& .MuiAutocomplete-noOptions': {
-                      color: 'var(--color-day-black)',
-                      fontSize: '12px',
+                    "& .MuiAutocomplete-noOptions": {
+                      color: "var(--color-day-black)",
+                      fontSize: "12px",
                     },
 
-                    '& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper': {
-                      backgroundColor: 'var(--color-dropdown-bg)',
+                    "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper": {
+                      backgroundColor: "var(--color-dropdown-bg)",
                     },
 
-                    '& div div >.MuiAutocomplete-input': {
-                      fontSize: '11px',
+                    "& div div >.MuiAutocomplete-input": {
+                      fontSize: "11px",
                     },
 
-                    '& .css-1xc3v61-indicatorContainer': {
-                      backgroundColor: 'var(--color-day-white)',
+                    "& .css-1xc3v61-indicatorContainer": {
+                      backgroundColor: "var(--color-day-white)",
                     },
 
-                    '& .css-13cymwt-control': {
-                      minHeight: '34px',
-                      height: '34px',
+                    "& .css-13cymwt-control": {
+                      minHeight: "34px",
+                      height: "34px",
                     },
 
-                    '& .css-i4bv87-MuiSvgIcon-root': {
-                      width: '0.8em !important',
-                      height: '0.8em !important',
-                      fill: 'var(--color-black-opcaity) !important',
+                    "& .css-i4bv87-MuiSvgIcon-root": {
+                      width: "0.8em !important",
+                      height: "0.8em !important",
+                      fill: "var(--color-black-opcaity) !important",
                     },
 
-                    '& .css-i4bv87-MuiSvgIcon-root': {
-                      width: '0.8em !important',
-                      height: '0.8em !important',
-                      fill: 'var(--color-black-opcaity) !important',
+                    "& .css-i4bv87-MuiSvgIcon-root": {
+                      width: "0.8em !important",
+                      height: "0.8em !important",
+                      fill: "var(--color-black-opcaity) !important",
                     },
 
-                    '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input': {
-                      color: 'var(--color-day-black) !important',
+                    "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input": {
+                      color: "var(--color-day-black) !important",
                     },
 
-                    '& div div >.MuiOutlinedInput-root': {
-                      backgroundColor: 'var(--color-forecasts-card) !important',
-                      color: 'var(--color-day-black) !important',
+                    "& div div >.MuiOutlinedInput-root": {
+                      backgroundColor: "var(--color-forecasts-card) !important",
+                      color: "var(--color-day-black) !important",
                     },
 
-                    '& div div >.MuiOutlinedInput-root:focus': {
-                      border: '0 !important',
+                    "& div div >.MuiOutlinedInput-root:focus": {
+                      border: "0 !important",
                     },
 
-                    '& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus': {
-                      borderColor: 'var(--color-day-yellow) !important',
+                    "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus": {
+                      borderColor: "var(--color-day-yellow) !important",
                     },
 
-                    '& div >.MuiOutlinedInput-notchedOutline': {
-                      border: '0px solid var(--color-day-yellow) !important',
+                    "& div >.MuiOutlinedInput-notchedOutline": {
+                      border: "0px solid var(--color-day-yellow) !important",
                     },
 
-                    '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                      fontSize: '12px !important',
-                      color: 'var(--color-day-black) !important',
-                      top: '-6px !important',
+                    "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
+                      fontSize: "12px !important",
+                      color: "var(--color-day-black) !important",
+                      top: "-6px !important",
                     },
 
-                    '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
+                    "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
                       {
-                        backgroundColor: 'var(--color-dropdown-bg) !important',
-                        color: 'var(--color-day-black) !important',
-                      },
-
-                    '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                      {
-                        color: 'var(--color-day-yellow) !important',
+                        backgroundColor: "var(--color-dropdown-bg) !important",
+                        color: "var(--color-day-black) !important",
                       },
 
-                    '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
-                      color: 'var(--color-day-yellow) !important',
+                    "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
+                      {
+                        color: "var(--color-day-yellow) !important",
+                      },
+
+                    "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root": {
+                      color: "var(--color-day-yellow) !important",
                     },
 
-                    '& .css-ptiqhd-MuiSvgIcon-root': {
-                      height: '0.8em !important',
-                      width: '0.8em !important',
-                      fill: 'var(--color-black-opcaity) !important',
+                    "& .css-ptiqhd-MuiSvgIcon-root": {
+                      height: "0.8em !important",
+                      width: "0.8em !important",
+                      fill: "var(--color-black-opcaity) !important",
                     },
 
-                    '& .css-v4u5dn-MuiInputBase-root-MuiInput-root': {
-                      padding: '3px 8px !important',
-                      backgroundColor: 'var(--color-day-yellow) !important',
-                      borderRadius: '4px',
-                      display: 'flex !important',
-                      justifyContent: 'center !important',
-                      alignItems: 'center !important',
-                      fontSize: '15px !important',
-                      textAlign: 'center !important',
+                    "& .css-v4u5dn-MuiInputBase-root-MuiInput-root": {
+                      padding: "3px 8px !important",
+                      backgroundColor: "var(--color-day-yellow) !important",
+                      borderRadius: "4px",
+                      display: "flex !important",
+                      justifyContent: "center !important",
+                      alignItems: "center !important",
+                      fontSize: "15px !important",
+                      textAlign: "center !important",
                     },
 
-                    '& .optgroup': {
-                      padding: '2px !important',
+                    "& .optgroup": {
+                      padding: "2px !important",
                     },
 
-                    '& div div >.optgroup': {
-                      backgroundColor: 'var(--color-day-white) !important',
-                      color: 'var(--color-day-black) !important',
+                    "& div div >.optgroup": {
+                      backgroundColor: "var(--color-day-white) !important",
+                      color: "var(--color-day-black) !important",
                     },
 
-                    '& .mui-options': {
-                      padding: '0px 15px',
+                    "& .mui-options": {
+                      padding: "0px 15px",
                     },
 
-                    '& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after': {
+                    "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after": {
                       borderBottom:
-                        '2px solid var(--color-day-black) !important',
+                        "2px solid var(--color-day-black) !important",
                     },
 
-                    '& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root': {
-                      color: 'var(--color-day-black) !important',
-                      fontSize: '14px !important',
+                    "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root": {
+                      color: "var(--color-day-black) !important",
+                      fontSize: "14px !important",
                     },
 
-                    '& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon': {
-                      color: 'var(--color-day-black) !important',
+                    "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
+                      color: "var(--color-day-black) !important",
                     },
 
-                    '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
+                    "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
                       {
                         borderBottom:
-                          '1px solid var(--color-day-yellow) !important',
+                          "1px solid var(--color-day-yellow) !important",
                       },
 
-                    '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
+                    "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
                       {
                         borderBottom:
-                          '2px solid var(--color-day-yellow) !important',
+                          "2px solid var(--color-day-yellow) !important",
                       },
 
-                    '& #demo-simple-select-standard-label': {
-                      color: 'var(--color-day-yellow) !important',
+                    "& #demo-simple-select-standard-label": {
+                      color: "var(--color-day-yellow) !important",
                     },
 
-                    '& .css-1mf6u8l-MuiSvgIcon-root-MuiSelect-icon': {
-                      color: 'var(--color-day-black) !important',
+                    "& .css-1mf6u8l-MuiSvgIcon-root-MuiSelect-icon": {
+                      color: "var(--color-day-black) !important",
                     },
 
-                    '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
+                    "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
                       {
-                        backgroundColor: 'var(--color-day-yellow) !important',
-                        color: 'black',
+                        backgroundColor: "var(--color-day-yellow) !important",
+                        color: "black",
                       },
 
-                    '& .css-1869usk-MuiFormControl-root': {
-                      height: '60px !important',
+                    "& .css-1869usk-MuiFormControl-root": {
+                      height: "60px !important",
                     },
 
-                    '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
+                    "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
                       {
-                        color: 'var(--color-day-black) !important',
-                        fontSize: '14px !important',
+                        color: "var(--color-day-black) !important",
+                        fontSize: "14px !important",
                       },
 
-                    '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
-                      fontSize: '13px !important',
+                    "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
+                      fontSize: "13px !important",
                     },
 
-                    '& .css-nlvv43-MuiFormControl-root': {
-                      margin: '0px 8px !important',
-                      height: '30px !important',
+                    "& .css-nlvv43-MuiFormControl-root": {
+                      margin: "0px 8px !important",
+                      height: "30px !important",
                     },
 
-                    '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                      fontSize: '12px !important',
-                      color: 'var(--color-day-black) !important',
-                      top: '-8px !important',
+                    "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
+                      fontSize: "12px !important",
+                      color: "var(--color-day-black) !important",
+                      top: "-8px !important",
                     },
                   }}
                   onChange={handleChangeForModelSelection}
@@ -1876,9 +1878,9 @@ const BacktestRouteComponentStrategies = () => {
                       label="Strategies"
                       inputProps={{
                         ...params.inputProps,
-                        style: { width: '70%' }, // set the width to auto
+                        style: { width: "70%" }, // set the width to auto
 
-                        autoComplete: 'new-password', // disable autocomplete and autofill
+                        autoComplete: "new-password", // disable autocomplete and autofill
                       }}
                     />
                   )}
@@ -1897,16 +1899,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hours_filter_All"
                       style={{
-                        background: selectedItem === 'All' ? '#fddd4e' : '',
-                        color: selectedItem === 'All' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "All" ? "#fddd4e" : "",
+                        color: selectedItem === "All" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_All',
-                          'All'
+                          "hour_filter_All",
+                          "All"
                         );
-                        setSelectedItem('All');
+                        setSelectedItem("All");
                       }}
                     >
                       All
@@ -1914,16 +1916,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hour_filter_24"
                       style={{
-                        background: selectedItem === '24h' ? '#fddd4e' : '',
-                        color: selectedItem === '24h' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "24h" ? "#fddd4e" : "",
+                        color: selectedItem === "24h" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_24',
-                          '24h'
+                          "hour_filter_24",
+                          "24h"
                         );
-                        setSelectedItem('24h');
+                        setSelectedItem("24h");
                       }}
                     >
                       24h
@@ -1931,16 +1933,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hour_filter_13"
                       style={{
-                        background: selectedItem === '13h' ? '#fddd4e' : '',
-                        color: selectedItem === '13h' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "13h" ? "#fddd4e" : "",
+                        color: selectedItem === "13h" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_13',
-                          '13h'
+                          "hour_filter_13",
+                          "13h"
                         );
-                        setSelectedItem('13h');
+                        setSelectedItem("13h");
                       }}
                     >
                       13h
@@ -1948,16 +1950,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hour_filter_12"
                       style={{
-                        background: selectedItem === '12h' ? '#fddd4e' : '',
-                        color: selectedItem === '12h' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "12h" ? "#fddd4e" : "",
+                        color: selectedItem === "12h" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_24',
-                          '12h'
+                          "hour_filter_24",
+                          "12h"
                         );
-                        setSelectedItem('12h');
+                        setSelectedItem("12h");
                       }}
                     >
                       12h
@@ -1965,16 +1967,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hour_filter_11"
                       style={{
-                        background: selectedItem === '11h' ? '#fddd4e' : '',
-                        color: selectedItem === '11h' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "11h" ? "#fddd4e" : "",
+                        color: selectedItem === "11h" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_11',
-                          '11h'
+                          "hour_filter_11",
+                          "11h"
                         );
-                        setSelectedItem('11h');
+                        setSelectedItem("11h");
                       }}
                     >
                       11h
@@ -1982,16 +1984,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hour_filter_9"
                       style={{
-                        background: selectedItem === '9h' ? '#fddd4e' : '',
-                        color: selectedItem === '9h' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "9h" ? "#fddd4e" : "",
+                        color: selectedItem === "9h" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_9',
-                          '9h'
+                          "hour_filter_9",
+                          "9h"
                         );
-                        setSelectedItem('9h');
+                        setSelectedItem("9h");
                       }}
                     >
                       9h
@@ -1999,16 +2001,16 @@ const BacktestRouteComponentStrategies = () => {
                     <li
                       id="hours-listings hour_filter_8"
                       style={{
-                        background: selectedItem === '8h' ? '#fddd4e' : '',
-                        color: selectedItem === '8h' ? 'black' : '',
-                        cursor: 'pointer',
+                        background: selectedItem === "8h" ? "#fddd4e" : "",
+                        color: selectedItem === "8h" ? "black" : "",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
                         handleChangeForTimeHorizonSelection(
-                          'hour_filter_8',
-                          '8h'
+                          "hour_filter_8",
+                          "8h"
                         );
-                        setSelectedItem('8h');
+                        setSelectedItem("8h");
                       }}
                     >
                       8h
@@ -2140,11 +2142,11 @@ const BacktestRouteComponentStrategies = () => {
                   id="country-select-demo"
                   sx={{
                     width: 220,
-                    backgroundColor: 'var(--color-forecasts-card)',
-                    borderRadius: '5px',
-                    labelColor: 'red',
-                    fontSize: '11px',
-                    marginLeft: '0.8rem',
+                    backgroundColor: "var(--color-forecasts-card)",
+                    borderRadius: "5px",
+                    labelColor: "red",
+                    fontSize: "11px",
+                    marginLeft: "0.8rem",
                   }}
                   onChange={handleChangeForModelSelection}
                   options={model_search_selection}
@@ -2157,7 +2159,7 @@ const BacktestRouteComponentStrategies = () => {
                       label="Strategies"
                       inputProps={{
                         ...params.inputProps,
-                        autoComplete: 'new-password', // disable autocomplete and autofill
+                        autoComplete: "new-password", // disable autocomplete and autofill
                       }}
                     />
                   )}
@@ -2188,8 +2190,8 @@ const BacktestRouteComponentStrategies = () => {
                     helperText={
                       selectedDate !== null &&
                       (selectedDate < now || selectedDate > disableBefore)
-                        ? 'Invalid date'
-                        : ''
+                        ? "Invalid date"
+                        : ""
                     }
                   />
                 )}
@@ -2218,8 +2220,8 @@ const BacktestRouteComponentStrategies = () => {
                     helperText={
                       selectedDate !== null &&
                       (selectedDate < now || selectedDate > disableBefore)
-                        ? 'Invalid date'
-                        : ''
+                        ? "Invalid date"
+                        : ""
                     }
                   />
                 )}
@@ -2287,7 +2289,7 @@ const BacktestRouteComponentStrategies = () => {
             <button
               className="btn-contact-backtest"
               disabled={isButtonDisabled}
-              style={{ pointerEvents: isButtonDisabled ? 'none' : 'auto' }}
+              style={{ pointerEvents: isButtonDisabled ? "none" : "auto" }}
             >
               Run Backtest
             </button>
@@ -2319,8 +2321,8 @@ const BacktestRouteComponentStrategies = () => {
                       helperText={
                         selectedDate !== null &&
                         (selectedDate < now || selectedDate > disableBefore)
-                          ? 'Invalid date'
-                          : ''
+                          ? "Invalid date"
+                          : ""
                       }
                     />
                   )}
@@ -2352,8 +2354,8 @@ const BacktestRouteComponentStrategies = () => {
                       helperText={
                         selectedDate !== null &&
                         (selectedDate < now || selectedDate > disableBefore)
-                          ? 'Invalid date'
-                          : ''
+                          ? "Invalid date"
+                          : ""
                       }
                     />
                   )}
@@ -2432,7 +2434,7 @@ const BacktestRouteComponentStrategies = () => {
             <button
               className="btn-contact-backtest"
               disabled={isButtonDisabled}
-              style={{ pointerEvents: isButtonDisabled ? 'none' : 'auto' }}
+              style={{ pointerEvents: isButtonDisabled ? "none" : "auto" }}
             >
               Run Backtest
             </button>
@@ -2482,7 +2484,7 @@ const BacktestRouteComponentStrategies = () => {
             <InDepthBacktest
               model_name={model_name_for_result_backtest_result}
               model_name_stats={
-                model_name_for_result_backtest_result + '_stats'
+                model_name_for_result_backtest_result + "_stats"
               }
             />
           ) : null}
@@ -2496,7 +2498,7 @@ const BacktestRouteComponentStrategies = () => {
           ) : null}
           {model_name_for_result_backtest_result ? (
             <GraphsTableBacktest
-              model_name={model_name_for_result_backtest_result + '_stats'}
+              model_name={model_name_for_result_backtest_result + "_stats"}
             />
           ) : null}
           <RecentlyViewed />

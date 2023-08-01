@@ -174,9 +174,9 @@ const ModelDetailsLeft = (props) => {
   // All time Drop Down End
   const [stats, setStats] = useState([]);
   const [strategies, setStrategies] = useState({});
-
   useEffect(() => {
     try {
+      // console.log("Here is name for strategy -->", props.model_name);
       if (
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
@@ -194,42 +194,40 @@ const ModelDetailsLeft = (props) => {
             for (var i = 0; i < data["response"].length; i++) {
               // console.log(data["response"][i].strategy_name);
               var name = data["response"][i].strategy_name;
-              if (props.model_name == name) {
-                model_names[props.model_name] = {
-                  strategy_name: data["response"][i].strategy_name,
-                  current_drawdown: data["response"][i].current_drawdown,
-                  curr_drawdown_duration:
-                    data["response"][i].curr_drawdown_duration,
-                  average_drawdown: data["response"][i].average_drawdown,
-                  average_drawdown_duration:
-                    data["response"][i].average_drawdown_duration,
-                  max_drawdown: data["response"][i].max_drawdown,
-                  max_drawdown_duration:
-                    data["response"][i].max_drawdown_duration,
-                  r2_score: data["response"][i].r2_score,
-                  sharpe: data["response"][i].sharpe,
-                  sortino: data["response"][i].sortino,
-                  total_pnl: data["response"][i].total_pnl,
-                  total_positive_pnl: data["response"][i].total_positive_pnl,
-                  total_negative_pnl: data["response"][i].total_negative_pnl,
-                  total_wins: data["response"][i].total_wins,
-                  total_losses: data["response"][i].total_losses,
-                  consective_wins: data["response"][i].consective_wins,
-                  consective_losses: data["response"][i].consective_losses,
-                  win_percentage: data["response"][i].win_percentage,
-                  loss_percentage: data["response"][i].loss_percentage,
-                  pnl_sum_1: data["response"][i].pnl_sum_1,
-                  pnl_sum_7: data["response"][i].pnl_sum_7,
-                  pnl_sum_15: data["response"][i].pnl_sum_15,
-                  pnl_sum_30: data["response"][i].pnl_sum_30,
-                  pnl_sum_45: data["response"][i].pnl_sum_45,
-                  pnl_sum_60: data["response"][i].pnl_sum_60,
-                  average_daily_pnl: data["response"][i].average_daily_pnl,
-                  win_loss_ratio: data["response"][i].win_loss_ratio,
+              model_names[name] = {
+                strategy_name: data["response"][i].strategy_name,
+                current_drawdown: data["response"][i].current_drawdown,
+                curr_drawdown_duration:
+                  data["response"][i].curr_drawdown_duration,
+                average_drawdown: data["response"][i].average_drawdown,
+                average_drawdown_duration:
+                  data["response"][i].average_drawdown_duration,
+                max_drawdown: data["response"][i].max_drawdown,
+                max_drawdown_duration:
+                  data["response"][i].max_drawdown_duration,
+                r2_score: data["response"][i].r2_score,
+                sharpe: data["response"][i].sharpe,
+                sortino: data["response"][i].sortino,
+                total_pnl: data["response"][i].total_pnl,
+                total_positive_pnl: data["response"][i].total_positive_pnl,
+                total_negative_pnl: data["response"][i].total_negative_pnl,
+                total_wins: data["response"][i].total_wins,
+                total_losses: data["response"][i].total_losses,
+                consective_wins: data["response"][i].consective_wins,
+                consective_losses: data["response"][i].consective_losses,
+                win_percentage: data["response"][i].win_percentage,
+                loss_percentage: data["response"][i].loss_percentage,
+                pnl_sum_1: data["response"][i].pnl_sum_1,
+                pnl_sum_7: data["response"][i].pnl_sum_7,
+                pnl_sum_15: data["response"][i].pnl_sum_15,
+                pnl_sum_30: data["response"][i].pnl_sum_30,
+                pnl_sum_45: data["response"][i].pnl_sum_45,
+                pnl_sum_60: data["response"][i].pnl_sum_60,
+                average_daily_pnl: data["response"][i].average_daily_pnl,
+                win_loss_ratio: data["response"][i].win_loss_ratio,
 
-                  rank: data["response"][i].rank,
-                };
-              }
+                rank: data["response"][i].rank,
+              };
             }
             if (JSON.stringify(model_names) !== "{}") {
               // console.log("Sortable -->", model_names);
@@ -305,7 +303,7 @@ const ModelDetailsLeft = (props) => {
                   //     return { ...model_names[key], key };
                   //   })
                   //   .sort((a, b) => b.total_pnl - a.total_pnl);
-                  // setStats(model_names);
+                  setStats(model_names);
                   // Set_stats_cache({ stats: model_names });
                   // Set_sorted_stats_cache({ sorted_stats: sorted });
                 }
@@ -544,7 +542,7 @@ const ModelDetailsLeft = (props) => {
     }
   };
   // TOTAL PNL COLORS
-
+  console.log("Model name -->", props.model_name, stats);
   return (
     <div className="model-details-left">
       <div className="model-details-left-top">

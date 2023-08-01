@@ -513,7 +513,7 @@ export default function Navbar() {
                 Risk Management
               </CustomLink>
               <CustomLink to="/account-details" className="menu-item">
-                Account Details
+                Accounts
               </CustomLink>
               <CustomLink to="/compare-strategies" className="menu-item">
                 Compare

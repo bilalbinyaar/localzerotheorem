@@ -1,6 +1,7 @@
 import React from 'react';
 import GradientDonut from '../models/graphs/GradientDonut';
-
+import BtcBalanceDonut from '../models/graphs/BtcBalanceDonut';
+import UsdBalanceDonut from '../models/graphs/UsdBalanceDonut';
 const BalanceStatsUpper = (props) => {
   return (
     <div className="balance-details">
@@ -11,7 +12,7 @@ const BalanceStatsUpper = (props) => {
               BTC balance per active strategy
             </h2>
             <div className='accounts-chart'>
-              <GradientDonut model_name={"strategy_collection"} />
+              <BtcBalanceDonut model_name={"strategy_collection"} />
             </div>
           </div>
           <div className='balance-details-inner'>
@@ -19,7 +20,7 @@ const BalanceStatsUpper = (props) => {
               USD balance per active strategy
             </h2>
             <div className='accounts-chart'>
-              <GradientDonut model_name={"strategy_collection"} />
+              <UsdBalanceDonut model_name={"strategy_collection"} />
             </div>
           </div>
         </div>

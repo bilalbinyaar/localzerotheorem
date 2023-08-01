@@ -507,7 +507,7 @@ export default function NavMobile(props) {
                 </CustomLink>
                 <CustomLink to="/account-details" onClick={toCloseNav}>
                   <BiDetail className="nav-icons nav-icons-mobile" />
-                  Account Details
+                  Accounts
                 </CustomLink>
                 <CustomLink to="/compare-models" onClick={toCloseNav}>
                   <BiColumns className="nav-icons nav-icons-mobile" />

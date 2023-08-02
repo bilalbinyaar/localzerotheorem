@@ -9,11 +9,9 @@
 
 body {
   background-color: var(--color-day-black);
-  background: linear-gradient(
-    180deg,
-    var(--color-gradient-one) -34.49%,
-    var(--color-gradient-two) 51.43%
-  );
+  background: linear-gradient(180deg,
+      var(--color-gradient-one) -34.49%,
+      var(--color-gradient-two) 51.43%);
 }
 
 .light-theme {
@@ -84,6 +82,13 @@ body {
   margin: 0 auto;
   padding: 4rem 3.4rem;
 }
+
+.container-strategies {
+  width: 90%;
+  margin: 0 auto;
+  padding: 4rem 3.4rem;
+}
+
 .ledgerDownload {
   width: 74% !important;
   margin: 0 auto !important;
@@ -325,6 +330,7 @@ form .form-inner input[type='submit']:hover {
   color: rgba(255, 0, 0, 0.733);
   margin-bottom: 10px;
 }
+
 /* Login css */
 
 /* Apex CSS */
@@ -495,6 +501,7 @@ a:-webkit-any-link {
   justify-content: center;
   align-items: center;
 }
+
 .best-performing-spline div {
   width: 220px !important;
   height: 110px !important;
@@ -698,6 +705,7 @@ a:-webkit-any-link {
     top: -10px !important;
   }
 }
+
 /* MUI ALL TIME DROP DOWN */
 
 /* MUI CURRENCY AND MODEL DROPDOWNS */
@@ -789,6 +797,7 @@ a:-webkit-any-link {
   background-color: var(--color-day-yellow) !important;
   color: #000000 !important;
 }
+
 /* MUI CURRENCY AND MODEL DROPDOWNS */
 
 .MuiTablePagination-selectLabel {
@@ -845,13 +854,16 @@ a:-webkit-any-link {
   background-color: var(--color-day-yellow) !important;
   color: black !important;
 }
+
 .css-1omp2b7.Mui-selected {
   background-color: var(--color-day-yellow) !important;
   color: black !important;
 }
+
 .css-8nphli .MuiTablePagination-actions {
   display: none !important;
 }
+
 .MuiTablePagination-actions {
   display: none !important;
 }
@@ -969,15 +981,18 @@ a:-webkit-any-link {
 .series-G1_Pfvwd .titleWrapper-G1_Pfvwd .title-G1_Pfvwd.mainTitle-G1_Pfvwd {
   display: none !important;
 }
+
 .selected-G1_Pfvwd .buttons-G1_Pfvwd,
 .selected-G1_Pfvwd .buttons-G1_Pfvwd .button-G1_Pfvwd:not(:first-child),
 .selected-G1_Pfvwd .buttonsWrapper-G1_Pfvwd,
 .selected-G1_Pfvwd .titleWrapper-G1_Pfvwd {
   display: none !important;
 }
+
 #tv_chart_container {
   background-color: yellow !important;
 }
+
 .container2 {
   width: 77.5%;
   margin: 0 auto;
@@ -985,18 +1000,21 @@ a:-webkit-any-link {
   margin-bottom: 7%;
   padding: 4rem 3.4rem;
 }
+
 @media screen and (max-width: 480px) {
   .container2 {
     margin-right: 10% !important;
     margin-bottom: 20% !important;
   }
 }
+
 .container3 {
   width: 74%;
   margin: 0 auto;
   /* height: 400px !important; */
   padding: 4rem 3.4rem;
 }
+
 @media screen and (max-width: 480px) {
   .container3 {
     width: 100%;
@@ -1007,22 +1025,25 @@ a:-webkit-any-link {
 }
 
 /* MATH JAX */
-mjx-container[jax='SVG'] > svg {
+mjx-container[jax='SVG']>svg {
   color: var(--color-day-black);
 }
+
 @media screen and (max-width: 568px) {
-  mjx-container[jax='SVG'] > svg {
+  mjx-container[jax='SVG']>svg {
     width: 92%;
     height: 100%;
   }
 }
 
-.hidden > div > div:last-child {
+.hidden>div>div:last-child {
   display: none;
 }
-.canvas > div > div > div > div:first-child {
+
+.canvas>div>div>div>div:first-child {
   display: none;
 }
+
 .canvasjs-chart-credit {
   display: none !important;
 }
@@ -1600,7 +1621,7 @@ pre[class*='language-'] {
 }
 
 @media screen and (max-width: 568px) {
-  .balance-details-wrapper{
+  .balance-details-wrapper {
     flex-direction: column;
   }
 
@@ -1615,7 +1636,7 @@ pre[class*='language-'] {
   }
 
   .balance-details .container {
-    padding: 3rem 0 0 0 ;
+    padding: 3rem 0 0 0;
   }
 
   .accounts-chart {

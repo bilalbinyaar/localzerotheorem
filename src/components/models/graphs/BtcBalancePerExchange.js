@@ -37,13 +37,13 @@ const BtcBalancePerExchange = (props) => {
                         var usd_balance = [];
                         var btc_balance = [];
                         var balance = [];
-                        console.log("Here is data -->", data)
+                        // console.log("Here is data -->", data)
                         // for (var i = 0; i < data["response"].length; i++) {
                         // console.log(data["response"][i].btc_balances);
                         model_names.push("Bitmex");
                         model_names.push("Okx")
-                        balance.push(data["response"][0].bitmex_btc_balance);
-                        balance.push(data["response"][0].okx_btc_balance);
+                        balance.push(parseFloat(data["response"][0].bitmex_btc_balance.toFixed(4)));
+                        balance.push(parseFloat(data["response"][0].okx_btc_balance.toFixed(4)));
                         // btc_balance.push(data["reposnse"][i].btc_balances);
 
                         if (model_name.length > 0) {

@@ -35,7 +35,7 @@ const RecentlyViewed = (props) => {
           .getElementById(`${id}`)
           .setAttribute("style", "color:#16C784 !important");
       }
-    } catch {}
+    } catch { }
   };
   // console.log("States --->", persistant_states.scrollRecently);
   const {
@@ -58,7 +58,7 @@ const RecentlyViewed = (props) => {
   const [topPerformerModels, setTopPerformersModels] = useState([]);
   useEffect(() => {
     try {
-      if (authCheckLoginInvestor == "TrueSignal") {
+      if (authCheckLoginInvestor == "True") {
         fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
           method: "GET",
           headers: {
@@ -216,7 +216,7 @@ const RecentlyViewed = (props) => {
 
   useEffect(() => {
     try {
-      if (authCheckLoginInvestor == "TrueSignal") {
+      if (authCheckLoginInvestor == "True") {
         fetch(
           "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
           {
@@ -423,7 +423,7 @@ const RecentlyViewed = (props) => {
       ) : null}
 
       <div>
-        {authCheckLoginInvestor == "TrueSignal" ? (
+        {authCheckLoginInvestor == "True" ? (
           <h2>Top Strategies</h2>
         ) : (
           <h2>Popular Models</h2>
@@ -449,13 +449,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[0].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[0].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -481,7 +481,7 @@ const RecentlyViewed = (props) => {
                 <AiFillCaretUp className="model-details-right-percentage-icon" />
                 <p>
                   {Object.values(topPerformerModels)[0] &&
-                  strategies[Object.values(topPerformerModels)[0].strategy_name]
+                    strategies[Object.values(topPerformerModels)[0].strategy_name]
                     ? `${Object.values(topPerformerModels)[0].total_pnl}%`
                     : null}
                 </p>
@@ -496,14 +496,13 @@ const RecentlyViewed = (props) => {
                     <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                     <p>
                       {Object.values(topPerformerModels)[0] &&
-                      strategies[
+                        strategies[
                         Object.values(topPerformerModels)[0].strategy_name
-                      ]
-                        ? `${
-                            strategies[
-                              Object.values(topPerformerModels)[0].strategy_name
-                            ].time_horizon
-                          }`
+                        ]
+                        ? `${strategies[
+                          Object.values(topPerformerModels)[0].strategy_name
+                        ].time_horizon
+                        }`
                         : null}
                     </p>
                   </div>
@@ -513,15 +512,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[0] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[0].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[0]
-                                  .strategy_name
-                              ].currency
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[0]
+                              .strategy_name
+                          ].currency
+                          }`
                           : null}
                       </p>
                     </div>
@@ -556,13 +554,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[1].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[1].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -587,7 +585,7 @@ const RecentlyViewed = (props) => {
                 <AiFillCaretUp className="model-details-right-percentage-icon" />
                 <p>
                   {Object.values(topPerformerModels)[1] &&
-                  strategies[Object.values(topPerformerModels)[1].strategy_name]
+                    strategies[Object.values(topPerformerModels)[1].strategy_name]
                     ? `${Object.values(topPerformerModels)[1].total_pnl}%`
                     : null}
                 </p>
@@ -602,14 +600,13 @@ const RecentlyViewed = (props) => {
                     <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                     <p>
                       {Object.values(topPerformerModels)[1] &&
-                      strategies[
+                        strategies[
                         Object.values(topPerformerModels)[1].strategy_name
-                      ]
-                        ? `${
-                            strategies[
-                              Object.values(topPerformerModels)[1].strategy_name
-                            ].time_horizon
-                          }`
+                        ]
+                        ? `${strategies[
+                          Object.values(topPerformerModels)[1].strategy_name
+                        ].time_horizon
+                        }`
                         : null}
                     </p>
                   </div>
@@ -619,15 +616,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[1] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[1].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[1]
-                                  .strategy_name
-                              ].currency
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[1]
+                              .strategy_name
+                          ].currency
+                          }`
                           : null}
                       </p>
                     </div>
@@ -662,13 +658,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[2].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[2].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -693,7 +689,7 @@ const RecentlyViewed = (props) => {
                 <AiFillCaretUp className="model-details-right-percentage-icon" />
                 <p>
                   {Object.values(topPerformerModels)[2] &&
-                  strategies[Object.values(topPerformerModels)[2].strategy_name]
+                    strategies[Object.values(topPerformerModels)[2].strategy_name]
                     ? `${Object.values(topPerformerModels)[2].total_pnl}%`
                     : null}
                 </p>
@@ -708,14 +704,13 @@ const RecentlyViewed = (props) => {
                     <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                     <p>
                       {Object.values(topPerformerModels)[2] &&
-                      strategies[
+                        strategies[
                         Object.values(topPerformerModels)[2].strategy_name
-                      ]
-                        ? `${
-                            strategies[
-                              Object.values(topPerformerModels)[2].strategy_name
-                            ].time_horizon
-                          }`
+                        ]
+                        ? `${strategies[
+                          Object.values(topPerformerModels)[2].strategy_name
+                        ].time_horizon
+                        }`
                         : null}
                     </p>
                   </div>
@@ -725,15 +720,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[2] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[2].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[2]
-                                  .strategy_name
-                              ].currency
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[2]
+                              .strategy_name
+                          ].currency
+                          }`
                           : null}
                       </p>
                     </div>
@@ -768,13 +762,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[3].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[3].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -799,7 +793,7 @@ const RecentlyViewed = (props) => {
                 <AiFillCaretUp className="model-details-right-percentage-icon" />
                 <p>
                   {Object.values(topPerformerModels)[3] &&
-                  strategies[Object.values(topPerformerModels)[3].strategy_name]
+                    strategies[Object.values(topPerformerModels)[3].strategy_name]
                     ? `${Object.values(topPerformerModels)[3].total_pnl}%`
                     : null}
                 </p>
@@ -814,14 +808,13 @@ const RecentlyViewed = (props) => {
                     <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                     <p>
                       {Object.values(topPerformerModels)[3] &&
-                      strategies[
+                        strategies[
                         Object.values(topPerformerModels)[3].strategy_name
-                      ]
-                        ? `${
-                            strategies[
-                              Object.values(topPerformerModels)[3].strategy_name
-                            ].time_horizon
-                          }`
+                        ]
+                        ? `${strategies[
+                          Object.values(topPerformerModels)[3].strategy_name
+                        ].time_horizon
+                        }`
                         : null}
                     </p>
                   </div>
@@ -831,15 +824,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[3] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[3].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[3]
-                                  .strategy_name
-                              ].currency
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[3]
+                              .strategy_name
+                          ].currency
+                          }`
                           : null}
                       </p>
                     </div>
@@ -874,13 +866,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[4].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[4].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -905,7 +897,7 @@ const RecentlyViewed = (props) => {
                 <AiFillCaretUp className="model-details-right-percentage-icon" />
                 <p>
                   {Object.values(topPerformerModels)[4] &&
-                  strategies[Object.values(topPerformerModels)[4].strategy_name]
+                    strategies[Object.values(topPerformerModels)[4].strategy_name]
                     ? `${Object.values(topPerformerModels)[4].total_pnl}%`
                     : null}
                 </p>
@@ -920,14 +912,13 @@ const RecentlyViewed = (props) => {
                     <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                     <p>
                       {Object.values(topPerformerModels)[4] &&
-                      strategies[
+                        strategies[
                         Object.values(topPerformerModels)[4].strategy_name
-                      ]
-                        ? `${
-                            strategies[
-                              Object.values(topPerformerModels)[4].strategy_name
-                            ].time_horizon
-                          }`
+                        ]
+                        ? `${strategies[
+                          Object.values(topPerformerModels)[4].strategy_name
+                        ].time_horizon
+                        }`
                         : null}
                     </p>
                   </div>
@@ -937,15 +928,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[4] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[4].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[4]
-                                  .strategy_name
-                              ].currency
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[4]
+                              .strategy_name
+                          ].currency
+                          }`
                           : null}
                       </p>
                     </div>
@@ -982,13 +972,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[0].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[0].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -1012,9 +1002,9 @@ const RecentlyViewed = (props) => {
 
               <div className="model-details-right-percentage">
                 {Object.values(topPerformerModels)[0] &&
-                strategies[
+                  strategies[
                   Object.values(topPerformerModels)[0].strategy_name
-                ] ? (
+                  ] ? (
                   Object.values(topPerformerModels)[0].total_pnl >= 0 ? (
                     <AiFillCaretUp
                       className="model-details-right-percentage-icon"
@@ -1032,20 +1022,20 @@ const RecentlyViewed = (props) => {
                   id="pnl-color23"
                   onChange={
                     Object.values(topPerformerModels)[0] &&
-                    strategies[
+                      strategies[
                       Object.values(topPerformerModels)[0].strategy_name
-                    ]
+                      ]
                       ? forColor(
-                          parseFloat(
-                            Object.values(topPerformerModels)[0].total_pnl
-                          ),
-                          "pnl-color23"
-                        )
+                        parseFloat(
+                          Object.values(topPerformerModels)[0].total_pnl
+                        ),
+                        "pnl-color23"
+                      )
                       : null
                   }
                 >
                   {Object.values(topPerformerModels)[0] &&
-                  strategies[Object.values(topPerformerModels)[0].strategy_name]
+                    strategies[Object.values(topPerformerModels)[0].strategy_name]
                     ? `${Object.values(topPerformerModels)[0].total_pnl}%`
                     : null}
                 </p>
@@ -1061,15 +1051,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[0] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[0].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[0]
-                                  .strategy_name
-                              ].time_horizon
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[0]
+                              .strategy_name
+                          ].time_horizon
+                          }`
                           : null}
                       </p>
                     </div>
@@ -1081,15 +1070,14 @@ const RecentlyViewed = (props) => {
                         <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                         <p>
                           {Object.values(topPerformerModels)[0] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[0].strategy_name
-                          ]
-                            ? `${
-                                strategies[
-                                  Object.values(topPerformerModels)[0]
-                                    .strategy_name
-                                ].currency
-                              }`
+                            ]
+                            ? `${strategies[
+                              Object.values(topPerformerModels)[0]
+                                .strategy_name
+                            ].currency
+                            }`
                             : null}
                         </p>
                       </div>
@@ -1125,13 +1113,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[1].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[1].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -1154,9 +1142,9 @@ const RecentlyViewed = (props) => {
               </div>
               <div className="model-details-right-percentage">
                 {Object.values(topPerformerModels)[1] &&
-                strategies[
+                  strategies[
                   Object.values(topPerformerModels)[1].strategy_name
-                ] ? (
+                  ] ? (
                   Object.values(topPerformerModels)[1].total_pnl >= 0 ? (
                     <AiFillCaretUp
                       className="model-details-right-percentage-icon"
@@ -1173,20 +1161,20 @@ const RecentlyViewed = (props) => {
                   id="pnl-color22"
                   onChange={
                     Object.values(topPerformerModels)[1] &&
-                    strategies[
+                      strategies[
                       Object.values(topPerformerModels)[1].strategy_name
-                    ]
+                      ]
                       ? forColor(
-                          parseFloat(
-                            Object.values(topPerformerModels)[1].total_pnl
-                          ),
-                          "pnl-color22"
-                        )
+                        parseFloat(
+                          Object.values(topPerformerModels)[1].total_pnl
+                        ),
+                        "pnl-color22"
+                      )
                       : null
                   }
                 >
                   {Object.values(topPerformerModels)[1] &&
-                  strategies[Object.values(topPerformerModels)[1].strategy_name]
+                    strategies[Object.values(topPerformerModels)[1].strategy_name]
                     ? `${Object.values(topPerformerModels)[1].total_pnl}%`
                     : null}
                 </p>
@@ -1202,15 +1190,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[1] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[1].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[1]
-                                  .strategy_name
-                              ].time_horizon
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[1]
+                              .strategy_name
+                          ].time_horizon
+                          }`
                           : null}
                       </p>
                     </div>
@@ -1222,15 +1209,14 @@ const RecentlyViewed = (props) => {
                         <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                         <p>
                           {Object.values(topPerformerModels)[1] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[1].strategy_name
-                          ]
-                            ? `${
-                                strategies[
-                                  Object.values(topPerformerModels)[1]
-                                    .strategy_name
-                                ].currency
-                              }`
+                            ]
+                            ? `${strategies[
+                              Object.values(topPerformerModels)[1]
+                                .strategy_name
+                            ].currency
+                            }`
                             : null}
                         </p>
                       </div>
@@ -1266,13 +1252,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[2].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[2].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -1295,9 +1281,9 @@ const RecentlyViewed = (props) => {
               </div>
               <div className="model-details-right-percentage">
                 {Object.values(topPerformerModels)[2] &&
-                strategies[
+                  strategies[
                   Object.values(topPerformerModels)[2].strategy_name
-                ] ? (
+                  ] ? (
                   Object.values(topPerformerModels)[2].total_pnl >= 0 ? (
                     <AiFillCaretUp
                       className="model-details-right-percentage-icon"
@@ -1314,20 +1300,20 @@ const RecentlyViewed = (props) => {
                   id="pnl-color21"
                   onChange={
                     Object.values(topPerformerModels)[2] &&
-                    strategies[
+                      strategies[
                       Object.values(topPerformerModels)[2].strategy_name
-                    ]
+                      ]
                       ? forColor(
-                          parseFloat(
-                            Object.values(topPerformerModels)[2].total_pnl
-                          ),
-                          "pnl-color21"
-                        )
+                        parseFloat(
+                          Object.values(topPerformerModels)[2].total_pnl
+                        ),
+                        "pnl-color21"
+                      )
                       : null
                   }
                 >
                   {Object.values(topPerformerModels)[2] &&
-                  strategies[Object.values(topPerformerModels)[2].strategy_name]
+                    strategies[Object.values(topPerformerModels)[2].strategy_name]
                     ? `${Object.values(topPerformerModels)[2].total_pnl}%`
                     : null}
                 </p>
@@ -1343,15 +1329,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[2] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[2].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[2]
-                                  .strategy_name
-                              ].time_horizon
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[2]
+                              .strategy_name
+                          ].time_horizon
+                          }`
                           : null}
                       </p>
                     </div>
@@ -1363,15 +1348,14 @@ const RecentlyViewed = (props) => {
                         <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                         <p>
                           {Object.values(topPerformerModels)[2] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[2].strategy_name
-                          ]
-                            ? `${
-                                strategies[
-                                  Object.values(topPerformerModels)[2]
-                                    .strategy_name
-                                ].currency
-                              }`
+                            ]
+                            ? `${strategies[
+                              Object.values(topPerformerModels)[2]
+                                .strategy_name
+                            ].currency
+                            }`
                             : null}
                         </p>
                       </div>
@@ -1407,13 +1391,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[3].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[3].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -1436,9 +1420,9 @@ const RecentlyViewed = (props) => {
               </div>
               <div className="model-details-right-percentage">
                 {Object.values(topPerformerModels)[3] &&
-                strategies[
+                  strategies[
                   Object.values(topPerformerModels)[3].strategy_name
-                ] ? (
+                  ] ? (
                   Object.values(topPerformerModels)[3].total_pnl >= 0 ? (
                     <AiFillCaretUp
                       className="model-details-right-percentage-icon"
@@ -1455,20 +1439,20 @@ const RecentlyViewed = (props) => {
                   id="pnl-color20"
                   onChange={
                     Object.values(topPerformerModels)[3] &&
-                    strategies[
+                      strategies[
                       Object.values(topPerformerModels)[3].strategy_name
-                    ]
+                      ]
                       ? forColor(
-                          parseFloat(
-                            Object.values(topPerformerModels)[3].total_pnl
-                          ),
-                          "pnl-color20"
-                        )
+                        parseFloat(
+                          Object.values(topPerformerModels)[3].total_pnl
+                        ),
+                        "pnl-color20"
+                      )
                       : null
                   }
                 >
                   {Object.values(topPerformerModels)[3] &&
-                  strategies[Object.values(topPerformerModels)[3].strategy_name]
+                    strategies[Object.values(topPerformerModels)[3].strategy_name]
                     ? `${Object.values(topPerformerModels)[3].total_pnl}%`
                     : null}
                 </p>
@@ -1484,15 +1468,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[3] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[3].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[3]
-                                  .strategy_name
-                              ].time_horizon
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[3]
+                              .strategy_name
+                          ].time_horizon
+                          }`
                           : null}
                       </p>
                     </div>
@@ -1504,15 +1487,14 @@ const RecentlyViewed = (props) => {
                         <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                         <p>
                           {Object.values(topPerformerModels)[3] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[3].strategy_name
-                          ]
-                            ? `${
-                                strategies[
-                                  Object.values(topPerformerModels)[3]
-                                    .strategy_name
-                                ].currency
-                              }`
+                            ]
+                            ? `${strategies[
+                              Object.values(topPerformerModels)[3]
+                                .strategy_name
+                            ].currency
+                            }`
                             : null}
                         </p>
                       </div>
@@ -1548,13 +1530,13 @@ const RecentlyViewed = (props) => {
               <div
                 className="link-model-names-div"
                 style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   linkModels(
-                //     `/${Object.values(
-                //       topPerformerModels
-                //     )[4].strategy_name.replace(/_/g, "-")}`
-                //   );
-                // }}
+              // onClick={() => {
+              //   linkModels(
+              //     `/${Object.values(
+              //       topPerformerModels
+              //     )[4].strategy_name.replace(/_/g, "-")}`
+              //   );
+              // }}
               >
                 {Object.keys(topPerformerModels).length > 0 ? (
                   <div>
@@ -1577,9 +1559,9 @@ const RecentlyViewed = (props) => {
               </div>
               <div className="model-details-right-percentage">
                 {Object.values(topPerformerModels)[4] &&
-                strategies[
+                  strategies[
                   Object.values(topPerformerModels)[4].strategy_name
-                ] ? (
+                  ] ? (
                   Object.values(topPerformerModels)[4].total_pnl >= 0 ? (
                     <AiFillCaretUp
                       className="model-details-right-percentage-icon"
@@ -1596,20 +1578,20 @@ const RecentlyViewed = (props) => {
                   id="pnl-color19"
                   onChange={
                     Object.values(topPerformerModels)[4] &&
-                    strategies[
+                      strategies[
                       Object.values(topPerformerModels)[4].strategy_name
-                    ]
+                      ]
                       ? forColor(
-                          parseFloat(
-                            Object.values(topPerformerModels)[4].total_pnl
-                          ),
-                          "pnl-color19"
-                        )
+                        parseFloat(
+                          Object.values(topPerformerModels)[4].total_pnl
+                        ),
+                        "pnl-color19"
+                      )
                       : null
                   }
                 >
                   {Object.values(topPerformerModels)[4] &&
-                  strategies[Object.values(topPerformerModels)[4].strategy_name]
+                    strategies[Object.values(topPerformerModels)[4].strategy_name]
                     ? `${Object.values(topPerformerModels)[4].total_pnl}%`
                     : null}
                 </p>
@@ -1625,15 +1607,14 @@ const RecentlyViewed = (props) => {
                       <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                       <p>
                         {Object.values(topPerformerModels)[4] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[4].strategy_name
-                        ]
-                          ? `${
-                              strategies[
-                                Object.values(topPerformerModels)[4]
-                                  .strategy_name
-                              ].time_horizon
-                            }`
+                          ]
+                          ? `${strategies[
+                            Object.values(topPerformerModels)[4]
+                              .strategy_name
+                          ].time_horizon
+                          }`
                           : null}
                       </p>
                     </div>
@@ -1645,15 +1626,14 @@ const RecentlyViewed = (props) => {
                         <AiOutlineDollarCircle className="model-details-left-body-stats-icon para-margin" />
                         <p>
                           {Object.values(topPerformerModels)[4] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[4].strategy_name
-                          ]
-                            ? `${
-                                strategies[
-                                  Object.values(topPerformerModels)[4]
-                                    .strategy_name
-                                ].currency
-                              }`
+                            ]
+                            ? `${strategies[
+                              Object.values(topPerformerModels)[4]
+                                .strategy_name
+                            ].currency
+                            }`
                             : null}
                         </p>
                       </div>

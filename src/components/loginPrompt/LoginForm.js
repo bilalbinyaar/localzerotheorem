@@ -64,69 +64,69 @@ function LoginForm() {
         className="login-form-btn"
         type="auth"
         value="Sign Up"
-        // onClick={() => {
-        //   console.log("Submit button is clicked");
-        //   const email = document.getElementById("email").value;
-        //   const password = document.getElementById("password").value;
-        //   if (!email || !password) {
-        //     console.log();
-        //     // alert("Kindly enter input details for signup");
-        //     Swal.fire({
-        //       title: "Kindly enter input details",
-        //       icon: "error",
-        //       timer: 2000,
-        //       timerProgressBar: true,
-        //       toast: true,
-        //       position: "top-right",
-        //       showConfirmButton: false,
-        //     });
-        //   } else if (isChecked == false) {
-        //     Swal.fire({
-        //       title: "Kindly agree to our term and conditions",
-        //       icon: "error",
-        //       timer: 2000,
-        //       timerProgressBar: true,
-        //       toast: true,
-        //       position: "top-right",
-        //       showConfirmButton: false,
-        //     });
-        //   } else {
-        //     console.log(email, password);
-        //     createUserWithEmailAndPassword(auth, email, password)
-        //       .then((userCredential) => {
-        //         // Signed in
-        //         const user = userCredential.user;
-        //         Swal.fire({
-        //           title: "User account is created successfully",
-        //           icon: "success",
-        //           timer: 2000,
-        //           timerProgressBar: true,
-        //           toast: true,
-        //           position: "top-right",
-        //           showConfirmButton: false,
-        //         });
-        //         handleClosePopup();
-        //         setAuthCheckLogin(true);
-        //         // setAuthCheck(true);
-        //         // alert("User account is created successfully");
-        //         // ...
-        //       })
-        //       .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         Swal.fire({
-        //           title: "Unable to create account with your credentials",
-        //           icon: "error",
-        //           timer: 2000,
-        //           timerProgressBar: true,
-        //           toast: true,
-        //           position: "top-right",
-        //           showConfirmButton: false,
-        //         });
-        //         // alert("Unable to create account with your credentials");
-        //       });
-        //   }
-        // }}
+      // onClick={() => {
+      //   console.log("Submit button is clicked");
+      //   const email = document.getElementById("email").value;
+      //   const password = document.getElementById("password").value;
+      //   if (!email || !password) {
+      //     console.log();
+      //     // alert("Kindly enter input details for signup");
+      //     Swal.fire({
+      //       title: "Kindly enter input details",
+      //       icon: "error",
+      //       timer: 2000,
+      //       timerProgressBar: true,
+      //       toast: true,
+      //       position: "top-right",
+      //       showConfirmButton: false,
+      //     });
+      //   } else if (isChecked == false) {
+      //     Swal.fire({
+      //       title: "Kindly agree to our term and conditions",
+      //       icon: "error",
+      //       timer: 2000,
+      //       timerProgressBar: true,
+      //       toast: true,
+      //       position: "top-right",
+      //       showConfirmButton: false,
+      //     });
+      //   } else {
+      //     console.log(email, password);
+      //     createUserWithEmailAndPassword(auth, email, password)
+      //       .then((userCredential) => {
+      //         // Signed in
+      //         const user = userCredential.user;
+      //         Swal.fire({
+      //           title: "User account is created successfully",
+      //           icon: "success",
+      //           timer: 2000,
+      //           timerProgressBar: true,
+      //           toast: true,
+      //           position: "top-right",
+      //           showConfirmButton: false,
+      //         });
+      //         handleClosePopup();
+      //         setAuthCheckLogin(true);
+      //         // setAuthCheck(true);
+      //         // alert("User account is created successfully");
+      //         // ...
+      //       })
+      //       .catch((error) => {
+      //         const errorCode = error.code;
+      //         const errorMessage = error.message;
+      //         Swal.fire({
+      //           title: "Unable to create account with your credentials",
+      //           icon: "error",
+      //           timer: 2000,
+      //           timerProgressBar: true,
+      //           toast: true,
+      //           position: "top-right",
+      //           showConfirmButton: false,
+      //         });
+      //         // alert("Unable to create account with your credentials");
+      //       });
+      //   }
+      // }}
       />
       <div className="or-div">
         <span>
@@ -215,13 +215,13 @@ function LoginForm() {
                 adminUserMain.investorPassword == input &&
                 adminUserMain.investorMain == email
               ) {
-                setAuthCheckLoginInvestor("TrueSignal");
+                setAuthCheckLoginInvestor("True");
                 handleInvestorLogin();
               } else if (
                 adminUserMain.investorPassword == input &&
                 adminUserMain.investorSecondary == email
               ) {
-                setAuthCheckLoginInvestor("TrueSignal");
+                setAuthCheckLoginInvestor("True");
                 handleInvestorLogin();
               } else {
                 event.stopPropagation();

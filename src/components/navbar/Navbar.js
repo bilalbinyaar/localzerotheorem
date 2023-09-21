@@ -501,7 +501,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {authCheckLoginInvestor == 'TrueSignal' ? (
+          {authCheckLoginInvestor == 'True' ? (
             <ul
               id="mobile-nav"
               className={click ? 'nav-menu active' : 'nav-menu'}
@@ -512,9 +512,9 @@ export default function Navbar() {
               <CustomLink to="/risk-management" onClick={toCloseNav}>
                 Risk Management
               </CustomLink>
-              <CustomLink to="/account-details" className="menu-item">
+              {/* <CustomLink to="/account-details" className="menu-item">
                 Accounts
-              </CustomLink>
+              </CustomLink> */}
               <CustomLink to="/compare-strategies" className="menu-item">
                 Compare
               </CustomLink>
@@ -632,7 +632,7 @@ export default function Navbar() {
 
           {toggle && (
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              {authCheckLoginInvestor === 'TrueSignal' ? (
+              {authCheckLoginInvestor === 'True' ? (
                 <div>
                   <p className="welcome-user welcome-user-mobile">
                     Welcome, {userEmail}
@@ -847,7 +847,7 @@ export default function Navbar() {
             </div>
           ) } */}
 
-          {authCheckLoginInvestor == 'TrueSignal' ? (
+          {authCheckLoginInvestor == 'True' ? (
             <div className="btn-group nav-btn">
               <button
                 className="btn btn-nav"

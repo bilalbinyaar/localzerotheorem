@@ -495,7 +495,7 @@ export default function NavMobile(props) {
           //   <ul className={click ? "nav-menu active" : "nav-menu"}>
 
           <div>
-            {authCheckLoginInvestor == 'TrueSignal' ? (
+            {authCheckLoginInvestor == 'True' ? (
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <CustomLink to="/" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
@@ -505,10 +505,10 @@ export default function NavMobile(props) {
                   <MdManageAccounts className="nav-icons" />
                   Risk Management
                 </CustomLink>
-                <CustomLink to="/account-details" onClick={toCloseNav}>
+                {/* <CustomLink to="/account-details" onClick={toCloseNav}>
                   <BiDetail className="nav-icons nav-icons-mobile" />
                   Accounts
-                </CustomLink>
+                </CustomLink> */}
                 <CustomLink to="/compare-models" onClick={toCloseNav}>
                   <BiColumns className="nav-icons nav-icons-mobile" />
                   Compare

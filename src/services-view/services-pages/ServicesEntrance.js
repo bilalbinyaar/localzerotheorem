@@ -2,7 +2,7 @@ import React from 'react';
 import videoBackground from '../../assets/2x-bg.mp4';
 import logoWhite from '../../assets/logo-white.svg';
 import '../ServicesView.css';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const ServicesEntrance = () => {
@@ -10,15 +10,15 @@ const ServicesEntrance = () => {
   const handleClick = (event) => {
     event.preventDefault();
     navigate('/services-about');
-    Swal.fire({
-      title: 'Services View',
-      icon: 'success',
-      timer: 3000,
-      timerProgressBar: true,
-      toast: true,
-      position: 'top-right',
-      showConfirmButton: false,
-    });
+    // Swal.fire({
+    //   title: 'Services View',
+    //   icon: 'success',
+    //   timer: 1000,
+    //   timerProgressBar: true,
+    //   toast: true,
+    //   position: 'top-right',
+    //   showConfirmButton: false,
+    // });
   };
   return (
     <div>

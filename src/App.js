@@ -37,6 +37,18 @@ import CompareStrategies from './pages/CompareStrategies';
 import AccountDetails from './pages/AccountDetails';
 import ServicesEntrance from './services-view/services-pages/ServicesEntrance';
 import ServicesAbout from './services-view/services-pages/ServicesAbout';
+import ServicesHypothesis from './services-view/services-pages/ServicesHypothesis';
+import HypoRepresentationofaNewAssetClassviaSubstitution from './services-view/services-pages/hypothesisPages/HypoRepresentationofaNewAssetClassviaSubstitution';
+import HypoTheGoverningEquation from './services-view/services-pages/hypothesisPages/HypoTheGoverningEquation';
+import HypoInvestigatingAlpha from './services-view/services-pages/hypothesisPages/HypoInvestigatingAlpha';
+import HypoSensitivityAnalysisGeneralCase from './services-view/services-pages/hypothesisPages/HypoSensitivityAnalysisGeneralCase';
+import HypoSenstitivityAnalysisMarketSpecificAlpha from './services-view/services-pages/hypothesisPages/HypoSenstitivityAnalysisMarketSpecificAlpha';
+import HypoSenstitivityAnalysisSingleAlphaCas from './services-view/services-pages/hypothesisPages/HypoSenstitivityAnalysisSingleAlphaCas';
+import HypoAnInitialSolution from './services-view/services-pages/hypothesisPages/HypoAnInitialSolution';
+import BTCExample from './services-view/services-pages/BTCExample';
+import ServicesDocs from './services-view/services-pages/ServicesDocs';
+import ServicesBacktest from './services-view/services-pages/ServicesBacktest';
+import ServicesCompare from './services-view/services-pages/ServicesCompare';
 
 function App() {
   const { loading, checkLoginMain, authCheckLoginInvestor } = useStateContext();
@@ -245,6 +257,39 @@ function App() {
         <Routes basename="/zero-theorem">
           <Route path="/" element={<ServicesEntrance />} />
           <Route path="/services-about" element={<ServicesAbout />} />
+          <Route path="/hypothesis" element={<ServicesHypothesis />} />
+          <Route
+            path="/hypothesis-of-representation-of-a-new-asset-class-via-substitution"
+            element={<HypoRepresentationofaNewAssetClassviaSubstitution />}
+          />
+          <Route
+            path="/hypothesis-of-the-governing-equation"
+            element={<HypoTheGoverningEquation />}
+          />
+          <Route
+            path="/hypothesis-of-investigating-alpha"
+            element={<HypoInvestigatingAlpha />}
+          />
+          <Route
+            path="/hypothesis-of-sensitivity-analysis-general-case"
+            element={<HypoSensitivityAnalysisGeneralCase />}
+          />
+          <Route
+            path="/hypothesis-of-senstitivity-analysis-market-specific-alpha"
+            element={<HypoSenstitivityAnalysisMarketSpecificAlpha />}
+          />
+          <Route
+            path="/hypothesis-of-senstitivity-analysis-single-alpha-case"
+            element={<HypoSenstitivityAnalysisSingleAlphaCas />}
+          />
+          <Route
+            path="/hypothesis-of-an-initial-solution"
+            element={<HypoAnInitialSolution />}
+          />
+          <Route path="/ZT1-SM8H-1" element={<BTCExample />} />
+          <Route path="/backtest-strategies" element={<ServicesBacktest />} />
+          <Route path="/compare-strategies" element={<ServicesCompare />} />
+          <Route path="/documentations" element={<ServicesDocs />} />
         </Routes>
       </React.Fragment>
     )

@@ -87,7 +87,9 @@ export default function ServicesNavbar() {
             className={click ? 'nav-menu active' : 'nav-menu services-nav-menu'}
           >
             <CustomLink to="/services-about">About</CustomLink>
-            <CustomLink to="/">BTC Example</CustomLink>
+            <CustomLink to="/ZT1-SM8H-1">BTC Example</CustomLink>
+            <CustomLink to="/hypothesis">Hypothesis</CustomLink>
+            <CustomLink to="/documentations">Documentation</CustomLink>
           </ul>
 
           <div className="dark-lite">

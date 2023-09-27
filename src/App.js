@@ -49,6 +49,7 @@ import BTCExample from './services-view/services-pages/BTCExample';
 import ServicesDocs from './services-view/services-pages/ServicesDocs';
 import ServicesBacktest from './services-view/services-pages/ServicesBacktest';
 import ServicesCompare from './services-view/services-pages/ServicesCompare';
+import ServicesContact from './services-view/services-pages/ServicesContact';
 
 function App() {
   const { loading, checkLoginMain, authCheckLoginInvestor } = useStateContext();
@@ -290,6 +291,7 @@ function App() {
           <Route path="/backtest-strategies" element={<ServicesBacktest />} />
           <Route path="/compare-strategies" element={<ServicesCompare />} />
           <Route path="/documentations" element={<ServicesDocs />} />
+          <Route path="/contact-us" element={<ServicesContact />} />
         </Routes>
       </React.Fragment>
     )

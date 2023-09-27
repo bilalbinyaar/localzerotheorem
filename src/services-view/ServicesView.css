@@ -68,6 +68,7 @@
 
 .services-about-description {
   width: 100%;
+  height: 60vh;
   padding: 1.5rem;
   background-color: var(--color-day-grey);
   display: flex;
@@ -85,4 +86,142 @@
 
 .serice-about-item-img img {
   width: 150px;
+}
+
+/* CONTACT PAGE */
+
+.services-contact {
+  background-image: url(../services-view/services-assets/contact-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.services-contact .container {
+  padding: 4rem 0;
+}
+
+.services-contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services-contact-info {
+  width: 100%;
+}
+
+.services-contact-info h2 {
+  color: white;
+}
+
+.services-contact-info p {
+  color: white;
+}
+
+.services-contact-form-div {
+  width: 90%;
+}
+
+.services-contact-form h2 {
+  color: white;
+}
+
+.services-contact-form p {
+  color: white;
+  margin-bottom: 1.4rem;
+}
+
+.services-contact-form {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2.5rem 5rem;
+  border-radius: 8px;
+}
+
+.services-contact-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-contact-group label {
+  color: white;
+  margin-bottom: 0.4rem;
+  font-size: 12px;
+}
+
+.services-contact-group input {
+  padding: 0.8rem;
+  background-color: rgba(217, 217, 217, 0.4);
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+}
+
+.services-contact-group input:focus {
+  outline: none;
+}
+
+.services-contact-group textarea {
+  padding: 0.8rem;
+  background-color: rgba(217, 217, 217, 0.4);
+  border: none;
+  border-radius: 8px;
+}
+
+.services-contact-group textarea:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .services-about-wrapper {
+    align-items: unset;
+  }
+
+  .services-about-description {
+    height: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-about-wrapper {
+    flex-direction: column;
+  }
+
+  .sa-item-ml {
+    margin: 2.2rem 0;
+  }
+
+  .services-about-head {
+    margin-bottom: 0.6rem;
+  }
+
+  .services-contact-wrapper {
+    flex-direction: column;
+  }
+
+  .services-contact-form-div {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 586px) {
+  .services-about-page .container {
+    padding: 2.2rem 0;
+  }
+
+  .sa-item-ml {
+    margin: 1.6rem 0;
+  }
+
+  .services-contact {
+    margin-top: -1.8rem;
+  }
+
+  .services-contact-form {
+    padding: 2rem;
+  }
 }

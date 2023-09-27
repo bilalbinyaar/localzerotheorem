@@ -6,9 +6,9 @@ import logoBlack from '../../assets/logo-black.svg';
 import logoWhite from '../../assets/logo-white.svg';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useStateContext } from '../../ContextProvider';
-import NavMobile from '../../mobile-components/nav/NavMobile';
 import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
+import ServicesNavMobile from './ServicesNavMobile';
 
 export default function ServicesNavbar() {
   const [click, setClick] = useState(false);
@@ -67,7 +67,7 @@ export default function ServicesNavbar() {
   return (
     <div className="header">
       {windowWidth.current <= 1240 ? (
-        <NavMobile />
+        <ServicesNavMobile />
       ) : (
         <div className="container">
           <div className="nav-logo-div">
@@ -111,7 +111,9 @@ export default function ServicesNavbar() {
           </div>
 
           <div className="btn-group nav-btn">
-            <button className="btn btn-nav">Contact</button>
+            <Link to="/contact-us">
+              <button className="btn btn-nav">Contact</button>
+            </Link>
           </div>
 
           <div className="hamburger" onClick={oneClick}>

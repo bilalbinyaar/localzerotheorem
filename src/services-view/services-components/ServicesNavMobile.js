@@ -17,6 +17,7 @@ export default function ServicesNavMobile(props) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const dispatch = useDispatch();
+  const { adminInvestorView, handleAdminInvestorView } = useStateContext(); // Use the hook to access state
 
   // Login State
   const { theme, setTheme } = useStateContext();
@@ -62,6 +63,7 @@ export default function ServicesNavMobile(props) {
   function toCloseNav() {
     setToggle(false);
     setClick(false);
+    handleAdminInvestorView();
   }
 
   return (
@@ -77,11 +79,11 @@ export default function ServicesNavMobile(props) {
 
         <div className="nav-logo-div">
           {theme === 'dark-theme' ? (
-            <Link to="/">
+            <Link to="/services-about">
               <img className="nav-logo-img" src={logoWhite} alt="logo" />
             </Link>
           ) : (
-            <Link to="/">
+            <Link to="/services-about">
               <img className="nav-logo-img" src={logoBlack} alt="logo" />
             </Link>
           )}
@@ -93,7 +95,7 @@ export default function ServicesNavMobile(props) {
               <AiFillHome className="nav-icons" />
               About
             </CustomLink>
-            <CustomLink to="/ZT1-SM8H-1" onClick={toCloseNav}>
+            <CustomLink to="/ZT1-SE9H-1" onClick={toCloseNav}>
               <BsGraphUp className="nav-icons" />
               BTC Example
             </CustomLink>
@@ -103,11 +105,15 @@ export default function ServicesNavMobile(props) {
             </CustomLink>
             <CustomLink to="/documentations" onClick={toCloseNav}>
               <FaRegEdit className="nav-icons" />
-              Documentation
+              API
             </CustomLink>
             <CustomLink to="/contact-us" onClick={toCloseNav}>
               <AiOutlineContacts className="nav-icons" />
               Contact
+            </CustomLink>
+            <CustomLink to="/login" onClick={toCloseNav} >
+              <AiOutlineContacts className="nav-icons" />
+              Login
             </CustomLink>
           </ul>
         )}

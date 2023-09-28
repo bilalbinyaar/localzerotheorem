@@ -5,17 +5,32 @@ import App from "./App";
 import { BrowserRouter, Route } from "react-router-dom";
 import { ContextProvider } from "./ContextProvider";
 import { PersistGate } from "redux-persist/integration/react";
-
+import { useStateContext } from "../src/ContextProvider";
 import { Provider } from "react-redux";
 import { store, persistor } from "./store";
+import AdminApp from "./AdminApp";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const CheckView = () => {
+  const { adminInvestorView,
+    handleAdminInvestorView } = useStateContext(); // Use the hook to access state
+
+  // Now you can use authCheckLoginInvestor in your component
+  // For example, you can log it to the console
+  // console.log(adminInvestorView);
+
+  return (
+    // Your component JSX here
+    < div > {adminInvestorView === false ? <App /> : <AdminApp />}</div >
+
+  );
+};
 root.render(
   <Provider store={store}>
     <ContextProvider>
       <React.StrictMode>
         <BrowserRouter>
           <PersistGate loading={null} persistor={persistor}>
-            <App />
+            <CheckView />
           </PersistGate>
         </BrowserRouter>
       </React.StrictMode>

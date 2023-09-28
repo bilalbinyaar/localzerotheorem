@@ -27,7 +27,7 @@ import DrawDown from '../../components/models/drawDown/DrawDown';
 import ServicesNavbar from '../services-components/ServicesNavbar';
 import Footer from '../../components/footer/Footer';
 
-const ServicesBacktest = () => {
+const ServicesBacktest = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
@@ -657,7 +657,7 @@ const ServicesBacktest = () => {
           if (
             stop_time_selected_for_backtest < 0 ||
             stop_time_selected_for_backtest >=
-              parseInt(time_horizon_for_stop_time)
+            parseInt(time_horizon_for_stop_time)
           ) {
             check = false;
             setIsButtonDisabled(false);
@@ -738,8 +738,8 @@ const ServicesBacktest = () => {
       } else {
         fetch(
           'https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/' +
-            model_name_for_result_backtest_result +
-            '_results',
+          model_name_for_result_backtest_result +
+          '_results',
           {
             method: 'GET',
             headers: {
@@ -754,8 +754,8 @@ const ServicesBacktest = () => {
             // downloadCSV(data["response"], "Backtest_Result_" + new Date());
             fetch(
               'https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/' +
-                model_name_for_result_backtest_result +
-                '_stats',
+              model_name_for_result_backtest_result +
+              '_stats',
               {
                 method: 'GET',
                 headers: {
@@ -774,9 +774,9 @@ const ServicesBacktest = () => {
                   ledgerData['response'],
                   statsData['response'],
                   'ledger_' +
-                    model_selected_for_backted +
-                    '_' +
-                    Math.floor(Date.now() / 1000)
+                  model_selected_for_backted +
+                  '_' +
+                  Math.floor(Date.now() / 1000)
                 );
 
                 // if (data.length > 0) {
@@ -957,7 +957,7 @@ const ServicesBacktest = () => {
           if (
             stop_time_selected_for_backtest_mobile < 0 ||
             stop_time_selected_for_backtest_mobile >=
-              parseInt(time_horizon_for_stop_time)
+            parseInt(time_horizon_for_stop_time)
           ) {
             check = false;
             setIsButtonDisabled(false);
@@ -1218,9 +1218,9 @@ const ServicesBacktest = () => {
                       },
 
                       '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
-                        {
-                          color: 'var(--color-day-black)',
-                        },
+                      {
+                        color: 'var(--color-day-black)',
+                      },
                       '& div  >.MuiAutocomplete-option.Mui-focused': {
                         backgroundColor: 'var(--color-day-yellow)',
                         color: '#000000',
@@ -1275,9 +1275,9 @@ const ServicesBacktest = () => {
                       },
 
                       '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':
-                        {
-                          color: 'var(--color-day-black) !important',
-                        },
+                      {
+                        color: 'var(--color-day-black) !important',
+                      },
 
                       '& div div >.MuiOutlinedInput-root': {
                         backgroundColor:
@@ -1304,16 +1304,16 @@ const ServicesBacktest = () => {
                       },
 
                       '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
-                        {
-                          backgroundColor:
-                            'var(--color-dropdown-bg) !important',
-                          color: 'var(--color-day-black) !important',
-                        },
+                      {
+                        backgroundColor:
+                          'var(--color-dropdown-bg) !important',
+                        color: 'var(--color-day-black) !important',
+                      },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                        {
-                          color: 'var(--color-day-yellow) !important',
-                        },
+                      {
+                        color: 'var(--color-day-yellow) !important',
+                      },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
                         color: 'var(--color-day-yellow) !important',
@@ -1364,16 +1364,16 @@ const ServicesBacktest = () => {
                       },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
-                        {
-                          borderBottom:
-                            '1px solid var(--color-day-yellow) !important',
-                        },
+                      {
+                        borderBottom:
+                          '1px solid var(--color-day-yellow) !important',
+                      },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
-                        {
-                          borderBottom:
-                            '2px solid var(--color-day-yellow) !important',
-                        },
+                      {
+                        borderBottom:
+                          '2px solid var(--color-day-yellow) !important',
+                      },
 
                       '& #demo-simple-select-standard-label': {
                         color: 'var(--color-day-yellow) !important',
@@ -1384,20 +1384,20 @@ const ServicesBacktest = () => {
                       },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
-                        {
-                          backgroundColor: 'var(--color-day-yellow) !important',
-                          color: 'black',
-                        },
+                      {
+                        backgroundColor: 'var(--color-day-yellow) !important',
+                        color: 'black',
+                      },
 
                       '& .css-1869usk-MuiFormControl-root': {
                         height: '60px !important',
                       },
 
                       '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
-                        {
-                          color: 'var(--color-day-black) !important',
-                          fontSize: '14px !important',
-                        },
+                      {
+                        color: 'var(--color-day-black) !important',
+                        fontSize: '14px !important',
+                      },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
                         fontSize: '13px !important',
@@ -1618,7 +1618,7 @@ const ServicesBacktest = () => {
                       }
                       helperText={
                         selectedDate !== null &&
-                        (selectedDate < now || selectedDate > disableBefore)
+                          (selectedDate < now || selectedDate > disableBefore)
                           ? 'Invalid date'
                           : ''
                       }
@@ -1645,7 +1645,7 @@ const ServicesBacktest = () => {
                       }
                       helperText={
                         selectedDate !== null &&
-                        (selectedDate < now || selectedDate > disableBefore)
+                          (selectedDate < now || selectedDate > disableBefore)
                           ? 'Invalid date'
                           : ''
                       }
@@ -1743,7 +1743,7 @@ const ServicesBacktest = () => {
                         }
                         helperText={
                           selectedDate !== null &&
-                          (selectedDate < now || selectedDate > disableBefore)
+                            (selectedDate < now || selectedDate > disableBefore)
                             ? 'Invalid date'
                             : ''
                         }
@@ -1773,7 +1773,7 @@ const ServicesBacktest = () => {
                         }
                         helperText={
                           selectedDate !== null &&
-                          (selectedDate < now || selectedDate > disableBefore)
+                            (selectedDate < now || selectedDate > disableBefore)
                             ? 'Invalid date'
                             : ''
                         }
@@ -1920,7 +1920,9 @@ const ServicesBacktest = () => {
                 model_name={model_name_for_result_backtest_result + '_stats'}
               />
             ) : null}
-            <RecentlyViewed />
+
+            {props.Flag !== "True" ? <RecentlyViewed /> : null}
+
           </div>
         )}
       </div>

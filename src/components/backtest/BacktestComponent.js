@@ -1364,7 +1364,7 @@ const BacktestComponent = (props) => {
     <div>
       <div className="back-test models-page-backtest">
         {props.model_name.includes('strategy') ||
-        props.model_name.split('_').length == 3 ? null : (
+          props.model_name.split('_').length == 3 ? null : (
           <div className="container">
             <h1>Backtest</h1>
             <p className="backtest-description">
@@ -1398,7 +1398,7 @@ const BacktestComponent = (props) => {
                         }
                         helperText={
                           selectedDate !== null &&
-                          (selectedDate < now || selectedDate > disableBefore)
+                            (selectedDate < now || selectedDate > disableBefore)
                             ? 'Invalid date'
                             : ''
                         }
@@ -1508,7 +1508,7 @@ const BacktestComponent = (props) => {
                           }
                           helperText={
                             selectedDate !== null &&
-                            (selectedDate < now || selectedDate > disableBefore)
+                              (selectedDate < now || selectedDate > disableBefore)
                               ? 'Invalid date'
                               : ''
                           }
@@ -1634,12 +1634,10 @@ const BacktestComponent = (props) => {
               model_name={model_name_for_result_backtest_result_stats}
             />
           ) : null}
-          {props.model_name.includes('strategy') ||
-          props.model_name.split('_').length == 3 ? (
+          {props.model_name.includes('strategy') && props.Flag !== "True" ||
+            props.model_name.split('_').length == 3 && props.Flag !== "True" ? (
             <RecentlyViewed />
-          ) : (
-            <RecentlyViewed />
-          )}
+          ) : <div className='container'></div>}
         </div>
       )}
     </div>

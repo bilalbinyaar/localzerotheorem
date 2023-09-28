@@ -31,9 +31,9 @@ const BTCExample = () => {
         />
       </Helmet>
       <ServicesNavbar />
-      <ModelDetails model_name={model_name} />
+      <ModelDetails model_name={model_name} Flag="True" />
       <CandleGraphCanvasjs model_name={model_name} />
-      <Backtest model_name={model_name} />
+      <Backtest model_name={model_name} Flag="True" />
       <Footer />
     </React.Fragment>
   );

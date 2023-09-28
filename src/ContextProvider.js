@@ -56,6 +56,9 @@ export const ContextProvider = ({ children }) => {
   }, [theme]);
 
   const [iamClick, setiamClick] = useState(false);
+  const [adminInvestorView, setAdminInvestorView] = useState(false);
+  const handleAdminInvestorView = () => setAdminInvestorView(!adminInvestorView);
+
   const handleiamClick = () => setiamClick(!iamClick);
   // Dark Light Mode
 
@@ -395,6 +398,8 @@ export const ContextProvider = ({ children }) => {
         setUid,
         authCheckLoginInvestor,
         setAuthCheckLoginInvestor,
+        adminInvestorView,
+        handleAdminInvestorView
       }}
     >
       {children}

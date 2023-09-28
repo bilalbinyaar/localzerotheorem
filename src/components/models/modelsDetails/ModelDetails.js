@@ -22,7 +22,7 @@ const ModelDetails = (props) => {
           <p className="bread-crumb-model">{props.model_name}</p>
         </div>
         <div className="model-details-main">
-          <ModelDetailsLeft model_name={props.model_name} />
+          <ModelDetailsLeft model_name={props.model_name} Flag={props.Flag} />
           <ModelDetailsCenter model_name={props.model_name} />
           <ModelDetailsRight model_name={props.model_name} />
         </div>

@@ -1,8 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ServicesNavbar from '../services-components/ServicesNavbar';
 import Footer from '../../components/footer/Footer';
+import { Button } from 'bootstrap';
+import { database } from '../../firebase_config';
+import { ref, onValue, set } from "firebase/database";
+import cryptoRandomString from "crypto-random-string";
+import Swal from "sweetalert2";
 
 const ServicesContact = () => {
+  const [IndustryName, setIndustryName] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [LastName, setLastName] = useState(null);
+
+  const [email, setEmail] = useState(null);
+  const [message, setMessage] = useState(null);
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+  const handleIndustryNameChange = (event) => {
+    setIndustryName(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+  const handleJoinList = (event) => {
+    if (!firstName || !email || !message) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      Swal.fire({
+        title: "Kindly input all fields ",
+        icon: "error",
+        timer: 2000,
+        timerProgressBar: true,
+        toast: true,
+        position: "top-right",
+        showConfirmButton: false,
+      });
+    } else {
+      setFirstName("");
+      setLastName("");
+      setIndustryName("");
+      setEmail("");
+      setMessage("");
+      Swal.fire({
+        title: "Your information is successfully submitted ",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        toast: true,
+        position: "top-right",
+        showConfirmButton: false,
+      });
+      const id = cryptoRandomString({
+        length: 10,
+        type: "alphanumeric",
+      });
+      var current_time = new Date();
+      const timestamp = current_time.getTime();
+      var check = true;
+      set(ref(database, "contact/" + "user_" + id), {
+        id: "user_" + id,
+        status: 0,
+        firstName: firstName,
+        lastName: LastName,
+        industry: IndustryName,
+        email: email,
+        message: message,
+        current_time: timestamp,
+
+        // profile_picture: imageUrl,
+      });
+      event.preventDefault(); // Prevent the default form submission behavior
+    }
+  };
   return (
     <React.Fragment>
       <ServicesNavbar />
@@ -24,7 +100,7 @@ const ServicesContact = () => {
               </p>
             </div>
             <div className="services-contact-form-div">
-              <form className="services-contact-form">
+              <form className="services-contact-form" onSubmit={handleJoinList}>
                 <h2>Get in Touch With Us</h2>
                 <p>
                   Please fill out the form below to get in touch with us. We
@@ -32,15 +108,23 @@ const ServicesContact = () => {
                 </p>
                 <div className="services-contact-group">
                   <label>Name</label>
-                  <input type="text" />
+                  <input type="text" value={firstName}
+                    onChange={handleFirstNameChange} />
                 </div>
                 <div className="services-contact-group">
                   <label>Email</label>
-                  <input type="text" />
+                  <input type="text" value={email}
+                    onChange={handleEmailChange} />
                 </div>
                 <div className="services-contact-group">
                   <label>Message</label>
-                  <textarea type="text" />
+                  <textarea type="text" value={message}
+                    onChange={handleMessageChange} />
+                </div>
+                <div className="btn-div">
+                  <button className="btn-contact" type="submit">
+                    SEND MESSAGE
+                  </button>
                 </div>
               </form>
             </div>

@@ -15,7 +15,7 @@ const Backtest = (props) => {
         <title>Zero Theorem | Models Backtest</title>
         <meta name="description" content="Models Backtest" />
       </Helmet>
-      <BacktestComponent model_name={props.model_name} />
+      <BacktestComponent model_name={props.model_name} Flag={props.Flag} />
       {/* <div>
             <CumulativePNL />
             <CanvasjsSplineAreaChartWithRangeSelecetor  />

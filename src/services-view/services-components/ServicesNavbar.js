@@ -9,8 +9,8 @@ import { useStateContext } from '../../ContextProvider';
 import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
 import ServicesNavMobile from './ServicesNavMobile';
-
 export default function ServicesNavbar() {
+  const { adminInvestorView, handleAdminInvestorView } = useStateContext(); // Use the hook to access state
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const dispatch = useDispatch();
@@ -72,11 +72,11 @@ export default function ServicesNavbar() {
         <div className="container">
           <div className="nav-logo-div">
             {theme === 'dark-theme' ? (
-              <Link to="/">
+              <Link to="/services-about">
                 <img className="nav-logo-img" src={logoWhite} alt="logo" />
               </Link>
             ) : (
-              <Link to="/">
+              <Link to="/services-about">
                 <img className="nav-logo-img" src={logoBlack} alt="logo" />
               </Link>
             )}
@@ -87,9 +87,11 @@ export default function ServicesNavbar() {
             className={click ? 'nav-menu active' : 'nav-menu services-nav-menu'}
           >
             <CustomLink to="/services-about">About</CustomLink>
-            <CustomLink to="/ZT1-SM8H-1">BTC Example</CustomLink>
+            <CustomLink to="/ZT1-SE9H-1">BTC Example</CustomLink>
             <CustomLink to="/hypothesis">Hypothesis</CustomLink>
-            <CustomLink to="/documentations">Documentation</CustomLink>
+            <CustomLink to="/documentations">API</CustomLink>
+            <CustomLink to="/contact-us">Contact</CustomLink>
+
           </ul>
 
           <div className="dark-lite">
@@ -111,8 +113,8 @@ export default function ServicesNavbar() {
           </div>
 
           <div className="btn-group nav-btn">
-            <Link to="/contact-us">
-              <button className="btn btn-nav">Contact</button>
+            <Link to="/login">
+              <button className="btn btn-nav" onClick={handleAdminInvestorView}>Login</button>
             </Link>
           </div>
 

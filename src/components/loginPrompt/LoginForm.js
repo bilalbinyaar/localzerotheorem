@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Redirect } from "react";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useStateContext } from "../../ContextProvider";
 import {
@@ -7,15 +7,17 @@ import {
   AiFillGoogleCircle,
 } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
+// import { Redirect } from "react-router-dom";
 
 // import videoBackground from '../../assets/investor-bg.mp4';
 import videoBackground from "../../assets/2x-bg.mp4";
 import logoWhite from "../../assets/logo-white.svg";
 import { set_login } from "../../store";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { useNavigate } from 'react-router-dom';
 function LoginForm() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const {
@@ -42,6 +44,8 @@ function LoginForm() {
     setShowPopup(false);
   };
   const handleInvestorLogin = () => {
+    <Redirect to="/" />
+
     dispatch(set_login());
   };
 
@@ -210,19 +214,28 @@ function LoginForm() {
                 adminUserMain.passwordMain == input &&
                 adminUserMain.userMain == email
               ) {
+
                 setCheckLoginMain(true);
+                navigate("/")
+
               } else if (
                 adminUserMain.investorPassword == input &&
                 adminUserMain.investorMain == email
               ) {
                 setAuthCheckLoginInvestor("True");
                 handleInvestorLogin();
+                navigate("/")
+
               } else if (
                 adminUserMain.investorPassword == input &&
                 adminUserMain.investorSecondary == email
+
               ) {
                 setAuthCheckLoginInvestor("True");
                 handleInvestorLogin();
+                navigate("/")
+
+
               } else {
                 event.stopPropagation();
                 //  alert("Kindly input valid login credentials")

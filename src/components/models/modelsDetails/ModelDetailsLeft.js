@@ -648,68 +648,71 @@ const ModelDetailsLeft = (props) => {
         <div className="model-details-body-left-four">
           {strategies[props.model_name] ? (
             props.model_name.includes("strategy") ||
-            props.model_name.split("_").length == 3 ? (
+              props.model_name.split("_").length == 3 ? (
               <div className="model-details-left-body">
-                <div className="model-details-left-body-stats compare-btn-div">
-                  {props.model_name.split("_").length == 3 ? (
+                {props.Flag !== "True" ? props.model_name.split("_").length == 3 ? (
+                  <div className="model-details-left-body-stats compare-btn-div">
+
                     <Link
                       to="/compare-strategies"
                       state={{
                         model_name: `${props.model_name}`,
                         currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
+                        time_horizon: `${strategies[props.model_name].time_horizon
+                          }`,
                       }}
                     >
                       <p className="compare-btn">Compare</p>
                     </Link>
-                  ) : (
+                  </div>
+                ) : (
+                  <div className="model-details-left-body-stats compare-btn-div">
+
                     <Link
                       to="/compare-models"
                       state={{
                         model_name: `${props.model_name}`,
                         currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
+                        time_horizon: `${strategies[props.model_name].time_horizon
+                          }`,
                       }}
                     >
                       <p className="compare-btn">Compare</p>
                     </Link>
-                  )}
-                </div>
+                  </div>
+                ) : null}
+
               </div>
             ) : (
               <div className="model-details-left-body">
                 <div className="model-details-left-body-stats compare-btn-div">
-                  {props.model_name.split("_").length == 3 ? (
-                    <Link
-                      to="/compare-strategies"
-                      state={{
-                        model_name: `${props.model_name}`,
-                        currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
-                      }}
-                    >
-                      <p className="compare-btn">Compare</p>
-                    </Link>
-                  ) : (
-                    <Link
-                      to="/compare-models"
-                      state={{
-                        model_name: `${props.model_name}`,
-                        currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
-                      }}
-                    >
-                      <p className="compare-btn">Compare</p>
-                    </Link>
-                  )}
+                  {
+                    props.Flag !== "True" ? props.model_name.split("_").length == 3 ? (
+                      <Link
+                        to="/compare-strategies"
+                        state={{
+                          model_name: `${props.model_name}`,
+                          currency: `${strategies[props.model_name].currency}`,
+                          time_horizon: `${strategies[props.model_name].time_horizon
+                            }`,
+                        }}
+                      >
+                        <p className="compare-btn">Compare</p>
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/compare-models"
+                        state={{
+                          model_name: `${props.model_name}`,
+                          currency: `${strategies[props.model_name].currency}`,
+                          time_horizon: `${strategies[props.model_name].time_horizon
+                            }`,
+                        }}
+                      >
+                        <p className="compare-btn">Compare</p>
+                      </Link>
+                    ) : null
+                  }
                 </div>
               </div>
             )
@@ -718,7 +721,7 @@ const ModelDetailsLeft = (props) => {
           <div className="model-details-left-body">
             {strategies[props.model_name] ? (
               props.model_name.includes("strategy") ||
-              props.model_name.split("_").length == 3 ? (
+                props.model_name.split("_").length == 3 ? (
                 <div className="model-details-left-body-stats compare-btn-div">
                   {props.model_name.split("_").length == 3 ? (
                     <Link
@@ -726,9 +729,8 @@ const ModelDetailsLeft = (props) => {
                       state={{
                         model_name: `${props.model_name}`,
                         currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
+                        time_horizon: `${strategies[props.model_name].time_horizon
+                          }`,
                       }}
                     >
                       <p className="compare-btn">Backtest</p>
@@ -739,9 +741,8 @@ const ModelDetailsLeft = (props) => {
                       state={{
                         model_name: `${props.model_name}`,
                         currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
+                        time_horizon: `${strategies[props.model_name].time_horizon
+                          }`,
                       }}
                     >
                       <p className="compare-btn">Backtest</p>
@@ -756,9 +757,8 @@ const ModelDetailsLeft = (props) => {
                       state={{
                         model_name: `${props.model_name}`,
                         currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
+                        time_horizon: `${strategies[props.model_name].time_horizon
+                          }`,
                       }}
                     >
                       <p className="compare-btn">Backtest</p>
@@ -769,9 +769,8 @@ const ModelDetailsLeft = (props) => {
                       state={{
                         model_name: `${props.model_name}`,
                         currency: `${strategies[props.model_name].currency}`,
-                        time_horizon: `${
-                          strategies[props.model_name].time_horizon
-                        }`,
+                        time_horizon: `${strategies[props.model_name].time_horizon
+                          }`,
                       }}
                     >
                       <p className="compare-btn">Backtest</p>

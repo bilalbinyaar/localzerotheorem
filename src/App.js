@@ -287,11 +287,12 @@ function App() {
             path="/hypothesis-of-an-initial-solution"
             element={<HypoAnInitialSolution />}
           />
-          <Route path="/ZT1-SM8H-1" element={<BTCExample />} />
-          <Route path="/backtest-strategies" element={<ServicesBacktest />} />
+          <Route path="/ZT1-SE9H-1" element={<BTCExample />} />
+          <Route path="/backtest-strategies" element={<ServicesBacktest Flag="True" />} />
           <Route path="/compare-strategies" element={<ServicesCompare />} />
           <Route path="/documentations" element={<ServicesDocs />} />
           <Route path="/contact-us" element={<ServicesContact />} />
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
       </React.Fragment>
     )

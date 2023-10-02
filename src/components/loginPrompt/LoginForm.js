@@ -5,16 +5,16 @@ import {
   AiOutlineMail,
   AiOutlineClose,
   AiFillGoogleCircle,
-} from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
+} from 'react-icons/ai';
+import { useSelector, useDispatch } from 'react-redux';
 // import { Redirect } from "react-router-dom";
 
 // import videoBackground from '../../assets/investor-bg.mp4';
-import videoBackground from "../../assets/2x-bg.mp4";
-import logoWhite from "../../assets/logo-white.svg";
-import { set_login } from "../../store";
+import videoBackground from '../../assets/2x-bg.mp4';
+import logoWhite from '../../assets/logo-white.svg';
+import { set_login } from '../../store';
 // import { useHistory } from "react-router-dom";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 function LoginForm() {
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ function LoginForm() {
     authCheckLoginInvestor,
     setAuthCheckLoginInvestor,
   } = useStateContext();
-  const [input, setInput] = useState("");
-  const [email, setEmail] = useState("");
+  const [input, setInput] = useState('');
+  const [email, setEmail] = useState('');
 
   // const submitHandlerMain =
 
@@ -160,13 +160,13 @@ function LoginForm() {
 
   return (
     <div>
-      <div className="video-background">
+      {/* <div className="video-background">
         <video autoPlay muted>
           <source src={videoBackground} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="video-overlay"></div>
-      </div>
+      </div> */}
 
       <form className="login-form main-web-login">
         <div className="investor-zt-logo">
@@ -218,38 +218,32 @@ function LoginForm() {
                 adminUserMain.passwordMain == input &&
                 adminUserMain.userMain == email
               ) {
-
                 setCheckLoginMain(true);
-                navigate("/")
-
+                navigate('/');
               } else if (
                 adminUserMain.investorPassword == input &&
                 adminUserMain.investorMain == email
               ) {
-                setAuthCheckLoginInvestor("True");
+                setAuthCheckLoginInvestor('True');
                 handleInvestorLogin();
-                navigate("/")
-
+                navigate('/');
               } else if (
                 adminUserMain.investorPassword == input &&
                 adminUserMain.investorSecondary == email
-
               ) {
-                setAuthCheckLoginInvestor("True");
+                setAuthCheckLoginInvestor('True');
                 handleInvestorLogin();
-                navigate("/")
-
-
+                navigate('/');
               } else {
                 event.stopPropagation();
                 //  alert("Kindly input valid login credentials")
                 Swal.fire({
-                  title: "Invalid access credentials",
-                  icon: "error",
+                  title: 'Invalid access credentials',
+                  icon: 'error',
                   timer: 3000,
                   timerProgressBar: true,
                   toast: true,
-                  position: "top-right",
+                  position: 'top-right',
                   showConfirmButton: false,
                 });
               }

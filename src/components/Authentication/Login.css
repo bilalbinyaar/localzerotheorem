@@ -3,7 +3,7 @@
 }
 
 form:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: -1px;
@@ -30,18 +30,15 @@ form:after {
   border-radius: 22px;
 } */
 
-
 form .form-inner .form-group {
   width: 350px;
   margin-bottom: 25px;
 }
 
-
 .form-control {
   background-color: var(--color-day-white);
   color: black !important;
 }
-
 
 /* form .form-inner .form-group input {
   display: block;
@@ -66,7 +63,7 @@ form .form-inner .form-group textarea {
   color: var(--primary);
 }
 
-form .form-inner input[type="auth"] {
+form .form-inner input[type='auth'] {
   display: block;
   padding: 12px 15px;
   border-radius: 6px;
@@ -111,7 +108,6 @@ form .form-inner input[type="auth"] {
   cursor: pointer;
 }
 
-
 .or-div {
   display: flex;
   flex-direction: row;
@@ -155,7 +151,6 @@ form .form-inner input[type="auth"] {
   color: var(--color-day-black);
   cursor: pointer;
 }
-
 
 .google-login-icon {
   margin-right: 10px;
@@ -208,7 +203,7 @@ option:nth-child(0) {
 }
 
 .tanc-text p {
-  text-align: center !important;  
+  text-align: center !important;
 }
 
 .reg-interest {
@@ -245,23 +240,34 @@ option:nth-child(0) {
   height: 100%;
 }
 
-.main-web-login {
+.main-web-entrance {
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85); 
+  background-color: rgba(0, 0, 0, 0.85);
 
   opacity: 1;
   transition: opacity 2s; /* Add the opacity transition */
   animation: fade-in 6s;
 }
 
+.main-web-login {
+  height: 100vh;
+  /* background-color: rgba(0, 0, 0, 0.85); */
 
+  opacity: 1;
+  background-image: url(../../services-view/services-assets/contact-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
 
-   10% {
+  10% {
     opacity: 0;
   }
 
@@ -313,8 +319,6 @@ option:nth-child(0) {
   display: flex;
   justify-content: center;
 }
-
-
 
 @media screen and (max-width: 768px) {
   .login-form-btn {

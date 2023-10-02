@@ -63,6 +63,10 @@ export default function ServicesNavMobile(props) {
   function toCloseNav() {
     setToggle(false);
     setClick(false);
+  }
+  function toCloseNavLogin() {
+    setToggle(false);
+    setClick(false);
     handleAdminInvestorView();
   }
 
@@ -111,7 +115,7 @@ export default function ServicesNavMobile(props) {
               <AiOutlineContacts className="nav-icons" />
               Contact
             </CustomLink>
-            <CustomLink to="/login" onClick={toCloseNav} >
+            <CustomLink to="/login" onClick={toCloseNavLogin} >
               <AiOutlineContacts className="nav-icons" />
               Login
             </CustomLink>

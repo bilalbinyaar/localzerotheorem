@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home';
 import Models from './pages/Models';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import LoginForm from './components/loginPrompt/LoginForm';
 import { useStateContext } from './ContextProvider';
 import Footer from './components/footer/Footer';

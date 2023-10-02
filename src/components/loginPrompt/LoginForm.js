@@ -1,4 +1,4 @@
-import React, { useState, Redirect } from "react";
+import React, { useState } from "react";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useStateContext } from "../../ContextProvider";
 import {
@@ -44,10 +44,14 @@ function LoginForm() {
     setShowPopup(false);
   };
   const handleInvestorLogin = () => {
-    <Redirect to="/" />
 
     dispatch(set_login());
   };
+  const handleNavigate = () => {
+    console.log("I am here bro to help you out")
+    navigate("/")
+
+  }
 
   const contents = [
     // REGISTER INTEREST POPUP CONTENT

@@ -8,7 +8,7 @@
 }
 
 .service-enterance-logo {
-  width: 45%;
+  width: 28%;
 }
 
 .services-enterance-textbox input {
@@ -223,5 +223,13 @@
 
   .services-contact-form {
     padding: 2rem;
+  }
+
+  .services-enterance-textbox h3 {
+    width: 100%;
+  }
+
+  .service-enterance-logo {
+    width: 75%;
   }
 }

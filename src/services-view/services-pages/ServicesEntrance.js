@@ -10,15 +10,6 @@ const ServicesEntrance = () => {
   const handleClick = (event) => {
     event.preventDefault();
     navigate('/services-about');
-    // Swal.fire({
-    //   title: 'Services View',
-    //   icon: 'success',
-    //   timer: 1000,
-    //   timerProgressBar: true,
-    //   toast: true,
-    //   position: 'top-right',
-    //   showConfirmButton: false,
-    // });
   };
   return (
     <div>
@@ -30,7 +21,7 @@ const ServicesEntrance = () => {
         <div className="video-overlay"></div>
       </div>
 
-      <form className="login-form main-web-login">
+      <form className="login-form main-web-entrance">
         <div className="form-inner main-web-form-inner services-enterance-textbox">
           <img
             className="investor-zt-logo-img service-enterance-logo scale-animation"

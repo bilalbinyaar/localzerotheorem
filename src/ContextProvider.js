@@ -30,7 +30,10 @@ export const ContextProvider = ({ children }) => {
   const [authCheckLoginInvestor, setAuthCheckLoginInvestor] = useState(
     default_login.loginFlag
   );
-
+  const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(
+    default_login.loginFlagAdmin
+  );
+  // console.log("Here is admin state ", default_login.loginFlagAdmin);
   const [uid, setUid] = useState(null);
   const toggleTheme = () => {
     if (theme === "dark-theme") {
@@ -58,7 +61,6 @@ export const ContextProvider = ({ children }) => {
   const [iamClick, setiamClick] = useState(false);
   const [adminInvestorView, setAdminInvestorView] = useState(false);
   const handleAdminInvestorView = () => setAdminInvestorView(!adminInvestorView);
-
   const handleiamClick = () => setiamClick(!iamClick);
   // Dark Light Mode
 
@@ -399,7 +401,8 @@ export const ContextProvider = ({ children }) => {
         authCheckLoginInvestor,
         setAuthCheckLoginInvestor,
         adminInvestorView,
-        handleAdminInvestorView
+        handleAdminInvestorView,
+        authCheckLoginAdmin, setAuthCheckLoginAdmin
       }}
     >
       {children}

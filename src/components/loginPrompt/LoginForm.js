@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import videoBackground from '../../assets/investor-bg.mp4';
 import videoBackground from '../../assets/2x-bg.mp4';
 import logoWhite from '../../assets/logo-white.svg';
-import { set_login } from '../../store';
+import { set_login, set_login_admin } from '../../store';
 // import { useHistory } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
@@ -28,6 +28,8 @@ function LoginForm() {
     setAuthCheckLogin,
     authCheckLoginInvestor,
     setAuthCheckLoginInvestor,
+    authCheckLoginAdmin, setAuthCheckLoginAdmin
+
   } = useStateContext();
   const [input, setInput] = useState('');
   const [email, setEmail] = useState('');
@@ -46,6 +48,10 @@ function LoginForm() {
   const handleInvestorLogin = () => {
 
     dispatch(set_login());
+  };
+  const handleAminLogin = () => {
+
+    dispatch(set_login_admin());
   };
   const handleNavigate = () => {
     console.log("I am here bro to help you out")
@@ -219,6 +225,8 @@ function LoginForm() {
                 adminUserMain.userMain == email
               ) {
                 setCheckLoginMain(true);
+                setAuthCheckLoginAdmin(true);
+                handleAminLogin();
                 navigate('/');
               } else if (
                 adminUserMain.investorPassword == input &&

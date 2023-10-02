@@ -1160,8 +1160,7 @@ const ServicesBacktest = (props) => {
             within a range of 0 to 100, and specify a fee for each transaction
             with a value between 0 and 1.
           </p>
-
-          {windowWidth.current <= 768 ? (
+          {props.Flag !== "True" ? windowWidth.current <= 768 ? (
             <div className="horizon">
               <div className="horizon-row">
                 <div className="horizon-left">
@@ -1596,7 +1595,7 @@ const ServicesBacktest = (props) => {
                 </div>
               </div>
             </div>
-          )}
+          ) : null}
 
           {/* THIS IS FOR WEB */}
           <div className="backtest-filters backtest-for-web">

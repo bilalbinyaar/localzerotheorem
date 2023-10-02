@@ -62,6 +62,22 @@ const loginSlice = createSlice({
     },
   },
 });
+const loginSliceAdmin = createSlice({
+  name: "loginFlagAdmin",
+  initialState,
+  reducers: {
+    set_login_admin: (state) => {
+      return produce(state, (draftState) => {
+        draftState.loginFlagAdmin = true;
+      });
+    },
+    set_login_flase_admin: (state) => {
+      return produce(state, (draftState) => {
+        draftState.loginFlagAdmin = false;
+      });
+    },
+  },
+});
 const scrollSlicePosition = createSlice({
   name: "scrollPosition",
   initialState,
@@ -95,11 +111,14 @@ const persistedReducer4 = persistReducer(
   scrollSliceRecently.reducer
 );
 const persistedReducer5 = persistReducer(persistConfig, loginSlice.reducer);
+const persistedReducer6 = persistReducer(persistConfig, loginSliceAdmin.reducer);
+
 export const { set_day_mode, set_night_mode } = counterSlice.actions;
 export const { set_scroll } = scrollSlice.actions;
 export const { set_scroll_position } = scrollSlicePosition.actions;
 export const { set_scroll_recently } = scrollSliceRecently.actions;
 export const { set_login, set_login_flase } = loginSlice.actions;
+export const { set_login_admin, set_login_flase_admin } = loginSliceAdmin.actions;
 
 export const store = configureStore({
   reducer: {
@@ -108,6 +127,8 @@ export const store = configureStore({
     scrollPosition: persistedReducer3,
     scrollRecently: persistedReducer4,
     loginFlag: persistedReducer5,
+    loginFlagAdmin: persistedReducer6,
+
   },
 });
 

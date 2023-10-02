@@ -588,7 +588,7 @@ const ModelDetailsLeft = (props) => {
         </div>
 
         {/* Body # 2 */}
-        <div className="model-details-left-body">
+        {props.Flag !== "True" ? <div className="model-details-left-body">
           <div className="model-details-left-body">
             <Tooltip title="Model rank based on its cumulative PNL">
               <div className="model-details-left-body-stats rank for-font-size">
@@ -627,7 +627,8 @@ const ModelDetailsLeft = (props) => {
               </p>
             </div>
           </Tooltip>
-        </div>
+        </div> : null}
+
 
         {/* Body # 3 */}
         <div className="model-details-left-body">

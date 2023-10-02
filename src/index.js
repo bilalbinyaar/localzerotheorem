@@ -12,7 +12,7 @@ import AdminApp from "./AdminApp";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const CheckView = () => {
   const { adminInvestorView,
-    handleAdminInvestorView } = useStateContext(); // Use the hook to access state
+    handleAdminInvestorView, checkLoginMain, authCheckLoginInvestor, authCheckLoginAdmin } = useStateContext(); // Use the hook to access state
 
   // Now you can use authCheckLoginInvestor in your component
   // For example, you can log it to the console
@@ -20,7 +20,7 @@ const CheckView = () => {
 
   return (
     // Your component JSX here
-    < div > {adminInvestorView === false ? <App /> : <AdminApp />}</div >
+    < div > {authCheckLoginAdmin === true || authCheckLoginInvestor === "True" ? <AdminApp /> : <App />}</div >
 
   );
 };

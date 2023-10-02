@@ -52,7 +52,7 @@ import ServicesCompare from './services-view/services-pages/ServicesCompare';
 import ServicesContact from './services-view/services-pages/ServicesContact';
 
 function App() {
-    const { loading, checkLoginMain, authCheckLoginInvestor } = useStateContext();
+    const { loading, checkLoginMain, authCheckLoginInvestor, authCheckLoginAdmin } = useStateContext();
 
     // SCROLL TO TOP
     const location = useLocation();
@@ -64,7 +64,7 @@ function App() {
     return (
         !loading && (
             <React.Fragment>
-                {checkLoginMain === true || authCheckLoginInvestor === 'True' ? (
+                {authCheckLoginAdmin === true || authCheckLoginInvestor === 'True' ? (
                     authCheckLoginInvestor === 'True' ? (
                         <div>
                             <Navbar />

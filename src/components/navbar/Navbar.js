@@ -15,6 +15,7 @@ import {
   set_login,
   set_night_mode,
   set_login_flase,
+  set_login_flase_admin,
 } from '../../store';
 import LoginPopup from '../login-popup/LoginPopup';
 import { auth, provider } from '../../firebase_config';
@@ -45,6 +46,9 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const handlePersistantLogin = () => {
     dispatch(set_login_flase(false));
+  };
+  const handlePersistantLoginAdmin = () => {
+    dispatch(set_login_flase_admin(false));
   };
   // Login State
   const {
@@ -886,6 +890,7 @@ export default function Navbar() {
                     showConfirmButton: false,
                   });
                   setCheckLoginMain(false);
+                  handlePersistantLoginAdmin();
                   linkModels(`/`);
                   window.location.reload();
                 }}

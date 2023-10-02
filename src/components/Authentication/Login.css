@@ -16,20 +16,6 @@ form:after {
   display: none;
 }
 
-/* form .form-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--primary);
-  box-shadow: 0 0 2px #ffc600, 0 0 10px #ffc600, 0 0 20px #ffc600,
-    0 0 30px #ffc600, 0 0 40px #ffc600, 0 0 50px #ffc600;
-  backdrop-filter: blur(2px);
-  padding: 45px;
-  z-index: 2;
-  align-items: center;
-  border-radius: 22px;
-} */
-
 form .form-inner .form-group {
   width: 350px;
   margin-bottom: 25px;
@@ -39,17 +25,6 @@ form .form-inner .form-group {
   background-color: var(--color-day-white);
   color: black !important;
 }
-
-/* form .form-inner .form-group input {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  background-color: var(--color-day-white);
-
-  color: var(--primary);
-  border-radius: 0px;
-  transition: 0.4s;
-} */
 
 form .form-inner .form-group input:focus {
   box-shadow: 0px 0px 3px var(--primary);
@@ -115,17 +90,6 @@ form .form-inner input[type='auth'] {
   align-items: center;
   margin-top: 0.4rem;
 }
-
-/* .or-div p {
-  margin-bottom: 8px !important;
-  padding: 0rem 1rem;
-  color: white;
-} */
-
-/* .or-div .hr-div {
-  width: 105px;
-  color: var(--primary) !important;
-} */
 
 .hr-div hr {
   height: 5px;
@@ -245,14 +209,12 @@ option:nth-child(0) {
   background-color: rgba(0, 0, 0, 0.85);
 
   opacity: 1;
-  transition: opacity 2s; /* Add the opacity transition */
+  transition: opacity 2s;
   animation: fade-in 6s;
 }
 
 .main-web-login {
   height: 100vh;
-  /* background-color: rgba(0, 0, 0, 0.85); */
-
   opacity: 1;
   background-image: url(../../services-view/services-assets/contact-bg.png);
   background-size: cover;
@@ -294,14 +256,6 @@ option:nth-child(0) {
   70% {
     opacity: 0;
   }
-
-  /* 80% {
-    opacity: 0;
-  }
-
-   90% {
-    opacity: 0;
-  } */
 
   100% {
     opacity: 1;

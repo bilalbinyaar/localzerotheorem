@@ -1,76 +1,76 @@
 .footer {
-    background-color: var(--color-day-white);
-    border-top: 2.5px solid var(--color-footer-border );
+  background-color: var(--color-day-white);
+  border-top: 2.5px solid var(--color-footer-border);
 }
 
-.footer .container{
-    padding: 2rem 0rem 0rem 0rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer .container {
+  padding: 2rem 0rem 0rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-logo-img {
-    width: 230px;
-    padding-left: 2px;
-    margin-bottom: 1.5rem;
+  width: 230px;
+  padding-left: 2px;
+  margin-bottom: 1.5rem;
 }
 
 .footer-inner-left {
-    width: 100%;
+  width: 100%;
 }
 
 .footer-inner-left h2 {
-    color: var(--color-day-yellow);
-    font-size: 18px;
+  color: var(--color-day-yellow);
+  font-size: 18px;
 }
 
 .footer-inner-left p {
-    width: 80%;
-    padding-left: 2px;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 17px;
-    color: var(--color-day-black);
+  width: 80%;
+  padding-left: 2px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 17px;
+  color: var(--color-day-black);
 }
 
 .footer-copyright-text {
-    /* margin-top: 1.5rem; */
-    font-size: 10px !important;
-    letter-spacing: 2px;
+  /* margin-top: 1.5rem; */
+  font-size: 10px !important;
+  letter-spacing: 2px;
 
-    color: var(--color-footer-cr) !important;
+  color: var(--color-footer-cr) !important;
 }
 
 .footer-inner-right {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 3.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3.5rem;
 }
 
 .footer-btn {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .footer-icons-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-icons {
-    margin: 0 5px;
-    font-size: 20px;
-    cursor: pointer;
-    color: var(--color-day-yellow);
+  margin: 0 5px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-day-yellow);
 }
 
 .dis {
-    /* color: #5865F2; */
-    margin-left: 15px !important;
+  /* color: #5865F2; */
+  margin-left: 15px !important;
 }
 
 /* .twi {
@@ -82,189 +82,197 @@
 } */
 
 .footer-more {
-    visibility: hidden !important;
+  visibility: hidden !important;
 }
 
 .footer-ann-h h2 {
-    background-color: transparent !important;
-    color: var(--color-day-yellow) !important;
-    padding: 0 !important;
-    font-size: 18px !important;
+  background-color: transparent !important;
+  color: var(--color-day-yellow) !important;
+  padding: 0 !important;
+  font-size: 18px !important;
 }
 
 .footer-card {
-    background-color: transparent !important;
-    height: 100% !important;
-    padding: 0 !important;
+  background-color: transparent !important;
+  height: 100% !important;
+  padding: 0 !important;
 }
 
 .footer-news-inner {
-    justify-content: flex-start !important;
-    padding-top: 0.5rem !important;
+  /* justify-content: flex-start !important; */
+  justify-content: space-between !important;
+  padding-top: 0.5rem !important;
 }
 
 .footer-bar-container {
-    padding: 1rem 0rem !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+  padding: 1rem 0rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .for-footer-bar {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .inner-footer-bar {
-    justify-content: flex-end !important;
-    align-items: center !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
 }
 
 .footer-follow-text {
-    font-size: 11px !important;
-    color: var(--color-footer-cr) !important;
-    margin-top: 0 !important;
-    letter-spacing: 3px;
+  font-size: 11px !important;
+  color: var(--color-footer-cr) !important;
+  margin-top: 0 !important;
+  letter-spacing: 3px;
 }
 
 .disclaimer-text {
-    text-align: justify;
+  text-align: justify;
 }
 
 .news-inner .equation-img {
-    margin-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 .investor-container {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .investor-footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .investor-no-mt {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .investor-logo-div {
-    width: 100%;
+  width: 100%;
 }
 
 .footer-inner-left-investor p {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .equation-img-investor {
-    flex-direction: row-reverse;
-    align-items: flex-start;
+  flex-direction: row-reverse;
+  align-items: flex-start;
 }
 
 .equation-i-div-investor {
-    width: unset;
+  width: unset;
+}
+
+.footer-br-mb {
+  line-height: 22px;
 }
 
 @media screen and (max-width: 688px) {
-    .footer .container {
-        padding: 0;
-    }
+  .footer .container {
+    padding: 0;
+  }
 
-    .footer .container {
-        flex-direction: column-reverse;
-    }
+  .footer .container {
+    flex-direction: column-reverse;
+  }
 
-    .footer .investor-container {
-        flex-direction: column !important;
-    }
+  .footer .investor-container {
+    flex-direction: column !important;
+  }
 
-    .footer-logo-div {
-        display: none;
-    }
+  .footer-logo-div {
+    display: none;
+  }
 
-    .footer-inner-right {
-        margin-top: 2.2rem;
-        margin-bottom: 2rem;
-    }
+  .footer-inner-right {
+    margin-top: 2.2rem;
+    margin-bottom: 2rem;
+  }
 
-    .footer-inner-left p {
-        width: 100%;
-        font-size: 10px;
-    }
+  .footer-inner-left p {
+    width: 100%;
+    font-size: 10px;
+  }
 
-    .for-footer-bar {
-        margin-bottom: 0.4rem;
-    }
+  .for-footer-bar {
+    margin-bottom: 0.4rem;
+  }
 
-    .footer-news-inner {
-        justify-content: center !important;
-        padding-top: 1rem !important;
-    }
+  .footer-news-inner {
+    /* justify-content: center !important; */
+    padding-top: 1rem !important;
+  }
 
-    .footer-copyright-text {
-        text-align: center;
-    } 
+  .footer-copyright-text {
+    text-align: center;
+  }
 
-    .investor-footer-inner {
-        flex-direction: column;
-    }
+  .investor-footer-inner {
+    flex-direction: column;
+  }
 
-    .footer-inner-left-investor {
-        margin: 1.8rem 0;
-    } 
+  .footer-inner-left-investor {
+    margin: 1.8rem 0;
+  }
 
-    .investor-logo-div {
-        display: block !important;
-    }
+  .investor-logo-div {
+    display: block !important;
+  }
 
-    .footer-logo-img-investor {
-        margin-bottom: 0 !important;
-        margin-top: 2rem !important;
-    }
+  .footer-logo-img-investor {
+    margin-bottom: 0 !important;
+    margin-top: 2rem !important;
+  }
 }
 
-
 @media screen and (max-width: 568px) {
-    .footer .container {
-        padding: 0;
-    }
+  .footer .container {
+    padding: 0;
+  }
 
-    .footer .container {
-        flex-direction: column-reverse;
-    }
+  .footer .container {
+    flex-direction: column-reverse;
+  }
 
-    .footer-logo-div {
-        display: none;
-    }
+  .footer-logo-div {
+    display: none;
+  }
 
-    .footer-inner-right {
-        margin-top: 2.2rem;
-        margin-bottom: 2rem;
-    }
+  .footer-inner-right {
+    margin-top: 2.2rem;
+    margin-bottom: 2rem;
+  }
 
-    .footer-inner-left p {
-        width: 100%;
-        font-size: 10px;
-    }
+  .footer-inner-left p {
+    width: 100%;
+    font-size: 10px;
+  }
 
-    .for-footer-bar {
-        margin-bottom: 0.4rem;
-    }
+  .for-footer-bar {
+    margin-bottom: 0.4rem;
+  }
 
-    .footer-news-inner {
-        justify-content: center !important;
-        padding-top: 1rem !important;
-    }
+  .footer-news-inner {
+    /* justify-content: center !important; */
+    padding-top: 1rem !important;
+  }
 
-    .footer-copyright-text {
-        text-align: center;
-    } 
+  .footer-copyright-text {
+    text-align: center;
+  }
 
-    .investor-no-mt {
-        margin-bottom: 0 !important;
-    }
+  .investor-no-mt {
+    margin-bottom: 0 !important;
+  }
 
-    .footer-news-inner-investor {
-        padding-top: 0 !important;
-    }
+  .footer-news-inner-investor {
+    padding-top: 0 !important;
+  }
+
+  .footer-br-mb {
+    line-height: 18px;
+  }
 }

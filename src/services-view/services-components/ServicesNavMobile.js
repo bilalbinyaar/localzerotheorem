@@ -5,11 +5,12 @@ import logoBlack from '../../assets/logo-black.svg';
 import logoWhite from '../../assets/logo-white.svg';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useStateContext } from '../../ContextProvider';
-import { AiFillHome, AiOutlineFileDone } from 'react-icons/ai';
+import { AiFillHome } from 'react-icons/ai';
+// import { AiOutlineFileDone } from 'react-icons/ai';
 
 import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
-import { FaRegEdit } from 'react-icons/fa';
+// import { FaRegEdit } from 'react-icons/fa';
 import '../../components/navbar/Navbar.css';
 import { AiOutlineContacts } from 'react-icons/ai';
 
@@ -17,7 +18,7 @@ export default function ServicesNavMobile(props) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const dispatch = useDispatch();
-  const { adminInvestorView, handleAdminInvestorView } = useStateContext(); // Use the hook to access state
+  const { handleAdminInvestorView } = useStateContext(); // Use the hook to access state
 
   // Login State
   const { theme, setTheme } = useStateContext();
@@ -103,19 +104,19 @@ export default function ServicesNavMobile(props) {
               <BsGraphUp className="nav-icons" />
               BTC Example
             </CustomLink>
-            <CustomLink to="/hypothesis" onClick={toCloseNav}>
+            {/* <CustomLink to="/hypothesis" onClick={toCloseNav}>
               <AiOutlineFileDone className="nav-icons" />
               Hypothesis
             </CustomLink>
             <CustomLink to="/documentations" onClick={toCloseNav}>
               <FaRegEdit className="nav-icons" />
               API
-            </CustomLink>
+            </CustomLink> */}
             <CustomLink to="/contact-us" onClick={toCloseNav}>
               <AiOutlineContacts className="nav-icons" />
               Contact
             </CustomLink>
-            <CustomLink to="/login" onClick={toCloseNavLogin} >
+            <CustomLink to="/login" onClick={toCloseNavLogin}>
               <AiOutlineContacts className="nav-icons" />
               Login
             </CustomLink>

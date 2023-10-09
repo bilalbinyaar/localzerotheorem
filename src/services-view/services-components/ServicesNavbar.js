@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
 import ServicesNavMobile from './ServicesNavMobile';
 export default function ServicesNavbar() {
-  const { adminInvestorView, handleAdminInvestorView } = useStateContext(); // Use the hook to access state
+  const { handleAdminInvestorView } = useStateContext(); // Use the hook to access state
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const dispatch = useDispatch();
@@ -88,10 +88,9 @@ export default function ServicesNavbar() {
           >
             <CustomLink to="/services-about">About</CustomLink>
             <CustomLink to="/ZT1-SE9H-1">BTC Example</CustomLink>
-            <CustomLink to="/hypothesis">Hypothesis</CustomLink>
-            <CustomLink to="/documentations">API</CustomLink>
+            {/* <CustomLink to="/hypothesis">Hypothesis</CustomLink>
+            <CustomLink to="/documentations">API</CustomLink> */}
             <CustomLink to="/contact-us">Contact</CustomLink>
-
           </ul>
 
           <div className="dark-lite">
@@ -114,7 +113,9 @@ export default function ServicesNavbar() {
 
           <div className="btn-group nav-btn">
             <Link to="/login">
-              <button className="btn btn-nav" onClick={handleAdminInvestorView}>Login</button>
+              <button className="btn btn-nav" onClick={handleAdminInvestorView}>
+                Login
+              </button>
             </Link>
           </div>
 

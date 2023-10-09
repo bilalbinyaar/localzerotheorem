@@ -1,29 +1,24 @@
-import React from "react";
-import "./Footer.css";
-import logoBlack from "../../assets/logo-black.svg";
-import logoWhite from "../../assets/logo-white.svg";
-import { useStateContext } from "../../ContextProvider";
-import { AiFillEye, AiFillHeart, AiOutlineTwitter } from "react-icons/ai";
-import Announcements_Light_Mode from "../../assets/Announcements_Light mode.jpg";
-import Announcements_Dark_Mode from "../../assets/Announcements_darkmode.jpg";
-import { BsDot } from "react-icons/bs";
-import { FaDiscord } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { BsFillInfoCircleFill } from "react-icons/bs";
-import { Tooltip } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import { MathComponent } from "mathjax-react";
+import React from 'react';
+import './Footer.css';
+import logoBlack from '../../assets/logo-black.svg';
+import logoWhite from '../../assets/logo-white.svg';
+import { useStateContext } from '../../ContextProvider';
+import { AiOutlineTwitter } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { BsFillInfoCircleFill } from 'react-icons/bs';
+import { Tooltip } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import { MathComponent } from 'mathjax-react';
 
 const Footer = () => {
-  const { theme, checkLoginMain, authCheckLoginInvestor } = useStateContext();
+  const { theme, authCheckLoginInvestor } = useStateContext();
   return (
     <div className="footer">
       <div className="footer-main-div">
-        {authCheckLoginInvestor == "TrueSignal" ? (
+        {authCheckLoginInvestor === 'TrueSignal' ? (
           <div className="container investor-container">
             <div className="footer-logo-div investor-logo-div">
-              {theme === "dark-theme" ? (
+              {theme === 'dark-theme' ? (
                 <Link to="/">
                   <img
                     className="footer-logo-img footer-logo-img-investor"
@@ -71,7 +66,7 @@ const Footer = () => {
 
                     <div className="announcement-news">
                       <div className="news-inner footer-news-inner footer-news-inner-investor">
-                        {theme === "dark-theme" ? (
+                        {theme === 'dark-theme' ? (
                           <div className="equation-img equation-img-investor">
                             <div className="equation-i-div equation-i-div-investor">
                               <Tooltip
@@ -121,7 +116,7 @@ const Footer = () => {
           <div className="container">
             <div className="footer-inner-left">
               <div className="footer-logo-div">
-                {theme === "dark-theme" ? (
+                {theme === 'dark-theme' ? (
                   <Link to="/">
                     <img
                       className="footer-logo-img"
@@ -167,7 +162,7 @@ const Footer = () => {
                 <div className="announcement-card">
                   <div className="announcement-row">
                     <div className="title-div footer-ann-h">
-                      <h2>Announcements</h2>
+                      <h2>Contact Us</h2>
                     </div>
 
                     {/* <div className='forecasts-more footer-more'>
@@ -178,7 +173,7 @@ const Footer = () => {
 
                   <div className="announcement-news">
                     <div className="news-inner footer-news-inner">
-                      {theme === "dark-theme" ? (
+                      {/* {theme === 'dark-theme' ? (
                         <img
                           className="news-img"
                           src={Announcements_Dark_Mode}
@@ -190,11 +185,30 @@ const Footer = () => {
                           src={Announcements_Light_Mode}
                           alt="news"
                         />
-                      )}
+                      )} */}
+
+                      <div>
+                        <h3>ZERO THEOREM PTY LTD </h3>
+                        <br />
+                        <p>
+                          ABN: XXX XX XXX
+                          <br />
+                          ACN: XXX XX XXX
+                        </p>
+                      </div>
                       <div className="news-textual">
-                        <div className="news-head">
+                        <p className="footer-br-mb">
+                          24 Rogers Avenue,
+                          <br />
+                          Brighton East, 3187
+                          <br />
+                          Melbourne, Australia
+                          <br />
+                          Email: info@zerotheorem.com
+                        </p>
+                        {/* <div className="news-head">
                           <span>
-                            {theme === "dark-theme" ? (
+                            {theme === 'dark-theme' ? (
                               <img
                                 src={logoWhite}
                                 alt="vehcain logo"
@@ -208,7 +222,6 @@ const Footer = () => {
                               />
                             )}
                           </span>
-                          {/* <span className="news-heading">Zero Theorem</span> */}
                         </div>
                         <div className="news-body">
                           <p>
@@ -220,19 +233,7 @@ const Footer = () => {
                         </div>
                         <div className="news-footer">
                           <span>March 19, 2023</span>
-                          {/* <BsDot />
-                        <span>
-                          <AiFillEye className="news-footer-icon" /> 1.7K
-                        </span>
-                        <BsDot />
-                        <span>
-                          <AiFillHeart className="news-footer-icon" />2
-                        </span>
-                        <BsDot />
-                        <span>
-                          <img src={vetLogo} alt="vehcain logo" width="12px" />
-                        </span> */}
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -252,7 +253,7 @@ const Footer = () => {
             <div className="forecasts-card footer-card">
               <div className="announcement-card">
                 <div className="announcement-news">
-                  {authCheckLoginInvestor == "TrueSignal" ? (
+                  {authCheckLoginInvestor === 'TrueSignal' ? (
                     <div className="news-inner footer-news-inner inner-footer-bar footer-news-inner-investor"></div>
                   ) : (
                     <div className="news-inner footer-news-inner inner-footer-bar">

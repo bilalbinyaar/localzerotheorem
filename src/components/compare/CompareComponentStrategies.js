@@ -223,7 +223,7 @@ const CompareComponentStrategies = () => {
     Set_coin_search_selection_cache,
     model_selection_cache,
     Set_model_search_selection_cache,
-    authCheckLoginInvestor,
+    authCheckLoginInvestor, link
   } = useStateContext();
 
   const [rows, setRows] = useState([]);
@@ -540,7 +540,7 @@ const CompareComponentStrategies = () => {
 
   useEffect(() => {
     try {
-      fetch(process.env.REACT_APP_API + "/get/live_strategies", {
+      fetch(link + "/get/live_strategies", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -642,7 +642,7 @@ const CompareComponentStrategies = () => {
   }, []);
   useEffect(() => {
     try {
-      fetch(process.env.REACT_APP_API + "/get/live_stats", {
+      fetch(link + "/get/live_stats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

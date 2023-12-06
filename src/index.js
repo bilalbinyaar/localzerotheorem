@@ -20,7 +20,7 @@ const CheckView = () => {
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       setLink(data.link)
-      // console.log("Here is link for env -->", process.env.REACT_APP_API)
+      // console.log("Here is link for env -->", link)
     });
   }, [])
 

@@ -9,7 +9,7 @@ const TvSplineAreaChartTopPerformer = (props) => {
   if (model_name != props.model_name) {
     set_model_name(props.model_name);
   }
-  const { spline_graph_cache, Set_spline_graph_cache } = useStateContext();
+  const { spline_graph_cache, Set_spline_graph_cache, link } = useStateContext();
   const [data_for_pnl_graph, set_data_for_pnl_graph] = useState([]);
   const [cummulative_pnl, set_cum_pnl] = useState([]);
 
@@ -17,7 +17,7 @@ const TvSplineAreaChartTopPerformer = (props) => {
     if (!spline_graph_cache[props.model_name] && props.model_name != "") {
       // console.log("I received model name for graph -->", props.model_name);
 
-      fetch(process.env.REACT_APP_API + `/${props.model_name}`, {
+      fetch(link + `/${props.model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

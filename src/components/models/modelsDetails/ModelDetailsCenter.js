@@ -15,7 +15,7 @@ const ModelDetailsCenter = (props) => {
     Set_strategies_cache,
     Set_stats_cache,
     Set_coin_search_selection_cache,
-    Set_model_search_selection_cache,
+    Set_model_search_selection_cache, link
   } = useStateContext();
   const [timer_for_current, set_timer_for_current_position] = useState(null);
   // All time Drop Down
@@ -31,7 +31,7 @@ const ModelDetailsCenter = (props) => {
     try {
       if (timer_for_current == null) {
         fetch(
-          process.env.REACT_APP_API + `/get/current_position`,
+          link + `/get/current_position`,
           {
             method: "GET",
             headers: {
@@ -66,7 +66,7 @@ const ModelDetailsCenter = (props) => {
           props.model_name.includes("strategy") ||
           props.model_name.split("_").length == 3
         ) {
-          fetch(process.env.REACT_APP_API + "/get/live_stats", {
+          fetch(link + "/get/live_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -133,7 +133,7 @@ const ModelDetailsCenter = (props) => {
             .catch((err) => console.log(err));
         } else {
           fetch(
-            process.env.REACT_APP_API + `/get/current_position`,
+            link + `/get/current_position`,
             {
               method: "GET",
               headers: {
@@ -178,7 +178,7 @@ const ModelDetailsCenter = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch(process.env.REACT_APP_API + "/get/live_stats", {
+        fetch(link + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -246,7 +246,7 @@ const ModelDetailsCenter = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch(process.env.REACT_APP_API + "/get_stats", {
+            fetch(link + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -329,7 +329,7 @@ const ModelDetailsCenter = (props) => {
   const [current_position, set_current_position] = useState({});
   // useEffect(() => {
   //   // console.log("Here is it ", strategies[props.model_name]);
-  //   fetch(process.env.REACT_APP_API+ `/get/current_position`)
+  //   fetch(link+ `/get/current_position`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       const temp_data = {};
@@ -361,7 +361,7 @@ const ModelDetailsCenter = (props) => {
           props.model_name.split("_").length == 3
         ) {
           fetch(
-            process.env.REACT_APP_API + "/get/live_strategies",
+            link + "/get/live_strategies",
             {
               method: "GET",
               headers: {
@@ -441,7 +441,7 @@ const ModelDetailsCenter = (props) => {
         } else {
           if (Object.keys(strategies_cache).length == 0) {
             fetch(
-              process.env.REACT_APP_API + "/get_strategies",
+              link + "/get_strategies",
               {
                 method: "GET",
                 headers: {

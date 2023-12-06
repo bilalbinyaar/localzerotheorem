@@ -5,7 +5,7 @@ import { useStateContext } from "../ContextProvider";
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function Kelly_Growth_ApexCharts() {
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   const [timer_for_current, set_timer_for_current_position] = useState(null);
   const [data_for_graph_historical, set_data_for_graph_historical] = useState(
@@ -27,7 +27,7 @@ function Kelly_Growth_ApexCharts() {
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(process.env.REACT_APP_API + `/get/kelly_growth`, {
+        fetch(link + `/get/kelly_growth`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -58,7 +58,7 @@ function Kelly_Growth_ApexCharts() {
           });
       }
       setTimeout(() => {
-        fetch(process.env.REACT_APP_API + `/get/kelly_growth`, {
+        fetch(link + `/get/kelly_growth`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

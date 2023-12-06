@@ -28,11 +28,11 @@ const CanvasDoughnut = (props) => {
       },
     ],
   });
-  const { stats_cache, Set_stats_cache } = useStateContext();
+  const { stats_cache, Set_stats_cache, link } = useStateContext();
   useEffect(() => {
     try {
       if (model_name != props.model_name) {
-        fetch(process.env.REACT_APP_API + "/get_stats", {
+        fetch(link + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

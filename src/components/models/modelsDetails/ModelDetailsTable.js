@@ -1,13 +1,17 @@
 import React from "react";
 import "./ModelDetails.css";
 import { useState, useEffect } from "react";
+import { useStateContext } from "../../../ContextProvider";
+
 const ModelDetailsTable = (props) => {
   const [strategy, setStrategy] = useState({});
+  const { link } = useStateContext();
+
   const [stats, setStats] = useState({});
   // console.log("Here I will get strategy for -->", props.model_name);
   useEffect(() => {
     fetch(
-      process.env.REACT_APP_API + `/get_strategy/${props.model_name}`,
+      link + `/get_strategy/${props.model_name}`,
       {
         method: "GET",
         headers: {
@@ -42,7 +46,7 @@ const ModelDetailsTable = (props) => {
   useEffect(() => {
     try {
       fetch(
-        process.env.REACT_APP_API + `/get_stat/${props.model_name}`,
+        link + `/get_stat/${props.model_name}`,
         {
           method: "GET",
           headers: {

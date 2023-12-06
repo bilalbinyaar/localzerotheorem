@@ -2,11 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import "./LivePNL.css";
 import { Link } from "react-router-dom";
 import { BiLinkExternal } from "react-icons/bi";
+import { useStateContext } from "../../ContextProvider";
 
 const LivePNL = () => {
   const [stats, setStats] = useState([]);
   const [timer_for_current, set_timer_for_current_position] = useState(null);
-
+  const {
+    link
+  } = useStateContext();
   const forColor = (total_pnl, id) => {
     try {
       if (total_pnl < 0) {
@@ -22,7 +25,7 @@ const LivePNL = () => {
   };
 
   //   useEffect(() => {
-  //     fetch(process.env.REACT_APP_API+ "/get/live_strategies", {
+  //     fetch(link+ "/get/live_strategies", {
   //       method: "GET",
   //       headers: {
   //                     Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -102,7 +105,7 @@ const LivePNL = () => {
     try {
       if (timer_for_current == null) {
         fetch(
-          process.env.REACT_APP_API + "/get/live_strategies",
+          link + "/get/live_strategies",
           {
             method: "GET",
             headers: {
@@ -188,7 +191,7 @@ const LivePNL = () => {
       }
       setTimeout(() => {
         fetch(
-          process.env.REACT_APP_API + "/get/live_strategies",
+          link + "/get/live_strategies",
           {
             method: "GET",
             headers: {

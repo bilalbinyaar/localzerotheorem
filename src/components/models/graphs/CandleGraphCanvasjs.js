@@ -69,7 +69,7 @@ function CandleGraphCanvasjs(props) {
     strategies_cache,
     Set_strategies_cache,
     Set_coin_search_selection_cache,
-    Set_model_search_selection_cache,
+    Set_model_search_selection_cache, link
   } = useStateContext();
   useEffect(() => {
     try {
@@ -78,7 +78,7 @@ function CandleGraphCanvasjs(props) {
         props.model_name.split("_").length == 3
       ) {
         fetch(
-          process.env.REACT_APP_API + "/get/live_strategies",
+          link + "/get/live_strategies",
           {
             method: "GET",
             headers: {
@@ -158,7 +158,7 @@ function CandleGraphCanvasjs(props) {
           .catch((err) => console.log(err));
       } else {
         if (Object.keys(strategies_cache).length == 0) {
-          fetch(process.env.REACT_APP_API + "/get_strategies", {
+          fetch(link + "/get_strategies", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -262,7 +262,7 @@ function CandleGraphCanvasjs(props) {
       ) {
         // console.log("Here is it ", strategies[props.model_name]);
         fetch(
-          process.env.REACT_APP_API + `/get/live_strategies`,
+          link + `/get/live_strategies`,
           {
             method: "GET",
             headers: {
@@ -295,7 +295,7 @@ function CandleGraphCanvasjs(props) {
       } else {
         // console.log("Here is it ", strategies[props.model_name]);
         fetch(
-          process.env.REACT_APP_API + `/get/current_position`,
+          link + `/get/current_position`,
           {
             method: "GET",
             headers: {
@@ -343,7 +343,7 @@ function CandleGraphCanvasjs(props) {
         if (props.model_name.split("_").length == 3) {
           if (strategies[props.model_name].exchange == "okx") {
             fetch(
-              process.env.REACT_APP_API + `/get_okx_minute_data/${parseInt(
+              link + `/get_okx_minute_data/${parseInt(
                 strategies[props.model_name].position_start_time
               )}`,
               {
@@ -427,7 +427,7 @@ function CandleGraphCanvasjs(props) {
               });
           } else {
             fetch(
-              process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
+              link + `/get_btc_minute_data/${parseInt(
                 strategies[props.model_name].position_start_time
               )}`,
               {
@@ -512,7 +512,7 @@ function CandleGraphCanvasjs(props) {
           }
         } else {
           fetch(
-            process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
+            link + `/get_btc_minute_data/${parseInt(
               strategies[props.model_name].position_start_time
             )}`,
             {
@@ -815,7 +815,7 @@ function CandleGraphCanvasjs(props) {
           if (props.model_name.split("_").length == 3) {
             if (strategies[props.model_name].exchange == "okx") {
               fetch(
-                process.env.REACT_APP_API + `/get_okx_minute_data/${parseInt(
+                link + `/get_okx_minute_data/${parseInt(
                   strategies[props.model_name].position_start_time
                 )}`,
                 {
@@ -905,7 +905,7 @@ function CandleGraphCanvasjs(props) {
                 });
             } else {
               fetch(
-                process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
+                link + `/get_btc_minute_data/${parseInt(
                   strategies[props.model_name].position_start_time
                 )}`,
                 {
@@ -996,7 +996,7 @@ function CandleGraphCanvasjs(props) {
             }
           } else {
             fetch(
-              process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
+              link + `/get_btc_minute_data/${parseInt(
                 strategies[props.model_name].position_start_time
               )}`,
               {

@@ -8,7 +8,7 @@ const CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
 
 // import PerformanceBarChart from "../../graphs/PerformanceBarChart";
 function AverageSharpe(props) {
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   const windowWidth = useRef(window.innerWidth);
 
@@ -42,7 +42,7 @@ function AverageSharpe(props) {
     // console.log("I received model name for graph -->", props.model_name);
     try {
       fetch(
-        process.env.REACT_APP_API + `/get/live_risk_metrics`,
+        link + `/get/live_risk_metrics`,
         {
           method: "GET",
           headers: {

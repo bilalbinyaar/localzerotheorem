@@ -216,7 +216,7 @@ const ModelDataGrid = () => {
     uid,
     setUid,
     authCheckLogin,
-    setAuthCheckLogin,
+    setAuthCheckLogin, link
   } = useStateContext();
   const [pnl_for_each_strategy, setPnlForEachStrategy] = useState(null);
   const [rows, setRows] = useState([]);
@@ -334,7 +334,7 @@ const ModelDataGrid = () => {
         return;
       } else {
         if (Object.keys(strategies_cache).length == 0) {
-          fetch(process.env.REACT_APP_API + "/get_strategies", {
+          fetch(link + "/get_strategies", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -449,7 +449,7 @@ const ModelDataGrid = () => {
     try {
       if (Flag == null) {
         if (Object.keys(stats_cache).length == 0) {
-          fetch(process.env.REACT_APP_API + "/get_stats", {
+          fetch(link + "/get_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

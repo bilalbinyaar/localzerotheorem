@@ -47,7 +47,7 @@ const RecentlyViewed = (props) => {
     Set_stats_cache,
     Set_coin_search_selection_cache,
     Set_model_search_selection_cache,
-    authCheckLoginInvestor,
+    authCheckLoginInvestor, link
   } = useStateContext();
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -59,7 +59,7 @@ const RecentlyViewed = (props) => {
   useEffect(() => {
     try {
       if (authCheckLoginInvestor == "True") {
-        fetch(process.env.REACT_APP_API + "/get/live_stats", {
+        fetch(link + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -129,7 +129,7 @@ const RecentlyViewed = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch(process.env.REACT_APP_API + "/get_stats", {
+            fetch(link + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -220,7 +220,7 @@ const RecentlyViewed = (props) => {
     try {
       if (authCheckLoginInvestor == "True") {
         fetch(
-          process.env.REACT_APP_API + "/get/live_strategies",
+          link + "/get/live_strategies",
           {
             method: "GET",
             headers: {
@@ -305,7 +305,7 @@ const RecentlyViewed = (props) => {
           .catch((err) => console.log(err));
       } else {
         if (Object.keys(strategies_cache).length == 0) {
-          fetch(process.env.REACT_APP_API + "/get_strategies", {
+          fetch(link + "/get_strategies", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

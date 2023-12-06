@@ -8,10 +8,10 @@ const DrawDownTable = (props) => {
   console.log("Model name received -->", props.model_name);
   const [stats, setStats] = useState({});
   var count = props.model_name.splilt("_").length - 1;
-  const { stats_cache, Set_stats_cache } = useStateContext();
+  const { stats_cache, Set_stats_cache, link } = useStateContext();
   useEffect(() => {
     if (props.model_name.splilt("_").length - 1 == 2) {
-      fetch(process.env.REACT_APP_API + "/get/live_stats", {
+      fetch(link + "/get/live_stats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -76,7 +76,7 @@ const DrawDownTable = (props) => {
         .catch((err) => console.log(err));
     } else {
       if (Object.keys(stats_cache).length == 0) {
-        fetch(process.env.REACT_APP_API + "/get_stats", {
+        fetch(link + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

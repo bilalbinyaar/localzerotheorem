@@ -71,7 +71,7 @@ const CompareComponentMobile = () => {
     coin_selection_cache,
     Set_coin_search_selection_cache,
     model_selection_cache,
-    Set_model_search_selection_cache,
+    Set_model_search_selection_cache, link
   } = useStateContext();
 
   const [rows, setRows] = useState([]);
@@ -223,7 +223,7 @@ const CompareComponentMobile = () => {
   useEffect(() => {
     try {
       if (Object.keys(strategies_cache).length == 0) {
-        fetch(process.env.REACT_APP_API + "/get_strategies", {
+        fetch(link + "/get_strategies", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -348,7 +348,7 @@ const CompareComponentMobile = () => {
   useEffect(() => {
     try {
       if (Object.keys(stats_cache).length == 0) {
-        fetch(process.env.REACT_APP_API + "/get_stats", {
+        fetch(link + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

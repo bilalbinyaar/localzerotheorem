@@ -11,7 +11,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 const Portfolio = () => {
   const [timer_for_current, set_timer_for_current_position] = useState(null);
   const [stats, setStats] = useState([]);
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   const forColor = (total_pnl, id) => {
     try {
@@ -29,7 +29,7 @@ const Portfolio = () => {
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
+        fetch(link + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -65,7 +65,7 @@ const Portfolio = () => {
           });
       }
       setTimeout(() => {
-        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
+        fetch(link + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

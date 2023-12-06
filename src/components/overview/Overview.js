@@ -13,13 +13,13 @@ const Overview = () => {
   const dispatch = useDispatch();
   const persistant_states = useSelector((state) => state.scrollPosition);
 
-  const { position_stats_cache, Set_position_stats_cache } = useStateContext();
+  const { position_stats_cache, Set_position_stats_cache, link } = useStateContext();
   const [position_analysis_stats, set_position_analysis_stats] = useState([]);
   useEffect(() => {
     try {
       if (Object.keys(position_stats_cache).length == 0) {
         fetch(
-          process.env.REACT_APP_API + "/get/position_percentage",
+          link + "/get/position_percentage",
           {
             method: "GET",
             headers: {

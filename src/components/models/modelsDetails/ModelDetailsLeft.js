@@ -22,7 +22,7 @@ const ModelDetailsLeft = (props) => {
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
+        fetch(link + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -58,7 +58,7 @@ const ModelDetailsLeft = (props) => {
           });
       }
       setTimeout(() => {
-        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
+        fetch(link + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -103,7 +103,7 @@ const ModelDetailsLeft = (props) => {
   // const [stats, setStats] = useState({});
   // useEffect(() => {
   //   fetch(
-  //     process.env.REACT_APP_API+ `/get_strategy/${props.model_name}`,
+  //     link+ `/get_strategy/${props.model_name}`,
   //     {
   //         method: "GET",
   // headers: {
@@ -136,7 +136,7 @@ const ModelDetailsLeft = (props) => {
 
   // useEffect(() => {
   //   fetch(
-  //     process.env.REACT_APP_API+ `/get_stat/${props.model_name}`,
+  //     link+ `/get_stat/${props.model_name}`,
   //     {
   //         method: "GET",
   // headers: {
@@ -183,8 +183,8 @@ const ModelDetailsLeft = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        console.log("Here is api -->", process.env.REACT_APP_API)
-        fetch(process.env.REACT_APP_API + "/get/live_stats", {
+        console.log("Here is api -->", link)
+        fetch(link + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -250,7 +250,7 @@ const ModelDetailsLeft = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch(process.env.REACT_APP_API + "/get_stats", {
+            fetch(link + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -337,7 +337,7 @@ const ModelDetailsLeft = (props) => {
           props.model_name.split("_").length == 3
         ) {
           fetch(
-            process.env.REACT_APP_API + "/get/live_strategies",
+            link + "/get/live_strategies",
             {
               method: "GET",
               headers: {
@@ -423,7 +423,7 @@ const ModelDetailsLeft = (props) => {
         } else {
           if (Object.keys(strategies_cache).length == 0) {
             fetch(
-              process.env.REACT_APP_API + "/get_strategies",
+              link + "/get_strategies",
               {
                 method: "GET",
                 headers: {

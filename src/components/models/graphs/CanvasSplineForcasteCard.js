@@ -8,7 +8,7 @@ function CanvasSplineForcasteCard(props) {
   const [maxValue, setMaxValue] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { negative_canvasjs_graph_cache, Set_negative_canvasjs_graph_cache } =
+  const { negative_canvasjs_graph_cache, Set_negative_canvasjs_graph_cache, link } =
     useStateContext();
   const [
     forecastSpline_canvasjs_graph_cache,
@@ -26,7 +26,7 @@ function CanvasSplineForcasteCard(props) {
     try {
       if (!forecastSpline_canvasjs_graph_cache[props.model_name]) {
         fetch(
-          process.env.REACT_APP_API + `/${props.model_name}`,
+          link + `/${props.model_name}`,
           {
             method: "GET",
             headers: {

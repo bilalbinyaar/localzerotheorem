@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import React from 'react';
+import { useStateContext } from '../../ContextProvider';
 
 const AccountBalance = () => {
   const [timer_for_current, set_timer_for_current_position] = useState(null);
   const [stats, setStats] = useState([]);
+  const { theme, link } = useStateContext();
 
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(process.env.REACT_APP_API + `/get/live_exchange`, {
+        fetch(link + `/get/live_exchange`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -44,7 +46,7 @@ const AccountBalance = () => {
           });
       }
       setTimeout(() => {
-        fetch(process.env.REACT_APP_API + `/get/live_exchange`, {
+        fetch(link + `/get/live_exchange`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

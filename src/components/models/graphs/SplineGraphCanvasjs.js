@@ -8,7 +8,7 @@ function SplineGraphCanvasjs(props) {
   const [maxValue, setMaxValue] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { negative_canvasjs_graph_cache, Set_negative_canvasjs_graph_cache } =
+  const { negative_canvasjs_graph_cache, Set_negative_canvasjs_graph_cache, link } =
     useStateContext();
   const [cummulative_pnl, set_cum_pnl] = useState([]);
   const [options, setOptions] = useState({
@@ -23,7 +23,7 @@ function SplineGraphCanvasjs(props) {
       props.model_name.includes("strategy") ||
       props.model_name.split("_").length == 3
     ) {
-      fetch(process.env.REACT_APP_API + `/${props.model_name}`, {
+      fetch(link + `/${props.model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -279,7 +279,7 @@ function SplineGraphCanvasjs(props) {
     } else {
       if (!negative_canvasjs_graph_cache[props.model_name]) {
         fetch(
-          process.env.REACT_APP_API + `/${props.model_name + "_PNL"
+          link + `/${props.model_name + "_PNL"
           }`,
           {
             method: "GET",

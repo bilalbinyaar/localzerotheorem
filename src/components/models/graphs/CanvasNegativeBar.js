@@ -11,7 +11,7 @@ const CanvasNegativeBar = (props) => {
   var CanvasJSChart = CanvasJSReact.CanvasJSChart;
   const {
     individual_pnl_canvasjs_graph_cache,
-    Set_individual_pnl_canvasjs_graph_cache,
+    Set_individual_pnl_canvasjs_graph_cache, link
   } = useStateContext();
   const [cummulative_pnl, set_cum_pnl] = useState([]);
   const [options, setOptions] = useState({
@@ -35,7 +35,7 @@ const CanvasNegativeBar = (props) => {
     try {
       if (!individual_pnl_canvasjs_graph_cache[props.model_name]) {
         fetch(
-          process.env.REACT_APP_API + `/${props.model_name}`,
+          link + `/${props.model_name}`,
           {
             method: "GET",
             headers: {

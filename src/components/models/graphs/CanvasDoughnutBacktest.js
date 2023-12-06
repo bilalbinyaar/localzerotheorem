@@ -3,7 +3,7 @@ import { useStateContext } from "../../../ContextProvider";
 import React, { useState, useEffect } from "react";
 
 const CanvasDoughnutBacktest = (props) => {
-  const { stats_cache, Set_stats_cache } = useStateContext();
+  const { stats_cache, Set_stats_cache, link } = useStateContext();
 
   // console.log("I am here with doughnut -->", props.model_name);
   const [model_name, set_model_name] = useState(null);
@@ -34,7 +34,7 @@ const CanvasDoughnutBacktest = (props) => {
     try {
       if (props.model_name.includes("stats")) {
         fetch(
-          process.env.REACT_APP_API + "/get_stats_backtest/" +
+          link + "/get_stats_backtest/" +
           props.model_name,
           {
             method: "GET",
@@ -103,7 +103,7 @@ const CanvasDoughnutBacktest = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch(process.env.REACT_APP_API + "/get/live_stats", {
+        fetch(link + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -171,7 +171,7 @@ const CanvasDoughnutBacktest = (props) => {
           .catch((err) => console.log(err));
       } else {
         if (model_name != props.model_name) {
-          fetch(process.env.REACT_APP_API + "/get_stats", {
+          fetch(link + "/get_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

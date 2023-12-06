@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import { ThreeDots } from "react-loader-spinner";
+import { useStateContext } from "../../../ContextProvider";
 
 const PolarAreaChartApexCharts = () => {
   const [series, setSeries] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [Labels, setLabels] = useState([]);
-
+  const { link } =
+    useStateContext();
   useEffect(() => {
     try {
-      fetch(process.env.REACT_APP_API + "/get/live_strategies", {
+      fetch(link + "/get/live_strategies", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

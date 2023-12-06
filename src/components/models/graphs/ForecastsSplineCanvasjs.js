@@ -4,7 +4,7 @@ import { useStateContext } from "../../../ContextProvider";
 import { ThreeDots } from "react-loader-spinner";
 
 function ForecastsSplineCanvasjs(props) {
-  const { negative_canvasjs_graph_cache, Set_negative_canvasjs_graph_cache } =
+  const { negative_canvasjs_graph_cache, Set_negative_canvasjs_graph_cache, link } =
     useStateContext();
   const [cummulative_pnl, set_cum_pnl] = useState([]);
   const [minValue, setMinValue] = useState(null);
@@ -21,7 +21,7 @@ function ForecastsSplineCanvasjs(props) {
   useEffect(() => {
     if (!negative_canvasjs_graph_cache[props.model_name]) {
       fetch(
-        process.env.REACT_APP_API + `/${props.model_name + "_PNL"
+        link + `/${props.model_name + "_PNL"
         }`,
         {
           method: "GET",

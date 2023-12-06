@@ -23,7 +23,7 @@ const PerformanceMultiLine = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [start, setStart] = useState(null);
   const [end, setEnd] = useState(null);
-  const { individual_pnl_graph_cache, Set_individual_pnl_graph_cache } =
+  const { individual_pnl_graph_cache, Set_individual_pnl_graph_cache, link } =
     useStateContext();
   const [data_for_pnl_graph, set_data_for_pnl_graph] = useState([]);
   const [cummulative_pnl, set_cum_pnl] = useState([]);
@@ -34,7 +34,7 @@ const PerformanceMultiLine = (props) => {
       props.model_name.includes("strategy") ||
       props.model_name.split("_").length == 3
     ) {
-      fetch(process.env.REACT_APP_API + `/${props.model_name}`, {
+      fetch(link + `/${props.model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -81,7 +81,7 @@ const PerformanceMultiLine = (props) => {
         })
         .catch((err) => console.log(err));
     } else {
-      fetch(process.env.REACT_APP_API + `/get/live_pnls`, {
+      fetch(link + `/get/live_pnls`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

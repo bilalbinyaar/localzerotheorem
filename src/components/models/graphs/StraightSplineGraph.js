@@ -14,7 +14,7 @@ const StraightSplineGraph = React.memo(({ model_name }) => {
     if (!straight_spline_graph_cache[model_name]) {
       // console.log("I received model name for graph -->", model_name);
 
-      fetch(process.env.REACT_APP_API + `/${model_name}`, {
+      fetch(link + `/${model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

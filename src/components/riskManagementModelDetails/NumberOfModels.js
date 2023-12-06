@@ -9,7 +9,7 @@ const CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
 // import PerformanceBarChart from "../../graphs/PerformanceBarChart";
 function NumberOfModels(props) {
   const windowWidth = useRef(window.innerWidth);
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   var flag = false;
   // if (windowWidth.current <= 480) {
@@ -41,7 +41,7 @@ function NumberOfModels(props) {
     // console.log("I received model name for graph -->", props.model_name);
     try {
       fetch(
-        process.env.REACT_APP_API + `/get/live_risk_metrics`,
+        link + `/get/live_risk_metrics`,
         {
           method: "GET",
           headers: {

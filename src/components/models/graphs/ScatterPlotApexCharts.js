@@ -8,7 +8,7 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 const ScatterPlotApexCharts = () => {
   const [scatterPlotData, setScatterPlotData] = useState([]);
   const [linePlotData, setLinePlotData] = useState([]);
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
   const [Flag, setFlag] = useState(null);
   const [color, setColor] = useState(theme == "dark-theme" ? "#FFF" : "#000");
   const [curr_theme, set_curr_theme] = useState(theme);
@@ -102,7 +102,7 @@ const ScatterPlotApexCharts = () => {
   });
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API + `/get/live_pnls`, {
+    fetch(link + `/get/live_pnls`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

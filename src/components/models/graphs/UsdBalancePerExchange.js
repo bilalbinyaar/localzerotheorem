@@ -17,12 +17,12 @@ const UsdBalancePerExchange = (props) => {
     const [series, setSeries] = useState([]);
     const [usdBalance, setUsdBalance] = useState([])
     const [btcBalance, setBtcBalance] = useState([])
-    const { stats_cache, Set_stats_cache } = useStateContext();
+    const { stats_cache, Set_stats_cache, link } = useStateContext();
     useEffect(() => {
         try {
             if (props.model_name.includes("collection")) {
                 fetch(
-                    process.env.REACT_APP_API + "/get/live_exchange",
+                    link + "/get/live_exchange",
                     {
                         method: "GET",
                         headers: {

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ScatterPlotApexCharts from "../models/graphs/ScatterPlotApexCharts";
+import { useStateContext } from "../../ContextProvider";
 
 const MR = () => {
   const [stats, setStats] = useState({});
+  const {
+    link
+
+  } = useStateContext();
   useEffect(() => {
     try {
-      fetch(process.env.REACT_APP_API + `/get/live_pnls`, {
+      fetch(link + `/get/live_pnls`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

@@ -18,7 +18,7 @@ const AreaLineChart = (props) => {
         // console.log("I received model name for graph -->", props.model_name);
 
         fetch(
-          process.env.REACT_APP_API + `/${props.model_name}`,
+          link + `/${props.model_name}`,
           {
             method: "GET",
             headers: {

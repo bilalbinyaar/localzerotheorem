@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import { ThreeDots } from "react-loader-spinner";
+import { useStateContext } from "../../../ContextProvider";
 
 const HeatMapChart = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const { link } =
+    useStateContext();
   const correlationMatrix = [
     [1, 0.8, 0.2, -0.5, -0.9],
     [0.8, 1, -0.3, 0.1, 0.6],
@@ -27,7 +29,7 @@ const HeatMapChart = () => {
   useEffect(() => {
     try {
       fetch(
-        process.env.REACT_APP_API + "/get/live_correlations",
+        link + "/get/live_correlations",
         {
           method: "GET",
           headers: {

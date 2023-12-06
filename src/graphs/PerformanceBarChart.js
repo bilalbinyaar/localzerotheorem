@@ -17,6 +17,8 @@ const PerformanceBarChart = (props) => {
   if (model_name != props.model_name) {
     set_model_name(props.model_name);
   }
+  const { link } =
+    useStateContext();
   const [dataPoints, setDataPoints] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [start, setStart] = useState(null);
@@ -27,7 +29,7 @@ const PerformanceBarChart = (props) => {
   useEffect(() => {
     // console.log("I received model name for graph -->", props.model_name);
     try {
-      fetch(process.env.REACT_APP_API + `/get/live_pnls`, {
+      fetch(link + `/get/live_pnls`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

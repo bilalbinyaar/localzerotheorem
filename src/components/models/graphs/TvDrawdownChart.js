@@ -19,7 +19,7 @@ const TvDrawdownChart = (props) => {
     if (!tv_drawdown_cache[props.model_name]) {
       // console.log("I received model name for graph -->", props.model_name);
 
-      fetch(process.env.REACT_APP_API + `/${props.model_name}`, {
+      fetch(link + `/${props.model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

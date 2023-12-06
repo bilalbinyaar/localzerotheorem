@@ -10,11 +10,11 @@ const DrawDownTableBacktest = (props) => {
   // console.log("I received model name -->", props.model_name);
   // const [model_name, set_model_name] = useState(props.model_name);
   const [stats, setStats] = useState({});
-  const { stats_cache, Set_stats_cache } = useStateContext();
+  const { stats_cache, Set_stats_cache, link } = useStateContext();
   useEffect(() => {
     if (props.model_name.includes("stats")) {
       fetch(
-        process.env.REACT_APP_API + "/get_stats_backtest/" +
+        link + "/get_stats_backtest/" +
         props.model_name,
         {
           method: "GET",
@@ -85,7 +85,7 @@ const DrawDownTableBacktest = (props) => {
       props.model_name.includes("strategy") ||
       props.model_name.split("_").length == 3
     ) {
-      fetch(process.env.REACT_APP_API + "/get/live_stats", {
+      fetch(link + "/get/live_stats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
@@ -152,7 +152,7 @@ const DrawDownTableBacktest = (props) => {
         .catch((err) => console.log(err));
     } else {
       if (Object.keys(stats_cache).length == 0) {
-        fetch(process.env.REACT_APP_API + "/get_stats", {
+        fetch(link + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

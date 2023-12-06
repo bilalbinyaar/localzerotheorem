@@ -69,7 +69,7 @@ function CustomFooter() {
 }
 
 const PerformanceDataGrid = () => {
-  const { uid, setUid, authCheckLogin, setAuthCheckLogin } = useStateContext();
+  const { uid, setUid, authCheckLogin, setAuthCheckLogin, link } = useStateContext();
 
   const windowWidth = useRef(window.innerWidth);
   const [pinnedRows, setPinnedRows] = useState([]);
@@ -343,7 +343,7 @@ const PerformanceDataGrid = () => {
         setFlag(null);
       } else {
         fetch(
-          process.env.REACT_APP_API + "/get/live_strategies",
+          link + "/get/live_strategies",
           {
             method: "GET",
             headers: {
@@ -435,7 +435,7 @@ const PerformanceDataGrid = () => {
   useEffect(() => {
     try {
       if (Flag == null) {
-        fetch(process.env.REACT_APP_API + "/get/live_stats", {
+        fetch(link + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

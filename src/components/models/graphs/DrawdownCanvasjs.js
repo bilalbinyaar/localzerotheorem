@@ -3,7 +3,7 @@ import CanvasJSReact from "../../../canvasjs.react";
 import { useStateContext } from "../../../ContextProvider";
 
 function DrawdownCanvasjs(props) {
-  const { drawdown_canvasjs_graph_cache, Set_drawdown_canvasjs_graph_cache } =
+  const { drawdown_canvasjs_graph_cache, Set_drawdown_canvasjs_graph_cache, link } =
     useStateContext();
   const [model_name, set_model_name] = useState(props.model_name);
   if (model_name != props.model_name) {
@@ -25,7 +25,7 @@ function DrawdownCanvasjs(props) {
     try {
       if (!drawdown_canvasjs_graph_cache[props.model_name]) {
         fetch(
-          process.env.REACT_APP_API + `/${props.model_name}`,
+          link + `/${props.model_name}`,
           {
             method: "GET",
             headers: {

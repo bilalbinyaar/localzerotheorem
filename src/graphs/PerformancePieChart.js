@@ -13,10 +13,10 @@ const PerformancePieChart = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [series, setSeries] = useState([]);
-  const { stats_cache, Set_stats_cache } = useStateContext();
+  const { stats_cache, Set_stats_cache, link } = useStateContext();
   useEffect(() => {
     try {
-      fetch(process.env.REACT_APP_API + "/get/live_strategies", {
+      fetch(link + "/get/live_strategies", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,

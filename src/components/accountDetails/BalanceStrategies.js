@@ -7,7 +7,7 @@ const CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
 
 const BalanceStrategies = (props) => {
 
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   var flag = false;
 
@@ -37,7 +37,7 @@ const BalanceStrategies = (props) => {
     // console.log("I received model name for graph -->", props.model_name);
     try {
       fetch(
-        process.env.REACT_APP_API + `/get/live_risk_metrics`,
+        link + `/get/live_risk_metrics`,
         {
           method: "GET",
           headers: {

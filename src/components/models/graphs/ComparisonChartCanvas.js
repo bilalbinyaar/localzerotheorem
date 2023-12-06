@@ -43,7 +43,7 @@ const ComparisonChartCanvas = (props) => {
   const [maxValue, setMaxValue] = useState(null);
   const {
     drawdown_negative_canvasjs_graph_cache,
-    Set_drawdown_negative_canvasjs_graph_cache,
+    Set_drawdown_negative_canvasjs_graph_cache, link
   } = useStateContext();
   const [cummulative_pnl, set_cum_pnl] = useState([]);
 
@@ -53,7 +53,7 @@ const ComparisonChartCanvas = (props) => {
         // console.log("I received model name for graph -->", props.model_name);
 
         fetch(
-          process.env.REACT_APP_API + `/${props.model_name}`,
+          link + `/${props.model_name}`,
           {
             method: "GET",
             headers: {

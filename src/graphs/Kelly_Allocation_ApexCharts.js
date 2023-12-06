@@ -5,7 +5,7 @@ import { useStateContext } from "../ContextProvider";
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function Kelly_Allocation_ApexCharts() {
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   const [timer_for_current, set_timer_for_current_position] = useState(null);
   const [strategy_names, set_strategy_names] = useState([]);
@@ -55,7 +55,7 @@ function Kelly_Allocation_ApexCharts() {
     try {
       if (timer_for_current == null) {
         fetch(
-          process.env.REACT_APP_API + `/get/kelly_allocation`,
+          link + `/get/kelly_allocation`,
           {
             method: "GET",
             headers: {
@@ -172,7 +172,7 @@ function Kelly_Allocation_ApexCharts() {
       }
       setTimeout(() => {
         fetch(
-          process.env.REACT_APP_API + `/get/kelly_allocation`,
+          link + `/get/kelly_allocation`,
           {
             method: "GET",
             headers: {

@@ -59,10 +59,11 @@ const RecentlyViewed = (props) => {
   useEffect(() => {
     try {
       if (authCheckLoginInvestor == "True") {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -128,10 +129,11 @@ const RecentlyViewed = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+            fetch(process.env.REACT_APP_API + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())
@@ -218,11 +220,12 @@ const RecentlyViewed = (props) => {
     try {
       if (authCheckLoginInvestor == "True") {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+          process.env.REACT_APP_API + "/get/live_strategies",
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -302,10 +305,11 @@ const RecentlyViewed = (props) => {
           .catch((err) => console.log(err));
       } else {
         if (Object.keys(strategies_cache).length == 0) {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies", {
+          fetch(process.env.REACT_APP_API + "/get_strategies", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())

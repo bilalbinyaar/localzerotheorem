@@ -10,10 +10,11 @@ const PerformanceTable = (props) => {
   const { stats_cache, Set_stats_cache } = useStateContext();
   useEffect(() => {
     if (Object.keys(stats_cache).length == 0) {
-      fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+      fetch(process.env.REACT_APP_API + "/get_stats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())
@@ -113,9 +114,9 @@ const PerformanceTable = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].total_positive_pnl,
-                      "agg_profit"
-                    )
+                    stats[props.model_name].total_positive_pnl,
+                    "agg_profit"
+                  )
                   : null
               }
             >
@@ -141,9 +142,9 @@ const PerformanceTable = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].total_positive_pnl,
-                      "agg_loss"
-                    )
+                    stats[props.model_name].total_positive_pnl,
+                    "agg_loss"
+                  )
                   : null
               }
             >

@@ -21,13 +21,13 @@ function ForecastsSplineCanvasjs(props) {
   useEffect(() => {
     if (!negative_canvasjs_graph_cache[props.model_name]) {
       fetch(
-        `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${
-          props.model_name + "_PNL"
+        process.env.REACT_APP_API + `/${props.model_name + "_PNL"
         }`,
         {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         }
       )
@@ -101,14 +101,14 @@ function ForecastsSplineCanvasjs(props) {
                       temp_last_data_positive = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_positive_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -124,14 +124,14 @@ function ForecastsSplineCanvasjs(props) {
                       temp_last_data_positive = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_positive_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -148,14 +148,14 @@ function ForecastsSplineCanvasjs(props) {
                     temp_last_data_positive = {
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     };
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     });
@@ -190,14 +190,14 @@ function ForecastsSplineCanvasjs(props) {
                       temp_last_data_negative = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_negative_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -213,14 +213,14 @@ function ForecastsSplineCanvasjs(props) {
                       temp_last_data_negative = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_negative_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -237,14 +237,14 @@ function ForecastsSplineCanvasjs(props) {
                     temp_last_data_negative = {
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     };
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     });

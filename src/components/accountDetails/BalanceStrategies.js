@@ -37,11 +37,12 @@ const BalanceStrategies = (props) => {
     // console.log("I received model name for graph -->", props.model_name);
     try {
       fetch(
-        `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_risk_metrics`,
+        process.env.REACT_APP_API + `/get/live_risk_metrics`,
         {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         }
       )

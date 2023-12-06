@@ -343,11 +343,12 @@ const PerformanceDataGrid = () => {
         setFlag(null);
       } else {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+          process.env.REACT_APP_API + "/get/live_strategies",
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -434,10 +435,11 @@ const PerformanceDataGrid = () => {
   useEffect(() => {
     try {
       if (Flag == null) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -1865,8 +1867,8 @@ const PerformanceDataGrid = () => {
                       Footer: CustomFooter,
                     }}
 
-                    // {...data}
-                    // experimentalFeatures={{ newEditingApi: true }}
+                  // {...data}
+                  // experimentalFeatures={{ newEditingApi: true }}
                   />
                 </Box>
               </div>

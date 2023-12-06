@@ -20,11 +20,12 @@ const GradientDonut = (props) => {
     try {
       if (props.model_name.includes("collection")) {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+          process.env.REACT_APP_API + "/get/live_strategies",
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -60,10 +61,11 @@ const GradientDonut = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -123,12 +125,13 @@ const GradientDonut = (props) => {
           .catch((err) => console.log(err));
       } else if (props.model_name.includes("user_")) {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest" +
-            `/${props.model_name}_stats`,
+          process.env.REACT_APP_API + "/get_stats_backtest" +
+          `/${props.model_name}_stats`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -191,10 +194,11 @@ const GradientDonut = (props) => {
           })
           .catch((err) => console.log(err));
       } else if (props.model_name.includes("DailyWinsLosses")) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_returns", {
+        fetch(process.env.REACT_APP_API + "/get/live_returns", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -266,12 +270,13 @@ const GradientDonut = (props) => {
           .catch((err) => console.log(err));
       } else {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stat" +
-            `/${props.model_name}`,
+          process.env.REACT_APP_API + "/get_stat" +
+          `/${props.model_name}`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -392,17 +397,17 @@ const GradientDonut = (props) => {
     labels: labels,
     colors: props.model_name.includes("collection")
       ? [
-          "#16C784",
-          "#FF2E2E",
-          "#F9A52B",
-          "#4287f5",
-          "#9B59B6",
-          "#FFD700",
-          "#00FFFF",
-          "#FF1493",
-          "#008080",
-          "#DA6B85",
-        ]
+        "#16C784",
+        "#FF2E2E",
+        "#F9A52B",
+        "#4287f5",
+        "#9B59B6",
+        "#FFD700",
+        "#00FFFF",
+        "#FF1493",
+        "#008080",
+        "#DA6B85",
+      ]
       : ["#16C784", "#FF2E2E"],
     chart: {
       width: 380,

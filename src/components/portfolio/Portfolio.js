@@ -24,15 +24,16 @@ const Portfolio = () => {
           .getElementById(`${id}`)
           .setAttribute("style", "color:#16C784 !important");
       }
-    } catch {}
+    } catch { }
   };
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_returns`, {
+        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((res) => res.json())
@@ -64,10 +65,11 @@ const Portfolio = () => {
           });
       }
       setTimeout(() => {
-        fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_returns`, {
+        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((res) => res.json())
@@ -132,9 +134,9 @@ const Portfolio = () => {
                 onChange={
                   stats["live_pnls"]
                     ? forColor(
-                        parseInt(stats["live_pnls"].pnl_all),
-                        "pnl-color16"
-                      )
+                      parseInt(stats["live_pnls"].pnl_all),
+                      "pnl-color16"
+                    )
                     : null
                 }
               >
@@ -178,9 +180,9 @@ const Portfolio = () => {
                   onChange={
                     stats["live_pnls"]
                       ? forColor(
-                          parseFloat(stats["live_pnls"].pnl_1),
-                          "pnl-color11"
-                        )
+                        parseFloat(stats["live_pnls"].pnl_1),
+                        "pnl-color11"
+                      )
                       : null
                   }
                 >
@@ -214,9 +216,9 @@ const Portfolio = () => {
                   onChange={
                     stats["live_pnls"]
                       ? forColor(
-                          parseFloat(stats["live_pnls"].pnl_7),
-                          "pnl-color60"
-                        )
+                        parseFloat(stats["live_pnls"].pnl_7),
+                        "pnl-color60"
+                      )
                       : null
                   }
                 >
@@ -250,9 +252,9 @@ const Portfolio = () => {
                   onChange={
                     stats["live_pnls"]
                       ? forColor(
-                          parseFloat(stats["live_pnls"].pnl_30),
-                          "pnl-color144"
-                        )
+                        parseFloat(stats["live_pnls"].pnl_30),
+                        "pnl-color144"
+                      )
                       : null
                   }
                 >
@@ -286,9 +288,9 @@ const Portfolio = () => {
                   onChange={
                     stats["live_pnls"]
                       ? forColor(
-                          parseFloat(stats["live_pnls"].pnl_60),
-                          "pnl-color19"
-                        )
+                        parseFloat(stats["live_pnls"].pnl_60),
+                        "pnl-color19"
+                      )
                       : null
                   }
                 >

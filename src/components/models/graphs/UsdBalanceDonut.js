@@ -25,6 +25,7 @@ const UsdBalanceDonut = (props) => {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -70,17 +71,17 @@ const UsdBalanceDonut = (props) => {
     labels: labels,
     colors: props.model_name.includes('collection')
       ? [
-          '#16C784',
-          '#FF2E2E',
-          '#F9A52B',
-          '#4287f5',
-          '#9B59B6',
-          '#FFD700',
-          '#00FFFF',
-          '#FF1493',
-          '#008080',
-          '#DA6B85',
-        ]
+        '#16C784',
+        '#FF2E2E',
+        '#F9A52B',
+        '#4287f5',
+        '#9B59B6',
+        '#FFD700',
+        '#00FFFF',
+        '#FF1493',
+        '#008080',
+        '#DA6B85',
+      ]
       : ['#16C784', '#FF2E2E'],
     chart: {
       width: 380,

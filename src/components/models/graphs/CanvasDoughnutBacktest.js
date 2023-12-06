@@ -34,12 +34,13 @@ const CanvasDoughnutBacktest = (props) => {
     try {
       if (props.model_name.includes("stats")) {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
-            props.model_name,
+          process.env.REACT_APP_API + "/get_stats_backtest/" +
+          props.model_name,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -102,10 +103,11 @@ const CanvasDoughnutBacktest = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -169,10 +171,11 @@ const CanvasDoughnutBacktest = (props) => {
           .catch((err) => console.log(err));
       } else {
         if (model_name != props.model_name) {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+          fetch(process.env.REACT_APP_API + "/get_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -275,24 +278,24 @@ const CanvasDoughnutBacktest = (props) => {
                 dataPoints:
                   data_for_stat[1] != 0
                     ? [
-                        {
-                          name: "Wins",
-                          y: data_for_stat[0],
-                          color: "#16c784",
-                        },
-                        {
-                          name: "Losses",
-                          y: data_for_stat[1],
-                          color: "#ff2e2e",
-                        },
-                      ]
+                      {
+                        name: "Wins",
+                        y: data_for_stat[0],
+                        color: "#16c784",
+                      },
+                      {
+                        name: "Losses",
+                        y: data_for_stat[1],
+                        color: "#ff2e2e",
+                      },
+                    ]
                     : [
-                        {
-                          name: "Wins",
-                          y: data_for_stat[0],
-                          color: "#16c784",
-                        },
-                      ],
+                      {
+                        name: "Wins",
+                        y: data_for_stat[0],
+                        color: "#16c784",
+                      },
+                    ],
               },
             ],
           });
@@ -308,7 +311,7 @@ const CanvasDoughnutBacktest = (props) => {
     <div>
       <CanvasJSChart
         options={options}
-        /* onRef={ref => this.chart = ref} */
+      /* onRef={ref => this.chart = ref} */
       />
       {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
     </div>

@@ -9,10 +9,11 @@ const PolarAreaChartApexCharts = () => {
 
   useEffect(() => {
     try {
-      fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies", {
+      fetch(process.env.REACT_APP_API + "/get/live_strategies", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())

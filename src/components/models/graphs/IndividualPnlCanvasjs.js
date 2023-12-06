@@ -34,11 +34,12 @@ const IndividualPnlCanvasjs = (props) => {
         props.model_name.split("_").length == 3
       ) {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${props.model_name}`,
+          process.env.REACT_APP_API + `/${props.model_name}`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -83,11 +84,12 @@ const IndividualPnlCanvasjs = (props) => {
           .catch((err) => console.log(err));
       } else {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${props.model_name}`,
+          process.env.REACT_APP_API + `/${props.model_name}`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )

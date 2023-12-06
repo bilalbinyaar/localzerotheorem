@@ -8,10 +8,11 @@ const AccountBalance = () => {
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_exchange`, {
+        fetch(process.env.REACT_APP_API + `/get/live_exchange`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((res) => res.json())
@@ -43,10 +44,11 @@ const AccountBalance = () => {
           });
       }
       setTimeout(() => {
-        fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_exchange`, {
+        fetch(process.env.REACT_APP_API + `/get/live_exchange`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((res) => res.json())

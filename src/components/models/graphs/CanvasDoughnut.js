@@ -32,10 +32,11 @@ const CanvasDoughnut = (props) => {
   useEffect(() => {
     try {
       if (model_name != props.model_name) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+        fetch(process.env.REACT_APP_API + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -152,7 +153,7 @@ const CanvasDoughnut = (props) => {
     <div>
       <CanvasJSChart
         options={options}
-        /* onRef={ref => this.chart = ref} */
+      /* onRef={ref => this.chart = ref} */
       />
       {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
     </div>

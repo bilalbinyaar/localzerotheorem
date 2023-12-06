@@ -53,11 +53,12 @@ const ComparisonChartCanvas = (props) => {
         // console.log("I received model name for graph -->", props.model_name);
 
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${props.model_name}`,
+          process.env.REACT_APP_API + `/${props.model_name}`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -110,7 +111,7 @@ const ComparisonChartCanvas = (props) => {
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     });
@@ -129,7 +130,7 @@ const ComparisonChartCanvas = (props) => {
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     });
@@ -150,7 +151,7 @@ const ComparisonChartCanvas = (props) => {
               setStart(new Date(result) * 1000);
               setEnd(
                 new Date(parseInt(data["response"][len].ledger_timestamp)) *
-                  1000
+                1000
               );
               set_cum_pnl(main_series);
               Set_drawdown_negative_canvasjs_graph_cache({

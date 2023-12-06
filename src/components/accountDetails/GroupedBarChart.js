@@ -14,6 +14,7 @@ const GroupedBarChart = () => {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())
@@ -47,6 +48,7 @@ const GroupedBarChart = () => {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())

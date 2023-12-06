@@ -223,10 +223,11 @@ const CompareComponentMobile = () => {
   useEffect(() => {
     try {
       if (Object.keys(strategies_cache).length == 0) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies", {
+        fetch(process.env.REACT_APP_API + "/get_strategies", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -347,10 +348,11 @@ const CompareComponentMobile = () => {
   useEffect(() => {
     try {
       if (Object.keys(stats_cache).length == 0) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+        fetch(process.env.REACT_APP_API + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -591,15 +593,15 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                {
-                  backgroundColor: "var(--color-dropdown-bg) !important",
-                  color: "var(--color-day-black) !important",
-                },
+              {
+                backgroundColor: "var(--color-dropdown-bg) !important",
+                color: "var(--color-day-black) !important",
+              },
 
               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                {
-                  color: "var(--color-day-yellow) !important",
-                },
+              {
+                color: "var(--color-day-yellow) !important",
+              },
 
               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root": {
                 color: "var(--color-day-yellow) !important",
@@ -649,14 +651,14 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                {
-                  borderBottom: "1px solid var(--color-day-yellow) !important",
-                },
+              {
+                borderBottom: "1px solid var(--color-day-yellow) !important",
+              },
 
               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                {
-                  borderBottom: "2px solid var(--color-day-yellow) !important",
-                },
+              {
+                borderBottom: "2px solid var(--color-day-yellow) !important",
+              },
 
               "& #demo-simple-select-standard-label": {
                 color: "var(--color-day-yellow) !important",
@@ -667,20 +669,20 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                {
-                  backgroundColor: "var(--color-day-yellow) !important",
-                  color: "black",
-                },
+              {
+                backgroundColor: "var(--color-day-yellow) !important",
+                color: "black",
+              },
 
               "& .css-1869usk-MuiFormControl-root": {
                 height: "60px !important",
               },
 
               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                {
-                  color: "var(--color-day-black) !important",
-                  fontSize: "14px !important",
-                },
+              {
+                color: "var(--color-day-black) !important",
+                fontSize: "14px !important",
+              },
 
               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
                 fontSize: "13px !important",
@@ -813,15 +815,15 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                {
-                  backgroundColor: "var(--color-dropdown-bg) !important",
-                  color: "var(--color-day-black) !important",
-                },
+              {
+                backgroundColor: "var(--color-dropdown-bg) !important",
+                color: "var(--color-day-black) !important",
+              },
 
               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                {
-                  color: "var(--color-day-yellow) !important",
-                },
+              {
+                color: "var(--color-day-yellow) !important",
+              },
 
               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root": {
                 color: "var(--color-day-yellow) !important",
@@ -871,14 +873,14 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                {
-                  borderBottom: "1px solid var(--color-day-yellow) !important",
-                },
+              {
+                borderBottom: "1px solid var(--color-day-yellow) !important",
+              },
 
               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                {
-                  borderBottom: "2px solid var(--color-day-yellow) !important",
-                },
+              {
+                borderBottom: "2px solid var(--color-day-yellow) !important",
+              },
 
               "& #demo-simple-select-standard-label": {
                 color: "var(--color-day-yellow) !important",
@@ -889,20 +891,20 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                {
-                  backgroundColor: "var(--color-day-yellow) !important",
-                  color: "black",
-                },
+              {
+                backgroundColor: "var(--color-day-yellow) !important",
+                color: "black",
+              },
 
               "& .css-1869usk-MuiFormControl-root": {
                 height: "60px !important",
               },
 
               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                {
-                  color: "var(--color-day-black) !important",
-                  fontSize: "14px !important",
-                },
+              {
+                color: "var(--color-day-black) !important",
+                fontSize: "14px !important",
+              },
 
               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
                 fontSize: "13px !important",
@@ -1035,15 +1037,15 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                {
-                  backgroundColor: "var(--color-dropdown-bg) !important",
-                  color: "var(--color-day-black) !important",
-                },
+              {
+                backgroundColor: "var(--color-dropdown-bg) !important",
+                color: "var(--color-day-black) !important",
+              },
 
               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                {
-                  color: "var(--color-day-yellow) !important",
-                },
+              {
+                color: "var(--color-day-yellow) !important",
+              },
 
               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root": {
                 color: "var(--color-day-yellow) !important",
@@ -1093,14 +1095,14 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                {
-                  borderBottom: "1px solid var(--color-day-yellow) !important",
-                },
+              {
+                borderBottom: "1px solid var(--color-day-yellow) !important",
+              },
 
               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                {
-                  borderBottom: "2px solid var(--color-day-yellow) !important",
-                },
+              {
+                borderBottom: "2px solid var(--color-day-yellow) !important",
+              },
 
               "& #demo-simple-select-standard-label": {
                 color: "var(--color-day-yellow) !important",
@@ -1111,20 +1113,20 @@ const CompareComponentMobile = () => {
               },
 
               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                {
-                  backgroundColor: "var(--color-day-yellow) !important",
-                  color: "black",
-                },
+              {
+                backgroundColor: "var(--color-day-yellow) !important",
+                color: "black",
+              },
 
               "& .css-1869usk-MuiFormControl-root": {
                 height: "60px !important",
               },
 
               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                {
-                  color: "var(--color-day-black) !important",
-                  fontSize: "14px !important",
-                },
+              {
+                color: "var(--color-day-black) !important",
+                fontSize: "14px !important",
+              },
 
               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
                 fontSize: "13px !important",

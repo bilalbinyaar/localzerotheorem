@@ -31,11 +31,12 @@ const ModelDetailsCenter = (props) => {
     try {
       if (timer_for_current == null) {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/current_position`,
+          process.env.REACT_APP_API + `/get/current_position`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -65,10 +66,11 @@ const ModelDetailsCenter = (props) => {
           props.model_name.includes("strategy") ||
           props.model_name.split("_").length == 3
         ) {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+          fetch(process.env.REACT_APP_API + "/get/live_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -131,11 +133,12 @@ const ModelDetailsCenter = (props) => {
             .catch((err) => console.log(err));
         } else {
           fetch(
-            `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/current_position`,
+            process.env.REACT_APP_API + `/get/current_position`,
             {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             }
           )
@@ -175,10 +178,11 @@ const ModelDetailsCenter = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -242,10 +246,11 @@ const ModelDetailsCenter = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+            fetch(process.env.REACT_APP_API + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())
@@ -324,7 +329,7 @@ const ModelDetailsCenter = (props) => {
   const [current_position, set_current_position] = useState({});
   // useEffect(() => {
   //   // console.log("Here is it ", strategies[props.model_name]);
-  //   fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/current_position`)
+  //   fetch(process.env.REACT_APP_API+ `/get/current_position`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       const temp_data = {};
@@ -356,11 +361,12 @@ const ModelDetailsCenter = (props) => {
           props.model_name.split("_").length == 3
         ) {
           fetch(
-            "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+            process.env.REACT_APP_API + "/get/live_strategies",
             {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             }
           )
@@ -435,11 +441,12 @@ const ModelDetailsCenter = (props) => {
         } else {
           if (Object.keys(strategies_cache).length == 0) {
             fetch(
-              "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies",
+              process.env.REACT_APP_API + "/get_strategies",
               {
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                  'ngrok-skip-browser-warning': 'true',
                 },
               }
             )
@@ -697,7 +704,7 @@ const ModelDetailsCenter = (props) => {
               </div>
               <h3>
                 {current_position[props.model_name] ||
-                strategies[props.model_name]
+                  strategies[props.model_name]
                   ? current_position[props.model_name]
                     ? current_position[props.model_name].current_price
                     : strategies[props.model_name].current_price
@@ -718,21 +725,21 @@ const ModelDetailsCenter = (props) => {
                 id="curr-pnl"
                 onChange={
                   current_position[props.model_name] ||
-                  strategies[props.model_name]
+                    strategies[props.model_name]
                     ? current_position[props.model_name]
                       ? forPnlColor(
-                          current_position[props.model_name].current_pnl,
-                          "curr-pnl"
-                        )
+                        current_position[props.model_name].current_pnl,
+                        "curr-pnl"
+                      )
                       : forPnlColor(
-                          strategies[props.model_name].current_pnl,
-                          "curr-pnl"
-                        )
+                        strategies[props.model_name].current_pnl,
+                        "curr-pnl"
+                      )
                     : null
                 }
               >
                 {current_position[props.model_name] ||
-                strategies[props.model_name]
+                  strategies[props.model_name]
                   ? strategies[props.model_name]
                     ? strategies[props.model_name].current_pnl
                     : current_position[props.model_name].current_pnl
@@ -835,7 +842,7 @@ const ModelDetailsCenter = (props) => {
               </div>
               <h3>
                 {current_position[props.model_name] ||
-                strategies[props.model_name]
+                  strategies[props.model_name]
                   ? current_position[props.model_name]
                     ? current_position[props.model_name].current_price
                     : strategies[props.model_name].current_price
@@ -856,21 +863,21 @@ const ModelDetailsCenter = (props) => {
                 id="curr-pnl"
                 onChange={
                   current_position[props.model_name] ||
-                  strategies[props.model_name]
+                    strategies[props.model_name]
                     ? current_position[props.model_name]
                       ? forPnlColor(
-                          current_position[props.model_name].current_pnl,
-                          "curr-pnl"
-                        )
+                        current_position[props.model_name].current_pnl,
+                        "curr-pnl"
+                      )
                       : forPnlColor(
-                          strategies[props.model_name].current_pnl,
-                          "curr-pnl"
-                        )
+                        strategies[props.model_name].current_pnl,
+                        "curr-pnl"
+                      )
                     : null
                 }
               >
                 {current_position[props.model_name] ||
-                strategies[props.model_name]
+                  strategies[props.model_name]
                   ? strategies[props.model_name]
                     ? strategies[props.model_name].current_pnl
                     : current_position[props.model_name].current_pnl

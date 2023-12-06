@@ -11,10 +11,11 @@ const DrawDownTable = (props) => {
   const { stats_cache, Set_stats_cache } = useStateContext();
   useEffect(() => {
     if (props.model_name.splilt("_").length - 1 == 2) {
-      fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+      fetch(process.env.REACT_APP_API + "/get/live_stats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())
@@ -75,10 +76,11 @@ const DrawDownTable = (props) => {
         .catch((err) => console.log(err));
     } else {
       if (Object.keys(stats_cache).length == 0) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+        fetch(process.env.REACT_APP_API + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -175,9 +177,9 @@ const DrawDownTable = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].max_drawdown,
-                      "drawdown_color"
-                    )
+                    stats[props.model_name].max_drawdown,
+                    "drawdown_color"
+                  )
                   : null
               }
             >
@@ -216,9 +218,9 @@ const DrawDownTable = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].max_drawdown,
-                      "drawdown_color2"
-                    )
+                    stats[props.model_name].max_drawdown,
+                    "drawdown_color2"
+                  )
                   : null
               }
             >
@@ -257,9 +259,9 @@ const DrawDownTable = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].max_drawdown,
-                      "drawdown_color3"
-                    )
+                    stats[props.model_name].max_drawdown,
+                    "drawdown_color3"
+                  )
                   : null
               }
             >

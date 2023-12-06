@@ -12,12 +12,13 @@ const PerformanceTableBacktest = (props) => {
     try {
       if (props.model_name.includes("stats")) {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
-            props.model_name,
+          process.env.REACT_APP_API + "/get_stats_backtest/" +
+          props.model_name,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -83,10 +84,11 @@ const PerformanceTableBacktest = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -151,10 +153,11 @@ const PerformanceTableBacktest = (props) => {
       } else {
         if (Object.keys(stats_cache).length == 0) {
           try {
-            fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+            fetch(process.env.REACT_APP_API + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())
@@ -247,7 +250,7 @@ const PerformanceTableBacktest = (props) => {
       <div className="table-card-body">
         <table className="for-table">
           {props.model_name.split("_").length == 3 &&
-          !props.model_name.includes("user_") ? (
+            !props.model_name.includes("user_") ? (
             <tr className="for-table-row">
               <th className="for-table-head">
                 Alpha
@@ -260,11 +263,11 @@ const PerformanceTableBacktest = (props) => {
               <td
                 className="for-table-data"
                 id="agg_profit"
-                // onChange={
-                //   stats[props.model_name]
-                //     ? forBgColor(stats[props.model_name].alpha, "agg_profit")
-                //     : null
-                // }
+              // onChange={
+              //   stats[props.model_name]
+              //     ? forBgColor(stats[props.model_name].alpha, "agg_profit")
+              //     : null
+              // }
               >
                 {stats[props.model_name] ? stats[props.model_name].alpha : null}
                 {/* {"%"} */}
@@ -280,11 +283,11 @@ const PerformanceTableBacktest = (props) => {
               <td
                 className="for-table-data"
                 id="agg_loss"
-                // onChange={
-                //   stats[props.model_name]
-                //     ? forBgColor(stats[props.model_name].beta, "agg_loss")
-                //     : null
-                // }
+              // onChange={
+              //   stats[props.model_name]
+              //     ? forBgColor(stats[props.model_name].beta, "agg_loss")
+              //     : null
+              // }
               >
                 {stats[props.model_name] ? stats[props.model_name].beta : null}
                 {/* {"%"} */}
@@ -303,11 +306,11 @@ const PerformanceTableBacktest = (props) => {
               <td
                 className="for-table-data"
                 id="agg_profit"
-                // onChange={
-                //   stats[props.model_name]
-                //     ? forBgColor(stats[props.model_name].alpha, "agg_profit")
-                //     : null
-                // }
+              // onChange={
+              //   stats[props.model_name]
+              //     ? forBgColor(stats[props.model_name].alpha, "agg_profit")
+              //     : null
+              // }
               >
                 {stats[props.model_name] ? stats[props.model_name].alpha : null}
                 {/* {"%"} */}
@@ -323,11 +326,11 @@ const PerformanceTableBacktest = (props) => {
               <td
                 className="for-table-data"
                 id="agg_loss"
-                // onChange={
-                //   stats[props.model_name]
-                //     ? forBgColor(stats[props.model_name].beta, "agg_loss")
-                //     : null
-                // }
+              // onChange={
+              //   stats[props.model_name]
+              //     ? forBgColor(stats[props.model_name].beta, "agg_loss")
+              //     : null
+              // }
               >
                 {stats[props.model_name] ? stats[props.model_name].beta : null}
                 {/* {"%"} */}

@@ -304,6 +304,7 @@ const BacktestRouteComponentModels = () => {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -417,6 +418,7 @@ const BacktestRouteComponentModels = () => {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -839,7 +841,7 @@ const BacktestRouteComponentModels = () => {
           if (
             stop_time_selected_for_backtest < 0 ||
             stop_time_selected_for_backtest >=
-              parseInt(time_horizon_for_stop_time)
+            parseInt(time_horizon_for_stop_time)
           ) {
             check = false;
             setIsButtonDisabled(false);
@@ -1025,7 +1027,7 @@ const BacktestRouteComponentModels = () => {
           if (
             stop_time_selected_for_backtest_mobile < 0 ||
             stop_time_selected_for_backtest_mobile >=
-              parseInt(time_horizon_for_stop_time)
+            parseInt(time_horizon_for_stop_time)
           ) {
             check = false;
             setIsButtonDisabled(false);
@@ -1511,9 +1513,9 @@ const BacktestRouteComponentModels = () => {
                     },
 
                     '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
-                      {
-                        color: 'var(--color-day-black)',
-                      },
+                    {
+                      color: 'var(--color-day-black)',
+                    },
                     '& div  >.MuiAutocomplete-option.Mui-focused': {
                       backgroundColor: 'var(--color-day-yellow)',
                       color: '#000000',
@@ -1595,15 +1597,15 @@ const BacktestRouteComponentModels = () => {
                     },
 
                     '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
-                      {
-                        backgroundColor: 'var(--color-dropdown-bg) !important',
-                        color: 'var(--color-day-black) !important',
-                      },
+                    {
+                      backgroundColor: 'var(--color-dropdown-bg) !important',
+                      color: 'var(--color-day-black) !important',
+                    },
 
                     '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                      {
-                        color: 'var(--color-day-yellow) !important',
-                      },
+                    {
+                      color: 'var(--color-day-yellow) !important',
+                    },
 
                     '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
                       color: 'var(--color-day-yellow) !important',
@@ -1654,16 +1656,16 @@ const BacktestRouteComponentModels = () => {
                     },
 
                     '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
-                      {
-                        borderBottom:
-                          '1px solid var(--color-day-yellow) !important',
-                      },
+                    {
+                      borderBottom:
+                        '1px solid var(--color-day-yellow) !important',
+                    },
 
                     '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
-                      {
-                        borderBottom:
-                          '2px solid var(--color-day-yellow) !important',
-                      },
+                    {
+                      borderBottom:
+                        '2px solid var(--color-day-yellow) !important',
+                    },
 
                     '& #demo-simple-select-standard-label': {
                       color: 'var(--color-day-yellow) !important',
@@ -1674,20 +1676,20 @@ const BacktestRouteComponentModels = () => {
                     },
 
                     '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
-                      {
-                        backgroundColor: 'var(--color-day-yellow) !important',
-                        color: 'black',
-                      },
+                    {
+                      backgroundColor: 'var(--color-day-yellow) !important',
+                      color: 'black',
+                    },
 
                     '& .css-1869usk-MuiFormControl-root': {
                       height: '60px !important',
                     },
 
                     '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
-                      {
-                        color: 'var(--color-day-black) !important',
-                        fontSize: '14px !important',
-                      },
+                    {
+                      color: 'var(--color-day-black) !important',
+                      fontSize: '14px !important',
+                    },
 
                     '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
                       fontSize: '13px !important',
@@ -1975,7 +1977,7 @@ const BacktestRouteComponentModels = () => {
                     }
                     helperText={
                       selectedDate !== null &&
-                      (selectedDate < now || selectedDate > disableBefore)
+                        (selectedDate < now || selectedDate > disableBefore)
                         ? 'Invalid date'
                         : ''
                     }
@@ -2077,7 +2079,7 @@ const BacktestRouteComponentModels = () => {
                       }
                       helperText={
                         selectedDate !== null &&
-                        (selectedDate < now || selectedDate > disableBefore)
+                          (selectedDate < now || selectedDate > disableBefore)
                           ? 'Invalid date'
                           : ''
                       }

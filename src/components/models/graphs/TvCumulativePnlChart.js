@@ -20,10 +20,11 @@ const TvCumulativePnlChart = (props) => {
     if (!spline_graph_cum_cache[props.model_name]) {
       // console.log("I received model name for graph -->", props.model_name);
 
-      fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${props.model_name}`, {
+      fetch(process.env.REACT_APP_API + `/${props.model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())

@@ -21,7 +21,7 @@ const ModelNameCol = (props) => {
           .getElementById(`${id}`)
           .setAttribute("style", "color:#16C784 !important");
       }
-    } catch {}
+    } catch { }
   };
   // TOTAL PNL COLORS
 
@@ -46,10 +46,11 @@ const ModelNameCol = (props) => {
   useEffect(() => {
     try {
       if (Object.keys(stats_cache).length == 0) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+        fetch(process.env.REACT_APP_API + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -128,10 +129,11 @@ const ModelNameCol = (props) => {
   useEffect(() => {
     try {
       if (Object.keys(strategies_cache).length == 0) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies", {
+        fetch(process.env.REACT_APP_API + "/get_strategies", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())

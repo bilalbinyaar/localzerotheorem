@@ -49,17 +49,18 @@ function Kelly_Allocation_ApexCharts() {
           .getElementById(`${id}`)
           .setAttribute("style", "color:#16C784 !important");
       }
-    } catch {}
+    } catch { }
   };
   useEffect(() => {
     try {
       if (timer_for_current == null) {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/kelly_allocation`,
+          process.env.REACT_APP_API + `/get/kelly_allocation`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -171,11 +172,12 @@ function Kelly_Allocation_ApexCharts() {
       }
       setTimeout(() => {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/kelly_allocation`,
+          process.env.REACT_APP_API + `/get/kelly_allocation`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )

@@ -22,11 +22,12 @@ const UsdBalancePerExchange = (props) => {
         try {
             if (props.model_name.includes("collection")) {
                 fetch(
-                    "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_exchange",
+                    process.env.REACT_APP_API + "/get/live_exchange",
                     {
                         method: "GET",
                         headers: {
                             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                            'ngrok-skip-browser-warning': 'true',
                         },
                     }
                 )

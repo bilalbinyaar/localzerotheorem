@@ -23,10 +23,11 @@ function SplineGraphCanvasjs(props) {
       props.model_name.includes("strategy") ||
       props.model_name.split("_").length == 3
     ) {
-      fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${props.model_name}`, {
+      fetch(process.env.REACT_APP_API + `/${props.model_name}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())
@@ -99,14 +100,14 @@ function SplineGraphCanvasjs(props) {
                       temp_last_data_positive = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_positive_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -122,14 +123,14 @@ function SplineGraphCanvasjs(props) {
                       temp_last_data_positive = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_positive_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -146,14 +147,14 @@ function SplineGraphCanvasjs(props) {
                     temp_last_data_positive = {
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     };
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     });
@@ -188,14 +189,14 @@ function SplineGraphCanvasjs(props) {
                       temp_last_data_negative = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_negative_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -211,14 +212,14 @@ function SplineGraphCanvasjs(props) {
                       temp_last_data_negative = {
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       };
                       temp_negative_series.push({
                         x: new Date(
                           parseInt(data["response"][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data["response"][index].pnl_sum),
                       });
@@ -235,14 +236,14 @@ function SplineGraphCanvasjs(props) {
                     temp_last_data_negative = {
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     };
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data["response"][index].pnl_sum),
                     });
@@ -278,13 +279,13 @@ function SplineGraphCanvasjs(props) {
     } else {
       if (!negative_canvasjs_graph_cache[props.model_name]) {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${
-            props.model_name + "_PNL"
+          process.env.REACT_APP_API + `/${props.model_name + "_PNL"
           }`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -337,7 +338,7 @@ function SplineGraphCanvasjs(props) {
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseInt(data["response"][index].pnl_sum),
                     });
@@ -356,7 +357,7 @@ function SplineGraphCanvasjs(props) {
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseInt(data["response"][index].pnl_sum),
                     });

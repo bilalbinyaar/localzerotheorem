@@ -14,12 +14,13 @@ const DrawDownTableBacktest = (props) => {
   useEffect(() => {
     if (props.model_name.includes("stats")) {
       fetch(
-        "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
-          props.model_name,
+        process.env.REACT_APP_API + "/get_stats_backtest/" +
+        props.model_name,
         {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         }
       )
@@ -84,10 +85,11 @@ const DrawDownTableBacktest = (props) => {
       props.model_name.includes("strategy") ||
       props.model_name.split("_").length == 3
     ) {
-      fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+      fetch(process.env.REACT_APP_API + "/get/live_stats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       })
         .then((response) => response.json())
@@ -150,10 +152,11 @@ const DrawDownTableBacktest = (props) => {
         .catch((err) => console.log(err));
     } else {
       if (Object.keys(stats_cache).length == 0) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+        fetch(process.env.REACT_APP_API + "/get_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -250,9 +253,9 @@ const DrawDownTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].max_drawdown,
-                      "drawdown_color"
-                    )
+                    stats[props.model_name].max_drawdown,
+                    "drawdown_color"
+                  )
                   : null
               }
             >
@@ -291,9 +294,9 @@ const DrawDownTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].max_drawdown,
-                      "drawdown_color2"
-                    )
+                    stats[props.model_name].max_drawdown,
+                    "drawdown_color2"
+                  )
                   : null
               }
             >
@@ -332,9 +335,9 @@ const DrawDownTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColor(
-                      stats[props.model_name].max_drawdown,
-                      "drawdown_color3"
-                    )
+                    stats[props.model_name].max_drawdown,
+                    "drawdown_color3"
+                  )
                   : null
               }
             >

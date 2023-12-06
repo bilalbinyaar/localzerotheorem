@@ -299,6 +299,7 @@ export const ContextProvider = ({ children }) => {
     }, 1000);
   }
   const [checkLoginMain, setCheckLoginMain] = useState(false);
+  const [link, setLink] = useState(false);
   // PRELOADER
 
   return (
@@ -402,7 +403,8 @@ export const ContextProvider = ({ children }) => {
         setAuthCheckLoginInvestor,
         adminInvestorView,
         handleAdminInvestorView,
-        authCheckLoginAdmin, setAuthCheckLoginAdmin
+        authCheckLoginAdmin, setAuthCheckLoginAdmin,
+        link, setLink
       }}
     >
       {children}

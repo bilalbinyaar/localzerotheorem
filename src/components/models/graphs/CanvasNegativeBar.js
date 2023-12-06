@@ -35,11 +35,12 @@ const CanvasNegativeBar = (props) => {
     try {
       if (!individual_pnl_canvasjs_graph_cache[props.model_name]) {
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/${props.model_name}`,
+          process.env.REACT_APP_API + `/${props.model_name}`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -77,7 +78,7 @@ const CanvasNegativeBar = (props) => {
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseInt(data["response"][index].pnl),
                     });
@@ -94,7 +95,7 @@ const CanvasNegativeBar = (props) => {
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data["response"][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseInt(data["response"][index].pnl),
                     });

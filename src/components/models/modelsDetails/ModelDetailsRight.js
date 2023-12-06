@@ -16,10 +16,11 @@ const ModelDetailsRight = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -81,10 +82,11 @@ const ModelDetailsRight = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+            fetch(process.env.REACT_APP_API + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())
@@ -199,9 +201,9 @@ const ModelDetailsRight = (props) => {
                   onChange={
                     stats[props.model_name]
                       ? forDaysPnlColor(
-                          stats[props.model_name].pnl_sum_1,
-                          "d-pnl"
-                        )
+                        stats[props.model_name].pnl_sum_1,
+                        "d-pnl"
+                      )
                       : null
                   }
                 >
@@ -225,9 +227,9 @@ const ModelDetailsRight = (props) => {
                   onChange={
                     stats[props.model_name]
                       ? forDaysPnlColor(
-                          stats[props.model_name].pnl_sum_7,
-                          "d-pnl7"
-                        )
+                        stats[props.model_name].pnl_sum_7,
+                        "d-pnl7"
+                      )
                       : null
                   }
                 >
@@ -251,9 +253,9 @@ const ModelDetailsRight = (props) => {
                   onChange={
                     stats[props.model_name]
                       ? forDaysPnlColor(
-                          stats[props.model_name].pnl_sum_15,
-                          "d-pnl15"
-                        )
+                        stats[props.model_name].pnl_sum_15,
+                        "d-pnl15"
+                      )
                       : null
                   }
                 >
@@ -280,9 +282,9 @@ const ModelDetailsRight = (props) => {
                   onChange={
                     stats[props.model_name]
                       ? forDaysPnlColor(
-                          stats[props.model_name].pnl_sum_30,
-                          "d-pnl30"
-                        )
+                        stats[props.model_name].pnl_sum_30,
+                        "d-pnl30"
+                      )
                       : null
                   }
                 >
@@ -306,9 +308,9 @@ const ModelDetailsRight = (props) => {
                   onChange={
                     stats[props.model_name]
                       ? forDaysPnlColor(
-                          stats[props.model_name].pnl_sum_45,
-                          "d-pnl45"
-                        )
+                        stats[props.model_name].pnl_sum_45,
+                        "d-pnl45"
+                      )
                       : null
                   }
                 >
@@ -332,9 +334,9 @@ const ModelDetailsRight = (props) => {
                   onChange={
                     stats[props.model_name]
                       ? forDaysPnlColor(
-                          stats[props.model_name].pnl_sum_60,
-                          "d-pnl60"
-                        )
+                        stats[props.model_name].pnl_sum_60,
+                        "d-pnl60"
+                      )
                       : null
                   }
                 >

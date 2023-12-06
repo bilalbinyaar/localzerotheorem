@@ -78,11 +78,12 @@ function CandleGraphCanvasjs(props) {
         props.model_name.split("_").length == 3
       ) {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+          process.env.REACT_APP_API + "/get/live_strategies",
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -157,10 +158,11 @@ function CandleGraphCanvasjs(props) {
           .catch((err) => console.log(err));
       } else {
         if (Object.keys(strategies_cache).length == 0) {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies", {
+          fetch(process.env.REACT_APP_API + "/get_strategies", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -260,11 +262,12 @@ function CandleGraphCanvasjs(props) {
       ) {
         // console.log("Here is it ", strategies[props.model_name]);
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies`,
+          process.env.REACT_APP_API + `/get/live_strategies`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -292,11 +295,12 @@ function CandleGraphCanvasjs(props) {
       } else {
         // console.log("Here is it ", strategies[props.model_name]);
         fetch(
-          `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/current_position`,
+          process.env.REACT_APP_API + `/get/current_position`,
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -339,13 +343,14 @@ function CandleGraphCanvasjs(props) {
         if (props.model_name.split("_").length == 3) {
           if (strategies[props.model_name].exchange == "okx") {
             fetch(
-              `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_okx_minute_data/${parseInt(
+              process.env.REACT_APP_API + `/get_okx_minute_data/${parseInt(
                 strategies[props.model_name].position_start_time
               )}`,
               {
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                  'ngrok-skip-browser-warning': 'true',
                 },
               }
             )
@@ -422,13 +427,14 @@ function CandleGraphCanvasjs(props) {
               });
           } else {
             fetch(
-              `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_btc_minute_data/${parseInt(
+              process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
                 strategies[props.model_name].position_start_time
               )}`,
               {
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                  'ngrok-skip-browser-warning': 'true',
                 },
               }
             )
@@ -506,13 +512,14 @@ function CandleGraphCanvasjs(props) {
           }
         } else {
           fetch(
-            `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_btc_minute_data/${parseInt(
+            process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
               strategies[props.model_name].position_start_time
             )}`,
             {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             }
           )
@@ -808,13 +815,14 @@ function CandleGraphCanvasjs(props) {
           if (props.model_name.split("_").length == 3) {
             if (strategies[props.model_name].exchange == "okx") {
               fetch(
-                `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_okx_minute_data/${parseInt(
+                process.env.REACT_APP_API + `/get_okx_minute_data/${parseInt(
                   strategies[props.model_name].position_start_time
                 )}`,
                 {
                   method: "GET",
                   headers: {
                     Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                    'ngrok-skip-browser-warning': 'true',
                   },
                 }
               )
@@ -897,13 +905,14 @@ function CandleGraphCanvasjs(props) {
                 });
             } else {
               fetch(
-                `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_btc_minute_data/${parseInt(
+                process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
                   strategies[props.model_name].position_start_time
                 )}`,
                 {
                   method: "GET",
                   headers: {
                     Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                    'ngrok-skip-browser-warning': 'true',
                   },
                 }
               )
@@ -987,13 +996,14 @@ function CandleGraphCanvasjs(props) {
             }
           } else {
             fetch(
-              `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_btc_minute_data/${parseInt(
+              process.env.REACT_APP_API + `/get_btc_minute_data/${parseInt(
                 strategies[props.model_name].position_start_time
               )}`,
               {
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                  'ngrok-skip-browser-warning': 'true',
                 },
               }
             )

@@ -7,11 +7,12 @@ const ModelDetailsTable = (props) => {
   // console.log("Here I will get strategy for -->", props.model_name);
   useEffect(() => {
     fetch(
-      `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategy/${props.model_name}`,
+      process.env.REACT_APP_API + `/get_strategy/${props.model_name}`,
       {
         method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
         },
       }
     )
@@ -41,11 +42,12 @@ const ModelDetailsTable = (props) => {
   useEffect(() => {
     try {
       fetch(
-        `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stat/${props.model_name}`,
+        process.env.REACT_APP_API + `/get_stat/${props.model_name}`,
         {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         }
       )

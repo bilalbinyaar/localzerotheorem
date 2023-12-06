@@ -548,11 +548,12 @@ const CompareComponent = () => {
     try {
       if (authCheckLoginInvestor == "TrueSignal") {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+          process.env.REACT_APP_API + "/get/live_strategies",
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -647,10 +648,11 @@ const CompareComponent = () => {
           .catch((err) => console.log(err));
       } else {
         if (Object.keys(strategies_cache).length == 0) {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies", {
+          fetch(process.env.REACT_APP_API + "/get_strategies", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -771,10 +773,11 @@ const CompareComponent = () => {
   useEffect(() => {
     try {
       if (authCheckLoginInvestor == "TrueSignal") {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -837,10 +840,11 @@ const CompareComponent = () => {
           .catch((err) => console.log(err));
       } else {
         if (Object.keys(stats_cache).length == 0) {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+          fetch(process.env.REACT_APP_API + "/get_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -1030,14 +1034,14 @@ const CompareComponent = () => {
                               fontSize: "11px",
                               marginBottom: "0.8rem",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -1063,9 +1067,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -1093,9 +1097,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -1108,10 +1112,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -1119,28 +1123,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -1175,32 +1179,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -1211,26 +1215,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -1238,11 +1242,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             defaultValue={time_horizon_selected}
                             onChange={handleChangeForTimeSelectionMobile1}
@@ -1518,14 +1522,14 @@ const CompareComponent = () => {
                               fontSize: "11px",
                               marginBottom: "0.8rem",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -1551,9 +1555,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -1581,9 +1585,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -1596,10 +1600,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -1607,28 +1611,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -1663,32 +1667,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -1699,26 +1703,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -1726,11 +1730,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             // defaultValue={default_value}
                             onChange={handleChangeForModelSelection1}
@@ -1944,14 +1948,14 @@ const CompareComponent = () => {
                               labelColor: "red",
                               fontSize: "11px",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -1977,9 +1981,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -2007,9 +2011,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -2022,10 +2026,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -2033,28 +2037,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -2089,32 +2093,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -2125,26 +2129,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -2152,11 +2156,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             defaultValue={default_value}
                             onChange={handleChangeForModelSelection1}
@@ -2445,14 +2449,14 @@ const CompareComponent = () => {
                               fontSize: "11px",
                               marginBottom: "0.8rem",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -2478,9 +2482,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -2508,9 +2512,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -2523,10 +2527,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -2534,28 +2538,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -2590,32 +2594,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -2626,26 +2630,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -2653,11 +2657,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             // defaultValue={default_value}
                             onChange={handleChangeForTimeSelectionMobile2}
@@ -2931,14 +2935,14 @@ const CompareComponent = () => {
                               fontSize: "11px",
                               marginBottom: "0.8rem",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -2964,9 +2968,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -2994,9 +2998,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -3009,10 +3013,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -3020,28 +3024,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -3076,32 +3080,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -3112,26 +3116,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -3139,11 +3143,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             // defaultValue={default_value}
                             onChange={handleChangeForModelSelection2}
@@ -3356,14 +3360,14 @@ const CompareComponent = () => {
                               labelColor: "red",
                               fontSize: "11px",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -3389,9 +3393,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -3419,9 +3423,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -3434,10 +3438,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -3445,28 +3449,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -3501,32 +3505,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -3537,26 +3541,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -3564,11 +3568,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             onChange={handleChangeForModelSelection2}
                             options={model_names2}
@@ -4028,14 +4032,14 @@ const CompareComponent = () => {
                               labelColor: "red",
                               fontSize: "11px",
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
 
                               "& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input":
-                                {
-                                  color: "var(--color-day-black)",
-                                },
+                              {
+                                color: "var(--color-day-black)",
+                              },
                               "& div  >.MuiAutocomplete-option.Mui-focused": {
                                 backgroundColor: "var(--color-day-yellow)",
                                 color: "#000000",
@@ -4061,9 +4065,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper":
-                                {
-                                  backgroundColor: "var(--color-dropdown-bg)",
-                                },
+                              {
+                                backgroundColor: "var(--color-dropdown-bg)",
+                              },
 
                               "& div div >.MuiAutocomplete-input": {
                                 fontSize: "11px",
@@ -4091,9 +4095,9 @@ const CompareComponent = () => {
                               },
 
                               "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& div div >.MuiOutlinedInput-root": {
                                 backgroundColor:
@@ -4106,10 +4110,10 @@ const CompareComponent = () => {
                               },
 
                               "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus":
-                                {
-                                  borderColor:
-                                    "var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderColor:
+                                  "var(--color-day-yellow) !important",
+                              },
 
                               "& div >.MuiOutlinedInput-notchedOutline": {
                                 border:
@@ -4117,28 +4121,28 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-6px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-6px !important",
+                              },
 
                               "& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-                                {
-                                  backgroundColor:
-                                    "var(--color-dropdown-bg) !important",
-                                  color: "var(--color-day-black) !important",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-dropdown-bg) !important",
+                                color: "var(--color-day-black) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-yellow) !important",
-                                },
+                              {
+                                color: "var(--color-day-yellow) !important",
+                              },
 
                               "& .css-ptiqhd-MuiSvgIcon-root": {
                                 height: "0.8em !important",
@@ -4173,32 +4177,32 @@ const CompareComponent = () => {
                               },
 
                               "& .css-v4u5dn-MuiInputBase-root-MuiInput-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-black) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-black) !important",
+                              },
 
                               "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                                 color: "var(--color-day-black) !important",
                               },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before":
-                                {
-                                  borderBottom:
-                                    "1px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "1px solid var(--color-day-yellow) !important",
+                              },
 
                               "& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after":
-                                {
-                                  borderBottom:
-                                    "2px solid var(--color-day-yellow) !important",
-                                },
+                              {
+                                borderBottom:
+                                  "2px solid var(--color-day-yellow) !important",
+                              },
 
                               "& #demo-simple-select-standard-label": {
                                 color: "var(--color-day-yellow) !important",
@@ -4209,26 +4213,26 @@ const CompareComponent = () => {
                               },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
-                                {
-                                  backgroundColor:
-                                    "var(--color-day-yellow) !important",
-                                  color: "black",
-                                },
+                              {
+                                backgroundColor:
+                                  "var(--color-day-yellow) !important",
+                                color: "black",
+                              },
 
                               "& .css-1869usk-MuiFormControl-root": {
                                 height: "60px !important",
                               },
 
                               "& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input":
-                                {
-                                  color: "var(--color-day-black) !important",
-                                  fontSize: "14px !important",
-                                },
+                              {
+                                color: "var(--color-day-black) !important",
+                                fontSize: "14px !important",
+                              },
 
                               "& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root":
-                                {
-                                  fontSize: "13px !important",
-                                },
+                              {
+                                fontSize: "13px !important",
+                              },
 
                               "& .css-nlvv43-MuiFormControl-root": {
                                 margin: "0px 8px !important",
@@ -4236,11 +4240,11 @@ const CompareComponent = () => {
                               },
 
                               "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root":
-                                {
-                                  fontSize: "12px !important",
-                                  color: "var(--color-day-black) !important",
-                                  top: "-8px !important",
-                                },
+                              {
+                                fontSize: "12px !important",
+                                color: "var(--color-day-black) !important",
+                                top: "-8px !important",
+                              },
                             }}
                             // defaultValue={default_value}
                             onChange={handleChangeForModelSelection3}
@@ -4592,9 +4596,9 @@ const CompareComponent = () => {
                     onChange={
                       strategies[model_name_1]
                         ? forBgColorPosition(
-                            strategies[model_name_1].current_position,
-                            "position"
-                          )
+                          strategies[model_name_1].current_position,
+                          "position"
+                        )
                         : null
                     }
                   >
@@ -4608,9 +4612,9 @@ const CompareComponent = () => {
                     onChange={
                       strategies[model_name_2]
                         ? forBgColorPosition(
-                            strategies[model_name_2].current_position,
-                            "position2"
-                          )
+                          strategies[model_name_2].current_position,
+                          "position2"
+                        )
                         : null
                     }
                   >
@@ -4684,9 +4688,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                          value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                        })
                         : null
                     }
                   >
@@ -4698,9 +4702,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                          value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                        })
                         : null
                     }
                   >
@@ -4722,9 +4726,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                          value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                        })
                         : null
                     }
                   >
@@ -4736,9 +4740,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                          value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                        })
                         : null
                     }
                   >
@@ -4760,9 +4764,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                          value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                        })
                         : null
                     }
                   >
@@ -4776,9 +4780,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                          value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                        })
                         : null
                     }
                   >
@@ -4802,9 +4806,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                          value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                        })
                         : null
                     }
                   >
@@ -4818,9 +4822,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                          value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                        })
                         : null
                     }
                   >
@@ -4844,9 +4848,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                          value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                        })
                         : null
                     }
                   >
@@ -4860,9 +4864,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                          value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                        })
                         : null
                     }
                   >
@@ -4886,9 +4890,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                          value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                        })
                         : null
                     }
                   >
@@ -4902,9 +4906,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                          value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                        })
                         : null
                     }
                   >
@@ -4928,9 +4932,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl20"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl20"],
+                        })
                         : null
                     }
                   >
@@ -4944,9 +4948,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl20"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl20"],
+                        })
                         : null
                     }
                   >
@@ -4970,15 +4974,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].max_drawdown_duration,
+                            "pnl22",
+                          ],
+                          value2: [
+                            stats[model_name_2].max_drawdown_duration,
+                            "pnl23",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -4992,15 +4996,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].max_drawdown_duration,
+                            "pnl22",
+                          ],
+                          value2: [
+                            stats[model_name_2].max_drawdown_duration,
+                            "pnl23",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5024,15 +5028,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown,
+                            "pnl25",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown,
+                            "pnl26",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5046,15 +5050,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown,
+                            "pnl25",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown,
+                            "pnl26",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5078,15 +5082,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown_duration,
+                            "pnl28",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown_duration,
+                            "pnl29",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5100,15 +5104,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown_duration,
+                            "pnl28",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown_duration,
+                            "pnl29",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5132,15 +5136,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].current_drawdown,
+                            "pnl31",
+                          ],
+                          value2: [
+                            stats[model_name_2].current_drawdown,
+                            "pnl32",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5154,15 +5158,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].current_drawdown,
+                            "pnl31",
+                          ],
+                          value2: [
+                            stats[model_name_2].current_drawdown,
+                            "pnl32",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5186,15 +5190,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].curr_drawdown_duration,
+                            "pnl34",
+                          ],
+                          value2: [
+                            stats[model_name_2].curr_drawdown_duration,
+                            "pnl35",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5208,15 +5212,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].curr_drawdown_duration,
+                            "pnl34",
+                          ],
+                          value2: [
+                            stats[model_name_2].curr_drawdown_duration,
+                            "pnl35",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5240,9 +5244,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_2].total_wins, "pnl38"],
-                          })
+                          value1: [stats[model_name_1].total_wins, "pnl37"],
+                          value2: [stats[model_name_2].total_wins, "pnl38"],
+                        })
                         : null
                     }
                   >
@@ -5256,9 +5260,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_2].total_wins, "pnl38"],
-                          })
+                          value1: [stats[model_name_1].total_wins, "pnl37"],
+                          value2: [stats[model_name_2].total_wins, "pnl38"],
+                        })
                         : null
                     }
                   >
@@ -5282,9 +5286,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_2].total_losses, "pnl41"],
-                          })
+                          value1: [stats[model_name_1].total_losses, "pnl40"],
+                          value2: [stats[model_name_2].total_losses, "pnl41"],
+                        })
                         : null
                     }
                   >
@@ -5298,9 +5302,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_2].total_losses, "pnl41"],
-                          })
+                          value1: [stats[model_name_1].total_losses, "pnl40"],
+                          value2: [stats[model_name_2].total_losses, "pnl41"],
+                        })
                         : null
                     }
                   >
@@ -5324,15 +5328,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_wins,
+                            "pnl43",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_wins,
+                            "pnl44",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5346,15 +5350,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_wins,
+                            "pnl43",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_wins,
+                            "pnl44",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5378,15 +5382,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_losses,
+                            "pnl46",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_losses,
+                            "pnl47",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5400,15 +5404,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_losses,
+                            "pnl46",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_losses,
+                            "pnl47",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5432,15 +5436,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_percentage,
+                            "pnl49",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_percentage,
+                            "pnl50",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5454,15 +5458,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_percentage,
+                            "pnl49",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_percentage,
+                            "pnl50",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5486,15 +5490,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_loss_ratio,
+                            "pnl52",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_loss_ratio,
+                            "pnl53",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5508,15 +5512,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_loss_ratio,
+                            "pnl52",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_loss_ratio,
+                            "pnl53",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5540,9 +5544,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl55"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl56"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl55"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl56"],
+                        })
                         : null
                     }
                   >
@@ -5556,9 +5560,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl55"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl56"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl55"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl56"],
+                        })
                         : null
                     }
                   >
@@ -5582,15 +5586,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_negative_pnl,
+                            "pnl58",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_negative_pnl,
+                            "pnl59",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5604,15 +5608,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_negative_pnl,
+                            "pnl58",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_negative_pnl,
+                            "pnl59",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5636,15 +5640,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_daily_pnl,
+                            "pnl61",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_daily_pnl,
+                            "pnl62",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5658,15 +5662,15 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_daily_pnl,
+                            "pnl61",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_daily_pnl,
+                            "pnl62",
+                          ],
+                        })
                         : null
                     }
                   >
@@ -5690,9 +5694,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_2].r2_score, "pnl65"],
-                          })
+                          value1: [stats[model_name_1].r2_score, "pnl64"],
+                          value2: [stats[model_name_2].r2_score, "pnl65"],
+                        })
                         : null
                     }
                   >
@@ -5704,9 +5708,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_2].r2_score, "pnl65"],
-                          })
+                          value1: [stats[model_name_1].r2_score, "pnl64"],
+                          value2: [stats[model_name_2].r2_score, "pnl65"],
+                        })
                         : null
                     }
                   >
@@ -5728,9 +5732,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_2].sharpe, "pnl68"],
-                          })
+                          value1: [stats[model_name_1].sharpe, "pnl67"],
+                          value2: [stats[model_name_2].sharpe, "pnl68"],
+                        })
                         : null
                     }
                   >
@@ -5742,9 +5746,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_2].sharpe, "pnl68"],
-                          })
+                          value1: [stats[model_name_1].sharpe, "pnl67"],
+                          value2: [stats[model_name_2].sharpe, "pnl68"],
+                        })
                         : null
                     }
                   >
@@ -5766,9 +5770,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_2].sortino, "pnl72"],
-                          })
+                          value1: [stats[model_name_1].sortino, "pnl71"],
+                          value2: [stats[model_name_2].sortino, "pnl72"],
+                        })
                         : null
                     }
                   >
@@ -5780,9 +5784,9 @@ const CompareComponent = () => {
                     onChange={
                       stats[model_name_1] && stats[model_name_2]
                         ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_2].sortino, "pnl72"],
-                          })
+                          value1: [stats[model_name_1].sortino, "pnl71"],
+                          value2: [stats[model_name_2].sortino, "pnl72"],
+                        })
                         : null
                     }
                   >
@@ -5882,9 +5886,9 @@ const CompareComponent = () => {
                     onChange={
                       strategies[model_name_1]
                         ? forBgColorPosition(
-                            strategies[model_name_1].current_position,
-                            "position"
-                          )
+                          strategies[model_name_1].current_position,
+                          "position"
+                        )
                         : null
                     }
                   >
@@ -5898,9 +5902,9 @@ const CompareComponent = () => {
                     onChange={
                       strategies[model_name_2]
                         ? forBgColorPosition(
-                            strategies[model_name_2].current_position,
-                            "position2"
-                          )
+                          strategies[model_name_2].current_position,
+                          "position2"
+                        )
                         : null
                     }
                   >
@@ -5914,9 +5918,9 @@ const CompareComponent = () => {
                     onChange={
                       strategies[model_name_3]
                         ? forBgColorPosition(
-                            strategies[model_name_3].current_position,
-                            "position3"
-                          )
+                          strategies[model_name_3].current_position,
+                          "position3"
+                        )
                         : null
                     }
                   >
@@ -6005,29 +6009,29 @@ const CompareComponent = () => {
                     id={"pnl-bg"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                            value3: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                          value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                          value3: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
                             value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                            value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                              value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                                value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6039,29 +6043,29 @@ const CompareComponent = () => {
                     id={"pnl2"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                            value3: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                          value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                          value3: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
                             value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                            value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                              value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                                value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6073,29 +6077,29 @@ const CompareComponent = () => {
                     id={"pnl3"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                            value3: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                          value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                          value3: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
                             value2: [stats[model_name_2].pnl_sum_1, "pnl2"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_1, "pnl2"],
-                            value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
-                            value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_1, "pnl2"],
+                              value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_1, "pnl-bg"],
+                                value2: [stats[model_name_3].pnl_sum_1, "pnl3"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6117,29 +6121,29 @@ const CompareComponent = () => {
                     id={"pnl4"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                            value3: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                          value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                          value3: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
                             value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                            value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                              value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                                value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6151,29 +6155,29 @@ const CompareComponent = () => {
                     id={"pnl5"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                            value3: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                          value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                          value3: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
                             value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                            value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                              value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                                value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6185,29 +6189,29 @@ const CompareComponent = () => {
                     id={"pnl6"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                            value3: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                          value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                          value3: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
                             value2: [stats[model_name_2].pnl_sum_7, "pnl5"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_7, "pnl5"],
-                            value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
-                            value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_7, "pnl5"],
+                              value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_7, "pnl4"],
+                                value2: [stats[model_name_3].pnl_sum_7, "pnl6"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6229,29 +6233,29 @@ const CompareComponent = () => {
                     id={"pnl7"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                            value3: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                          value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                          value3: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
                             value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                            value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                              value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                                value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6263,29 +6267,29 @@ const CompareComponent = () => {
                     id={"pnl8"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                            value3: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                          value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                          value3: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
                             value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                            value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                              value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                                value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6297,29 +6301,29 @@ const CompareComponent = () => {
                     id={"pnl9"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                            value3: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                          value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                          value3: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
                             value2: [stats[model_name_2].pnl_sum_15, "pnl8"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_15, "pnl8"],
-                            value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
-                            value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_15, "pnl8"],
+                              value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_15, "pnl7"],
+                                value2: [stats[model_name_3].pnl_sum_15, "pnl9"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6341,29 +6345,29 @@ const CompareComponent = () => {
                     id={"pnl10"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                            value3: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                          value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                          value3: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
                             value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                            value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                              value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                                value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6375,29 +6379,29 @@ const CompareComponent = () => {
                     id={"pnl11"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                            value3: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                          value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                          value3: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
                             value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                            value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                              value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                                value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6409,29 +6413,29 @@ const CompareComponent = () => {
                     id={"pnl12"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                            value3: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                          value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                          value3: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
                             value2: [stats[model_name_2].pnl_sum_30, "pnl11"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_30, "pnl11"],
-                            value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
-                            value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_30, "pnl11"],
+                              value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_30, "pnl10"],
+                                value2: [stats[model_name_3].pnl_sum_30, "pnl12"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6453,29 +6457,29 @@ const CompareComponent = () => {
                     id={"pnl13"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                            value3: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                          value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                          value3: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
                             value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                            value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                              value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                                value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6487,29 +6491,29 @@ const CompareComponent = () => {
                     id={"pnl14"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                            value3: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                          value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                          value3: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
                             value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                            value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                              value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                                value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6521,29 +6525,29 @@ const CompareComponent = () => {
                     id={"pnl15"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                            value3: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                          value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                          value3: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
                             value2: [stats[model_name_2].pnl_sum_45, "pnl14"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_45, "pnl14"],
-                            value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
-                            value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_45, "pnl14"],
+                              value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_45, "pnl13"],
+                                value2: [stats[model_name_3].pnl_sum_45, "pnl15"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6565,29 +6569,29 @@ const CompareComponent = () => {
                     id={"pnl16"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                            value3: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                          value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                          value3: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
                             value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                            value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                              value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                                value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6599,29 +6603,29 @@ const CompareComponent = () => {
                     id={"pnl17"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                            value3: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                          value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                          value3: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
                             value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                            value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                              value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                                value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6633,29 +6637,29 @@ const CompareComponent = () => {
                     id={"pnl18"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                            value3: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
+                          value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                          value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                          value3: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
                             value2: [stats[model_name_2].pnl_sum_60, "pnl17"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].pnl_sum_60, "pnl17"],
-                            value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
-                            value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].pnl_sum_60, "pnl17"],
+                              value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].pnl_sum_60, "pnl16"],
+                                value2: [stats[model_name_3].pnl_sum_60, "pnl18"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6677,29 +6681,29 @@ const CompareComponent = () => {
                     id={"pnl19"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl20"],
-                            value3: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl20"],
+                          value3: [stats[model_name_3].max_drawdown, "pnl21"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].max_drawdown, "pnl19"],
                             value2: [stats[model_name_2].max_drawdown, "pnl20"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].max_drawdown, "pnl20"],
-                            value2: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].max_drawdown, "pnl20"],
+                              value2: [stats[model_name_3].max_drawdown, "pnl21"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                                value2: [stats[model_name_3].max_drawdown, "pnl21"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6711,29 +6715,29 @@ const CompareComponent = () => {
                     id={"pnl20"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl20"],
-                            value3: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl20"],
+                          value3: [stats[model_name_3].max_drawdown, "pnl21"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].max_drawdown, "pnl19"],
                             value2: [stats[model_name_2].max_drawdown, "pnl20"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].max_drawdown, "pnl20"],
-                            value2: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].max_drawdown, "pnl20"],
+                              value2: [stats[model_name_3].max_drawdown, "pnl21"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                                value2: [stats[model_name_3].max_drawdown, "pnl21"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6745,29 +6749,29 @@ const CompareComponent = () => {
                     id={"pnl21"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_2].max_drawdown, "pnl20"],
-                            value3: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
+                          value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                          value2: [stats[model_name_2].max_drawdown, "pnl20"],
+                          value3: [stats[model_name_3].max_drawdown, "pnl21"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].max_drawdown, "pnl19"],
                             value2: [stats[model_name_2].max_drawdown, "pnl20"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].max_drawdown, "pnl20"],
-                            value2: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].max_drawdown, "pnl19"],
-                            value2: [stats[model_name_3].max_drawdown, "pnl21"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].max_drawdown, "pnl20"],
+                              value2: [stats[model_name_3].max_drawdown, "pnl21"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].max_drawdown, "pnl19"],
+                                value2: [stats[model_name_3].max_drawdown, "pnl21"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6789,24 +6793,24 @@ const CompareComponent = () => {
                     id={"pnl22"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                            value3: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].max_drawdown_duration,
+                            "pnl22",
+                          ],
+                          value2: [
+                            stats[model_name_2].max_drawdown_duration,
+                            "pnl23",
+                          ],
+                          value3: [
+                            stats[model_name_3].max_drawdown_duration,
+                            "pnl24",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].max_drawdown_duration,
                               "pnl22",
@@ -6816,29 +6820,29 @@ const CompareComponent = () => {
                               "pnl23",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                            value2: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].max_drawdown_duration,
+                                "pnl23",
+                              ],
+                              value2: [
+                                stats[model_name_3].max_drawdown_duration,
+                                "pnl24",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].max_drawdown_duration,
+                                  "pnl22",
+                                ],
+                                value2: [
+                                  stats[model_name_3].max_drawdown_duration,
+                                  "pnl24",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -6850,24 +6854,24 @@ const CompareComponent = () => {
                     id={"pnl23"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                            value3: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].max_drawdown_duration,
+                            "pnl22",
+                          ],
+                          value2: [
+                            stats[model_name_2].max_drawdown_duration,
+                            "pnl23",
+                          ],
+                          value3: [
+                            stats[model_name_3].max_drawdown_duration,
+                            "pnl24",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].max_drawdown_duration,
                               "pnl22",
@@ -6877,29 +6881,29 @@ const CompareComponent = () => {
                               "pnl23",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                            value2: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].max_drawdown_duration,
+                                "pnl23",
+                              ],
+                              value2: [
+                                stats[model_name_3].max_drawdown_duration,
+                                "pnl24",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].max_drawdown_duration,
+                                  "pnl22",
+                                ],
+                                value2: [
+                                  stats[model_name_3].max_drawdown_duration,
+                                  "pnl24",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -6911,24 +6915,24 @@ const CompareComponent = () => {
                     id={"pnl24"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                            value3: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].max_drawdown_duration,
+                            "pnl22",
+                          ],
+                          value2: [
+                            stats[model_name_2].max_drawdown_duration,
+                            "pnl23",
+                          ],
+                          value3: [
+                            stats[model_name_3].max_drawdown_duration,
+                            "pnl24",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].max_drawdown_duration,
                               "pnl22",
@@ -6938,29 +6942,29 @@ const CompareComponent = () => {
                               "pnl23",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].max_drawdown_duration,
-                              "pnl23",
-                            ],
-                            value2: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].max_drawdown_duration,
-                              "pnl22",
-                            ],
-                            value2: [
-                              stats[model_name_3].max_drawdown_duration,
-                              "pnl24",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].max_drawdown_duration,
+                                "pnl23",
+                              ],
+                              value2: [
+                                stats[model_name_3].max_drawdown_duration,
+                                "pnl24",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].max_drawdown_duration,
+                                  "pnl22",
+                                ],
+                                value2: [
+                                  stats[model_name_3].max_drawdown_duration,
+                                  "pnl24",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -6982,24 +6986,24 @@ const CompareComponent = () => {
                     id={"pnl25"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown,
+                            "pnl25",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown,
+                            "pnl26",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_drawdown,
+                            "pnl27",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].average_drawdown,
                               "pnl25",
@@ -7009,29 +7013,29 @@ const CompareComponent = () => {
                               "pnl26",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].average_drawdown,
+                                "pnl26",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_drawdown,
+                                "pnl27",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].average_drawdown,
+                                  "pnl25",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_drawdown,
+                                  "pnl27",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -7043,24 +7047,24 @@ const CompareComponent = () => {
                     id={"pnl26"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown,
+                            "pnl25",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown,
+                            "pnl26",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_drawdown,
+                            "pnl27",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].average_drawdown,
                               "pnl25",
@@ -7070,29 +7074,29 @@ const CompareComponent = () => {
                               "pnl26",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].average_drawdown,
+                                "pnl26",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_drawdown,
+                                "pnl27",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].average_drawdown,
+                                  "pnl25",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_drawdown,
+                                  "pnl27",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -7104,24 +7108,24 @@ const CompareComponent = () => {
                     id={"pnl27"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown,
+                            "pnl25",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown,
+                            "pnl26",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_drawdown,
+                            "pnl27",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].average_drawdown,
                               "pnl25",
@@ -7131,29 +7135,29 @@ const CompareComponent = () => {
                               "pnl26",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].average_drawdown,
-                              "pnl26",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_drawdown,
-                              "pnl25",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown,
-                              "pnl27",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].average_drawdown,
+                                "pnl26",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_drawdown,
+                                "pnl27",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].average_drawdown,
+                                  "pnl25",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_drawdown,
+                                  "pnl27",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -7175,24 +7179,24 @@ const CompareComponent = () => {
                     id={"pnl28"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown_duration,
+                            "pnl28",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown_duration,
+                            "pnl29",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_drawdown_duration,
+                            "pnl30",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].average_drawdown_duration,
                               "pnl28",
@@ -7202,29 +7206,29 @@ const CompareComponent = () => {
                               "pnl29",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].average_drawdown_duration,
+                                "pnl29",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_drawdown_duration,
+                                "pnl30",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].average_drawdown_duration,
+                                  "pnl28",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_drawdown_duration,
+                                  "pnl30",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -7236,24 +7240,24 @@ const CompareComponent = () => {
                     id={"pnl29"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown_duration,
+                            "pnl28",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown_duration,
+                            "pnl29",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_drawdown_duration,
+                            "pnl30",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].average_drawdown_duration,
                               "pnl28",
@@ -7263,29 +7267,29 @@ const CompareComponent = () => {
                               "pnl29",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].average_drawdown_duration,
+                                "pnl29",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_drawdown_duration,
+                                "pnl30",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].average_drawdown_duration,
+                                  "pnl28",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_drawdown_duration,
+                                  "pnl30",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -7297,24 +7301,24 @@ const CompareComponent = () => {
                     id={"pnl30"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_drawdown_duration,
+                            "pnl28",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_drawdown_duration,
+                            "pnl29",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_drawdown_duration,
+                            "pnl30",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].average_drawdown_duration,
                               "pnl28",
@@ -7324,29 +7328,29 @@ const CompareComponent = () => {
                               "pnl29",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].average_drawdown_duration,
-                              "pnl29",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].average_drawdown_duration,
-                              "pnl28",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_drawdown_duration,
-                              "pnl30",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].average_drawdown_duration,
+                                "pnl29",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_drawdown_duration,
+                                "pnl30",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].average_drawdown_duration,
+                                  "pnl28",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_drawdown_duration,
+                                  "pnl30",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -7368,24 +7372,24 @@ const CompareComponent = () => {
                     id={"pnl31"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                            value3: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].current_drawdown,
+                            "pnl31",
+                          ],
+                          value2: [
+                            stats[model_name_2].current_drawdown,
+                            "pnl32",
+                          ],
+                          value3: [
+                            stats[model_name_3].current_drawdown,
+                            "pnl33",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].current_drawdown,
                               "pnl31",
@@ -7395,29 +7399,29 @@ const CompareComponent = () => {
                               "pnl32",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                            value2: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].current_drawdown,
+                                "pnl32",
+                              ],
+                              value2: [
+                                stats[model_name_3].current_drawdown,
+                                "pnl33",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].current_drawdown,
+                                  "pnl31",
+                                ],
+                                value2: [
+                                  stats[model_name_3].current_drawdown,
+                                  "pnl33",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -7429,24 +7433,24 @@ const CompareComponent = () => {
                     id={"pnl32"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                            value3: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].current_drawdown,
+                            "pnl31",
+                          ],
+                          value2: [
+                            stats[model_name_2].current_drawdown,
+                            "pnl32",
+                          ],
+                          value3: [
+                            stats[model_name_3].current_drawdown,
+                            "pnl33",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].current_drawdown,
                               "pnl31",
@@ -7456,29 +7460,29 @@ const CompareComponent = () => {
                               "pnl32",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                            value2: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].current_drawdown,
+                                "pnl32",
+                              ],
+                              value2: [
+                                stats[model_name_3].current_drawdown,
+                                "pnl33",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].current_drawdown,
+                                  "pnl31",
+                                ],
+                                value2: [
+                                  stats[model_name_3].current_drawdown,
+                                  "pnl33",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -7490,24 +7494,24 @@ const CompareComponent = () => {
                     id={"pnl33"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                            value3: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].current_drawdown,
+                            "pnl31",
+                          ],
+                          value2: [
+                            stats[model_name_2].current_drawdown,
+                            "pnl32",
+                          ],
+                          value3: [
+                            stats[model_name_3].current_drawdown,
+                            "pnl33",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].current_drawdown,
                               "pnl31",
@@ -7517,29 +7521,29 @@ const CompareComponent = () => {
                               "pnl32",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].current_drawdown,
-                              "pnl32",
-                            ],
-                            value2: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].current_drawdown,
-                              "pnl31",
-                            ],
-                            value2: [
-                              stats[model_name_3].current_drawdown,
-                              "pnl33",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].current_drawdown,
+                                "pnl32",
+                              ],
+                              value2: [
+                                stats[model_name_3].current_drawdown,
+                                "pnl33",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].current_drawdown,
+                                  "pnl31",
+                                ],
+                                value2: [
+                                  stats[model_name_3].current_drawdown,
+                                  "pnl33",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -7561,24 +7565,24 @@ const CompareComponent = () => {
                     id={"pnl34"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                            value3: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].curr_drawdown_duration,
+                            "pnl34",
+                          ],
+                          value2: [
+                            stats[model_name_2].curr_drawdown_duration,
+                            "pnl35",
+                          ],
+                          value3: [
+                            stats[model_name_3].curr_drawdown_duration,
+                            "pnl36",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].curr_drawdown_duration,
                               "pnl34",
@@ -7588,29 +7592,29 @@ const CompareComponent = () => {
                               "pnl35",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                            value2: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].curr_drawdown_duration,
+                                "pnl35",
+                              ],
+                              value2: [
+                                stats[model_name_3].curr_drawdown_duration,
+                                "pnl36",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].curr_drawdown_duration,
+                                  "pnl34",
+                                ],
+                                value2: [
+                                  stats[model_name_3].curr_drawdown_duration,
+                                  "pnl36",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -7622,24 +7626,24 @@ const CompareComponent = () => {
                     id={"pnl35"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                            value3: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].curr_drawdown_duration,
+                            "pnl34",
+                          ],
+                          value2: [
+                            stats[model_name_2].curr_drawdown_duration,
+                            "pnl35",
+                          ],
+                          value3: [
+                            stats[model_name_3].curr_drawdown_duration,
+                            "pnl36",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].curr_drawdown_duration,
                               "pnl34",
@@ -7649,29 +7653,29 @@ const CompareComponent = () => {
                               "pnl35",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                            value2: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].curr_drawdown_duration,
+                                "pnl35",
+                              ],
+                              value2: [
+                                stats[model_name_3].curr_drawdown_duration,
+                                "pnl36",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].curr_drawdown_duration,
+                                  "pnl34",
+                                ],
+                                value2: [
+                                  stats[model_name_3].curr_drawdown_duration,
+                                  "pnl36",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -7683,24 +7687,24 @@ const CompareComponent = () => {
                     id={"pnl36"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                            value3: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].curr_drawdown_duration,
+                            "pnl34",
+                          ],
+                          value2: [
+                            stats[model_name_2].curr_drawdown_duration,
+                            "pnl35",
+                          ],
+                          value3: [
+                            stats[model_name_3].curr_drawdown_duration,
+                            "pnl36",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].curr_drawdown_duration,
                               "pnl34",
@@ -7710,29 +7714,29 @@ const CompareComponent = () => {
                               "pnl35",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].curr_drawdown_duration,
-                              "pnl35",
-                            ],
-                            value2: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].curr_drawdown_duration,
-                              "pnl34",
-                            ],
-                            value2: [
-                              stats[model_name_3].curr_drawdown_duration,
-                              "pnl36",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].curr_drawdown_duration,
+                                "pnl35",
+                              ],
+                              value2: [
+                                stats[model_name_3].curr_drawdown_duration,
+                                "pnl36",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].curr_drawdown_duration,
+                                  "pnl34",
+                                ],
+                                value2: [
+                                  stats[model_name_3].curr_drawdown_duration,
+                                  "pnl36",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -7754,29 +7758,29 @@ const CompareComponent = () => {
                     id={"pnl37"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_2].total_wins, "pnl38"],
-                            value3: [stats[model_name_3].total_wins, "pnl39"],
-                          })
+                          value1: [stats[model_name_1].total_wins, "pnl37"],
+                          value2: [stats[model_name_2].total_wins, "pnl38"],
+                          value3: [stats[model_name_3].total_wins, "pnl39"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].total_wins, "pnl37"],
                             value2: [stats[model_name_2].total_wins, "pnl38"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].total_wins, "pnl38"],
-                            value2: [stats[model_name_3].total_wins, "pnl39"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_3].total_wins, "pnl39"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].total_wins, "pnl38"],
+                              value2: [stats[model_name_3].total_wins, "pnl39"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].total_wins, "pnl37"],
+                                value2: [stats[model_name_3].total_wins, "pnl39"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -7788,29 +7792,29 @@ const CompareComponent = () => {
                     id={"pnl38"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_2].total_wins, "pnl38"],
-                            value3: [stats[model_name_3].total_wins, "pnl39"],
-                          })
+                          value1: [stats[model_name_1].total_wins, "pnl37"],
+                          value2: [stats[model_name_2].total_wins, "pnl38"],
+                          value3: [stats[model_name_3].total_wins, "pnl39"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].total_wins, "pnl37"],
                             value2: [stats[model_name_2].total_wins, "pnl38"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].total_wins, "pnl38"],
-                            value2: [stats[model_name_3].total_wins, "pnl39"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_3].total_wins, "pnl39"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].total_wins, "pnl38"],
+                              value2: [stats[model_name_3].total_wins, "pnl39"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].total_wins, "pnl37"],
+                                value2: [stats[model_name_3].total_wins, "pnl39"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -7822,29 +7826,29 @@ const CompareComponent = () => {
                     id={"pnl39"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_2].total_wins, "pnl38"],
-                            value3: [stats[model_name_3].total_wins, "pnl39"],
-                          })
+                          value1: [stats[model_name_1].total_wins, "pnl37"],
+                          value2: [stats[model_name_2].total_wins, "pnl38"],
+                          value3: [stats[model_name_3].total_wins, "pnl39"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].total_wins, "pnl37"],
                             value2: [stats[model_name_2].total_wins, "pnl38"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].total_wins, "pnl38"],
-                            value2: [stats[model_name_3].total_wins, "pnl39"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].total_wins, "pnl37"],
-                            value2: [stats[model_name_3].total_wins, "pnl39"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].total_wins, "pnl38"],
+                              value2: [stats[model_name_3].total_wins, "pnl39"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].total_wins, "pnl37"],
+                                value2: [stats[model_name_3].total_wins, "pnl39"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -7866,29 +7870,29 @@ const CompareComponent = () => {
                     id={"pnl40"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_2].total_losses, "pnl41"],
-                            value3: [stats[model_name_3].total_losses, "pnl42"],
-                          })
+                          value1: [stats[model_name_1].total_losses, "pnl40"],
+                          value2: [stats[model_name_2].total_losses, "pnl41"],
+                          value3: [stats[model_name_3].total_losses, "pnl42"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [stats[model_name_1].total_losses, "pnl40"],
                             value2: [stats[model_name_2].total_losses, "pnl41"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_2].total_losses, "pnl41"],
-                            value2: [stats[model_name_3].total_losses, "pnl42"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_3].total_losses, "pnl42"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [stats[model_name_2].total_losses, "pnl41"],
+                              value2: [stats[model_name_3].total_losses, "pnl42"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [stats[model_name_1].total_losses, "pnl40"],
+                                value2: [stats[model_name_3].total_losses, "pnl42"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -7900,29 +7904,29 @@ const CompareComponent = () => {
                     id={"pnl41"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_2].total_losses, "pnl41"],
-                            value3: [stats[model_name_3].total_losses, "pnl42"],
-                          })
+                          value1: [stats[model_name_1].total_losses, "pnl40"],
+                          value2: [stats[model_name_2].total_losses, "pnl41"],
+                          value3: [stats[model_name_3].total_losses, "pnl42"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [stats[model_name_1].total_losses, "pnl40"],
                             value2: [stats[model_name_2].total_losses, "pnl41"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_2].total_losses, "pnl41"],
-                            value2: [stats[model_name_3].total_losses, "pnl42"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_3].total_losses, "pnl42"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [stats[model_name_2].total_losses, "pnl41"],
+                              value2: [stats[model_name_3].total_losses, "pnl42"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [stats[model_name_1].total_losses, "pnl40"],
+                                value2: [stats[model_name_3].total_losses, "pnl42"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -7934,29 +7938,29 @@ const CompareComponent = () => {
                     id={"pnl42"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_2].total_losses, "pnl41"],
-                            value3: [stats[model_name_3].total_losses, "pnl42"],
-                          })
+                          value1: [stats[model_name_1].total_losses, "pnl40"],
+                          value2: [stats[model_name_2].total_losses, "pnl41"],
+                          value3: [stats[model_name_3].total_losses, "pnl42"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [stats[model_name_1].total_losses, "pnl40"],
                             value2: [stats[model_name_2].total_losses, "pnl41"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_2].total_losses, "pnl41"],
-                            value2: [stats[model_name_3].total_losses, "pnl42"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [stats[model_name_1].total_losses, "pnl40"],
-                            value2: [stats[model_name_3].total_losses, "pnl42"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [stats[model_name_2].total_losses, "pnl41"],
+                              value2: [stats[model_name_3].total_losses, "pnl42"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [stats[model_name_1].total_losses, "pnl40"],
+                                value2: [stats[model_name_3].total_losses, "pnl42"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -7978,24 +7982,24 @@ const CompareComponent = () => {
                     id={"pnl43"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                            value3: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_wins,
+                            "pnl43",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_wins,
+                            "pnl44",
+                          ],
+                          value3: [
+                            stats[model_name_3].consective_wins,
+                            "pnl45",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].consective_wins,
                               "pnl43",
@@ -8005,29 +8009,29 @@ const CompareComponent = () => {
                               "pnl44",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].consective_wins,
+                                "pnl44",
+                              ],
+                              value2: [
+                                stats[model_name_3].consective_wins,
+                                "pnl45",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].consective_wins,
+                                  "pnl43",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_wins,
+                                  "pnl45",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -8039,24 +8043,24 @@ const CompareComponent = () => {
                     id={"pnl44"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                            value3: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_wins,
+                            "pnl43",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_wins,
+                            "pnl44",
+                          ],
+                          value3: [
+                            stats[model_name_3].consective_wins,
+                            "pnl45",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].consective_wins,
                               "pnl43",
@@ -8066,29 +8070,29 @@ const CompareComponent = () => {
                               "pnl44",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].consective_wins,
+                                "pnl44",
+                              ],
+                              value2: [
+                                stats[model_name_3].consective_wins,
+                                "pnl45",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].consective_wins,
+                                  "pnl43",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_wins,
+                                  "pnl45",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -8100,24 +8104,24 @@ const CompareComponent = () => {
                     id={"pnl45"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                            value3: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_wins,
+                            "pnl43",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_wins,
+                            "pnl44",
+                          ],
+                          value3: [
+                            stats[model_name_3].consective_wins,
+                            "pnl45",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].consective_wins,
                               "pnl43",
@@ -8127,29 +8131,29 @@ const CompareComponent = () => {
                               "pnl44",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].consective_wins,
-                              "pnl44",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl43",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl45",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].consective_wins,
+                                "pnl44",
+                              ],
+                              value2: [
+                                stats[model_name_3].consective_wins,
+                                "pnl45",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].consective_wins,
+                                  "pnl43",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_wins,
+                                  "pnl45",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -8171,24 +8175,24 @@ const CompareComponent = () => {
                     id={"pnl46"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                            value3: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_losses,
+                            "pnl46",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_losses,
+                            "pnl47",
+                          ],
+                          value3: [
+                            stats[model_name_3].consective_losses,
+                            "pnl48",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].consective_losses,
                               "pnl46",
@@ -8198,29 +8202,29 @@ const CompareComponent = () => {
                               "pnl47",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].consective_losses,
+                                "pnl47",
+                              ],
+                              value2: [
+                                stats[model_name_3].consective_losses,
+                                "pnl48",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].consective_losses,
+                                  "pnl46",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_losses,
+                                  "pnl48",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -8232,24 +8236,24 @@ const CompareComponent = () => {
                     id={"pnl47"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                            value3: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_losses,
+                            "pnl46",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_losses,
+                            "pnl47",
+                          ],
+                          value3: [
+                            stats[model_name_3].consective_losses,
+                            "pnl48",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].consective_losses,
                               "pnl46",
@@ -8259,29 +8263,29 @@ const CompareComponent = () => {
                               "pnl47",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].consective_losses,
+                                "pnl47",
+                              ],
+                              value2: [
+                                stats[model_name_3].consective_losses,
+                                "pnl48",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].consective_losses,
+                                  "pnl46",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_losses,
+                                  "pnl48",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -8293,24 +8297,24 @@ const CompareComponent = () => {
                     id={"pnl48"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasisMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                            value3: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].consective_losses,
+                            "pnl46",
+                          ],
+                          value2: [
+                            stats[model_name_2].consective_losses,
+                            "pnl47",
+                          ],
+                          value3: [
+                            stats[model_name_3].consective_losses,
+                            "pnl48",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].consective_losses,
                               "pnl46",
@@ -8320,29 +8324,29 @@ const CompareComponent = () => {
                               "pnl47",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].consective_losses,
-                              "pnl47",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].consective_losses,
-                              "pnl46",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_losses,
-                              "pnl48",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].consective_losses,
+                                "pnl47",
+                              ],
+                              value2: [
+                                stats[model_name_3].consective_losses,
+                                "pnl48",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].consective_losses,
+                                  "pnl46",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_losses,
+                                  "pnl48",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -8364,24 +8368,24 @@ const CompareComponent = () => {
                     id={"pnl49"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                            value3: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_percentage,
+                            "pnl49",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_percentage,
+                            "pnl50",
+                          ],
+                          value3: [
+                            stats[model_name_3].win_percentage,
+                            "pnl51",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].win_percentage,
                               "pnl49",
@@ -8391,29 +8395,29 @@ const CompareComponent = () => {
                               "pnl50",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].win_percentage,
+                                "pnl50",
+                              ],
+                              value2: [
+                                stats[model_name_3].win_percentage,
+                                "pnl51",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].win_percentage,
+                                  "pnl49",
+                                ],
+                                value2: [
+                                  stats[model_name_3].win_percentage,
+                                  "pnl51",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -8425,24 +8429,24 @@ const CompareComponent = () => {
                     id={"pnl50"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                            value3: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_percentage,
+                            "pnl49",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_percentage,
+                            "pnl50",
+                          ],
+                          value3: [
+                            stats[model_name_3].win_percentage,
+                            "pnl51",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].win_percentage,
                               "pnl49",
@@ -8452,29 +8456,29 @@ const CompareComponent = () => {
                               "pnl50",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].consective_wins,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_3].consective_wins,
-                              "pnl51",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].win_percentage,
+                                "pnl50",
+                              ],
+                              value2: [
+                                stats[model_name_3].win_percentage,
+                                "pnl51",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].consective_wins,
+                                  "pnl49",
+                                ],
+                                value2: [
+                                  stats[model_name_3].consective_wins,
+                                  "pnl51",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -8486,24 +8490,24 @@ const CompareComponent = () => {
                     id={"pnl51"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                            value3: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_percentage,
+                            "pnl49",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_percentage,
+                            "pnl50",
+                          ],
+                          value3: [
+                            stats[model_name_3].win_percentage,
+                            "pnl51",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].win_percentage,
                               "pnl49",
@@ -8513,29 +8517,29 @@ const CompareComponent = () => {
                               "pnl50",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].win_percentage,
-                              "pnl50",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_percentage,
-                              "pnl49",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_percentage,
-                              "pnl51",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].win_percentage,
+                                "pnl50",
+                              ],
+                              value2: [
+                                stats[model_name_3].win_percentage,
+                                "pnl51",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].win_percentage,
+                                  "pnl49",
+                                ],
+                                value2: [
+                                  stats[model_name_3].win_percentage,
+                                  "pnl51",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -8557,24 +8561,24 @@ const CompareComponent = () => {
                     id={"pnl52"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                            value3: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_loss_ratio,
+                            "pnl52",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_loss_ratio,
+                            "pnl53",
+                          ],
+                          value3: [
+                            stats[model_name_3].win_loss_ratio,
+                            "pnl54",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].win_loss_ratio,
                               "pnl52",
@@ -8584,29 +8588,29 @@ const CompareComponent = () => {
                               "pnl53",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].win_loss_ratio,
+                                "pnl53",
+                              ],
+                              value2: [
+                                stats[model_name_3].win_loss_ratio,
+                                "pnl54",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].win_loss_ratio,
+                                  "pnl52",
+                                ],
+                                value2: [
+                                  stats[model_name_3].win_loss_ratio,
+                                  "pnl54",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -8618,24 +8622,24 @@ const CompareComponent = () => {
                     id={"pnl53"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                            value3: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_loss_ratio,
+                            "pnl52",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_loss_ratio,
+                            "pnl53",
+                          ],
+                          value3: [
+                            stats[model_name_3].win_loss_ratio,
+                            "pnl54",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].win_loss_ratio,
                               "pnl52",
@@ -8645,29 +8649,29 @@ const CompareComponent = () => {
                               "pnl53",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].win_loss_ratio,
+                                "pnl53",
+                              ],
+                              value2: [
+                                stats[model_name_3].win_loss_ratio,
+                                "pnl54",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].win_loss_ratio,
+                                  "pnl52",
+                                ],
+                                value2: [
+                                  stats[model_name_3].win_loss_ratio,
+                                  "pnl54",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -8679,24 +8683,24 @@ const CompareComponent = () => {
                     id={"pnl54"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                            value3: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].win_loss_ratio,
+                            "pnl52",
+                          ],
+                          value2: [
+                            stats[model_name_2].win_loss_ratio,
+                            "pnl53",
+                          ],
+                          value3: [
+                            stats[model_name_3].win_loss_ratio,
+                            "pnl54",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].win_loss_ratio,
                               "pnl52",
@@ -8706,29 +8710,29 @@ const CompareComponent = () => {
                               "pnl53",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].win_loss_ratio,
-                              "pnl53",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].win_loss_ratio,
-                              "pnl52",
-                            ],
-                            value2: [
-                              stats[model_name_3].win_loss_ratio,
-                              "pnl54",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].win_loss_ratio,
+                                "pnl53",
+                              ],
+                              value2: [
+                                stats[model_name_3].win_loss_ratio,
+                                "pnl54",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].win_loss_ratio,
+                                  "pnl52",
+                                ],
+                                value2: [
+                                  stats[model_name_3].win_loss_ratio,
+                                  "pnl54",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -8750,24 +8754,24 @@ const CompareComponent = () => {
                     id={"pnl55"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].total_positive_pnl,
-                              "pnl55",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_positive_pnl,
-                              "pnl56",
-                            ],
-                            value3: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_positive_pnl,
+                            "pnl55",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_positive_pnl,
+                            "pnl56",
+                          ],
+                          value3: [
+                            stats[model_name_3].total_positive_pnl,
+                            "pnl57",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].total_positive_pnl,
                               "pnl55",
@@ -8777,29 +8781,29 @@ const CompareComponent = () => {
                               "pnl56",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].total_positive_pnl,
-                              "pnl56",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].total_positive_pnl,
-                              "pnl55",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].total_positive_pnl,
+                                "pnl56",
+                              ],
+                              value2: [
+                                stats[model_name_3].total_positive_pnl,
+                                "pnl57",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].total_positive_pnl,
+                                  "pnl55",
+                                ],
+                                value2: [
+                                  stats[model_name_3].total_positive_pnl,
+                                  "pnl57",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -8811,24 +8815,24 @@ const CompareComponent = () => {
                     id={"pnl56"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].total_positive_pnl,
-                              "pnl55",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_positive_pnl,
-                              "pnl56",
-                            ],
-                            value3: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_positive_pnl,
+                            "pnl55",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_positive_pnl,
+                            "pnl56",
+                          ],
+                          value3: [
+                            stats[model_name_3].total_positive_pnl,
+                            "pnl57",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].total_positive_pnl,
                               "pnl55",
@@ -8838,29 +8842,29 @@ const CompareComponent = () => {
                               "pnl56",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].total_positive_pnl,
-                              "pnl56",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].total_positive_pnl,
-                              "pnl55",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].total_positive_pnl,
+                                "pnl56",
+                              ],
+                              value2: [
+                                stats[model_name_3].total_positive_pnl,
+                                "pnl57",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].total_positive_pnl,
+                                  "pnl55",
+                                ],
+                                value2: [
+                                  stats[model_name_3].total_positive_pnl,
+                                  "pnl57",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -8872,24 +8876,24 @@ const CompareComponent = () => {
                     id={"pnl57"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].total_positive_pnl,
-                              "pnl55",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_positive_pnl,
-                              "pnl56",
-                            ],
-                            value3: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_positive_pnl,
+                            "pnl55",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_positive_pnl,
+                            "pnl56",
+                          ],
+                          value3: [
+                            stats[model_name_3].total_positive_pnl,
+                            "pnl57",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].total_positive_pnl,
                               "pnl55",
@@ -8899,29 +8903,29 @@ const CompareComponent = () => {
                               "pnl56",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].total_positive_pnl,
-                              "pnl56",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].total_positive_pnl,
-                              "pnl55",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_positive_pnl,
-                              "pnl57",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].total_positive_pnl,
+                                "pnl56",
+                              ],
+                              value2: [
+                                stats[model_name_3].total_positive_pnl,
+                                "pnl57",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].total_positive_pnl,
+                                  "pnl55",
+                                ],
+                                value2: [
+                                  stats[model_name_3].total_positive_pnl,
+                                  "pnl57",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -8943,24 +8947,24 @@ const CompareComponent = () => {
                     id={"pnl58"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                            value3: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_negative_pnl,
+                            "pnl58",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_negative_pnl,
+                            "pnl59",
+                          ],
+                          value3: [
+                            stats[model_name_3].total_negative_pnl,
+                            "pnl60",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].total_negative_pnl,
                               "pnl58",
@@ -8970,29 +8974,29 @@ const CompareComponent = () => {
                               "pnl59",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].total_negative_pnl,
+                                "pnl59",
+                              ],
+                              value2: [
+                                stats[model_name_3].total_negative_pnl,
+                                "pnl60",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].total_negative_pnl,
+                                  "pnl58",
+                                ],
+                                value2: [
+                                  stats[model_name_3].total_negative_pnl,
+                                  "pnl60",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -9004,24 +9008,24 @@ const CompareComponent = () => {
                     id={"pnl59"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                            value3: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_negative_pnl,
+                            "pnl58",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_negative_pnl,
+                            "pnl59",
+                          ],
+                          value3: [
+                            stats[model_name_3].total_negative_pnl,
+                            "pnl60",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].total_negative_pnl,
                               "pnl58",
@@ -9031,29 +9035,29 @@ const CompareComponent = () => {
                               "pnl59",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].total_negative_pnl,
+                                "pnl59",
+                              ],
+                              value2: [
+                                stats[model_name_3].total_negative_pnl,
+                                "pnl60",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].total_negative_pnl,
+                                  "pnl58",
+                                ],
+                                value2: [
+                                  stats[model_name_3].total_negative_pnl,
+                                  "pnl60",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -9065,24 +9069,24 @@ const CompareComponent = () => {
                     id={"pnl60"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                            value3: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].total_negative_pnl,
+                            "pnl58",
+                          ],
+                          value2: [
+                            stats[model_name_2].total_negative_pnl,
+                            "pnl59",
+                          ],
+                          value3: [
+                            stats[model_name_3].total_negative_pnl,
+                            "pnl60",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValuesMin({
+                          ? changeColorOnValueBasisTwoValuesMin({
                             value1: [
                               stats[model_name_1].total_negative_pnl,
                               "pnl58",
@@ -9092,29 +9096,29 @@ const CompareComponent = () => {
                               "pnl59",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_2].total_negative_pnl,
-                              "pnl59",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValuesMin({
-                            value1: [
-                              stats[model_name_1].total_negative_pnl,
-                              "pnl58",
-                            ],
-                            value2: [
-                              stats[model_name_3].total_negative_pnl,
-                              "pnl60",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValuesMin({
+                              value1: [
+                                stats[model_name_2].total_negative_pnl,
+                                "pnl59",
+                              ],
+                              value2: [
+                                stats[model_name_3].total_negative_pnl,
+                                "pnl60",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValuesMin({
+                                value1: [
+                                  stats[model_name_1].total_negative_pnl,
+                                  "pnl58",
+                                ],
+                                value2: [
+                                  stats[model_name_3].total_negative_pnl,
+                                  "pnl60",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -9136,24 +9140,24 @@ const CompareComponent = () => {
                     id={"pnl61"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_daily_pnl,
+                            "pnl61",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_daily_pnl,
+                            "pnl62",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_daily_pnl,
+                            "pnl63",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].average_daily_pnl,
                               "pnl61",
@@ -9163,29 +9167,29 @@ const CompareComponent = () => {
                               "pnl62",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].average_daily_pnl,
+                                "pnl62",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_daily_pnl,
+                                "pnl63",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].average_daily_pnl,
+                                  "pnl61",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_daily_pnl,
+                                  "pnl63",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1]
@@ -9197,24 +9201,24 @@ const CompareComponent = () => {
                     id={"pnl62"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_daily_pnl,
+                            "pnl61",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_daily_pnl,
+                            "pnl62",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_daily_pnl,
+                            "pnl63",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].average_daily_pnl,
                               "pnl61",
@@ -9224,29 +9228,29 @@ const CompareComponent = () => {
                               "pnl62",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].average_daily_pnl,
+                                "pnl62",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_daily_pnl,
+                                "pnl63",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].average_daily_pnl,
+                                  "pnl61",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_daily_pnl,
+                                  "pnl63",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2]
@@ -9258,24 +9262,24 @@ const CompareComponent = () => {
                     id={"pnl63"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                            value3: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
+                          value1: [
+                            stats[model_name_1].average_daily_pnl,
+                            "pnl61",
+                          ],
+                          value2: [
+                            stats[model_name_2].average_daily_pnl,
+                            "pnl62",
+                          ],
+                          value3: [
+                            stats[model_name_3].average_daily_pnl,
+                            "pnl63",
+                          ],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [
                               stats[model_name_1].average_daily_pnl,
                               "pnl61",
@@ -9285,29 +9289,29 @@ const CompareComponent = () => {
                               "pnl62",
                             ],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_2].average_daily_pnl,
-                              "pnl62",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [
-                              stats[model_name_1].average_daily_pnl,
-                              "pnl61",
-                            ],
-                            value2: [
-                              stats[model_name_3].average_daily_pnl,
-                              "pnl63",
-                            ],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [
+                                stats[model_name_2].average_daily_pnl,
+                                "pnl62",
+                              ],
+                              value2: [
+                                stats[model_name_3].average_daily_pnl,
+                                "pnl63",
+                              ],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [
+                                  stats[model_name_1].average_daily_pnl,
+                                  "pnl61",
+                                ],
+                                value2: [
+                                  stats[model_name_3].average_daily_pnl,
+                                  "pnl63",
+                                ],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3]
@@ -9329,29 +9333,29 @@ const CompareComponent = () => {
                     id={"pnl64"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_2].r2_score, "pnl65"],
-                            value3: [stats[model_name_3].r2_score, "pnl66"],
-                          })
+                          value1: [stats[model_name_1].r2_score, "pnl64"],
+                          value2: [stats[model_name_2].r2_score, "pnl65"],
+                          value3: [stats[model_name_3].r2_score, "pnl66"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].r2_score, "pnl64"],
                             value2: [stats[model_name_2].r2_score, "pnl65"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].r2_score, "pnl65"],
-                            value2: [stats[model_name_3].r2_score, "pnl66"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_3].r2_score, "pnl66"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].r2_score, "pnl65"],
+                              value2: [stats[model_name_3].r2_score, "pnl66"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].r2_score, "pnl64"],
+                                value2: [stats[model_name_3].r2_score, "pnl66"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1] ? stats[model_name_1].r2_score : null}
@@ -9361,29 +9365,29 @@ const CompareComponent = () => {
                     id={"pnl65"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_2].r2_score, "pnl65"],
-                            value3: [stats[model_name_3].r2_score, "pnl66"],
-                          })
+                          value1: [stats[model_name_1].r2_score, "pnl64"],
+                          value2: [stats[model_name_2].r2_score, "pnl65"],
+                          value3: [stats[model_name_3].r2_score, "pnl66"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].r2_score, "pnl64"],
                             value2: [stats[model_name_2].r2_score, "pnl65"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].r2_score, "pnl65"],
-                            value2: [stats[model_name_3].r2_score, "pnl66"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_3].r2_score, "pnl66"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].r2_score, "pnl65"],
+                              value2: [stats[model_name_3].r2_score, "pnl66"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].r2_score, "pnl64"],
+                                value2: [stats[model_name_3].r2_score, "pnl66"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2] ? stats[model_name_2].r2_score : null}
@@ -9393,29 +9397,29 @@ const CompareComponent = () => {
                     id={"pnl66"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_2].r2_score, "pnl65"],
-                            value3: [stats[model_name_3].r2_score, "pnl66"],
-                          })
+                          value1: [stats[model_name_1].r2_score, "pnl64"],
+                          value2: [stats[model_name_2].r2_score, "pnl65"],
+                          value3: [stats[model_name_3].r2_score, "pnl66"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].r2_score, "pnl64"],
                             value2: [stats[model_name_2].r2_score, "pnl65"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].r2_score, "pnl65"],
-                            value2: [stats[model_name_3].r2_score, "pnl66"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].r2_score, "pnl64"],
-                            value2: [stats[model_name_3].r2_score, "pnl66"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].r2_score, "pnl65"],
+                              value2: [stats[model_name_3].r2_score, "pnl66"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].r2_score, "pnl64"],
+                                value2: [stats[model_name_3].r2_score, "pnl66"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3] ? stats[model_name_3].r2_score : null}
@@ -9435,29 +9439,29 @@ const CompareComponent = () => {
                     id={"pnl67"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_2].sharpe, "pnl68"],
-                            value3: [stats[model_name_3].sharpe, "pnl69"],
-                          })
+                          value1: [stats[model_name_1].sharpe, "pnl67"],
+                          value2: [stats[model_name_2].sharpe, "pnl68"],
+                          value3: [stats[model_name_3].sharpe, "pnl69"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].sharpe, "pnl67"],
                             value2: [stats[model_name_2].sharpe, "pnl68"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].sharpe, "pnl68"],
-                            value2: [stats[model_name_3].sharpe, "pnl69"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_3].sharpe, "pnl69"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].sharpe, "pnl68"],
+                              value2: [stats[model_name_3].sharpe, "pnl69"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].sharpe, "pnl67"],
+                                value2: [stats[model_name_3].sharpe, "pnl69"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1] ? stats[model_name_1].sharpe : null}
@@ -9467,29 +9471,29 @@ const CompareComponent = () => {
                     id={"pnl68"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_2].sharpe, "pnl68"],
-                            value3: [stats[model_name_3].sharpe, "pnl69"],
-                          })
+                          value1: [stats[model_name_1].sharpe, "pnl67"],
+                          value2: [stats[model_name_2].sharpe, "pnl68"],
+                          value3: [stats[model_name_3].sharpe, "pnl69"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].sharpe, "pnl67"],
                             value2: [stats[model_name_2].sharpe, "pnl68"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].sharpe, "pnl68"],
-                            value2: [stats[model_name_3].sharpe, "pnl69"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_3].sharpe, "pnl69"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].sharpe, "pnl68"],
+                              value2: [stats[model_name_3].sharpe, "pnl69"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].sharpe, "pnl67"],
+                                value2: [stats[model_name_3].sharpe, "pnl69"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2] ? stats[model_name_2].sharpe : null}
@@ -9499,29 +9503,29 @@ const CompareComponent = () => {
                     id={"pnl69"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_2].sharpe, "pnl68"],
-                            value3: [stats[model_name_3].sharpe, "pnl69"],
-                          })
+                          value1: [stats[model_name_1].sharpe, "pnl67"],
+                          value2: [stats[model_name_2].sharpe, "pnl68"],
+                          value3: [stats[model_name_3].sharpe, "pnl69"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].sharpe, "pnl67"],
                             value2: [stats[model_name_2].sharpe, "pnl68"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].sharpe, "pnl68"],
-                            value2: [stats[model_name_3].sharpe, "pnl69"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sharpe, "pnl67"],
-                            value2: [stats[model_name_3].sharpe, "pnl69"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].sharpe, "pnl68"],
+                              value2: [stats[model_name_3].sharpe, "pnl69"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].sharpe, "pnl67"],
+                                value2: [stats[model_name_3].sharpe, "pnl69"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3] ? stats[model_name_3].sharpe : null}
@@ -9541,29 +9545,29 @@ const CompareComponent = () => {
                     id={"pnl71"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_2].sortino, "pnl72"],
-                            value3: [stats[model_name_3].sortino, "pnl73"],
-                          })
+                          value1: [stats[model_name_1].sortino, "pnl71"],
+                          value2: [stats[model_name_2].sortino, "pnl72"],
+                          value3: [stats[model_name_3].sortino, "pnl73"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].sortino, "pnl71"],
                             value2: [stats[model_name_2].sortino, "pnl72"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].sortino, "pnl72"],
-                            value2: [stats[model_name_3].sortino, "pnl73"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_3].sortino, "pnl73"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].sortino, "pnl72"],
+                              value2: [stats[model_name_3].sortino, "pnl73"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].sortino, "pnl71"],
+                                value2: [stats[model_name_3].sortino, "pnl73"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_1] ? stats[model_name_1].sortino : null}
@@ -9573,29 +9577,29 @@ const CompareComponent = () => {
                     id={"pnl72"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_2].sortino, "pnl72"],
-                            value3: [stats[model_name_3].sortino, "pnl73"],
-                          })
+                          value1: [stats[model_name_1].sortino, "pnl71"],
+                          value2: [stats[model_name_2].sortino, "pnl72"],
+                          value3: [stats[model_name_3].sortino, "pnl73"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].sortino, "pnl71"],
                             value2: [stats[model_name_2].sortino, "pnl72"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].sortino, "pnl72"],
-                            value2: [stats[model_name_3].sortino, "pnl73"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_3].sortino, "pnl73"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].sortino, "pnl72"],
+                              value2: [stats[model_name_3].sortino, "pnl73"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].sortino, "pnl71"],
+                                value2: [stats[model_name_3].sortino, "pnl73"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_2] ? stats[model_name_2].sortino : null}
@@ -9605,29 +9609,29 @@ const CompareComponent = () => {
                     id={"pnl73"}
                     onChange={
                       stats[model_name_1] &&
-                      stats[model_name_2] &&
-                      stats[model_name_3]
+                        stats[model_name_2] &&
+                        stats[model_name_3]
                         ? changeColorOnValueBasis({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_2].sortino, "pnl72"],
-                            value3: [stats[model_name_3].sortino, "pnl73"],
-                          })
+                          value1: [stats[model_name_1].sortino, "pnl71"],
+                          value2: [stats[model_name_2].sortino, "pnl72"],
+                          value3: [stats[model_name_3].sortino, "pnl73"],
+                        })
                         : stats[model_name_1] && stats[model_name_2]
-                        ? changeColorOnValueBasisTwoValues({
+                          ? changeColorOnValueBasisTwoValues({
                             value1: [stats[model_name_1].sortino, "pnl71"],
                             value2: [stats[model_name_2].sortino, "pnl72"],
                           })
-                        : stats[model_name_2] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_2].sortino, "pnl72"],
-                            value2: [stats[model_name_3].sortino, "pnl73"],
-                          })
-                        : stats[model_name_1] && stats[model_name_3]
-                        ? changeColorOnValueBasisTwoValues({
-                            value1: [stats[model_name_1].sortino, "pnl71"],
-                            value2: [stats[model_name_3].sortino, "pnl73"],
-                          })
-                        : null
+                          : stats[model_name_2] && stats[model_name_3]
+                            ? changeColorOnValueBasisTwoValues({
+                              value1: [stats[model_name_2].sortino, "pnl72"],
+                              value2: [stats[model_name_3].sortino, "pnl73"],
+                            })
+                            : stats[model_name_1] && stats[model_name_3]
+                              ? changeColorOnValueBasisTwoValues({
+                                value1: [stats[model_name_1].sortino, "pnl71"],
+                                value2: [stats[model_name_3].sortino, "pnl73"],
+                              })
+                              : null
                     }
                   >
                     {stats[model_name_3] ? stats[model_name_3].sortino : null}

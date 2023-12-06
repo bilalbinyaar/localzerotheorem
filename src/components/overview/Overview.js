@@ -19,11 +19,12 @@ const Overview = () => {
     try {
       if (Object.keys(position_stats_cache).length == 0) {
         fetch(
-          "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/position_percentage",
+          process.env.REACT_APP_API + "/get/position_percentage",
           {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           }
         )
@@ -150,7 +151,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["24h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -175,7 +176,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["24h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -216,7 +217,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["12h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -241,7 +242,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["12h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -282,7 +283,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["8h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -307,7 +308,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["8h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -348,7 +349,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["6h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -373,7 +374,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["6h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -417,7 +418,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["4h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -442,7 +443,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["4h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -483,7 +484,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["3h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -541,7 +542,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["2h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -599,7 +600,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["1h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -699,7 +700,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["24h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -724,7 +725,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["24h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -770,7 +771,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["12h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -795,7 +796,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["12h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -841,7 +842,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["8h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -866,7 +867,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["8h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -912,7 +913,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["6h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -937,7 +938,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["6h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -986,7 +987,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["4h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1011,7 +1012,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["4h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1057,7 +1058,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["3h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1082,7 +1083,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["3h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1128,7 +1129,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["2h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1153,7 +1154,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["2h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1199,7 +1200,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["1h"].long_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",
@@ -1224,7 +1225,7 @@ const Overview = () => {
                       >
                         <p>
                           {position_analysis_stats["1h"].short_percentage <
-                          20 ? (
+                            20 ? (
                             <p
                               style={{
                                 visibility: "hidden",

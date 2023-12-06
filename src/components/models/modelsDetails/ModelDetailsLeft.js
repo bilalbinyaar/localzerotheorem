@@ -17,15 +17,16 @@ import { Tooltip } from "@mui/material";
 const ModelDetailsLeft = (props) => {
   const [timer_for_current, set_timer_for_current_position] = useState(null);
   const [totalpnl, setTotalPnl] = useState([]);
-  const { theme } = useStateContext();
+  const { theme, link } = useStateContext();
 
   useEffect(() => {
     try {
       if (timer_for_current == null) {
-        fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_returns`, {
+        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((res) => res.json())
@@ -57,10 +58,11 @@ const ModelDetailsLeft = (props) => {
           });
       }
       setTimeout(() => {
-        fetch(`https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_returns`, {
+        fetch(process.env.REACT_APP_API + `/get/live_returns`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((res) => res.json())
@@ -101,11 +103,11 @@ const ModelDetailsLeft = (props) => {
   // const [stats, setStats] = useState({});
   // useEffect(() => {
   //   fetch(
-  //     `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategy/${props.model_name}`,
+  //     process.env.REACT_APP_API+ `/get_strategy/${props.model_name}`,
   //     {
   //         method: "GET",
   // headers: {
-  //   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+  //               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
   // },
   //     }
   //   )
@@ -134,11 +136,11 @@ const ModelDetailsLeft = (props) => {
 
   // useEffect(() => {
   //   fetch(
-  //     `https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stat/${props.model_name}`,
+  //     process.env.REACT_APP_API+ `/get_stat/${props.model_name}`,
   //     {
   //         method: "GET",
   // headers: {
-  //   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+  //               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
   // },
   //     }
   //   )
@@ -181,10 +183,12 @@ const ModelDetailsLeft = (props) => {
         props.model_name.includes("strategy") ||
         props.model_name.split("_").length == 3
       ) {
-        fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+        console.log("Here is api -->", process.env.REACT_APP_API)
+        fetch(process.env.REACT_APP_API + "/get/live_stats", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+            'ngrok-skip-browser-warning': 'true',
           },
         })
           .then((response) => response.json())
@@ -246,10 +250,11 @@ const ModelDetailsLeft = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+            fetch(process.env.REACT_APP_API + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())
@@ -332,11 +337,12 @@ const ModelDetailsLeft = (props) => {
           props.model_name.split("_").length == 3
         ) {
           fetch(
-            "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_strategies",
+            process.env.REACT_APP_API + "/get/live_strategies",
             {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             }
           )
@@ -417,11 +423,12 @@ const ModelDetailsLeft = (props) => {
         } else {
           if (Object.keys(strategies_cache).length == 0) {
             fetch(
-              "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_strategies",
+              process.env.REACT_APP_API + "/get_strategies",
               {
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                  'ngrok-skip-browser-warning': 'true',
                 },
               }
             )

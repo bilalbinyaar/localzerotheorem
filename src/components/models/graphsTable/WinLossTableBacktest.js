@@ -14,12 +14,13 @@ const WinLossTableBacktest = (props) => {
       if (props.model_name.includes("stats")) {
         try {
           fetch(
-            "https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats_backtest/" +
-              props.model_name,
+            process.env.REACT_APP_API + "/get_stats_backtest/" +
+            props.model_name,
             {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             }
           )
@@ -89,10 +90,11 @@ const WinLossTableBacktest = (props) => {
         props.model_name.split("_").length == 3
       ) {
         try {
-          fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get/live_stats", {
+          fetch(process.env.REACT_APP_API + "/get/live_stats", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -159,10 +161,11 @@ const WinLossTableBacktest = (props) => {
       } else {
         try {
           if (Object.keys(stats_cache).length == 0) {
-            fetch("https://zt-rest-api-rmkp2vbpqq-uc.a.run.app/get_stats", {
+            fetch(process.env.REACT_APP_API + "/get_stats", {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())
@@ -339,9 +342,9 @@ const WinLossTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColorGreen(
-                      stats[props.model_name].consective_wins,
-                      "wins3"
-                    )
+                    stats[props.model_name].consective_wins,
+                    "wins3"
+                  )
                   : null
               }
             >
@@ -363,9 +366,9 @@ const WinLossTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColorRed(
-                      stats[props.model_name].consective_losses,
-                      "losses2"
-                    )
+                    stats[props.model_name].consective_losses,
+                    "losses2"
+                  )
                   : null
               }
             >
@@ -389,9 +392,9 @@ const WinLossTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColorWinLossPercentage(
-                      stats[props.model_name].win_percentage,
-                      "wins_percentage"
-                    )
+                    stats[props.model_name].win_percentage,
+                    "wins_percentage"
+                  )
                   : null
               }
             >
@@ -414,9 +417,9 @@ const WinLossTableBacktest = (props) => {
               onChange={
                 stats[props.model_name]
                   ? forBgColorWinLossRatio(
-                      stats[props.model_name].total_wins,
-                      "wins_loss_ratio"
-                    )
+                    stats[props.model_name].total_wins,
+                    "wins_loss_ratio"
+                  )
                   : null
               }
             >

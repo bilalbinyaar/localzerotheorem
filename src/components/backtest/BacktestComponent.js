@@ -337,6 +337,7 @@ const BacktestComponent = (props) => {
               method: 'GET',
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             }
           )
@@ -424,6 +425,7 @@ const BacktestComponent = (props) => {
                 method: 'GET',
                 headers: {
                   Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                  'ngrok-skip-browser-warning': 'true',
                 },
               }
             )
@@ -551,6 +553,7 @@ const BacktestComponent = (props) => {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+              'ngrok-skip-browser-warning': 'true',
             },
           })
             .then((response) => response.json())
@@ -616,6 +619,7 @@ const BacktestComponent = (props) => {
               method: 'GET',
               headers: {
                 Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+                'ngrok-skip-browser-warning': 'true',
               },
             })
               .then((response) => response.json())

@@ -7,20 +7,16 @@ const cors = require("cors");
 const redis = require("redis");
 require('dotenv').config();
 const app = express();
-app.use(cors({
-    origin: "http://zt.neurog.ai",
-    methods: ["GET", "POST"]
-}));
+app.use(cors());
 
 const mysql = require("mysql");
 var flag_for_redis_client = true;
 // var ledgers_listeners_objs = [];
 const db = mysql.createConnection({
-    host: "192.168.18.123",
-    user: "sorez",
-    password: "Pak123@@@",
-    port: "3306",
-    database: "zero_theorem_mysql",
+    host: "localhost",
+    user: "root",
+    password: "neurog123",
+    database: "zt_simulation",
 
 });
 
@@ -105,7 +101,6 @@ app.get("/get_strategies", async function (req, res) {
 // Your database setup (e.g., MySQL) and environment variables should be configured here.
 
 app.get("/get_stats", async function (req, res) {
-    console.log("I am here to listen you bro")
     if (req.headers.authorization) {
         const secretKey = req.headers.authorization.replace("Bearer ", "");
         if (secretKey == process.env.API_KEY) {

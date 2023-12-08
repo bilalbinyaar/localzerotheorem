@@ -497,7 +497,7 @@ export default function NavMobile(props) {
           <div>
             {authCheckLoginInvestor == 'True' ? (
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <CustomLink to="/" onClick={toCloseNav}>
+                <CustomLink to="/performance" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
                   Performance
                 </CustomLink>
@@ -550,7 +550,7 @@ export default function NavMobile(props) {
               </ul>
             ) : (
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <CustomLink to="/" onClick={toCloseNav}>
+                <CustomLink to="/performance" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
                   Performance
                 </CustomLink>

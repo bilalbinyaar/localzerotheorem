@@ -538,7 +538,7 @@ export default function Navbar() {
               id="mobile-nav"
               className={click ? 'nav-menu active' : 'nav-menu'}
             >
-              <CustomLink to="/" onClick={toCloseNav}>
+              <CustomLink to="/performance" onClick={toCloseNav}>
                 Performance
               </CustomLink>
               <CustomLink to="/risk-management" onClick={toCloseNav}>

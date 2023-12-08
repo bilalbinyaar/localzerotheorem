@@ -69,7 +69,8 @@ function App() {
                         <div>
                             <Navbar />
                             <Routes basename="/zero-theorem">
-                                <Route path="/" element={<Performance />} />
+                                <Route path="/" element={<Home />} />
+                                <Route path='/performance' element={<Performance />} />
                                 <Route path="/theory" element={<TheUnderlyingAssumptions />} />
                                 <Route path="/:name" element={<Models />} />
                                 <Route path="/account-details" element={<AccountDetails />} />
@@ -157,10 +158,12 @@ function App() {
                         <div>
                             <Navbar />
                             <Routes basename="/zero-theorem">
-                                <Route path="/" element={<Performance />} />
+                                <Route path="/" element={<Home />} />
                                 <Route path="/theory" element={<TheUnderlyingAssumptions />} />
                                 <Route path="/:name" element={<Models />} />
                                 <Route path="/about" element={<About />} />
+                                <Route path='/performance' element={<Performance />} />
+
                                 <Route path="/faqs" element={<FAQ />} />
                                 <Route path="/login" element={<LoginForm />} />
                                 <Route path="/signup" element={<Signup />} />

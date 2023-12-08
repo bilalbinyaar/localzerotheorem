@@ -668,7 +668,7 @@ export default function Navbar() {
                 FAQs
               </CustomLink>
 
-              {authCheck === true ? (
+              {/* {authCheck === true ? (
                 <CustomLink
                   to="/"
                   onClick={() => {
@@ -679,7 +679,7 @@ export default function Navbar() {
                 </CustomLink>
               ) : (
                 <CustomLink to="/login">Login</CustomLink>
-              )}
+              )} */}
             </ul>
           )}
 
@@ -851,7 +851,7 @@ export default function Navbar() {
             </div>
           ) } */}
 
-          {authCheckLoginInvestor == 'True' ? (
+          {/* {authCheckLoginInvestor == 'True' ? (
             <div className="btn-group nav-btn">
               <button
                 className="btn btn-nav"
@@ -898,7 +898,7 @@ export default function Navbar() {
                 Logout
               </button>
             </div>
-          )}
+          )} */}
 
           <div className="hamburger" onClick={oneClick}>
             {click ? (

@@ -525,7 +525,7 @@ export default function NavMobile(props) {
                   <BsFillLayersFill className="nav-icons nav-icons-mobile" />
                   Theory
                 </CustomLink>
-                <CustomLink
+                {/* <CustomLink
                   to=""
                   onClick={() => {
                     Swal.fire({
@@ -546,7 +546,7 @@ export default function NavMobile(props) {
                 >
                   <AiOutlineLogout className="nav-icons" />
                   Logout
-                </CustomLink>
+                </CustomLink> */}
               </ul>
             ) : (
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -640,7 +640,7 @@ export default function NavMobile(props) {
                   <AiOutlineContacts className="nav-icons" />
                   Contact
                 </CustomLink>
-                <CustomLink
+                {/* <CustomLink
                   to=""
                   onClick={() => {
                     Swal.fire({
@@ -661,7 +661,7 @@ export default function NavMobile(props) {
                 >
                   <AiOutlineLogout className="nav-icons" />
                   Logout
-                </CustomLink>
+                </CustomLink> */}
               </ul>
             )}
 

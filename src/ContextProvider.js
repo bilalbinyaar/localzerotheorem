@@ -30,8 +30,11 @@ export const ContextProvider = ({ children }) => {
   const [authCheckLoginInvestor, setAuthCheckLoginInvestor] = useState(
     default_login.loginFlag
   );
+  // const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(
+  //   default_login.loginFlagAdmin
+  // );
   const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(
-    default_login.loginFlagAdmin
+    true
   );
   // console.log("Here is admin state ", default_login.loginFlagAdmin);
   const [uid, setUid] = useState(null);

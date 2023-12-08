@@ -614,7 +614,7 @@ export default function NavMobileOld(props) {
               <AiOutlineContacts className="nav-icons" />
               Contact
             </CustomLink>
-            {authCheckLogin === true ? (
+            {/* {authCheckLogin === true ? (
               <CustomLink
                 to=""
                 onClick={() => {
@@ -643,7 +643,7 @@ export default function NavMobileOld(props) {
                 <AiOutlineUserAdd className="nav-icons" />
                 Login
               </CustomLink>
-            )}
+            )} */}
           </ul>
         )}
 

@@ -39,13 +39,13 @@
   box-sizing: border-box;
 }
 .inner:before {
-  content: "";
+  content: '';
   padding-left: 10px;
   background-color: var(--color-day-yellow);
   color: var(--color-day-white);
 }
 .inner:after {
-  content: "";
+  content: '';
   padding-right: 10px;
   background-color: var(--color-day-greydark);
   color: #fff;
@@ -59,7 +59,6 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  /* right: 39px; */
   right: 24px;
   border: 0 solid #bbb;
   border-radius: 20px;
@@ -69,7 +68,6 @@
   margin-left: 0;
 }
 .checkbox:checked + .label .switch {
-  /* right: 16px; */
   right: 2px;
 }
 

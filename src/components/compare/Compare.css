@@ -16,7 +16,6 @@
 
 .model-compare-search {
   width: 100% !important;
-  /* margin-left: 1.5rem; */
 }
 
 .search-table {
@@ -287,7 +286,6 @@ table {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    /* margin-bottom: 1rem; */
     background-color: transparent;
     flex-direction: column;
     width: 25%;
@@ -296,7 +294,6 @@ table {
 
   .horizon-row-comparison {
     justify-content: flex-start;
-    /* flex-direction: column; */
     align-items: center;
     width: 100%;
   }

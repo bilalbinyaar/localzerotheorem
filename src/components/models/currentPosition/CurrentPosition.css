@@ -2,11 +2,6 @@
   padding: 0rem;
 }
 
-/* .current-position-heading {
-  font-size: 20px;
-  margin-bottom: 3% !important;
-} */
-
 .for-h3-font {
   font-size: 16px;
   margin-bottom: 0 !important;
@@ -15,7 +10,6 @@
 .current-position-body-spans {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .current-position-spans {

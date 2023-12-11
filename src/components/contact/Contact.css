@@ -12,7 +12,6 @@
   align-items: center;
   width: 100%;
   flex-direction: column;
-  /* margin-left: 2rem; */
 }
 .btn-contact {
   margin-top: 1.4rem;
@@ -29,7 +28,7 @@
   padding: 7.5px 4px 7.5px 6px !important;
   background-color: var(--color-forecasts-card) !important;
   color: var(--color-day-black) !important;
-  font-size: 12px!important;
+  font-size: 12px !important;
   border-radius: 4px;
   resize: vertical;
   border: 1px solid rgba(0, 0, 0, 0.23);

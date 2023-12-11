@@ -1,85 +1,80 @@
 .faq {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 0rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0rem;
 }
 
 .faq .container {
-    padding: 2rem 0rem 3rem 0rem;
+  padding: 2rem 0rem 3rem 0rem;
 }
 
-/* .faq-head {
-    margin-bottom: 2rem;
-} */
-
 .faq-sub-head {
-    text-align: left;
-    width: 100%;
-    color: var(--color-day-yellow);
-    font-size: 22px;
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-day-yellow);
-    /* padding-left: 1.5rem; */
+  text-align: left;
+  width: 100%;
+  color: var(--color-day-yellow);
+  font-size: 22px;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-day-yellow);
 }
 
 .question-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0rem 26px 0rem;
-    width: 100%;
-    border-bottom: 0.3px solid var(--color-grid-border);
-    margin: 10px 0;
-    text-align: left;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0rem 26px 0rem;
+  width: 100%;
+  border-bottom: 0.3px solid var(--color-grid-border);
+  margin: 10px 0;
+  text-align: left;
+  cursor: pointer;
 }
 
 .question-heading .plus-icon {
-    margin-right: 1.5rem;
-    font-size: 1.2rem;
-    color: var(--color-day-black);
-    cursor: pointer;
+  margin-right: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--color-day-black);
+  cursor: pointer;
 }
 
 .question-heading h3 {
-    padding-left: 1.5rem;
-    font-size: 16px;
+  padding-left: 1.5rem;
+  font-size: 16px;
 }
 
 .answers {
-    text-align: left;
-    padding: 0.5rem 3.2rem 0.5rem 3.2rem;
+  text-align: left;
+  padding: 0.5rem 3.2rem 0.5rem 3.2rem;
 }
 
 .answers-api a {
-    color: var(--color-day-yellow);
-    display: contents;
+  color: var(--color-day-yellow);
+  display: contents;
 }
 
 .general {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .general-sep {
-    height: 1px;
-    background-color: var(--color-day-yellow);
-    width: 100%;
-    margin-top: 3rem;
+  height: 1px;
+  background-color: var(--color-day-yellow);
+  width: 100%;
+  margin-top: 3rem;
 }
 
 @media screen and (max-width: 568px) {
-    .faq {
-        padding: 0;
-    }
+  .faq {
+    padding: 0;
+  }
 
-    .faq-sub-head {
-        font-size: 18px;
-    }
+  .faq-sub-head {
+    font-size: 18px;
+  }
 
-    .question-heading h3 {
-        font-size: 14px;
-    }
+  .question-heading h3 {
+    font-size: 14px;
+  }
 }

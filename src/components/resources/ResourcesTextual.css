@@ -1,5 +1,4 @@
 .res-textual-section .container {
-  /* padding: 1rem 3rem 2rem 3rem; */
   padding: 1rem 0rem 3rem 0rem;
 }
 
@@ -63,20 +62,19 @@
     font-size: 16px;
   }
 
-.derivations-h1 {
-  font-size: 20px;
-}
+  .derivations-h1 {
+    font-size: 20px;
+  }
 
-.derivations-h2 {
-  font-size: 14px;
-}
+  .derivations-h2 {
+    font-size: 14px;
+  }
 
-.derivations-h3 {
-  font-size: 11px;
-}
+  .derivations-h3 {
+    font-size: 11px;
+  }
 
-.controlled-height .MathJax svg{
-  height: 10px !important;
-}
-
+  .controlled-height .MathJax svg {
+    height: 10px !important;
+  }
 }

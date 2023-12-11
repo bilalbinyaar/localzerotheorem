@@ -1,46 +1,44 @@
 .portfolio-stats {
-    padding: 3rem 0rem 0rem 0rem;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  padding: 3rem 0rem 0rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .for-space-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .portfolio-ml {
-    margin-left: 0.8rem;
+  margin-left: 0.8rem;
 }
 
 .today-stats {
-    background-color: var(--color-forecasts-card);
-    padding: 0.8rem;
-    border-radius: 4px;
-    width: 29%;
+  background-color: var(--color-forecasts-card);
+  padding: 0.8rem;
+  border-radius: 4px;
+  width: 29%;
 }
 
 .overall-stats {
-    background-color: var(--color-forecasts-card);
-    padding: 0.8rem;
-    border-radius: 4px;
-    /* width: 25%; */
+  background-color: var(--color-forecasts-card);
+  padding: 0.8rem;
+  border-radius: 4px;
 }
 
 .pnl-stats-bar {
-    background-color: var(--color-forecasts-card);
-    padding: 0.6rem 0.8rem;
-    border-radius: 4px;
-    width: 70%;
+  background-color: var(--color-forecasts-card);
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  width: 70%;
 }
 
 .pnl-day-stats {
-    /* background-color: var(--forecasts-model-index); */
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    width: 100%;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  width: 100%;
 }
 
 .portfolio-stats-percentage {
@@ -64,96 +62,85 @@
   color: white !important;
 }
 
-
-
 /* NEW */
 .overall-stats {
-    width: 100%;
-} 
+  width: 100%;
+}
 
 .for-flex-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .portfolio-stats-percentage {
-    margin-left: 0;
-    margin-top: 0.4rem;
-    background: transparent;
+  margin-left: 0;
+  margin-top: 0.4rem;
+  background: transparent;
 }
 
 .portfolio-stats-percentage svg {
-    margin-top: 4px;
+  margin-top: 4px;
 }
 
 .portfolio-stats-percentage p {
-    color: var(--color-day-green) !important;
+  color: var(--color-day-green) !important;
 }
 
 .for-overall-stat p {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .for-overall-stat-icon {
-    font-size: 14px !important;
-    margin-top: 5px !important;
+  font-size: 14px !important;
+  margin-top: 5px !important;
 }
 
 .divider-div-pnl-stats {
-    width: 3px;
-    height: 30px;
-    background-color: var(--forecasts-model-index);
+  width: 3px;
+  height: 30px;
+  background-color: var(--forecasts-model-index);
 }
 
-
-/* .pt-0 {
-    padding-top: 0 !important;
-} */
-
 @media screen and (max-width: 568px) {
-    .for-overall-stat p {
-        font-size: 12px;
-    }
+  .for-overall-stat p {
+    font-size: 12px;
+  }
 
-    .for-overall-stat-icon {
-        font-size: 12px !important;
-        margin-top: 3px !important;
-    }
-    .portfolio-stats {
-        padding: 1.2rem 0rem 0rem 0rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  .for-overall-stat-icon {
+    font-size: 12px !important;
+    margin-top: 3px !important;
+  }
+  .portfolio-stats {
+    padding: 1.2rem 0rem 0rem 0rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .pnl-stats-bar {
-        margin-top: 0.8rem;
-    }
+  .pnl-stats-bar {
+    margin-top: 0.8rem;
+  }
 
-    .today-stats {
-        width: 100%;
-    }
+  .today-stats {
+    width: 100%;
+  }
 
-    .pnl-stats-bar {
-        width: 100%;
-        margin-left: 0 !important;
-    }
-
-    /* .pnl-day-stats {
-        padding: 0.5rem;
-    } */
+  .pnl-stats-bar {
+    width: 100%;
+    margin-left: 0 !important;
+  }
 }
 
 @media screen and (max-width: 374px) {
-    .for-space-between {
-        flex-direction: column;
-    }
+  .for-space-between {
+    flex-direction: column;
+  }
 
-    .divider-div-pnl-stats {
-        width: 60px;
-        height: 1px;
-        margin: 0.4rem 0;
-    }
+  .divider-div-pnl-stats {
+    width: 60px;
+    height: 1px;
+    margin: 0.4rem 0;
+  }
 }

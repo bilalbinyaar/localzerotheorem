@@ -35,7 +35,6 @@
   display: flex;
   color: var(--color-day-green);
   align-items: flex-end;
-  /* justify-content: center; */
 }
 
 .model-details-right-percentage p {
@@ -47,8 +46,6 @@
 .model-details-right-percentage h2 {
   color: var(--color-day-green);
   margin-top: 0;
-  /* font-size: 12px;
-    font-weight: 600; */
 }
 
 .model-details-right-percentage-icon {
@@ -63,7 +60,6 @@
 }
 
 .model-details-right-card-inner-recent h3 {
-  /* margin-right: 0.5rem; */
   font-size: 11px;
 }
 
@@ -80,7 +76,6 @@
 .model-details-left-body-recent {
   display: flex;
   width: 100%;
-  /* justify-content: left; */
 }
 
 .model-details-left-body-stats-recent {
@@ -168,9 +163,6 @@
     align-items: center;
   }
 }
-
-
-
 
 @media screen and (max-width: 568px) {
   .recently-viewd {

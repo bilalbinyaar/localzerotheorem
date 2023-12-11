@@ -15,7 +15,6 @@
   margin-bottom: 1.8rem;
 }
 
-
 .inter-grad {
   display: flex;
   align-items: center;
@@ -30,7 +29,6 @@
 .inter-grad-sep p {
   margin-top: 0;
   font-weight: 500;
-  /* margin-right: 0.6rem; */
 }
 
 .ml-inter-grad {
@@ -40,7 +38,6 @@
 .ml-inner-inter-grad {
   margin-left: 0.4rem;
 }
-
 
 .fw-inter-grad {
   font-weight: 400;
@@ -58,13 +55,12 @@
 }
 
 .c-pnl {
-  color: #16C784;
+  color: #16c784;
   font-weight: 900;
-
 }
 
 .c-moving {
-  color: #FDD835;
+  color: #fdd835;
   font-weight: 900;
 }
 
@@ -100,15 +96,6 @@
   }
 }
 
-
 .performance-graphs {
   width: 100%;
 }
-
-
-
-/* .performance-graphs-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */

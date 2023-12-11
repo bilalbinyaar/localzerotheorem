@@ -143,7 +143,6 @@ option:nth-child(0) {
 .form-headings .active {
   border-bottom: 2px solid var(--color-day-yellow);
   padding-bottom: 0.8rem;
-  /* color: var(--color-day-yellow); */
 }
 
 .checkbox-div {

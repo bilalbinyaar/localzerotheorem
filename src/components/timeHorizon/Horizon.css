@@ -121,10 +121,6 @@
     padding: 1rem 0rem;
   }
 
-  /* .horizon-right {
-    display: none;
-  } */
-
   .horizon-left {
     width: 100%;
   }
@@ -146,7 +142,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    /* margin-bottom: 1rem; */
     background-color: transparent;
     flex-direction: column;
     width: 25%;
@@ -162,7 +157,6 @@
 
   .horizon-row {
     justify-content: flex-start;
-    /* flex-direction: column; */
     align-items: center;
     width: 100%;
   }

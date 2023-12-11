@@ -3,7 +3,6 @@
   background-color: var(--color-forecasts-card);
   width: 100%;
   border-top-right-radius: 15px;
-  /* padding: 2rem 4rem; */
   padding: 2rem 1rem;
   overflow-y: scroll;
 }
@@ -96,10 +95,6 @@
 
 .res-main-for-height {
   height: 100%;
-
-  /* position: fixed;
-  z-index: -1;
-  width: 25%; */
 }
 
 .sub-breakdown-menu {

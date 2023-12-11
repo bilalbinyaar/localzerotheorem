@@ -9,9 +9,11 @@
 
 body {
   background-color: var(--color-day-black);
-  background: linear-gradient(180deg,
-      var(--color-gradient-one) -34.49%,
-      var(--color-gradient-two) 51.43%);
+  background: linear-gradient(
+    180deg,
+    var(--color-gradient-one) -34.49%,
+    var(--color-gradient-two) 51.43%
+  );
 }
 
 .light-theme {
@@ -161,10 +163,6 @@ p {
   font-size: 0.9rem !important;
 }
 
-/* .MuiDataGrid-columnHeaderTitleContainerContent:hover .MuiDataGrid-columnHeaderTitleContainerContent button{
-  display: none;
-} */
-
 .css-h5074s .MuiDataGrid-columnHeader:focus-within,
 .css-h5074s .MuiDataGrid-cell:focus-within {
   outline: 0 !important;
@@ -239,7 +237,6 @@ form .form-inner {
 }
 
 form .form-inner h2 {
-  /* color: var(--color-day-yellow); */
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 30px;
@@ -277,7 +274,6 @@ form .form-inner .form-group input {
 }
 
 form .form-inner .form-group input:focus {
-  /* box-shadow: 0px 0px 3px rgba(0,0,0, 0.2); */
   box-shadow: 0px 0px 3px var(--color-day-yellow);
 }
 
@@ -296,7 +292,6 @@ form .form-inner input[type='submit'] {
   transition: 0.4s;
   font-weight: 700;
   cursor: pointer;
-  /* margin: 0 auto; */
 }
 
 form .form-inner input[type='submit']:hover {
@@ -387,9 +382,6 @@ text {
 
 .candle-canvas {
   padding: 2rem 0rem !important;
-  /* overflow-y: auto !important;
-  overflow: scroll !important;
-  overflow-x: auto !important; */
 }
 
 .negative-chart .container {
@@ -513,9 +505,6 @@ a:-webkit-any-link {
 .comparison-spline {
   width: 290px !important;
   height: 110px !important;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .compare-charts {
@@ -757,7 +746,6 @@ a:-webkit-any-link {
 
 .css-ue1yok .MuiAutocomplete-option.Mui-focused {
   background-color: var(--color-day-yellow);
-  /* color: #000000 !important; */
 }
 
 .css-ue1yok {
@@ -915,7 +903,6 @@ a:-webkit-any-link {
 }
 
 /* MUI GRID FOOTER STYLING */
-
 .css-1yy0dv2 {
   flex-direction: row-reverse !important;
 }
@@ -1011,7 +998,6 @@ a:-webkit-any-link {
 .container3 {
   width: 74%;
   margin: 0 auto;
-  /* height: 400px !important; */
   padding: 4rem 3.4rem;
 }
 
@@ -1025,22 +1011,22 @@ a:-webkit-any-link {
 }
 
 /* MATH JAX */
-mjx-container[jax='SVG']>svg {
+mjx-container[jax='SVG'] > svg {
   color: var(--color-day-black);
 }
 
 @media screen and (max-width: 568px) {
-  mjx-container[jax='SVG']>svg {
+  mjx-container[jax='SVG'] > svg {
     width: 92%;
     height: 100%;
   }
 }
 
-.hidden>div>div:last-child {
+.hidden > div > div:last-child {
   display: none;
 }
 
-.canvas>div>div>div>div:first-child {
+.canvas > div > div > div > div:first-child {
   display: none;
 }
 
@@ -1151,71 +1137,6 @@ mjx-container[jax='SVG']>svg {
   color: var(--color-day-black) !important;
 }
 
-/* .documentation-container {
-  display: flex;
-  width: 75%;
-  margin: 0 auto;
-  padding: 4rem 3.4rem;
-}
-
-.documentation-sidebar {
-  width: 20%;
-  background-color: var(--color-day-white);
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.documentation-sidebar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.documentation-sidebar li {
-  margin-bottom: 0.5rem;
-  color: var(--color-day-black);
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.documentation-sidebar li.active {
-  background-color: var(--color-day-yellow);
-  color: black;
-  border-radius: 10px;
-}
-
-.content {
-  flex-grow: 2;
-  margin-left: 4%;
-  text-align: left;
-}
-
-.code-container {
-  background-color: var(--color-day-white) !important;
-  width: auto;
-  border-radius: 10px;
-}
-
-.code-title {
-  color: #00ffff;
-  margin-top: 0;
-}
-
-pre.language-python {
-  background-color: var(--color-day-white) !important;
-  font-size: 14px;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  line-height: 1.5;
-  overflow: auto;
-  padding: 1em;
-  margin: 0;
-  border-radius: 4px;
-}
-
-pre.language-python code {
-  font-family: inherit;
-} */
-
 /* API PAGE CSS START */
 
 .documentation .container {
@@ -1231,7 +1152,6 @@ pre.language-python code {
   border-top-right-radius: 15px;
   padding: 2rem 0.8rem 2rem 1rem;
   margin-right: 3rem;
-  /* overflow-y: scroll; */
 }
 
 .documentation-items {
@@ -1325,12 +1245,6 @@ pre[class*='language-'] {
   margin-top: 0;
 }
 
-/* .documentation-items li.active {
-  background-color: var(--color-day-yellow);
-  color: black;
-  border-radius: 10px;
-} */
-
 @media screen and (max-width: 768px) {
   .copy {
     display: none;
@@ -1371,7 +1285,6 @@ pre[class*='language-'] {
 /* API PAGE CSS END */
 
 /* LOGIN/SIGN UP POPUP STYLES */
-
 .popup {
   position: fixed;
   top: 0;
@@ -1421,7 +1334,6 @@ pre[class*='language-'] {
 }
 
 /* MAIN WEB LOGIN PAGE */
-
 .main-web-form-group {
   display: flex;
   justify-content: center;
@@ -1486,8 +1398,6 @@ pre[class*='language-'] {
 
 .test-component .container {
   padding: 0rem 0rem 1rem 0rem;
-  /* display: flex; */
-  /* justify-content: space-between; */
 }
 
 .test-component .container {
@@ -1532,10 +1442,6 @@ pre[class*='language-'] {
     flex-direction: column;
     padding: 1.6rem 0rem 1rem 0rem;
   }
-
-  /* .doughnut-dr {
-    width: 100%;
-  } */
 }
 
 .loader-container {

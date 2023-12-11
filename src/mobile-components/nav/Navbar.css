@@ -60,7 +60,6 @@
 
 .nav-logo-div {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -68,10 +67,6 @@
   width: 70%;
   cursor: pointer;
 }
-
-/* .nav-logo-img:hover {
-    background: transparent !important;
-} */
 
 .dark-lite {
   display: flex;
@@ -129,9 +124,6 @@
     flex-direction: column;
     justify-content: start;
     top: 87px;
-    /* display: block; */
-    /* display: none; */
-    /* right: -195px; */
     left: 0;
     width: 50%;
     height: 90vh;

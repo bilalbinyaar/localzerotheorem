@@ -584,6 +584,7 @@ const ModelDetailsCenter = (props) => {
 
   // CURRENT PNL COLORS
   const forPnlColor = (total_pnl, id) => {
+    console.log("Here is pnl -->", total_pnl, id)
     if (total_pnl < 0) {
       document
         .getElementById(`${id}`)
@@ -860,18 +861,18 @@ const ModelDetailsCenter = (props) => {
               </Tooltip> */}
               </div>
               <h3
-                id="curr-pnl"
+                id="curr-pnl1"
                 onChange={
                   current_position[props.model_name] ||
                     strategies[props.model_name]
                     ? current_position[props.model_name]
                       ? forPnlColor(
                         current_position[props.model_name].current_pnl,
-                        "curr-pnl"
+                        "curr-pnl1"
                       )
                       : forPnlColor(
                         strategies[props.model_name].current_pnl,
-                        "curr-pnl"
+                        "curr-pnl1"
                       )
                     : null
                 }

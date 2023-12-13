@@ -119,7 +119,7 @@
   }
 
   .for-flex-end {
-    justify-content: start;
+    justify-content: flex-start;
     display: flex;
     margin-top: 1rem;
   }

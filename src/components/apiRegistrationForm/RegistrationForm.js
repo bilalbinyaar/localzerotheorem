@@ -1,17 +1,13 @@
-import React, { useState } from "react";
-import "./RegistraionForm.css";
-import api_img from "../../assets/api-soon.png";
-import soon_dark from "../../assets/soon-dark.png";
-import soon_light from "../../assets/soon-light.png";
-import { Link } from "react-router-dom";
-import { useStateContext } from "../../ContextProvider";
-import TextField from "@mui/material/TextField";
-import { last } from "@amcharts/amcharts5/.internal/core/util/Array";
-import { fireEvent } from "@testing-library/react";
-import Swal from "sweetalert2";
-import cryptoRandomString from "crypto-random-string";
-import { database } from "../../firebase_config";
-import { ref, onValue, set } from "firebase/database";
+import React, { useState } from 'react';
+import './RegistraionForm.css';
+import soon_dark from '../../assets/soon-dark.png';
+import soon_light from '../../assets/soon-light.png';
+import { useStateContext } from '../../ContextProvider';
+import TextField from '@mui/material/TextField';
+import Swal from 'sweetalert2';
+import cryptoRandomString from 'crypto-random-string';
+import { database } from '../../firebase_config';
+import { ref, set } from 'firebase/database';
 function RegistrationForm() {
   const { theme } = useStateContext();
   const [firstName, setFirstName] = useState(null);
@@ -34,54 +30,50 @@ function RegistrationForm() {
   };
   const handleJoinList = (event) => {
     if (!firstName || !LastName || !IndustryName || !email) {
-      event.preventDefault(); // Prevent the default form submission behavior
+      event.preventDefault();
 
       Swal.fire({
-        title: "Kindly input all fields ",
-        icon: "error",
+        title: 'Kindly input all fields ',
+        icon: 'error',
         timer: 2000,
         timerProgressBar: true,
         toast: true,
-        position: "top-right",
+        position: 'top-right',
         showConfirmButton: false,
       });
     } else {
-      setFirstName("");
-      setLastName("");
-      setIndustryName("");
-      setEmail("");
+      setFirstName('');
+      setLastName('');
+      setIndustryName('');
+      setEmail('');
       Swal.fire({
-        title: "Your information is successfully submitted ",
-        icon: "success",
+        title: 'Your information is successfully submitted ',
+        icon: 'success',
         timer: 2000,
         timerProgressBar: true,
         toast: true,
-        position: "top-right",
+        position: 'top-right',
         showConfirmButton: false,
       });
       const id = cryptoRandomString({
         length: 10,
-        type: "alphanumeric",
+        type: 'alphanumeric',
       });
       var current_time = new Date();
       const timestamp = current_time.getTime();
-      var check = true;
-      set(ref(database, "api_registrations/" + "user_" + id), {
-        id: "user_" + id,
+      set(ref(database, `api_registrations/user_${id}`), {
+        id: 'user_' + id,
         status: 0,
         firstName: firstName,
         lastName: LastName,
         industry: IndustryName,
         email: email,
         current_time: timestamp,
-
-        // profile_picture: imageUrl,
       });
-      event.preventDefault(); // Prevent the default form submission behavior
+      event.preventDefault();
     }
   };
   return (
-    // <div className="container">
     <div className="registraion">
       <div className="container">
         <div className="registration-wrapper">
@@ -92,13 +84,12 @@ function RegistrationForm() {
             </h1>
             <h2>*For Sophisticated investors only*</h2>
             <div className="img_div">
-              {theme === "dark-theme" ? (
+              {theme === 'dark-theme' ? (
                 <img src={soon_dark} alt="vehcain logo" className="api-img" />
               ) : (
                 <img src={soon_light} alt="vehcain logo" className="api-img" />
               )}
             </div>
-            {/* <span className="news-heading">Zero Theorem</span> */}
           </div>
           <div className="right">
             <h3 className="api-heading3">API Features Include</h3>
@@ -118,7 +109,7 @@ function RegistrationForm() {
                   onChange={handleFirstNameChange}
                   sx={{
                     width: 300,
-                    marginTop: "1rem",
+                    marginTop: '1rem',
                   }}
                 />
                 <TextField
@@ -129,7 +120,7 @@ function RegistrationForm() {
                   onChange={handleLastNameChange}
                   sx={{
                     width: 300,
-                    marginTop: "1rem",
+                    marginTop: '1rem',
                   }}
                 />
                 <TextField
@@ -140,7 +131,7 @@ function RegistrationForm() {
                   onChange={handleIndustryNameChange}
                   sx={{
                     width: 300,
-                    marginTop: "1rem",
+                    marginTop: '1rem',
                   }}
                 />
                 <TextField
@@ -151,7 +142,7 @@ function RegistrationForm() {
                   onChange={handleEmailChange}
                   sx={{
                     width: 300,
-                    marginTop: "1rem",
+                    marginTop: '1rem',
                   }}
                 />
               </div>

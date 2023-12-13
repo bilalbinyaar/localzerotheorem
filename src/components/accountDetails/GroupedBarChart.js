@@ -4,8 +4,6 @@ import ReactApexChart from 'react-apexcharts';
 const GroupedBarChart = () => {
   const [strategies, setStrategies] = useState(null);
   const [btcBalance, setBtcBalance] = useState(null);
-  const bitmexData = [0.5, 0.7, 0.9, 1.1, 1.3];
-  const okxData = [0.6, 0.8, 1.0, 1.2, 1.4];
   const [max_btc, set_max_btc] = useState(null);
   const [series, setSeries] = useState([]);
   useEffect(() => {
@@ -19,12 +17,8 @@ const GroupedBarChart = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data["response"].length);
           var data_for_strategies = {};
-          var model_names = [];
-          var coin_names = [];
-          var unique_coins = {};
-          var index = 0;
+
           for (var i = 0; i < data['response'].length; i++) {
             data_for_strategies[data['response'][i].strategy_name] = {
               exchange: data['response'][i].exchange,
@@ -32,12 +26,10 @@ const GroupedBarChart = () => {
           }
           if (JSON.stringify(data_for_strategies) !== '{}') {
             setStrategies(data_for_strategies);
-            // console.log("Here is strategies", data_for_strategies)
-            //  console.log("Strategies final -->", data_for_strategies);
-            // console.log("Here are model names --->", model_names);
           }
         });
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -53,12 +45,7 @@ const GroupedBarChart = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data["response"].length);
           var data_for_strategies = {};
-          var model_names = [];
-          var coin_names = [];
-          var unique_coins = {};
-          var index = 0;
           var max_btc_balance = 0;
           for (var i = 0; i < data['response'].length; i++) {
             if (data['response'][i].btc_balances > max_btc_balance) {
@@ -71,10 +58,6 @@ const GroupedBarChart = () => {
           if (JSON.stringify(data_for_strategies) !== '{}') {
             setBtcBalance(data_for_strategies);
             set_max_btc(max_btc_balance);
-            // console.log("Here is btc balances ", data_for_strategies)
-            // console.log("Here is strategies", data_for_strategies)
-            //  console.log("Strategies final -->", data_for_strategies);
-            // console.log("Here are model names --->", model_names);
           }
         });
     }
@@ -88,16 +71,13 @@ const GroupedBarChart = () => {
       var okx_stratey_name = [];
       var bitmex_strategy_btc_balance = [];
       var bitmex_stratey_name = [];
-      // console.log("Strategies bro -->", Object.keys(strategies))
       var strategies_names = Object.keys(strategies);
-      // console.log("I am here bro", strategies, btcBalance)
       var flag = false;
       for (let i = 0; i < strategies_names.length; i++) {
-        if (i + 1 == strategies_names.length) {
+        if (i + 1 === strategies_names.length) {
           flag = true;
         }
-        if (strategies[strategies_names[i]].exchange == 'okx') {
-          // console.log("Here is btc balance --->", btcBalance[strategies[i]].btc_balance)
+        if (strategies[strategies_names[i]].exchange === 'okx') {
           okx_strategy_btc_balance.push(
             btcBalance[strategies_names[i]].btc_balance
           );
@@ -109,7 +89,7 @@ const GroupedBarChart = () => {
           bitmex_stratey_name.push(strategies_names[i]);
         }
       }
-      if (flag == true) {
+      if (flag === true) {
         setSeries([
           {
             name: bitmex_stratey_name[0].replace(/_/g, '-'),
@@ -163,20 +143,8 @@ const GroupedBarChart = () => {
           },
         ]);
       }
-      // "#16C784",
-      // "#FF2E2E",
-      // "#F9A52B",
-      // "#4287f5",
-      // "#9B59B6",
-      // "#FFD700",
-      // "#00FFFF",
-      // "#FF1493",
-      // "#008080",
-      // "#DA6B85",
-      // console.log("Flag here -->", flag)
-
-      // console.log("Bitmex -->", okx_stratey_name, okx_strategy_btc_balance)
     }
+    // eslint-disable-next-line
   }, [btcBalance]);
 
   const options = {
@@ -185,7 +153,7 @@ const GroupedBarChart = () => {
       height: 350,
       stacked: false,
       toolbar: {
-        show: false, // Turn off the toolbar
+        show: false,
       },
     },
     plotOptions: {
@@ -214,10 +182,10 @@ const GroupedBarChart = () => {
         text: 'BTC Balance',
       },
       labels: {
-        show: true, // Show y-axis labels clearly
+        show: true,
         align: 'left',
       },
-      max: max_btc + 0.01, // Set a larger max value to increase the range
+      max: max_btc + 0.01,
     },
     fill: {
       opacity: 1,

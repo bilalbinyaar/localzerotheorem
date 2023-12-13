@@ -1,25 +1,17 @@
-import React, { useRef } from "react";
-import "./AboutComponent.css";
-import separator from "../../assets/separator.png";
-import zeroUncertainityDay from "../../assets/zero-uncertainity.svg";
-import zeroUncertainityNight from "../../assets/zero-uncertainity-night.svg";
-import zeroCost from "../../assets/zero-cost-day.svg";
-import zeroCostNight from "../../assets/zero-cost.svg";
-import zeroProof from "../../assets/zero-proof.svg";
-import zeroProofNight from "../../assets/zero-proof-night.svg";
-import SorezImg from "../../assets/sorez.png";
-import { useStateContext } from "../../ContextProvider";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import EquationBlack from "../../assets/equation-black.png";
-import EquationWhite from "../../assets/equation-white.png";
-import { MathComponent } from "mathjax-react";
-
+import React from 'react';
+import './AboutComponent.css';
+import zeroUncertainityDay from '../../assets/zero-uncertainity.svg';
+import zeroUncertainityNight from '../../assets/zero-uncertainity-night.svg';
+import zeroCost from '../../assets/zero-cost-day.svg';
+import zeroCostNight from '../../assets/zero-cost.svg';
+import zeroProof from '../../assets/zero-proof.svg';
+import zeroProofNight from '../../assets/zero-proof-night.svg';
+import SorezImg from '../../assets/sorez.png';
+import { useStateContext } from '../../ContextProvider';
+import { Link } from 'react-router-dom';
+import { MathComponent } from 'mathjax-react';
 
 const AboutComponent = () => {
-  // FOR RESPONSIVENESS
-  const windowWidth = useRef(window.innerWidth);
-  // FOR RESPONSIVENESS
-
   const { theme } = useStateContext();
 
   var link = <Link to="/faqs">zero proof protocol</Link>;
@@ -37,7 +29,7 @@ const AboutComponent = () => {
         <div className="mission-section for-mb">
           <div className="sorez-mission for-mt">
             <div className="about-head for-mb for-margin sorez-text">
-              {theme === "dark-theme" ? (
+              {theme === 'dark-theme' ? (
                 <div className="mission-img">
                   <img src={zeroUncertainityNight} alt="zero-un" />
                 </div>
@@ -71,7 +63,7 @@ const AboutComponent = () => {
           </div>
           <div className="sorez-mission for-mt about-margin">
             <div className="about-head for-mb for-margin sorez-text">
-              {theme === "dark-theme" ? (
+              {theme === 'dark-theme' ? (
                 <div className="mission-img">
                   <img src={zeroCostNight} alt="zero-un" />
                 </div>
@@ -100,7 +92,7 @@ const AboutComponent = () => {
           </div>
           <div className="sorez-mission for-mt">
             <div className="about-head for-mb about-margin sorez-text">
-              {theme === "dark-theme" ? (
+              {theme === 'dark-theme' ? (
                 <div className="mission-img">
                   <img src={zeroProofNight} alt="zero-un" />
                 </div>
@@ -145,9 +137,10 @@ const AboutComponent = () => {
           </h1>
         </div>
         <div className="equation-img equation-img-about">
-          <MathComponent tex={String.raw`\pi_{B T C}=\frac{\partial}{\partial t}\left[\ln \left(\sum_{k=1}^n \alpha_k \cdot P_k \cdot R_k\right)+\ln \left(\frac{1}{m} \sum_{j=1}^m T_j^{\prime}\right)-\ln (b)-\ln (h)+\ln (d)\right]`} />
+          <MathComponent
+            tex={String.raw`\pi_{B T C}=\frac{\partial}{\partial t}\left[\ln \left(\sum_{k=1}^n \alpha_k \cdot P_k \cdot R_k\right)+\ln \left(\frac{1}{m} \sum_{j=1}^m T_j^{\prime}\right)-\ln (b)-\ln (h)+\ln (d)\right]`}
+          />
         </div>
-
 
         <div className="about-text text-align-left for-mb justify-text">
           <p className="equatinon-description for-line-height">
@@ -171,22 +164,12 @@ const AboutComponent = () => {
           </p>
         </div>
 
-        {/* <div className="about-separator">
-          <img src={separator} alt='about-sep'/>
-        </div> */}
-
         {/* MANIFESTO SECTION */}
         <div className="about-head for-mb for-mt">
           <h1>
             Our <span className="color-yellow">Manifesto</span>
           </h1>
         </div>
-
-        {/* <div className="about-text for-mb about-top">
-          <p>
-            “…Inspired by the Modelers’ Hippocratic Oath - Dr. Emanuel Derman and Dr. Paul Wilmott"
-          </p>
-        </div> */}
 
         <div className="about-listings for-mb">
           <div className="about-spans">
@@ -262,10 +245,6 @@ const AboutComponent = () => {
             </span>
           </div>
         </div>
-
-        {/* <div className="about-separator">
-          <img src={separator} alt='about-sep'/>
-        </div> */}
 
         <div className="sorez for-mt">
           <div className="about-head for-mb for-margin sorez-text">

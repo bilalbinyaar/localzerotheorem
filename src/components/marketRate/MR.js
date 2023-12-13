@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
-import ScatterPlotApexCharts from "../models/graphs/ScatterPlotApexCharts";
-import { useStateContext } from "../../ContextProvider";
+import React, { useEffect, useState } from 'react';
+import ScatterPlotApexCharts from '../models/graphs/ScatterPlotApexCharts';
+import { useStateContext } from '../../ContextProvider';
 
 const MR = () => {
   const [stats, setStats] = useState({});
-  const {
-    link
-
-  } = useStateContext();
+  const { link } = useStateContext();
   useEffect(() => {
     try {
       fetch(link + `/get/live_pnls`, {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
           'ngrok-skip-browser-warning': 'true',
@@ -21,13 +18,12 @@ const MR = () => {
         .then((data) => {
           const temp_data = [];
 
-          // for (let i = 0; i < data["response"].length; i++) {
           temp_data.push([
-            data["response"][0].intercept,
-            data["response"][0].gradient,
+            data['response'][0].intercept,
+            data['response'][0].gradient,
           ]);
 
-          if (temp_data.length != 0) {
+          if (temp_data.length !== 0) {
             setStats(temp_data);
             console.log(temp_data);
           }
@@ -35,6 +31,7 @@ const MR = () => {
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="market-dr">

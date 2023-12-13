@@ -1,22 +1,15 @@
 import React from 'react';
 import './CurrentPortfolio.css';
-import CanvasDoughnut from '../models/graphs/CanvasDoughnut';
-import IndividualPnlCanvasjs from '../models/graphs/IndividualPnlCanvasjs';
-import CanvasDoughnutBacktest from '../models/graphs/CanvasDoughnutBacktest';
 import DuplicatesForPerformance from '../models/inDepth/DuplicatesForPerformance';
-import PerformancePieChart from '../../graphs/PerformancePieChart';
-
 
 const CurrentPortfolio = (props) => {
   return (
-    <div className='current-portfolio'>
-        <div className='container'>
-            {/*  <CanvasDoughnut /> */}
-            <DuplicatesForPerformance />
-          {/* <PerformancePieChart /> */}
-        </div>
+    <div className="current-portfolio">
+      <div className="container">
+        <DuplicatesForPerformance />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CurrentPortfolio
+export default CurrentPortfolio;

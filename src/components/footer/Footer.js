@@ -57,11 +57,6 @@ const Footer = () => {
                       <div className="title-div footer-ann-h">
                         <h2>Equation</h2>
                       </div>
-
-                      {/* <div className='forecasts-more footer-more'>
-                                <h3>More</h3>
-                                <AiFillCaretRight className='more-icon'/>
-                            </div> */}
                     </div>
 
                     <div className="announcement-news">
@@ -81,9 +76,6 @@ const Footer = () => {
                             <MathComponent
                               tex={String.raw`\pi_{B T C}=\frac{\partial}{\partial t}\left[\ln \left(\sum_{k=1}^n \alpha_k \cdot P_k \cdot R_k\right)+\ln \left(\frac{1}{m} \sum_{j=1}^m T_j^{\prime}\right)-\ln (b)-\ln (h)+\ln (d)\right]`}
                             />
-                            {/* <p className="equation-caption">
-                          Zero Theorem Governing Equation ​
-                        </p> */}
                           </div>
                         ) : (
                           <div className="equation-img equation-img-investor">
@@ -100,9 +92,6 @@ const Footer = () => {
                             <MathComponent
                               tex={String.raw`\pi_{B T C}=\frac{\partial}{\partial t}\left[\ln \left(\sum_{k=1}^n \alpha_k \cdot P_k \cdot R_k\right)+\ln \left(\frac{1}{m} \sum_{j=1}^m T_j^{\prime}\right)-\ln (b)-\ln (h)+\ln (d)\right]`}
                             />
-                            {/* <p className="equation-caption">
-                          Zero Theorem Governing Equation ​
-                        </p> */}
                           </div>
                         )}
                       </div>
@@ -144,49 +133,18 @@ const Footer = () => {
                 held by you. Do conduct your own due diligence and consult your
                 financial advisor before making any investment decisions.
               </p>
-              {/* <p className='footer-copyright-text'>
-                    &#169; 2022 Zero Theorem. All rights reserved.
-                </p> */}
             </div>
             <div className="footer-inner-right">
-              {/* <div className='footer-btn'>
-                    <Link to='/login'><button className='btn btn-nav'>About Us</button></Link>
-                </div>
-                <div className='footer-icons-div'>
-                    <FaDiscord className='footer-icons dis'/>
-                    <AiOutlineTwitter className='footer-icons twi'/>
-                    <FaTelegramPlane className='footer-icons tele'/>
-                </div> */}
-
               <div className="forecasts-card footer-card">
                 <div className="announcement-card">
                   <div className="announcement-row">
                     <div className="title-div footer-ann-h">
                       <h2>Contact Us</h2>
                     </div>
-
-                    {/* <div className='forecasts-more footer-more'>
-                                <h3>More</h3>
-                                <AiFillCaretRight className='more-icon'/>
-                            </div> */}
                   </div>
 
                   <div className="announcement-news">
                     <div className="news-inner footer-news-inner">
-                      {/* {theme === 'dark-theme' ? (
-                        <img
-                          className="news-img"
-                          src={Announcements_Dark_Mode}
-                          alt="news"
-                        />
-                      ) : (
-                        <img
-                          className="news-img"
-                          src={Announcements_Light_Mode}
-                          alt="news"
-                        />
-                      )} */}
-
                       <div>
                         <h3>ZERO THEOREM PTY LTD </h3>
                         <br />
@@ -206,34 +164,6 @@ const Footer = () => {
                           <br />
                           Email: info@zerotheorem.com
                         </p>
-                        {/* <div className="news-head">
-                          <span>
-                            {theme === 'dark-theme' ? (
-                              <img
-                                src={logoWhite}
-                                alt="vehcain logo"
-                                width="160px"
-                              />
-                            ) : (
-                              <img
-                                src={logoBlack}
-                                alt="vehcain logo"
-                                width="160px"
-                              />
-                            )}
-                          </span>
-                        </div>
-                        <div className="news-body">
-                          <p>
-                            Take Off &#128640; — We're live.
-                            <br />
-                            ZeroTheorem Beta is now Live for intraday BTC
-                            forecasts!
-                          </p>
-                        </div>
-                        <div className="news-footer">
-                          <span>March 19, 2023</span>
-                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -259,14 +189,12 @@ const Footer = () => {
                     <div className="news-inner footer-news-inner inner-footer-bar">
                       <p className="footer-follow-text">Find us</p>
                       <div className="footer-icons-div">
-                        {/* <FaDiscord className="footer-icons dis" /> */}
                         <Link
                           to="https://twitter.com/zer0theorem"
                           target="_blank"
                         >
                           <AiOutlineTwitter className="footer-icons twi" />
                         </Link>
-                        {/* <FaTelegramPlane className="footer-icons tele" /> */}
                       </div>
                     </div>
                   )}

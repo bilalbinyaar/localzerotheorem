@@ -1,5 +1,5 @@
 import React from 'react';
-import './CurrentPosition.css';
+import '../currentPosition/CurrentPosition.css';
 
 const CurrentPosition = () => {
   return (

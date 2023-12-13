@@ -2,6 +2,7 @@ import React, { useState, useEffect, memo, useRef } from 'react';
 import CanvasJSReact from '../../../canvasjs.stock.react';
 import { useStateContext } from '../../../ContextProvider';
 import { ThreeDots } from 'react-loader-spinner';
+import '../currentPosition/CurrentPosition.css';
 
 const CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
 

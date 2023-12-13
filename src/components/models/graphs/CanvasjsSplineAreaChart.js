@@ -36,8 +36,8 @@ function CanvasjsSplineAreaChart(props) {
             var temp_positive_series = [];
             var temp_negative_series = [];
             for (var index = 0; index < data['response'].length; index++) {
-              if (index + 1 == data['response'].length) {
-                if (temp_positive_series.length != 0) {
+              if (index + 1 === data['response'].length) {
+                if (temp_positive_series.length !== 0) {
                   main_series.push({
                     type: 'splineArea',
                     color: '#16c784',
@@ -56,7 +56,7 @@ function CanvasjsSplineAreaChart(props) {
                 }
               } else {
                 if (parseInt(data['response'][index].pnl_sum) >= 0) {
-                  if (temp_negative_series.length != 0) {
+                  if (temp_negative_series.length !== 0) {
                     main_series.push({
                       type: 'splineArea',
                       color: '#ff2e2e',
@@ -75,7 +75,7 @@ function CanvasjsSplineAreaChart(props) {
                     });
                   }
                 } else {
-                  if (temp_positive_series.length != 0) {
+                  if (temp_positive_series.length !== 0) {
                     main_series.push({
                       type: 'splineArea',
                       color: '#16c784',
@@ -96,9 +96,8 @@ function CanvasjsSplineAreaChart(props) {
                 }
               }
             }
-            // console.log("Testing data -->", main_series);
 
-            if (main_series.length != 0) {
+            if (main_series.length !== 0) {
               set_cum_pnl(main_series);
               Set_negative_canvasjs_graph_cache({
                 [props.model_name]: main_series,
@@ -112,12 +111,12 @@ function CanvasjsSplineAreaChart(props) {
     } catch (error) {
       console.log('Error occured');
     }
+    // eslint-disable-next-line
   }, [model_name]);
 
   useEffect(() => {
     try {
-      if (cummulative_pnl.length != 0) {
-        // console.log("Canvasjs data -->", cummulative_pnl);
+      if (cummulative_pnl.length !== 0) {
         setOptions({
           backgroundColor: 'transparent',
           theme: 'light2',

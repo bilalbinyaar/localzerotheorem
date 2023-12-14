@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import BacktestComponent from '../components/backtest/BacktestComponent';
 import { Helmet } from 'react-helmet';

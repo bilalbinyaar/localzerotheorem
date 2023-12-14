@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { useStateContext } from '../../ContextProvider';

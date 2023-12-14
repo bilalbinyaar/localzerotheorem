@@ -1,7 +1,8 @@
-import React from "react";
-import AverageR2Score from "./AverageR2Score";
-import AverageSharpe from "./AverageSharpe";
-import NumberOfModels from "./NumberOfModels";
+// THIS COMPONENT IS BEING USED
+import React from 'react';
+import AverageR2Score from './AverageR2Score';
+import AverageSharpe from './AverageSharpe';
+import NumberOfModels from './NumberOfModels';
 function RiskManagementModelDetails() {
   return (
     <div className="riskModelDetails">

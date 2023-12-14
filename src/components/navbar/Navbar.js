@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';

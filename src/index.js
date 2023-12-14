@@ -22,7 +22,7 @@ const CheckView = () => {
       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
         setLink(data.link);
-        console.log('Here is link for env -->', data.link);
+        // console.log('Here is link for env -->', data.link);
         if (data.link === false) {
           setFlag(false);
         } else {

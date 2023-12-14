@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import '../ResourcesTextual.css';
 

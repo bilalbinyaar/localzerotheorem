@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { memo } from 'react';
 import Introduction from '../components/resources/resourcestextual/Introduction';
 import { Helmet } from 'react-helmet';

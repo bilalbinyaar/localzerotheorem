@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect, useRef } from 'react';
 import './Overview.css';
 import { BsFillInfoCircleFill } from 'react-icons/bs';

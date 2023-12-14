@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { memo } from 'react';
 import FAQComponent from '../components/faq/FAQComponent';
 import { Helmet } from 'react-helmet';

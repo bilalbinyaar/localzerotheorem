@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState, useRef } from 'react';
 import cryptoRandomString from 'crypto-random-string';
 import { database } from '../../firebase_config';

@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import CompareComponent from '../components/compare/CompareComponent';
 import { Helmet } from 'react-helmet';

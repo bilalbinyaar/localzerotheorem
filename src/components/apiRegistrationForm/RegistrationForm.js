@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
 import './RegistraionForm.css';
 import soon_dark from '../../assets/soon-dark.png';

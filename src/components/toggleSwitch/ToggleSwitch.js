@@ -1,13 +1,14 @@
-import React from "react";
-import "./ToggleSwitch.css";
-import { useStateContext } from "../../ContextProvider";
+// THIS COMPONENT IS BEING USED
+import React from 'react';
+import './ToggleSwitch.css';
+import { useStateContext } from '../../ContextProvider';
 
 const ToggleSwitch = ({ label }) => {
   const { checked, toggleChecked } = useStateContext();
 
   return (
     <div className="toggle-div">
-      {label}{" "}
+      {label}{' '}
       <div className="toggle-switch">
         <input
           type="checkbox"

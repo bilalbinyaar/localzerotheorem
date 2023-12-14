@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import './CurrentPortfolio.css';
 import DuplicatesForPerformance from '../models/inDepth/DuplicatesForPerformance';

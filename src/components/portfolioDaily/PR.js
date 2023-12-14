@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USEDs
 import React from 'react';
 import PerformanceMultiLine from '../../graphs/PerformanceMultiLine';
 

@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { BsFillMoonFill, BsFillSunFill, BsGraphUp } from 'react-icons/bs';

@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useEffect, useState, useRef } from 'react';
 import './LivePNL.css';
 import { Link } from 'react-router-dom';

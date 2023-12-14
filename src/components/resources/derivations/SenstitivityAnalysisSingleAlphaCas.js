@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import '../ResourcesTextual.css';
 import P1Day from '../../../assets/single-alpha/7-01.png';

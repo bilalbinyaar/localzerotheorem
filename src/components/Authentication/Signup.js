@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect } from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { RiLockPasswordFill } from 'react-icons/ri';

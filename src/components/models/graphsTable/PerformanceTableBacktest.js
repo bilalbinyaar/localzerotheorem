@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
 import { Tooltip } from '@mui/material';

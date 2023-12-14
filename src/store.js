@@ -1,58 +1,58 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import produce from "immer";
+import { configureStore } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import produce from 'immer';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
 };
 
 const initialState = {
-  theme: "light-theme",
-  scroll: "True",
-  scrollPosition: "True",
-  scrollRecently: "True",
+  theme: 'light-theme',
+  scroll: 'True',
+  scrollPosition: 'True',
+  scrollRecently: 'True',
   loginFlag: false,
 };
 
 const counterSlice = createSlice({
-  name: "theme",
+  name: 'theme',
   initialState,
   reducers: {
     set_day_mode: (state) => {
       return produce(state, (draftState) => {
-        draftState.theme = "light-theme";
+        draftState.theme = 'light-theme';
       });
     },
     set_night_mode: (state) => {
       return produce(state, (draftState) => {
-        draftState.theme = "dark-theme";
+        draftState.theme = 'dark-theme';
       });
     },
   },
 });
 
 const scrollSlice = createSlice({
-  name: "scroll",
+  name: 'scroll',
   initialState,
   reducers: {
     set_scroll: (state) => {
       return produce(state, (draftState) => {
-        draftState.scroll = "False";
+        draftState.scroll = 'False';
       });
     },
   },
 });
 
 const loginSlice = createSlice({
-  name: "loginFlag",
+  name: 'loginFlag',
   initialState,
   reducers: {
     set_login: (state) => {
       return produce(state, (draftState) => {
-        draftState.loginFlag = "True";
+        draftState.loginFlag = 'True';
       });
     },
     set_login_flase: (state) => {
@@ -63,7 +63,7 @@ const loginSlice = createSlice({
   },
 });
 const loginSliceAdmin = createSlice({
-  name: "loginFlagAdmin",
+  name: 'loginFlagAdmin',
   initialState,
   reducers: {
     set_login_admin: (state) => {
@@ -79,23 +79,23 @@ const loginSliceAdmin = createSlice({
   },
 });
 const scrollSlicePosition = createSlice({
-  name: "scrollPosition",
+  name: 'scrollPosition',
   initialState,
   reducers: {
     set_scroll_position: (state) => {
       return produce(state, (draftState) => {
-        draftState.scrollPosition = "False";
+        draftState.scrollPosition = 'False';
       });
     },
   },
 });
 const scrollSliceRecently = createSlice({
-  name: "scrollRecently",
+  name: 'scrollRecently',
   initialState,
   reducers: {
     set_scroll_recently: (state) => {
       return produce(state, (draftState) => {
-        draftState.scrollRecently = "False";
+        draftState.scrollRecently = 'False';
       });
     },
   },
@@ -111,14 +111,18 @@ const persistedReducer4 = persistReducer(
   scrollSliceRecently.reducer
 );
 const persistedReducer5 = persistReducer(persistConfig, loginSlice.reducer);
-const persistedReducer6 = persistReducer(persistConfig, loginSliceAdmin.reducer);
+const persistedReducer6 = persistReducer(
+  persistConfig,
+  loginSliceAdmin.reducer
+);
 
 export const { set_day_mode, set_night_mode } = counterSlice.actions;
 export const { set_scroll } = scrollSlice.actions;
 export const { set_scroll_position } = scrollSlicePosition.actions;
 export const { set_scroll_recently } = scrollSliceRecently.actions;
 export const { set_login, set_login_flase } = loginSlice.actions;
-export const { set_login_admin, set_login_flase_admin } = loginSliceAdmin.actions;
+export const { set_login_admin, set_login_flase_admin } =
+  loginSliceAdmin.actions;
 
 export const store = configureStore({
   reducer: {
@@ -128,7 +132,6 @@ export const store = configureStore({
     scrollRecently: persistedReducer4,
     loginFlag: persistedReducer5,
     loginFlagAdmin: persistedReducer6,
-
   },
 });
 

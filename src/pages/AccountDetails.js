@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React from 'react';
 import AccountBalance from '../components/accountDetails/AccountBalance';
 import BalanceStatsUpper from '../components/accountDetails/BalanceStatsUpper';

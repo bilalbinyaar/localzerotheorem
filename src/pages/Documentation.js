@@ -1,4 +1,7 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
+// eslint-disable-next-line
+import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-python';
 import 'highlight.js/styles/default.css';

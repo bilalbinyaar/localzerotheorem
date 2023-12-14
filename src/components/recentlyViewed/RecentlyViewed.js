@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import { Link } from 'react-router-dom';
 import React, { useRef } from 'react';
 import './RecentlyViewed.css';

@@ -1,3 +1,4 @@
+// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect, useRef } from 'react';
 import CanvasJSReact from '../../../canvasjs.stock.react';
 import { useStateContext } from '../../../ContextProvider';

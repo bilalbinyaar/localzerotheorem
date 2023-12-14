@@ -1,20 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Navbar.css";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import logoBlack from "../../assets/logo-black.svg";
-import logoWhite from "../../assets/logo-white.svg";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import { useStateContext } from "../../ContextProvider";
-// import UserOptions from './components/UserOptions';
-import NavMobile from "./NavMobile";
+import React, { useState, useEffect, useRef } from 'react';
+import './Navbar.css';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+import logoBlack from '../../assets/logo-black.svg';
+import logoWhite from '../../assets/logo-white.svg';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { useStateContext } from '../../ContextProvider';
+import NavMobile from './NavMobile';
 
 export default function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
   // Login State
-  const { authCheck, userEmail, setAuthCheck } = useStateContext();
+  const { authCheck, userEmail } = useStateContext();
   // Login State
 
   // mobile nav state
@@ -27,28 +26,14 @@ export default function Navbar() {
   }
   // mobile nav state end
 
-  // Drop Down
-  const [drop, setDrop] = useState(false);
-  const dropDown = () => setDrop(!drop);
-  // Drop Down End
-
-  function oneClick() {
-    hamClick();
-    handleClick();
-  }
-  // mobile nav state end
-
-  // Drop Down
-  // Drop Down End
-
   // Dark Light Mode
-  const [theme, setTheme] = useState("light-theme");
+  const [theme, setTheme] = useState('light-theme');
   const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
+    if (theme === 'dark-theme') {
+      setTheme('light-theme');
       handleiamClick();
     } else {
-      setTheme("dark-theme");
+      setTheme('dark-theme');
       handleiamClick();
     }
   };
@@ -59,25 +44,6 @@ export default function Navbar() {
 
   const [iamClick, setiamClick] = useState(false);
   const handleiamClick = () => setiamClick(!iamClick);
-
-  // // Dark Light Mode
-  // const toggleTheme = () => {
-  //   if (theme === "dark-theme") {
-  //     setTheme("light-theme");
-  //     handleiamClick();
-  //   } else {
-  //     setTheme("dark-theme");
-  //     handleiamClick();
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.body.className = theme;
-  // }, [theme]);
-
-  // const [iamClick, setiamClick] = useState(false);
-  // const handleiamClick = () => setiamClick(!iamClick);
-  // Dark Light Mode
 
   // FOR RESPONSIVENESS
   const windowWidth = useRef(window.innerWidth);
@@ -90,7 +56,7 @@ export default function Navbar() {
       ) : (
         <div className="container">
           <div className="nav-logo-div">
-            {theme === "dark-theme" ? (
+            {theme === 'dark-theme' ? (
               <Link to="/">
                 <img className="nav-logo-img" src={logoWhite} alt="logo" />
               </Link>
@@ -103,16 +69,15 @@ export default function Navbar() {
 
           <ul
             id="mobile-nav"
-            className={click ? "nav-menu active" : "nav-menu"}
+            className={click ? 'nav-menu active' : 'nav-menu'}
           >
             <CustomLink to="/">Forecasts</CustomLink>
             <CustomLink to="/derivations">Derivations</CustomLink>
             <CustomLink to="/about">About</CustomLink>
-          
           </ul>
 
           {toggle && (
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               {authCheck === true ? (
                 <div>
                   <p className="welcome-user welcome-user-mobile">
@@ -126,54 +91,22 @@ export default function Navbar() {
               <CustomLink to="/">Forecasts</CustomLink>
               <CustomLink to="/derivations">Derivations</CustomLink>
               <CustomLink to="/about">About</CustomLink>
-              {/* {authCheck === true ? (
-                <CustomLink
-                  to="/"
-                  onClick={() => {
-                    setAuthCheck(false);
-                  }}
-                >
-                  Logout
-                </CustomLink>
-              ) : (
-                <CustomLink to="/login">Login</CustomLink>
-              )} */}
             </ul>
           )}
 
           <div className="dark-lite" onClick={() => toggleTheme()}>
             {iamClick ? (
-              <BsFillSunFill size={20} style={{ color: "#fff" }} />
+              <BsFillSunFill size={20} style={{ color: '#fff' }} />
             ) : (
-              <BsFillMoonFill size={20} style={{ color: "#000" }} />
+              <BsFillMoonFill size={20} style={{ color: '#000' }} />
             )}
           </div>
 
-          {/* {authCheck === true ? (
-            <div>
-              <div className="welcome-user-div">
-                <p className="welcome-user">Welcome, {userEmail}</p>
-                <AiFillCaretDown className="hoverThis" onClick={dropDown} />
-              </div>
-              {/* <div>
-                    {
-                      drop && <UserOptions className='showThis' />
-                    } 
-                  </div> 
-            </div>
-          ) : (
-            <div className="btn-group nav-btn">
-              <Link to="/login">
-                <button className="btn btn-nav">Login</button>
-              </Link>
-            </div>
-          )} */}
-
           <div className="hamburger" onClick={oneClick}>
             {click ? (
-              <FaTimes size={20} style={{ color: "#333" }} />
+              <FaTimes size={20} style={{ color: '#333' }} />
             ) : (
-              <FaBars size={20} style={{ color: "#333" }} />
+              <FaBars size={20} style={{ color: '#333' }} />
             )}
           </div>
         </div>
@@ -187,7 +120,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
-    <li className={isActive ? "active" : ""}>
+    <li className={isActive ? 'active' : ''}>
       <Link to={to} {...props}>
         {children}
       </Link>

@@ -1,79 +1,69 @@
-import React from "react";
-import "./ModelDetails.css";
-import { useState, useEffect } from "react";
-import { useStateContext } from "../../../ContextProvider";
+import React from 'react';
+import './ModelDetails.css';
+import { useState, useEffect } from 'react';
+import { useStateContext } from '../../../ContextProvider';
 
 const ModelDetailsTable = (props) => {
   const [strategy, setStrategy] = useState({});
   const { link } = useStateContext();
 
   const [stats, setStats] = useState({});
-  // console.log("Here I will get strategy for -->", props.model_name);
+
   useEffect(() => {
-    fetch(
-      link + `/get_strategy/${props.model_name}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
-          'ngrok-skip-browser-warning': 'true',
-        },
-      }
-    )
+    fetch(link + `/get_strategy/${props.model_name}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+        'ngrok-skip-browser-warning': 'true',
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data["response"].length);
         var data_for_strategy = {};
-        for (var i = 0; i < data["response"].length; i++) {
-          // console.log("Strategy -->", data["response"][i].strategy_name);
-          data_for_strategy[data["response"][i].strategy_name] = {
-            current_position: data["response"][i].current_position,
-            time_horizon: data["response"][i].time_horizon,
-            currency: data["response"][i].currency,
-            start_time: data["response"][i].date_started,
-            price: data["response"][i].entry_price,
-            size: data["response"][i].size,
+        for (var i = 0; i < data['response'].length; i++) {
+          data_for_strategy[data['response'][i].strategy_name] = {
+            current_position: data['response'][i].current_position,
+            time_horizon: data['response'][i].time_horizon,
+            currency: data['response'][i].currency,
+            start_time: data['response'][i].date_started,
+            price: data['response'][i].entry_price,
+            size: data['response'][i].size,
           };
         }
-        if (JSON.stringify(data_for_strategy) !== "{}") {
+        if (JSON.stringify(data_for_strategy) !== '{}') {
           setStrategy(data_for_strategy);
-          // console.log("Data for setting strategy -->", data_for_strategy);
         }
       })
       .catch((err) => console.log(err));
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     try {
-      fetch(
-        link + `/get_stat/${props.model_name}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
-            'ngrok-skip-browser-warning': 'true',
-          },
-        }
-      )
+      fetch(link + `/get_stat/${props.model_name}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
+        },
+      })
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data["response"]);
           var data_for_stat = {};
-          for (var i = 0; i < data["response"].length; i++) {
-            //  console.log("Strategy -->", data["response"][i].strategy_name);
-            data_for_stat[data["response"][i].strategy_name] = {
-              total_pnl: data["response"][i].total_pnl,
+          for (var i = 0; i < data['response'].length; i++) {
+            data_for_stat[data['response'][i].strategy_name] = {
+              total_pnl: data['response'][i].total_pnl,
             };
           }
-          if (JSON.stringify(data_for_stat) !== "{}") {
+          if (JSON.stringify(data_for_stat) !== '{}') {
             setStats(data_for_stat);
-            //   console.log("Data for setting stat -->", data_for_stat);
           }
         })
         .catch((err) => console.log(err));
     } catch (error) {
-      console.log("Error occured");
+      console.log('Error occured');
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -125,10 +115,6 @@ const ModelDetailsTable = (props) => {
               : null}
           </span>
         </div>
-        {/* <div className="table-spans no-border">
-          <span>TP/SL : </span>
-          <span>$1860 / $1740</span>
-        </div> */}
       </div>
     </div>
   );

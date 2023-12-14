@@ -1,9 +1,6 @@
-import React from "react";
-import CurrentPortfolio from "../currentPortfolio/CurrentPortfolio";
-import PerformanceLineCharts from "../performanceLineCharts/PerformanceLineCharts";
-import WR from "./WR";
-import WLR from "./WLR";
-import PerformanceGraphs from "../performanceGraph/PerformanceGraphs";
+import React from 'react';
+import WR from './WR';
+import WLR from './WLR';
 
 const PortfolioDaily = () => {
   return (

@@ -1,30 +1,15 @@
-import React from "react";
-import "./SearchBar.css";
-import { useStateContext } from "../../ContextProvider";
-import { BiSearchAlt } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
+import React from 'react';
+import './SearchBar.css';
+import { useStateContext } from '../../ContextProvider';
+import { BiSearchAlt } from 'react-icons/bi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const CurrencySearchBar = ({ placeholder, data }) => {
-  const { filteredData, setFilteredData, wordEntered, setWordEntered } =
-    useStateContext();
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.currency.toLowerCase().includes(searchWord.toLowerCase());
-    });
-    // if (searchWord === "") {
-    //   setFilteredData([])
-    // }
-    // else {
-    // setFilteredData(newFilter);
-    // }
-    setFilteredData(newFilter);
-  };
+  const { filteredData, setFilteredData, setWordEntered } = useStateContext();
 
   const clearInput = () => {
     setFilteredData([]);
-    setWordEntered("");
+    setWordEntered('');
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const Timer = (props) => {
   const [hours, setHours] = useState(0);
@@ -9,12 +9,6 @@ const Timer = (props) => {
     const utcTimestamp = Date.now();
 
     const time = deadline - utcTimestamp;
-    // console.log(
-    //   "Current utc time ",
-    //   Math.floor((time / (1000 * 60 * 60)) % 24),
-    //   Math.floor((time / 1000 / 60) % 60),
-    //   (time / 1000) % 60
-    // );
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((time / 1000 / 60) % 60);
     const seconds = Math.floor((time / 1000) % 60);
@@ -34,34 +28,30 @@ const Timer = (props) => {
     } else {
       setSeconds(0);
     }
-
-    // // console.log("Timer -->", deadline, Math.floor(new Date().getTime()));
-    // setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-    // setMinutes(Math.floor((time / 1000 / 60) % 60));
-    // setSeconds(Math.floor((time / 1000) % 60));
   };
 
   useEffect(() => {
     const interval = setInterval(() => getTime(deadline), 1000);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div className="timer" role="timer">
       <div className="col-4">
         <div className="box">
-          <p id="hour">{hours < 10 ? "0" + hours : hours}:</p>
+          <p id="hour">{hours < 10 ? '0' + hours : hours}:</p>
         </div>
       </div>
       <div className="col-4">
         <div className="box">
-          <p id="minute">{minutes < 10 ? "0" + minutes : minutes}:</p>
+          <p id="minute">{minutes < 10 ? '0' + minutes : minutes}:</p>
         </div>
       </div>
       <div className="col-4">
         <div className="box">
-          <p id="second">{seconds < 10 ? "0" + seconds : seconds}</p>
+          <p id="second">{seconds < 10 ? '0' + seconds : seconds}</p>
         </div>
       </div>
     </div>

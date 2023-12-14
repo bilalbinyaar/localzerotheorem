@@ -1,11 +1,7 @@
-import React from "react";
-import NegativeColumns from "../graphs/NegativeColumns";
-import GradientDonut from "../graphs/GradientDonut";
-import "./InDepth.css";
-import CanvasDoughnut from "../graphs/CanvasDoughnut";
-import CanvasNegativeBar from "../graphs/CanvasNegativeBar";
-import IndividualPnlCanvasjs from "../graphs/IndividualPnlCanvasjs";
-import CanvasDoughnutBacktest from "../graphs/CanvasDoughnutBacktest";
+import React from 'react';
+import GradientDonut from '../graphs/GradientDonut';
+import './InDepth.css';
+import IndividualPnlCanvasjs from '../graphs/IndividualPnlCanvasjs';
 const InDepthBacktest = (props) => {
   return (
     <div className="in-depth">
@@ -17,15 +13,12 @@ const InDepthBacktest = (props) => {
           <div className="in-depth-nc">
             <h3>Individual PNL</h3>
             <div className="for-hr"></div>
-            {/* <NegativeColumns model_name={props.model_name} /> */}
-            {/* <CanvasNegativeBar model_name={props.model_name} /> */}
             <IndividualPnlCanvasjs model_name={props.model_name} />
           </div>
           <div className="in-depth-gd">
             <h3>Win/Loss</h3>
             <div className="for-hr"></div>
             <GradientDonut model_name={props.model_name} />
-            {/* <CanvasDoughnutBacktest model_name={props.model_name_stats} /> */}
           </div>
         </div>
       </div>

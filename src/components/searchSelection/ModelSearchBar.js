@@ -1,34 +1,16 @@
-import React from "react";
-import "./SearchBar.css";
-import { useStateContext } from "../../ContextProvider";
-import { BiSearchAlt } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
+import React from 'react';
+import './SearchBar.css';
+import { useStateContext } from '../../ContextProvider';
+import { BiSearchAlt } from 'react-icons/bi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const ModelSearchBar = ({ placeholder, data }) => {
-  const {
-    filteredDataModel,
-    setFilteredDataModel,
-    wordEnteredModel,
-    setWordEnteredModel,
-  } = useStateContext();
-  const handleFilterModel = (event) => {
-    const searchWordModel = event.target.value;
-    setWordEnteredModel(searchWordModel);
-    const newFilter = data.filter((value) => {
-      return value.model.toLowerCase().includes(searchWordModel.toLowerCase());
-    });
-    // if (searchWordModel === "") {
-    //   setFilteredDataModel([])
-    // }
-    // else {
-    // setFilteredDataModel(newFilter);
-    // }
-    setFilteredDataModel(newFilter);
-  };
+  const { filteredDataModel, setFilteredDataModel, setWordEnteredModel } =
+    useStateContext();
 
   const clearInputModel = () => {
     setFilteredDataModel([]);
-    setWordEnteredModel("");
+    setWordEnteredModel('');
   };
 
   return (

@@ -133,18 +133,6 @@ const SenstitivityAnalysisMarketSpecificAlpha = () => {
                 (decreasing) function of t, then Π<sub>BTC</sub> is a decreasing
                 (increasing) function of d.
               </p>
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

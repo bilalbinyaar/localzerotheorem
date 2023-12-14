@@ -340,18 +340,6 @@ const SenstitivityAnalysisSingleAlphaCas = () => {
                   T′1(d), d′(e) and h′(f)
                 </p>
               </div>
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

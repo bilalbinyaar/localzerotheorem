@@ -153,18 +153,6 @@ const TheGoverningEquation = () => {
               <MathComponent
                 tex={String.raw`\Pi_{\mathrm{BTC}}=\frac{\partial}{\partial t}\left[\ln \left(\sum_{k=1}^n \alpha_k \cdot P_k \cdot R_k\right)+\ln \left(\frac{1}{m} \sum_{j=1}^m T_j^{\prime}\right)-\ln b-\ln h+\ln d\right] .`}
               />
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

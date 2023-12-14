@@ -225,13 +225,7 @@ const AnInitialSolution = () => {
             g(t)= 1 & \pi_{B T C \text { estimated }}^{\prime} \Delta t \leq \pi_{\text {positive }} \Delta t \\ -1 & \text { otherwise }
             \end{eqnarray}`}
               />
-              {/* <p className="for-mt-secondary">and</p> */}
-              {/* <MathComponent tex={String.raw`\begin{eqnarray}
-            f(t)= 1 & \mid \pi_{B T C}^{\prime} \text { estimated } ₫ t|\leq| \pi_{\text {negative }} a t \mid \\ -1 & \text { otherwise }
-            \end{eqnarray}`} /> */}
-              {/* <MathComponent tex={String.raw`\begin{eqnarray}
-            dummy
-            \end{eqnarray}`} /> */}
+
               <p className="for-mt-secondary">
                 The reward for minimising error on π<sup>′</sup>
                 <sub>BTC</sub> is defined as follow
@@ -302,12 +296,6 @@ const AnInitialSolution = () => {
                 action-values. In continuous control, log Σ<sub>a</sub>
                 exp Q(s, a) is computed as follows
               </p>
-              {/* <MathComponent tex={String.raw`\begin{eqnarray}
-            \log \sum_a \exp Q(s, a) \approx \log \left(\frac{1}{2 N} \sum_{a_i \sim \operatorname{Unf}(a)}^N\left[\frac{\exp Q\left(s, a_i\right)}{\operatorname{Unif}(a)}\right]+\frac{1}{2 N} \sum_{a_i \sim \pi_\phi(a \mid s)}^N\left[\frac{\exp Q\left(s, a_i\right)}{\pi_\phi\left(a_i \mid s\right)}\right]\right)
-            \end{eqnarray}`} /> */}
-              {/* <MathComponent tex={String.raw`\begin{eqnarray}
-            dummy
-            \end{eqnarray}`} /> */}
 
               <h3 className="for-mt-primary">AWR</h3>
               <MathComponent
@@ -358,12 +346,7 @@ const AnInitialSolution = () => {
                 The policy objective is a combination of SAC’s objective and MMD
                 penalty.
               </p>
-              {/* <MathComponent tex={String.raw`\begin{eqnarray}
-            J(\phi)=J_{S A C}(\phi)-\mathbb{E}_{s_t \sim D} \alpha\left(\operatorname{MMD}\left(\pi_\beta\left(\cdot \mid s_t\right), \pi_\phi\left(\cdot \mid s_t\right)\right)-\epsilon\right)
-            \end{eqnarray}`} /> */}
-              {/* <MathComponent tex={String.raw`\begin{eqnarray}
-            dummy
-            \end{eqnarray}`} /> */}
+
               <p className="for-mt-secondary">
                 where MMD is computed as follows.
               </p>
@@ -467,73 +450,6 @@ const AnInitialSolution = () => {
                 histograms of residuals, and (d) residuals vs. the order of the
                 data
               </p>
-
-              {/* <h2 className="for-mt-primary">References</h2>
-            <p className="for-mt-secondary">
-              1. V. Mnih, K. Kavukcuoglu, D. Silver, A. A. Rusu, J. Veness, M. G. Bellemare, A. Graves,
-M. Riedmiller, A. K. Fidjeland, G. Ostrovski et al., “Human-level control through deep reinforcement learning,” nature, vol. 518, no. 7540, pp. 529–533, 2015.
-              <br/>
-              2. V. Talpaert, I. Sobh, B. R. Kiran, P. Mannion, S. Yogamani, A. El-Sallab, and P. Perez, “Exploring applications of deep reinforcement learning for real-world autonomous driving systems,”
-arXiv preprint arXiv:1901.01536, 2019.
-              <br/>
-3. N. C. Luong, D. T. Hoang, S. Gong, D. Niyato, P. Wang, Y.-C. Liang, and D. I. Kim, “Applications of deep reinforcement learning in communications and networking: A survey,” IEEE
-Communications Surveys & Tutorials, vol. 21, no. 4, pp. 3133–3174, 2019
-              <br/>
-4. S. Fujimoto, H. Hoof, and D. Meger, “Addressing function approximation error in actor-critic
-methods,” in International Conference on Machine Learning. PMLR, 2018, pp. 1587–1596.
-              <br/>
-5. V. Mnih, A. P. Badia, M. Mirza, A. Graves, T. Lillicrap, T. Harley, D. Silver, and
-K. Kavukcuoglu, “Asynchronous methods for deep reinforcement learning,” in International
-conference on machine learning. PMLR, 2016, pp. 1928–1937
-              <br/>
-6. J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov, “Proximal policy optimization
-algorithms,” arXiv preprint arXiv:1707.06347, 2017.
-              <br/>
-7. T. P. Lillicrap, J. J. Hunt, A. Pritzel, N. Heess, T. Erez, Y. Tassa, D. Silver, and D. Wierstra,
-“Continuous control with deep reinforcement learning,” arXiv preprint arXiv:1509.02971, 2015.
-              <br/>
-8. T. Haarnoja, A. Zhou, P. Abbeel, and S. Levine, “Soft actor-critic: Off-policy maximum entropy
-deep reinforcement learning with a stochastic actor,” in International Conference on Machine
-Learning. PMLR, 2018, pp. 1861–1870.
-              <br/>
-9. A. Kumar, A. Zhou, G. Tucker, and S. Levine, “Conservative q-learning for offline reinforcement
-learning,” arXiv preprint arXiv:2006.04779, 2020.
-
-              <br/>
-10. A. Kumar, J. Fu, G. Tucker, and S. Levine, “Stabilizing off-policy q-learning via bootstrapping
-error reduction,” arXiv preprint arXiv:1906.00949, 2019
-
-              <br/>
-11. W. Zhou, S. Bajracharya, and D. Held, “Plas: Latent action space for offline reinforcement
-learning,” arXiv preprint arXiv:2011.07213, 2020.
-
-              <br/>
-12. A. Nair, M. Dalal, A. Gupta, and S. Levine, “Accelerating online reinforcement learning with
-offline datasets,” arXiv preprint arXiv:2006.09359, 2020.
-
-              <br/>
-13. X. B. Peng, A. Kumar, G. Zhang, and S. Levine, “Advantage-weighted regression: Simple and
-scalable off-policy reinforcement learning,” arXiv preprint arXiv:1910.00177, 2019.
-              <br/>
-14. A. Raffin, A. Hill, M. Ernestus, A. Gleave, A. Kanervisto, and N. Dormann, “Stable baselines3,”
-https://github.com/DLR-RM/stable-baselines3, 2019.
-
-              <br/>
-15. T. Seno, “d3rlpy: An offline deep reinforcement library,” https://github.com/takuseno/d3rlpy,
-2020
-</p> */}
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

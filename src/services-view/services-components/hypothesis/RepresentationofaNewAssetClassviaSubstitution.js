@@ -90,18 +90,6 @@ const RepresentationofaNewAssetClassviaSubstitution = () => {
                 capitalization of Market k, and ω<sub>k</sub>– as the
                 substitution of Market k.
               </p>
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

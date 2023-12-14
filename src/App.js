@@ -1,40 +1,40 @@
 import React, { memo, useEffect } from 'react';
-import Navbar from './components/navbar/Navbar';
-import Home from './pages/Home';
-import Models from './pages/Models';
+// import Navbar from './components/navbar/Navbar';
+// import Home from './pages/Home';
+// import Models from './pages/Models';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import LoginForm from './components/loginPrompt/LoginForm';
 import { useStateContext } from './ContextProvider';
-import Footer from './components/footer/Footer';
-import About from './pages/About';
-import FAQ from './pages/FAQ';
-import Compare from './pages/Compare';
-import AlternativeBassModelforAlpha from '../src/components/resources/derivations/AlternativeBassModelforAlpha';
-import AlternativeFrechetModelforAlpha from '../src/components/resources/derivations/AlternativeFrechetModelforAlpha';
-import AlternativeGumbelModelforAlpha from '../src/components/resources/derivations/AlternativeGumbelModelforAlpha';
-import AlternativeShiftedGompertzModelforAlpha from '../src/components/resources/derivations/AlternativeShiftedGompertzModelforAlpha';
-import AlternativeWeibulModelforAlpha from '../src/components/resources/derivations/AlternativeWeibulModelforAlpha';
-import AnInitialSolution from '../src/components/resources/derivations/AnInitialSolution';
-import Derivations from '../src/components/resources/derivations/Derivations';
-import FurtherDerivations from '../src/components/resources/derivations/FurtherDerivations';
-import InvestigatingAlpha from '../src/components/resources/derivations/InvestigatingAlpha';
-import RepresentationofaNewAssetClassviaSubstitution from '../src/components/resources/derivations/RepresentationofaNewAssetClassviaSubstitution';
-import SensitivityAnalysisGeneralCase from '../src/components/resources/derivations/SensitivityAnalysisGeneralCase';
-import SenstitivityAnalysisMarketSpecificAlpha from '../src/components/resources/derivations/SenstitivityAnalysisMarketSpecificAlpha';
-import SenstitivityAnalysisSingleAlphaCas from '../src/components/resources/derivations/SenstitivityAnalysisSingleAlphaCas';
-import TheGoverningEquation from '../src/components/resources/derivations/TheGoverningEquation';
-import TheUnderlyingAssumptions from '../src/components/resources/derivations/TheUnderlyingAssumptions';
-import Documentation from './pages/Documentation';
-import Login from './components/Authentication/Login';
-import Signup from './components/Authentication/Signup';
-import RegistrationForm from './components/apiRegistrationForm/RegistrationForm';
-import Contact from './components/contact/Contact';
-import Performance from './pages/Performance';
-import RiskManagement from './pages/RiskManagement';
-import BacktestRouteComponentModels from './components/backtest/BacktestRouteComponentModels';
-import BacktestRouteComponentStrategies from './components/backtest/BacktestRouteComponentStrategies';
-import CompareStrategies from './pages/CompareStrategies';
-import AccountDetails from './pages/AccountDetails';
+// import Footer from './components/footer/Footer';
+// import About from './pages/About';
+// import FAQ from './pages/FAQ';
+// import Compare from './pages/Compare';
+// import AlternativeBassModelforAlpha from '../src/components/resources/derivations/AlternativeBassModelforAlpha';
+// import AlternativeFrechetModelforAlpha from '../src/components/resources/derivations/AlternativeFrechetModelforAlpha';
+// import AlternativeGumbelModelforAlpha from '../src/components/resources/derivations/AlternativeGumbelModelforAlpha';
+// import AlternativeShiftedGompertzModelforAlpha from '../src/components/resources/derivations/AlternativeShiftedGompertzModelforAlpha';
+// import AlternativeWeibulModelforAlpha from '../src/components/resources/derivations/AlternativeWeibulModelforAlpha';
+// import AnInitialSolution from '../src/components/resources/derivations/AnInitialSolution';
+// import Derivations from '../src/components/resources/derivations/Derivations';
+// import FurtherDerivations from '../src/components/resources/derivations/FurtherDerivations';
+// import InvestigatingAlpha from '../src/components/resources/derivations/InvestigatingAlpha';
+// import RepresentationofaNewAssetClassviaSubstitution from '../src/components/resources/derivations/RepresentationofaNewAssetClassviaSubstitution';
+// import SensitivityAnalysisGeneralCase from '../src/components/resources/derivations/SensitivityAnalysisGeneralCase';
+// import SenstitivityAnalysisMarketSpecificAlpha from '../src/components/resources/derivations/SenstitivityAnalysisMarketSpecificAlpha';
+// import SenstitivityAnalysisSingleAlphaCas from '../src/components/resources/derivations/SenstitivityAnalysisSingleAlphaCas';
+// import TheGoverningEquation from '../src/components/resources/derivations/TheGoverningEquation';
+// import TheUnderlyingAssumptions from '../src/components/resources/derivations/TheUnderlyingAssumptions';
+// import Documentation from './pages/Documentation';
+// import Login from './components/Authentication/Login';
+// import Signup from './components/Authentication/Signup';
+// import RegistrationForm from './components/apiRegistrationForm/RegistrationForm';
+// import Contact from './components/contact/Contact';
+// import Performance from './pages/Performance';
+// import RiskManagement from './pages/RiskManagement';
+// import BacktestRouteComponentModels from './components/backtest/BacktestRouteComponentModels';
+// import BacktestRouteComponentStrategies from './components/backtest/BacktestRouteComponentStrategies';
+// import CompareStrategies from './pages/CompareStrategies';
+// import AccountDetails from './pages/AccountDetails';
 import ServicesEntrance from './services-view/services-pages/ServicesEntrance';
 import ServicesAbout from './services-view/services-pages/ServicesAbout';
 import ServicesHypothesis from './services-view/services-pages/ServicesHypothesis';
@@ -52,6 +52,7 @@ import ServicesCompare from './services-view/services-pages/ServicesCompare';
 import ServicesContact from './services-view/services-pages/ServicesContact';
 
 function App() {
+  // eslint-disable-next-line
   const { loading, checkLoginMain, authCheckLoginInvestor } = useStateContext();
 
   // SCROLL TO TOP
@@ -288,7 +289,10 @@ function App() {
             element={<HypoAnInitialSolution />}
           />
           <Route path="/ZT1-SE9H-1" element={<BTCExample />} />
-          <Route path="/backtest-strategies" element={<ServicesBacktest Flag="True" />} />
+          <Route
+            path="/backtest-strategies"
+            element={<ServicesBacktest Flag="True" />}
+          />
           <Route path="/compare-strategies" element={<ServicesCompare />} />
           <Route path="/documentations" element={<ServicesDocs />} />
           <Route path="/contact-us" element={<ServicesContact />} />

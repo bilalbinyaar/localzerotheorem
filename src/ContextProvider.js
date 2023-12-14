@@ -1,14 +1,7 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  memo,
-} from "react";
-import { createSlice } from "@reduxjs/toolkit";
-import { configureStore } from "@reduxjs/toolkit";
-import { useSelector, useDispatch } from "react-redux";
-import { set_day_mode, set_night_mode } from "./store";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { set_day_mode, set_night_mode } from './store';
 
 const StateContext = createContext();
 
@@ -33,18 +26,16 @@ export const ContextProvider = ({ children }) => {
   // const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(
   //   default_login.loginFlagAdmin
   // );
-  const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(
-    true
-  );
+  const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(true);
   // console.log("Here is admin state ", default_login.loginFlagAdmin);
   const [uid, setUid] = useState(null);
   const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
+    if (theme === 'dark-theme') {
+      setTheme('light-theme');
       handleDayModeTheme();
       handleiamClick();
     } else {
-      setTheme("dark-theme");
+      setTheme('dark-theme');
       handleNightModeTheme();
       handleiamClick();
     }
@@ -63,7 +54,8 @@ export const ContextProvider = ({ children }) => {
 
   const [iamClick, setiamClick] = useState(false);
   const [adminInvestorView, setAdminInvestorView] = useState(false);
-  const handleAdminInvestorView = () => setAdminInvestorView(!adminInvestorView);
+  const handleAdminInvestorView = () =>
+    setAdminInvestorView(!adminInvestorView);
   const handleiamClick = () => setiamClick(!iamClick);
   // Dark Light Mode
 
@@ -74,24 +66,24 @@ export const ContextProvider = ({ children }) => {
 
   // Currency Search Bar Filter
   const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
+  const [wordEntered, setWordEntered] = useState('');
   // Currency Search Bar Filter
 
   // Model Search Bar Filter
   const [filteredDataModel, setFilteredDataModel] = useState([]);
-  const [wordEnteredModel, setWordEnteredModel] = useState("");
+  const [wordEnteredModel, setWordEnteredModel] = useState('');
   // Model Search Bar Filter
 
   // Login
   const adminUserMain = {
-    passwordMain: "neurog",
-    userMain: "admin@zerotheorem.com",
-    investorMain: "investor@zerotheorem.com",
-    investorSecondary: "neurog@zerotheorem.com",
-    investorPassword: "neuroglia",
+    passwordMain: 'neurog',
+    userMain: 'admin@zerotheorem.com',
+    investorMain: 'investor@zerotheorem.com',
+    investorSecondary: 'neurog@zerotheorem.com',
+    investorPassword: 'neuroglia',
   };
-  const [userMain, setUserMain] = useState({ name: "", password: "" });
-  const [errorMain, setErrorMain] = useState("");
+  const [userMain, setUserMain] = useState({ name: '', password: '' });
+  const [errorMain, setErrorMain] = useState('');
 
   const LoginMain = (detailsMain) => {
     // console.log(details);
@@ -104,12 +96,12 @@ export const ContextProvider = ({ children }) => {
       });
     } else {
       // console.log("Invalid Details");
-      setErrorMain("Invalid Details!");
+      setErrorMain('Invalid Details!');
     }
   };
 
   const LogoutMain = () => {
-    setUserMain({ passwordMain: "" });
+    setUserMain({ passwordMain: '' });
   };
   // Login End
 
@@ -294,10 +286,10 @@ export const ContextProvider = ({ children }) => {
   };
   // PRELOADER
   const [loading, setLoading] = useState(true);
-  const spinner = document.getElementById("spinner");
+  const spinner = document.getElementById('spinner');
   if (spinner) {
     setTimeout(() => {
-      spinner.style.display = "none";
+      spinner.style.display = 'none';
       setLoading(false);
     }, 1000);
   }
@@ -406,8 +398,10 @@ export const ContextProvider = ({ children }) => {
         setAuthCheckLoginInvestor,
         adminInvestorView,
         handleAdminInvestorView,
-        authCheckLoginAdmin, setAuthCheckLoginAdmin,
-        link, setLink
+        authCheckLoginAdmin,
+        setAuthCheckLoginAdmin,
+        link,
+        setLink,
       }}
     >
       {children}

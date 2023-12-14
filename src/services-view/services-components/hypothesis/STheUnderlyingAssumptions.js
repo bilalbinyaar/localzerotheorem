@@ -47,18 +47,6 @@ const TheUnderlyingAssumptions = () => {
                 risk in the traditional financial system and/or traditional
                 currencies.
               </p>
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

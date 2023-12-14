@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import ServicesNavbar from '../services-components/ServicesNavbar';
 import Footer from '../../components/footer/Footer';
-import { Button } from 'bootstrap';
 import { database } from '../../firebase_config';
-import { ref, onValue, set } from "firebase/database";
-import cryptoRandomString from "crypto-random-string";
-import Swal from "sweetalert2";
+import { ref, set } from 'firebase/database';
+import cryptoRandomString from 'crypto-random-string';
+import Swal from 'sweetalert2';
 
 const ServicesContact = () => {
   const [IndustryName, setIndustryName] = useState(null);
@@ -17,12 +16,7 @@ const ServicesContact = () => {
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
   };
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
-  const handleIndustryNameChange = (event) => {
-    setIndustryName(event.target.value);
-  };
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -31,41 +25,41 @@ const ServicesContact = () => {
   };
   const handleJoinList = (event) => {
     if (!firstName || !email || !message) {
-      event.preventDefault(); // Prevent the default form submission behavior
+      event.preventDefault();
 
       Swal.fire({
-        title: "Kindly input all fields ",
-        icon: "error",
+        title: 'Kindly input all fields ',
+        icon: 'error',
         timer: 2000,
         timerProgressBar: true,
         toast: true,
-        position: "top-right",
+        position: 'top-right',
         showConfirmButton: false,
       });
     } else {
-      setFirstName("");
-      setLastName("");
-      setIndustryName("");
-      setEmail("");
-      setMessage("");
+      setFirstName('');
+      setLastName('');
+      setIndustryName('');
+      setEmail('');
+      setMessage('');
       Swal.fire({
-        title: "Your information is successfully submitted ",
-        icon: "success",
+        title: 'Your information is successfully submitted ',
+        icon: 'success',
         timer: 2000,
         timerProgressBar: true,
         toast: true,
-        position: "top-right",
+        position: 'top-right',
         showConfirmButton: false,
       });
       const id = cryptoRandomString({
         length: 10,
-        type: "alphanumeric",
+        type: 'alphanumeric',
       });
       var current_time = new Date();
       const timestamp = current_time.getTime();
-      var check = true;
-      set(ref(database, "contact/" + "user_" + id), {
-        id: "user_" + id,
+
+      set(ref(database, `contact/user_${id}`), {
+        id: 'user_' + id,
         status: 0,
         firstName: firstName,
         lastName: LastName,
@@ -73,8 +67,6 @@ const ServicesContact = () => {
         email: email,
         message: message,
         current_time: timestamp,
-
-        // profile_picture: imageUrl,
       });
       event.preventDefault(); // Prevent the default form submission behavior
     }
@@ -108,18 +100,27 @@ const ServicesContact = () => {
                 </p>
                 <div className="services-contact-group">
                   <label>Name</label>
-                  <input type="text" value={firstName}
-                    onChange={handleFirstNameChange} />
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={handleFirstNameChange}
+                  />
                 </div>
                 <div className="services-contact-group">
                   <label>Email</label>
-                  <input type="text" value={email}
-                    onChange={handleEmailChange} />
+                  <input
+                    type="text"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
                 </div>
                 <div className="services-contact-group">
                   <label>Message</label>
-                  <textarea type="text" value={message}
-                    onChange={handleMessageChange} />
+                  <textarea
+                    type="text"
+                    value={message}
+                    onChange={handleMessageChange}
+                  />
                 </div>
                 <div className="btn-div">
                   <button className="btn-contact" type="submit">

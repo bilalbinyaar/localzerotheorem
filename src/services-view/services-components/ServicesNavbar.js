@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
 import ServicesNavMobile from './ServicesNavMobile';
 export default function ServicesNavbar() {
-  const { handleAdminInvestorView } = useStateContext(); // Use the hook to access state
+  const { handleAdminInvestorView } = useStateContext();
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ export default function ServicesNavbar() {
   // Login State
   const { theme, setTheme } = useStateContext();
   // Login State
-  // const [theme, setTheme] = useState("light-theme");
 
   useEffect(() => {
     document.body.className = theme;
@@ -88,8 +87,6 @@ export default function ServicesNavbar() {
           >
             <CustomLink to="/services-about">About</CustomLink>
             <CustomLink to="/ZT1-SE9H-1">BTC Example</CustomLink>
-            {/* <CustomLink to="/hypothesis">Hypothesis</CustomLink>
-            <CustomLink to="/documentations">API</CustomLink> */}
             <CustomLink to="/contact-us">Contact</CustomLink>
           </ul>
 

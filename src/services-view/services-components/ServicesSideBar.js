@@ -13,9 +13,6 @@ const ServicesSideBar = () => {
   const [iamClickRes, setiamClickRes] = useState(false);
   const handleiamClickRes = () => setiamClickRes(!iamClickRes);
 
-  //   const [clickRes, setClickRes] = useState(false);
-  //   const handleClick = () => setClickRes(!clickRes);
-
   function oneClickRes() {
     hamClickRes();
     handleiamClickRes();

@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import Prism from "prismjs";
-import "prismjs/themes/prism.css";
-import "prismjs/components/prism-python";
-import "highlight.js/styles/default.css";
-import { PrismCode } from "react-prism";
-import "prismjs/themes/prism.css";
-import Swal from "sweetalert2";
-import { FiCopy } from "react-icons/fi";
-import { IconContext } from "react-icons";
-import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import React, { useState } from 'react';
+import 'prismjs/themes/prism.css';
+import 'prismjs/components/prism-python';
+import 'highlight.js/styles/default.css';
+import { PrismCode } from 'react-prism';
+import 'prismjs/themes/prism.css';
+import Swal from 'sweetalert2';
+import { FiCopy } from 'react-icons/fi';
+import { IconContext } from 'react-icons';
+import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 
 function Documentation() {
   const [selectedHeadingIndex, setSelectedHeadingIndex] = useState(0);
@@ -30,14 +29,7 @@ function Documentation() {
     handleiamClickRes();
   }
 
-  const headings = [
-    // "Installation guide",
-    // "API authentication",
-    // "Get forecast",
-    // "Get stats",
-    // "Get ledger",
-    // "Get historical forecasts",
-  ];
+  const headings = [];
   const pythonCode = [
     `!pip install zerotheorem-python\nimport zerotheorem-python as zt`,
     "import zerotheorem-python as zt \nauth_token = 'your authentication token'\nzt.authenticate(auth_token)\n",
@@ -103,14 +95,14 @@ function Documentation() {
         <li>
           <strong>
             <code>auth_token</code>
-          </strong>{" "}
+          </strong>{' '}
           (string): The authentication token obtained from the API key.
         </li>
       </ul>
       <h2 className="lineheight-docs for-mt-secondary">Return Value</h2>
       <p className="lineheight-docs">
         This function does not return anything, but it sets the authentication
-        credentials for the user session.{" "}
+        credentials for the user session.{' '}
       </p>
       <h3 className="lineheight-docs for-mt-secondary">Python Code</h3>
     </div>,
@@ -137,10 +129,6 @@ function Documentation() {
         values:
       </p>
       <ul className="lineheight-docs-list">
-        {/* <li>
-          <strong>response</strong> (list): A list containing a dictionary with
-          information on the strategy's historical forecasts.
-        </li> */}
         <li>
           <strong>forecast_timestamp</strong> (int): The timestamp of the
           forecast in Unix time.
@@ -162,12 +150,6 @@ function Documentation() {
         this:
       </p>
       <h3 className="lineheight-docs for-mt-secondary">Python Code</h3>
-
-      {/* <pre>
-        {
-          "{'response': [{'ledger_timestamp': 1659657600, 'action': 'long', 'buy_price': 22598, 'sell_price': 0, 'pnl': -0.05, 'balance': 999.5, 'pnl_sum': -0.05, 'ledger_key': 0, 'drawdown': 0}]}"
-        }
-      </pre> */}
     </div>,
     <div className="content-main-div">
       <h1 className="lineheight-docs">Get Stats</h1>
@@ -195,11 +177,6 @@ function Documentation() {
         The function returns a dictionary with the following keys and values:
       </p>
       <ul className="lineheight-docs-list">
-        {/* <li>
-          <strong>response</strong> (list): A list containing a dictionary with
-          stats on the strategy.
-        </li> */}
-        {/* <ul className="lineheight-docs-list"> */}
         <li>
           <strong>rank</strong> (int): The rank of the strategy based on its
           performance.
@@ -314,7 +291,6 @@ function Documentation() {
           <strong>pnl_sum_60</strong> (float): The sum of the strategy's profit
           and loss over the last 60 days, as a percentage.
         </li>
-        {/* </ul> */}
       </ul>
       <h2 className="lineheight-docs for-mt-secondary">Example Usage</h2>
       <p className="lineheight-docs">
@@ -327,11 +303,6 @@ function Documentation() {
       </p>
 
       <h3 className="lineheight-docs for-mt-secondary">Python Code</h3>
-      {/* <pre>
-        {
-          '{"response": ["rank": 1,"strategy_name": "ZT1_0M24BTC26",\n"current_drawdown": -9.12,"curr_drawdown_duration": 19,\n"average_drawdown": -2.84,"average_drawdown_duration": 6.12,\n"max_drawdown": -24.75,"max_drawdown_duration": 22,\n"r2_score": 0.94,"sharpe": 33.52,\n"sortino": 44.78,"total_pnl": 148.45,\n"average_daily_pnl": 0.63,"win_loss_ratio": 1.88,\n"total_positive_pnl": 246.41,"total_negative_pnl": -97.96,\n"total_wins": 79,"total_losses": 42,"consective_wins": 9,\n"consective_losses": 4,"total_trades": 121,"total_long_trades": 69,\n"total_short_trades": 52,"average_trade_duration": "0 days 00:07:45.181818",\n"average_long_trade_duration": "0 days 00:08:22.260869","average_short_trade_duration": "0 days 00:06:47.346153"}]}'
-        }
-      </pre> */}
     </div>,
 
     <div className="content-main-div">
@@ -359,10 +330,6 @@ function Documentation() {
         The function returns a dictionary with the following keys and values:
       </p>
       <ul className="lineheight-docs-list">
-        {/* <li>
-          <strong>response</strong> (list): A list containing a dictionary with
-          information on the strategy's ledger.
-        </li> */}
         <li>
           <strong>ledger_timestamp</strong> (int): The timestamp of the last
           transaction in the ledger, in Unix time.
@@ -437,10 +404,6 @@ function Documentation() {
         values:
       </p>
       <ul className="lineheight-docs-list">
-        {/* <li>
-          <strong>response</strong> (list): A list containing a dictionary with
-          information on the strategy's historical forecasts.
-        </li> */}
         <li>
           <strong>forecast_timestamp</strong> (int): The timestamp of the
           forecast in Unix time.
@@ -464,11 +427,6 @@ function Documentation() {
         this:
       </p>
       <h3 className="lineheight-docs for-mt-secondary">Python Code</h3>
-      {/* <pre>
-        {
-          "{'response': [{'forecast_timestamp': '1660262400', 'prediction': 'Long'}]}"
-        }
-      </pre> */}
     </div>,
     <div className="content-main-div">
       <h1 className="lineheight-docs">
@@ -478,7 +436,7 @@ function Documentation() {
       <p className="lineheight-docs">
         <pre className="language-python">
           <PrismCode>
-            {"!pip install numpy pandas zerotheorem-python"}
+            {'!pip install numpy pandas zerotheorem-python'}
           </PrismCode>
         </pre>
       </p>
@@ -487,7 +445,7 @@ function Documentation() {
         <pre className="language-python">
           <PrismCode>
             {
-              "import os\nimport datetime\nimport numpy as np\nimport pandas as pd\nimport zerotheorem-python as zt"
+              'import os\nimport datetime\nimport numpy as np\nimport pandas as pd\nimport zerotheorem-python as zt'
             }
           </PrismCode>
         </pre>
@@ -998,12 +956,12 @@ for idx in indices:
   const handleCopy = () => {
     navigator.clipboard.writeText(pythonCode[selectedHeadingIndex]).then(() => {
       Swal.fire({
-        title: "Code copied!",
-        icon: "success",
+        title: 'Code copied!',
+        icon: 'success',
         timer: 2000,
         timerProgressBar: true,
         toast: true,
-        position: "top-right",
+        position: 'top-right',
         showConfirmButton: false,
       });
     });
@@ -1025,62 +983,62 @@ for idx in indices:
             <div className="sidebar-navigator">
               <ul className="documentation-items">
                 <li
-                  className={selectedHeadingIndex === 0 ? "active" : ""}
+                  className={selectedHeadingIndex === 0 ? 'active' : ''}
                   onClick={() => handleClick(0)}
                 >
                   Installation
                 </li>
                 <li
-                  className={selectedHeadingIndex === 1 ? "active" : ""}
+                  className={selectedHeadingIndex === 1 ? 'active' : ''}
                   onClick={() => handleClick(1)}
                 >
                   API Authentication
                 </li>
                 <li
-                  className={selectedHeadingIndex === 2 ? "active" : ""}
+                  className={selectedHeadingIndex === 2 ? 'active' : ''}
                   onClick={() => handleClick(2)}
                 >
                   Get Forecast
                 </li>
                 <li
-                  className={selectedHeadingIndex === 3 ? "active" : ""}
+                  className={selectedHeadingIndex === 3 ? 'active' : ''}
                   onClick={() => handleClick(3)}
                 >
                   Get Stats
                 </li>
 
                 <li
-                  className={selectedHeadingIndex === 4 ? "active" : ""}
+                  className={selectedHeadingIndex === 4 ? 'active' : ''}
                   onClick={() => handleClick(4)}
                 >
                   Get Ledger
                 </li>
                 <li
-                  className={selectedHeadingIndex === 5 ? "active" : ""}
+                  className={selectedHeadingIndex === 5 ? 'active' : ''}
                   onClick={() => handleClick(5)}
                 >
                   Get Historical Forecasts
                 </li>
                 <li
-                  className={selectedHeadingIndex === 6 ? "active" : ""}
+                  className={selectedHeadingIndex === 6 ? 'active' : ''}
                   onClick={() => handleClick(6)}
                 >
                   Use Case: Run Backtest
                 </li>
                 <li
-                  className={selectedHeadingIndex === 7 ? "active" : ""}
+                  className={selectedHeadingIndex === 7 ? 'active' : ''}
                   onClick={() => handleClick(7)}
                 >
                   Use Case: Ensemble Forecasts
                 </li>
                 <li
-                  className={selectedHeadingIndex === 8 ? "active" : ""}
+                  className={selectedHeadingIndex === 8 ? 'active' : ''}
                   onClick={() => handleClick(8)}
                 >
                   Use Case: Forecast Listener
                 </li>
                 <li
-                  className={selectedHeadingIndex === 9 ? "active" : ""}
+                  className={selectedHeadingIndex === 9 ? 'active' : ''}
                   onClick={() => handleClick(9)}
                 >
                   Use Case: Sort by any Metric
@@ -1098,62 +1056,62 @@ for idx in indices:
           <div className="for-hr sidebar-documentation"></div>
           <ul className="documentation-items">
             <li
-              className={selectedHeadingIndex === 0 ? "active" : ""}
+              className={selectedHeadingIndex === 0 ? 'active' : ''}
               onClick={() => handleClick(0)}
             >
               Installation
             </li>
             <li
-              className={selectedHeadingIndex === 1 ? "active" : ""}
+              className={selectedHeadingIndex === 1 ? 'active' : ''}
               onClick={() => handleClick(1)}
             >
               API Authentication
             </li>
             <li
-              className={selectedHeadingIndex === 2 ? "active" : ""}
+              className={selectedHeadingIndex === 2 ? 'active' : ''}
               onClick={() => handleClick(2)}
             >
               Get Forecast
             </li>
             <li
-              className={selectedHeadingIndex === 3 ? "active" : ""}
+              className={selectedHeadingIndex === 3 ? 'active' : ''}
               onClick={() => handleClick(3)}
             >
               Get Stats
             </li>
 
             <li
-              className={selectedHeadingIndex === 4 ? "active" : ""}
+              className={selectedHeadingIndex === 4 ? 'active' : ''}
               onClick={() => handleClick(4)}
             >
               Get Ledger
             </li>
             <li
-              className={selectedHeadingIndex === 5 ? "active" : ""}
+              className={selectedHeadingIndex === 5 ? 'active' : ''}
               onClick={() => handleClick(5)}
             >
               Get Historical Forecasts
             </li>
             <li
-              className={selectedHeadingIndex === 6 ? "active" : ""}
+              className={selectedHeadingIndex === 6 ? 'active' : ''}
               onClick={() => handleClick(6)}
             >
               Use Case: Run Backtest
             </li>
             <li
-              className={selectedHeadingIndex === 7 ? "active" : ""}
+              className={selectedHeadingIndex === 7 ? 'active' : ''}
               onClick={() => handleClick(7)}
             >
               Use Case: Ensemble Forecasts
             </li>
             <li
-              className={selectedHeadingIndex === 8 ? "active" : ""}
+              className={selectedHeadingIndex === 8 ? 'active' : ''}
               onClick={() => handleClick(8)}
             >
               Use Case: Forecast Listener
             </li>
             <li
-              className={selectedHeadingIndex === 9 ? "active" : ""}
+              className={selectedHeadingIndex === 9 ? 'active' : ''}
               onClick={() => handleClick(9)}
             >
               Use Case: Sort by any Metric
@@ -1171,7 +1129,7 @@ for idx in indices:
           {selectedHeadingIndex + 1 > pythonCode.length ? null : (
             <div className="code-container">
               <div className="copy">
-                <IconContext.Provider value={{ className: "copy-icon" }}>
+                <IconContext.Provider value={{ className: 'copy-icon' }}>
                   <FiCopy onClick={handleCopy} />
                 </IconContext.Provider>
               </div>

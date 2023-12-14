@@ -188,18 +188,6 @@ const SensitivityAnalysisGeneralCase = () => {
                 (decreasing) function of t, Π<sub>BTC</sub> is an increasing
                 (decreasing) function of U<sub>sk</sub>.
               </p>
-
-              {/* <div className="document">
-              {theme === "dark-theme" ? (
-                <div className="img-doc">
-                  <img src={P1Night} alt="p1" />
-                </div>
-              ) : (
-                <div className="img-doc">
-                  <img src={P1Day} alt="p1" />
-                </div>
-              )}
-            </div> */}
             </div>
           </div>
         </div>

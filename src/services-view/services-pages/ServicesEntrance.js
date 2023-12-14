@@ -2,7 +2,6 @@ import React from 'react';
 import videoBackground from '../../assets/2x-bg.mp4';
 import logoWhite from '../../assets/logo-white.svg';
 import '../ServicesView.css';
-// import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const ServicesEntrance = () => {

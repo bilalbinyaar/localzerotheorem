@@ -1,33 +1,22 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from './store';
 
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  // const store = configureStore({
-  //   reducer: mySlice.reducer,
-  // });
-  // const myValue = useSelector((state) => state.mySlice.myValue);
-
   // Dark Light Mode
   const default_theme = useSelector((state) => state.theme);
   const default_login = useSelector((state) => state.loginFlag);
-  // console.log("Got this state bro -->", default_login);
   const dispatch = useDispatch();
-
-  // console.log("Value of redux state -->", default_theme.theme);
   const [theme, setTheme] = useState(default_theme.theme);
   const [authCheckLogin, setAuthCheckLogin] = useState(false);
   const [authCheckLoginInvestor, setAuthCheckLoginInvestor] = useState(
     default_login.loginFlag
   );
-  // const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(
-  //   default_login.loginFlagAdmin
-  // );
+
   const [authCheckLoginAdmin, setAuthCheckLoginAdmin] = useState(true);
-  // console.log("Here is admin state ", default_login.loginFlagAdmin);
+
   const [uid, setUid] = useState(null);
   const toggleTheme = () => {
     if (theme === 'dark-theme') {
@@ -51,7 +40,6 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
-
   const [iamClick, setiamClick] = useState(false);
   const [adminInvestorView, setAdminInvestorView] = useState(false);
   const handleAdminInvestorView = () =>
@@ -84,22 +72,16 @@ export const ContextProvider = ({ children }) => {
   };
   const [userMain, setUserMain] = useState({ name: '', password: '' });
   const [errorMain, setErrorMain] = useState('');
-
   const LoginMain = (detailsMain) => {
-    // console.log(details);
-
     if (detailsMain.passwordMain === adminUserMain.passwordMain) {
-      // console.log("Logged In");
       setUserMain({
         name: detailsMain.name,
         email: detailsMain.email,
       });
     } else {
-      // console.log("Invalid Details");
       setErrorMain('Invalid Details!');
     }
   };
-
   const LogoutMain = () => {
     setUserMain({ passwordMain: '' });
   };
@@ -118,7 +100,6 @@ export const ContextProvider = ({ children }) => {
   const [showSubTwo, setShowSubTwo] = useState(false);
   const [showSubThree, setShowSubThree] = useState(false);
   const [showSubFour, setShowSubFour] = useState(false);
-
   // SideBar Navigation
 
   const [sorted_stats_cache, set_sorted_stats_cache] = useState({});
@@ -126,7 +107,6 @@ export const ContextProvider = ({ children }) => {
   const [stats_cache, set_stats_cache] = useState({});
   const [forecast_spline_graph_cache, set_forecast_spline_graph_cache] =
     useState({});
-
   const [straight_spline_graph_cache, set_straight_spline_graph_cache] =
     useState({});
   const [rows_grid_cache, set_rows_grid_cache] = useState({});
@@ -135,7 +115,6 @@ export const ContextProvider = ({ children }) => {
   const [drawdown_graph_cache, set_drawdown_graph_cache] = useState({});
   const [drawdown_canvasjs_graph_cache, set_drawdown_canvasjs_graph_cache] =
     useState({});
-
   const [coin_selection_cache, set_coin_selection_cache] = useState({});
   const [model_selection_cache, set_model_selection_cache] = useState({});
   const [spline_graph_cum_cache, set_spline_graph_cum_cache] = useState({});
@@ -159,130 +138,85 @@ export const ContextProvider = ({ children }) => {
   ] = useState({});
   const [position_stats_cache, set_position_stats_cache] = useState({});
   const Set_position_stats_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let stats = Object.assign(position_stats_cache, new_data);
     set_position_stats_cache(stats);
-    // console.log("My updated data in cache -->", obj);
   };
-
   const Set_tv_drawdown_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let stats = Object.assign(tv_drawdown_cache, new_data);
     set_tv_drawdown_cache(stats);
-    // console.log("My updated data in cache -->", obj);
   };
   const Set_sorted_stats_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj = Object.assign(sorted_stats_cache, new_data);
     set_sorted_stats_cache(obj);
-    // console.log("My updated data in cache -->", obj);
   };
   const Set_strategies_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj2 = Object.assign(strategies_cache, new_data);
     set_strategies_cache(obj2);
-    // console.log("My updated data in cache -->", obj2);
   };
   const Set_stats_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj3 = Object.assign(stats_cache, new_data);
     set_stats_cache(obj3);
-    // console.log("My updated data in cache -->", obj3);
   };
-
   const Set_forecast_spline_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj4 = Object.assign(forecast_spline_graph_cache, new_data);
     set_forecast_spline_graph_cache(obj4);
-    // console.log("My updated data in cache -->", obj4);
   };
-
   const Set_straight_spline_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj5 = Object.assign(straight_spline_graph_cache, new_data);
     set_straight_spline_graph_cache(obj5);
-    // console.log("My updated data in cache -->", straight_spline_graph_cache);
   };
   const Set_rows_grid_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj6 = Object.assign(rows_grid_cache, new_data);
     set_rows_grid_cache(obj6);
-    // console.log("My updated data in cache -->", obj6);
   };
   const Set_spline_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj7 = Object.assign(spline_graph_cache, new_data);
     set_spline_graph_cache(obj7);
-    // console.log("My updated data in cache -->", obj7);
   };
   const Set_negative_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj8 = Object.assign(negative_graph_cache, new_data);
     set_negative_graph_cache(obj8);
-    // console.log("My updated data in cache -->", obj8);
   };
-
   const Set_negative_canvasjs_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj33 = Object.assign(negative_canvasjs_graph_cache, new_data);
     set_negative_canvasjs_graph_cache(obj33);
-    // console.log("My updated data in cache -->", obj8);
   };
   const Set_drawdown_negative_canvasjs_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj55 = Object.assign(drawdown_negative_canvasjs_graph_cache, new_data);
     set_drawdown_negative_canvasjs_graph_cache(obj55);
-    // console.log("My updated data in cache -->", obj8);
   };
   const Set_forecastSpline_canvasjs_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj44 = Object.assign(forecastSpline_canvasjs_graph_cache, new_data);
     set_forecastSpline_canvasjs_graph_cache(obj44);
-    // console.log("My updated data in cache -->", obj8);
   };
-
   const Set_individual_pnl_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj9 = Object.assign(individual_pnl_graph_cache, new_data);
     set_individual_pnl_graph_cache(obj9);
-    // console.log("My updated data in cache -->", obj9);
   };
   const Set_individual_pnl_canvasjs_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj99 = Object.assign(individual_pnl_canvasjs_graph_cache, new_data);
     set_individual_pnl_canvasjs_graph_cache(obj99);
-    // console.log("My updated data in cache -->", obj9);
   };
   const Set_drawdown_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj10 = Object.assign(drawdown_graph_cache, new_data);
     set_drawdown_graph_cache(obj10);
-    // console.log("My updated data in cache -->", obj10);
   };
   const Set_coin_search_selection_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj11 = Object.assign(coin_selection_cache, new_data);
     set_coin_selection_cache(obj11);
-    // console.log("My updated data in cache -->", obj11);
   };
 
   const Set_model_search_selection_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj12 = Object.assign(model_selection_cache, new_data);
     set_model_selection_cache(obj12);
-    // console.log("My updated data in cache -->", obj12);
   };
   const Set_drawdown_canvasjs_graph_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj13 = Object.assign(drawdown_canvasjs_graph_cache, new_data);
     set_drawdown_canvasjs_graph_cache(obj13);
-    // console.log("My updated data in cache -->", obj12);
   };
   const Set_spline_graph_cum_cache = (new_data) => {
-    // const updated_data = [...cache, new_data];
     let obj29 = Object.assign(spline_graph_cum_cache, new_data);
     set_spline_graph_cum_cache(obj29);
-    // console.log("My updated data in cache -->", obj12);
   };
   // PRELOADER
   const [loading, setLoading] = useState(true);
@@ -388,8 +322,6 @@ export const ContextProvider = ({ children }) => {
         Set_spline_graph_cum_cache,
         tv_drawdown_cache,
         Set_tv_drawdown_cache,
-        // authCheck,
-        // setAuthCheck,
         authCheckLogin,
         setAuthCheckLogin,
         uid,

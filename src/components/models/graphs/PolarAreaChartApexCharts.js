@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
-import ReactApexChart from "react-apexcharts";
-import { ThreeDots } from "react-loader-spinner";
-import { useStateContext } from "../../../ContextProvider";
+import React, { useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
+import { ThreeDots } from 'react-loader-spinner';
+import { useStateContext } from '../../../ContextProvider';
 
 const PolarAreaChartApexCharts = () => {
   const [series, setSeries] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [Labels, setLabels] = useState([]);
-  const { link } =
-    useStateContext();
+  const { link } = useStateContext();
   useEffect(() => {
     try {
-      fetch(link + "/get/live_strategies", {
-        method: "GET",
+      fetch(link + '/get/live_strategies', {
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
           'ngrok-skip-browser-warning': 'true',
@@ -23,14 +22,14 @@ const PolarAreaChartApexCharts = () => {
           var model_names = {};
           var temp_labels = [];
           var temp_stats = [];
-          for (var i = 0; i < data["response"].length; i++) {
-            model_names[data["response"][i].strategy_name] = {
-              portfolio_allocation: data["response"][i].portfolio_allocation,
+          for (var i = 0; i < data['response'].length; i++) {
+            model_names[data['response'][i].strategy_name] = {
+              portfolio_allocation: data['response'][i].portfolio_allocation,
             };
-            temp_stats.push(parseInt(data["response"][i].portfolio_allocation));
-            temp_labels.push(data["response"][i].strategy_name);
+            temp_stats.push(parseInt(data['response'][i].portfolio_allocation));
+            temp_labels.push(data['response'][i].strategy_name);
           }
-          if (JSON.stringify(model_names) !== "{}") {
+          if (JSON.stringify(model_names) !== '{}') {
             setLabels(temp_labels);
             setSeries(temp_stats);
             setIsLoaded(true);
@@ -38,13 +37,14 @@ const PolarAreaChartApexCharts = () => {
         })
         .catch((err) => console.log(err));
     } catch (error) {
-      console.log("Error occurred");
+      console.log('Error occurred');
     }
+    // eslint-disable-next-line
   }, []);
 
   const options = {
     chart: {
-      type: "polarArea",
+      type: 'polarArea',
     },
     labels: Labels,
     fill: {
@@ -58,7 +58,7 @@ const PolarAreaChartApexCharts = () => {
       show: false,
     },
     legend: {
-      position: "right",
+      position: 'right',
     },
     plotOptions: {
       polarArea: {
@@ -73,7 +73,7 @@ const PolarAreaChartApexCharts = () => {
     theme: {
       monochrome: {
         enabled: false,
-        shadeTo: "dark",
+        shadeTo: 'dark',
         shadeIntensity: 0.9,
       },
     },
@@ -85,7 +85,7 @@ const PolarAreaChartApexCharts = () => {
             width: 400,
           },
           legend: {
-            position: "right",
+            position: 'right',
           },
         },
       },

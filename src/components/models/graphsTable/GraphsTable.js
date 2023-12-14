@@ -1,12 +1,10 @@
-import React from "react";
-import DrawDownTable from "./DrawDownTable";
-import DrawDownTableBacktest from "./DrawDownTableBacktest";
-import "./GraphsTable.css";
-import PerformanceTable from "./PerformanceTable";
-import WinLossTable from "./WinLossTable";
+import React from 'react';
+import DrawDownTable from './DrawDownTable';
+import './GraphsTable.css';
+import PerformanceTable from './PerformanceTable';
+import WinLossTable from './WinLossTable';
 
 const GraphsTable = (props) => {
-  //console.log("Finally drawdown model name -->", props.model_name);
   const name = props.model_name;
   return (
     <div className="graphs-table">

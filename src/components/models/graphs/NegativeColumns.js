@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import ReactApexChart from "react-apexcharts";
-import { useStateContext } from "../../../ContextProvider";
+import React, { useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
+import { useStateContext } from '../../../ContextProvider';
 
 const NegativeColumns = (props) => {
   const { individual_pnl_graph_cache, Set_individual_pnl_graph_cache, link } =
@@ -10,10 +10,8 @@ const NegativeColumns = (props) => {
 
   useEffect(() => {
     if (!individual_pnl_graph_cache[props.model_name]) {
-      // console.log("I received model name for graph -->", props.model_name);
-
       fetch(link + `/${props.model_name}`, {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
           'ngrok-skip-browser-warning': 'true',
@@ -21,37 +19,30 @@ const NegativeColumns = (props) => {
       })
         .then((response) => response.json())
         .then(async (data) => {
-          // console.log("I received data for each series -->", data["response"]);
           var cum_pnl = [];
-          for (var index = 0; index < data["response"].length; index++) {
+          for (var index = 0; index < data['response'].length; index++) {
             cum_pnl.push({
               x: new Date(
-                parseInt(data["response"][index].ledger_timestamp) * 1000
+                parseInt(data['response'][index].ledger_timestamp) * 1000
               ).toLocaleString(),
-              y: data["response"][index].pnl,
+              y: data['response'][index].pnl,
             });
           }
 
-          // await delay(1000);
-          if (cum_pnl.length != 0) {
+          if (cum_pnl.length !== 0) {
             set_cum_pnl(cum_pnl);
             Set_individual_pnl_graph_cache({ [props.model_name]: cum_pnl });
           }
-          // console.log("Cum pnl -->", cum_pnl);
         })
         .catch((err) => console.log(err));
     } else {
       set_cum_pnl(individual_pnl_graph_cache[props.model_name]);
-
-      // console.log(
-      //   "I am using cached value for straight spline graph -->",
-      //   straight_spline_graph_cache[props.model_name]
-      // );
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-    if (cummulative_pnl.length != 0) {
+    if (cummulative_pnl.length !== 0) {
       set_data_for_pnl_graph([
         {
           data: cummulative_pnl,
@@ -62,7 +53,7 @@ const NegativeColumns = (props) => {
 
   const options = {
     chart: {
-      type: "bar",
+      type: 'bar',
       height: 250,
       toolbar: {
         show: true,
@@ -71,7 +62,7 @@ const NegativeColumns = (props) => {
 
     grid: {
       show: true,
-      borderColor: "#43577533",
+      borderColor: '#43577533',
       xaxis: {
         lines: {
           show: false,
@@ -89,16 +80,16 @@ const NegativeColumns = (props) => {
             {
               from: 0,
               to: 100,
-              color: "#16C784",
+              color: '#16C784',
             },
             {
               from: -60,
               to: 0,
-              color: "#FF2E2E",
+              color: '#FF2E2E',
             },
           ],
         },
-        columnWidth: "88%",
+        columnWidth: '88%',
       },
     },
     dataLabels: {
@@ -108,12 +99,12 @@ const NegativeColumns = (props) => {
       tickAmount: 10,
       labels: {
         formatter: function (y) {
-          return y.toFixed(0) + "%";
+          return y.toFixed(0) + '%';
         },
       },
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       labels: {
         rotate: -90,
       },

@@ -1,15 +1,14 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
-// const Dotenv = require("dotenv-webpack");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "app.js",
-    publicPath: "/",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'app.js',
+    publicPath: '/',
   },
   deServer: {
     historyApiFallback: true,
@@ -19,25 +18,18 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: "babel-loader",
+        use: 'babel-loader',
       },
     ],
   },
-  // resolve: {
-  //   fallback: {
-  //     fs: false,
-  //     path: require.resolve("path-browserify"),
-  //     os: require.resolve("os-browserify/browser"),
-  //   },
-  // },
+
   plugins: [
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
-      filename: "index.html",
+      template: path.resolve(__dirname, 'public/index.html'),
+      filename: 'index.html',
     }),
     new webpack.ProvidePlugin({
-      process: "process/browser",
+      process: 'process/browser',
     }),
-    // new Dotenv(),
   ],
 };

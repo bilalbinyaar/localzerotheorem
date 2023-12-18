@@ -11,6 +11,7 @@ import { store, persistor } from './store';
 import { database } from './firebase_config';
 import { ref, onValue } from 'firebase/database';
 import AdminApp from './AdminApp';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const CheckView = () => {
   const { authCheckLoginInvestor, authCheckLoginAdmin, link, setLink } =

@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect } from 'react';
 import { useStateContext } from '../../../ContextProvider';
 import IconButton from '@mui/material/IconButton';

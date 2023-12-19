@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import { Link } from 'react-router-dom';
 import './FAQ.css';
 

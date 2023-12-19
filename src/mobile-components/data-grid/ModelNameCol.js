@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useEffect, useState } from 'react';
 import { AiOutlineFieldTime } from 'react-icons/ai';
 import { useStateContext } from '../../ContextProvider';

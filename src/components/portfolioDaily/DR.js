@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import PerformanceBarChart from '../../graphs/PerformanceBarChart';
 

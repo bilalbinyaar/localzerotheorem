@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
 import './FAQ.css';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';

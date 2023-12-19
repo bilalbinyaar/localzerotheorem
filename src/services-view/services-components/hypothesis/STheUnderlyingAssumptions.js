@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import '../../../components/resources/ResourcesTextual.css';
 import ServicesSideBar from '../ServicesSideBar';

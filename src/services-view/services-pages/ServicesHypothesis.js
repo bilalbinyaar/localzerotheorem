@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import ServicesNavbar from '../services-components/ServicesNavbar';
 import '../ServicesView.css';

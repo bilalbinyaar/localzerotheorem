@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import GradientDonut from '../graphs/GradientDonut';
 import './InDepth.css';

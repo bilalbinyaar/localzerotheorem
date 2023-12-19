@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useEffect, memo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';

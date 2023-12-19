@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
 import './FAQ.css';
 import { questions, questions1, questions2, questions3 } from './api';

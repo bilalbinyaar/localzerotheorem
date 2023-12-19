@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import WinRate from '../../graphs/WinRate';
 const WR = () => {

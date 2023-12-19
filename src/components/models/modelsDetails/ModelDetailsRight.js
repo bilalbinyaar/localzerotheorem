@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import './ModelDetails.css';
 import { BsFillInfoCircleFill } from 'react-icons/bs';

@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import videoBackground from '../../assets/2x-bg.mp4';
 import logoWhite from '../../assets/logo-white.svg';

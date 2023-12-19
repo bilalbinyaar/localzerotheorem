@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect, useRef } from 'react';
 import './Compare.css';
 import Autocomplete from '@mui/material/Autocomplete';

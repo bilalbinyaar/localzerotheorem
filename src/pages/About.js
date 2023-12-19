@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { memo } from 'react';
 import AboutComponent from '../components/about/AboutComponent';
 import { useStateContext } from '../ContextProvider';

@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import CompareComponentStrategies from '../components/compare/CompareComponentStrategies';

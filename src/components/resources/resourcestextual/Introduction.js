@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useRef } from 'react';
 import '../ResourcesTextual.css';
 import SideBar from '../sidebar/SideBar';

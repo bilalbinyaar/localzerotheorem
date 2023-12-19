@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
 // eslint-disable-next-line
 import Prism from 'prismjs';

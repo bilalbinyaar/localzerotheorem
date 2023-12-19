@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useEffect, useState, useRef } from 'react';
 import './Forecasts.css';
 import '../timeHorizon/Horizon.css';

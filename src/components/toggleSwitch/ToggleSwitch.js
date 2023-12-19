@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import './ToggleSwitch.css';
 import { useStateContext } from '../../ContextProvider';

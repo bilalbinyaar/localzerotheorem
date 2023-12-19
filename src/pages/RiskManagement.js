@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import CurrentPortfolio from '../components/currentPortfolio/CurrentPortfolio';
 import RiskManagementModelDetails from '../components/riskManagementModelDetails/RiskManagementModelDetails';

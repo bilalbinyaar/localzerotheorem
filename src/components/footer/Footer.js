@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import './Footer.css';
 import logoBlack from '../../assets/logo-black.svg';

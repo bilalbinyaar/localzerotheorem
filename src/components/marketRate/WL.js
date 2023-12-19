@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import GradientDonut from '../models/graphs/GradientDonut';
 const WL = (props) => {

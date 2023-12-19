@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import { Tooltip } from '@mui/material';
 import React from 'react';
 import './ModelDetails.css';

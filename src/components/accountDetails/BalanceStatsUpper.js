@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import BtcBalanceDonut from '../models/graphs/BtcBalanceDonut';
 import UsdBalanceDonut from '../models/graphs/UsdBalanceDonut';

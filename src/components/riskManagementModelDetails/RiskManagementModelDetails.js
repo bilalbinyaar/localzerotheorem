@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React from 'react';
 import AverageR2Score from './AverageR2Score';
 import AverageSharpe from './AverageSharpe';

@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
 import '../../components/resources/sidebar/SideBar.css';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';

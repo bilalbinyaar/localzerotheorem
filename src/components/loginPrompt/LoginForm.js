@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState } from 'react';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { useStateContext } from '../../ContextProvider';

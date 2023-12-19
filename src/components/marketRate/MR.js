@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useEffect, useState } from 'react';
 import ScatterPlotApexCharts from '../models/graphs/ScatterPlotApexCharts';
 import { useStateContext } from '../../ContextProvider';

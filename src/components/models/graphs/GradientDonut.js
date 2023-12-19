@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useStateContext } from '../../../ContextProvider';

@@ -1,4 +1,3 @@
-// THIS COMPONENT IS BEING USED
 import React, { useMemo } from 'react';
 import CanvasSplineForcasteCard from '../models/graphs/CanvasSplineForcasteCard';
 import './ModelDataGrid.css';

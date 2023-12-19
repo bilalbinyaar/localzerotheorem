@@ -82,33 +82,33 @@ export default function NavMobile(props) {
     setClick(false);
   }
 
-  useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        Swal.fire({
-          title: 'Login successful',
-          icon: 'success',
-          timer: 2000,
-          timerProgressBar: true,
-          toast: true,
-          position: 'top-right',
-          showConfirmButton: false,
-        });
-        setAuthCheckLogin(true);
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: 'Login not successful',
-          icon: 'error',
-          timer: 2000,
-          timerProgressBar: true,
-          toast: true,
-          position: 'top-right',
-          showConfirmButton: false,
-        });
-      });
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   getRedirectResult(auth)
+  //     .then((result) => {
+  //       Swal.fire({
+  //         title: 'Login successful',
+  //         icon: 'success',
+  //         timer: 2000,
+  //         timerProgressBar: true,
+  //         toast: true,
+  //         position: 'top-right',
+  //         showConfirmButton: false,
+  //       });
+  //       setAuthCheckLogin(true);
+  //     })
+  //     .catch((error) => {
+  //       Swal.fire({
+  //         title: 'Login not successful',
+  //         icon: 'error',
+  //         timer: 2000,
+  //         timerProgressBar: true,
+  //         toast: true,
+  //         position: 'top-right',
+  //         showConfirmButton: false,
+  //       });
+  //     });
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <div className="header">

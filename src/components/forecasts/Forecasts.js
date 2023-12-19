@@ -34,26 +34,25 @@ const Forecasts = () => {
           .getElementById(`${id}`)
           .setAttribute('style', 'color:#16C784 !important');
       }
-    } catch {}
+    } catch { }
   };
 
-  const { theme } = useStateContext();
-
-  const {
-    stats_cache,
-    strategies_cache,
-    sorted_stats_cache,
-    Set_strategies_cache,
-    Set_sorted_stats_cache,
-    Set_stats_cache,
-    Set_coin_search_selection_cache,
-    Set_model_search_selection_cache,
-    link,
+  const { link, theme
   } = useStateContext();
+  const [stats_cache, Set_stats_cache] = useState({});
+  const [sorted_stats_cache, Set_sorted_stats_cache] = useState({});
+  const [strategies_cache, Set_strategies_cache] = useState({});
+  const [coin_selection_cache, Set_coin_search_selection_cache] = useState({});
+  const [model_selection_cache, Set_model_search_selection_cache] = useState({});
+  const [strategies, setStrategies] = useState({});
 
   const [topPerformerModels, setTopPerformersModels] = useState({});
   useEffect(() => {
-    if (Object.keys(stats_cache).length === 0) {
+    const sorted_stats = sessionStorage.getItem("sorted_stats");
+    if (sorted_stats) {
+      setTopPerformersModels(JSON.parse(sorted_stats));
+
+    } else {
       fetch(link + '/get_stats', {
         method: 'GET',
         headers: {
@@ -63,6 +62,7 @@ const Forecasts = () => {
       })
         .then((response) => response.json())
         .then((data) => {
+          // Set_stats_cache(data)
           var model_names = {};
           for (var i = 0; i < data['response'].length; i++) {
             model_names[data['response'][i].strategy_name] = {
@@ -108,22 +108,31 @@ const Forecasts = () => {
               })
               .sort((a, b) => b.total_pnl - a.total_pnl);
             setTopPerformersModels(sorted);
-            Set_stats_cache({ stats: model_names });
 
-            Set_sorted_stats_cache({ sorted_stats: sorted });
+            sessionStorage.setItem("stats", JSON.stringify(model_names))
+            sessionStorage.setItem("sorted_stats", JSON.stringify(sorted))
           }
         })
         .catch((err) => console.log(err));
-    } else {
-      setTopPerformersModels(sorted_stats_cache['sorted_stats']);
     }
     // eslint-disable-next-line
   }, []);
 
-  const [strategies, setStrategies] = useState({});
 
   useEffect(() => {
-    if (Object.keys(strategies_cache).length === 0) {
+    const strategies = sessionStorage.getItem("strategies");
+    if (strategies) {
+      const coin_names = sessionStorage.getItem("coin_names");
+      const model_names = sessionStorage.getItem("model_names");
+
+      setStrategies(JSON.parse(strategies));
+      Set_coin_search_selection_cache({
+        coin_names: JSON.parse(coin_names),
+      });
+      Set_model_search_selection_cache({
+        model_names: JSON.parse(model_names),
+      });
+    } else {
       fetch(link + '/get_strategies', {
         method: 'GET',
         headers: {
@@ -197,18 +206,20 @@ const Forecasts = () => {
           }
           if (JSON.stringify(data_for_strategies) !== '{}') {
             setStrategies(data_for_strategies);
-            Set_strategies_cache({ strategies: data_for_strategies });
             Set_coin_search_selection_cache({
               coin_names: coin_names,
             });
             Set_model_search_selection_cache({
               model_names: model_names,
             });
+
+            sessionStorage.setItem("strategies", JSON.stringify(data_for_strategies))
+            sessionStorage.setItem("coin_names", JSON.stringify(coin_names))
+            sessionStorage.setItem("model_names", JSON.stringify(model_names))
+
           }
         })
         .catch((err) => console.log(err));
-    } else {
-      setStrategies(strategies_cache['strategies']);
     }
     // eslint-disable-next-line
   }, [topPerformerModels]);
@@ -471,16 +482,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[0] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[0]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[0]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[0]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -489,16 +499,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[0] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[0]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[0]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[0]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -512,16 +521,16 @@ const Forecasts = () => {
                           id="pnl-color"
                           onChange={
                             Object.values(topPerformerModels)[1] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[0].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[0]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[0]
+                                    .total_pnl
+                                ),
+                                'pnl-color'
+                              )
                               : null
                           }
                         >
@@ -534,12 +543,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[0] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[0].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[0].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[0].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -600,16 +608,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[1] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[1]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[1]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[1]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -618,16 +625,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[1] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[1]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[1]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[1]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -641,16 +647,16 @@ const Forecasts = () => {
                           id="pnl-color2"
                           onChange={
                             Object.values(topPerformerModels)[1] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[1].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[1]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color2'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[1]
+                                    .total_pnl
+                                ),
+                                'pnl-color2'
+                              )
                               : null
                           }
                         >
@@ -663,12 +669,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[1] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[1].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[1].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[1].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -729,16 +734,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[2] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[2]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[2]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[2]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -747,16 +751,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[2] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[2]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[2]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[2]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -770,16 +773,16 @@ const Forecasts = () => {
                           id="pnl-color3"
                           onChange={
                             Object.values(topPerformerModels)[2] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[2].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[2]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color3'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[2]
+                                    .total_pnl
+                                ),
+                                'pnl-color3'
+                              )
                               : null
                           }
                         >
@@ -789,12 +792,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[2] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[2].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[2].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[2].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -855,16 +857,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[3] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[3]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[3]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[3]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -873,16 +874,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[3] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[3]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[3]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[3]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -896,16 +896,16 @@ const Forecasts = () => {
                           id="pnl-color4"
                           onChange={
                             Object.values(topPerformerModels)[3] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[3].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[3]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color4'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[3]
+                                    .total_pnl
+                                ),
+                                'pnl-color4'
+                              )
                               : null
                           }
                         >
@@ -915,12 +915,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[3] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[3].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[3].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[3].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -981,16 +980,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[4] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[4]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[4]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[4]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -999,16 +997,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[4] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[4]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[4]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[4]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1022,16 +1019,16 @@ const Forecasts = () => {
                           id="pnl-color5"
                           onChange={
                             Object.values(topPerformerModels)[4] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[4].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[4]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color5'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[4]
+                                    .total_pnl
+                                ),
+                                'pnl-color5'
+                              )
                               : null
                           }
                         >
@@ -1041,12 +1038,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[4] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[4].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[4].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[4].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -1108,16 +1104,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[5] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[5]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[5]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[5]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1126,16 +1121,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[5] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[5]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[5]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[5]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1149,16 +1143,16 @@ const Forecasts = () => {
                           id="pnl-color6"
                           onChange={
                             Object.values(topPerformerModels)[5] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[5].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[4]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color6'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[4]
+                                    .total_pnl
+                                ),
+                                'pnl-color6'
+                              )
                               : null
                           }
                         >
@@ -1168,12 +1162,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[5] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[5].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[5].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[5].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -1234,16 +1227,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[6] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[6]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[6]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[6]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1252,16 +1244,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[6] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[6]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[6]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[6]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1275,16 +1266,16 @@ const Forecasts = () => {
                           id="pnl-color7"
                           onChange={
                             Object.values(topPerformerModels)[6] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[6].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[6]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color7'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[6]
+                                    .total_pnl
+                                ),
+                                'pnl-color7'
+                              )
                               : null
                           }
                         >
@@ -1294,12 +1285,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[6] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[6].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[6].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[6].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -1360,16 +1350,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[7] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[7]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[7]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[7]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1378,16 +1367,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[7] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[7]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[7]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[7]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1401,16 +1389,16 @@ const Forecasts = () => {
                           id="pnl-color8"
                           onChange={
                             Object.values(topPerformerModels)[7] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[7].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[4]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color8'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[4]
+                                    .total_pnl
+                                ),
+                                'pnl-color8'
+                              )
                               : null
                           }
                         >
@@ -1420,12 +1408,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[7] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[7].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[7].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[7].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -1486,16 +1473,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[8] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[8]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[8]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[8]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1504,16 +1490,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[8] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[8]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[8]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[8]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1527,16 +1512,16 @@ const Forecasts = () => {
                           id="pnl-color9"
                           onChange={
                             Object.values(topPerformerModels)[8] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[8].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[4]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color9'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[4]
+                                    .total_pnl
+                                ),
+                                'pnl-color9'
+                              )
                               : null
                           }
                         >
@@ -1546,12 +1531,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[8] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[8].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[8].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[8].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -1612,16 +1596,15 @@ const Forecasts = () => {
                                 <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                                 <p>
                                   {Object.values(topPerformerModels)[9] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[9]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[9]
-                                            .strategy_name
-                                        ].time_horizon
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[9]
+                                        .strategy_name
+                                    ].time_horizon
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1630,16 +1613,15 @@ const Forecasts = () => {
                               <div className="model-details-left-body-stats date for-forecast-card-details">
                                 <p className="para-margin">
                                   {Object.values(topPerformerModels)[9] &&
-                                  strategies[
+                                    strategies[
                                     Object.values(topPerformerModels)[9]
                                       .strategy_name
-                                  ]
-                                    ? `${
-                                        strategies[
-                                          Object.values(topPerformerModels)[9]
-                                            .strategy_name
-                                        ].currency
-                                      }`
+                                    ]
+                                    ? `${strategies[
+                                      Object.values(topPerformerModels)[9]
+                                        .strategy_name
+                                    ].currency
+                                    }`
                                     : null}
                                 </p>
                               </div>
@@ -1653,16 +1635,16 @@ const Forecasts = () => {
                           id="pnl-color10"
                           onChange={
                             Object.values(topPerformerModels)[9] &&
-                            strategies[
+                              strategies[
                               Object.values(topPerformerModels)[9].strategy_name
-                            ]
+                              ]
                               ? forColor(
-                                  parseInt(
-                                    Object.values(topPerformerModels)[4]
-                                      .total_pnl
-                                  ),
-                                  'pnl-color10'
-                                )
+                                parseInt(
+                                  Object.values(topPerformerModels)[4]
+                                    .total_pnl
+                                ),
+                                'pnl-color10'
+                              )
                               : null
                           }
                         >
@@ -1672,12 +1654,11 @@ const Forecasts = () => {
                             </IconButton>
                           </Tooltip>
                           {Object.values(topPerformerModels)[9] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[9].strategy_name
-                          ]
-                            ? `${
-                                Object.values(topPerformerModels)[9].total_pnl
-                              }%`
+                            ]
+                            ? `${Object.values(topPerformerModels)[9].total_pnl
+                            }%`
                             : null}
                         </h3>
                       </div>
@@ -1754,32 +1735,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[0] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[0]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[0]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[0]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[0] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[0]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[0]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[0]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -1792,22 +1771,22 @@ const Forecasts = () => {
                         id="pnl-color"
                         onChange={
                           Object.values(topPerformerModels)[1] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[0].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[0].total_pnl
-                                ),
-                                'pnl-color'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[0].total_pnl
+                              ),
+                              'pnl-color'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[0] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[0].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[0].total_pnl}%`
                           : null}
                       </h3>
@@ -1868,32 +1847,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[1] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[1]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[1]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[1]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[1] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[1]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[1]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[1]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -1906,22 +1883,22 @@ const Forecasts = () => {
                         id="pnl-color2"
                         onChange={
                           Object.values(topPerformerModels)[1] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[1].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[1].total_pnl
-                                ),
-                                'pnl-color2'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[1].total_pnl
+                              ),
+                              'pnl-color2'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[1] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[1].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[1].total_pnl}%`
                           : null}
                       </h3>
@@ -1982,32 +1959,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[2] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[2]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[2]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[2]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[2] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[2]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[2]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[2]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2020,22 +1995,22 @@ const Forecasts = () => {
                         id="pnl-color3"
                         onChange={
                           Object.values(topPerformerModels)[2] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[2].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[2].total_pnl
-                                ),
-                                'pnl-color3'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[2].total_pnl
+                              ),
+                              'pnl-color3'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[2] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[2].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[2].total_pnl}%`
                           : null}
                       </h3>
@@ -2096,32 +2071,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[3] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[3]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[3]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[3]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[3] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[3]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[3]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[3]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2134,22 +2107,22 @@ const Forecasts = () => {
                         id="pnl-color4"
                         onChange={
                           Object.values(topPerformerModels)[3] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[3].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[3].total_pnl
-                                ),
-                                'pnl-color4'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[3].total_pnl
+                              ),
+                              'pnl-color4'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[3] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[3].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[3].total_pnl}%`
                           : null}
                       </h3>
@@ -2210,32 +2183,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[4] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[4]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[4]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[4]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[4] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[4]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[4]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[4]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2248,22 +2219,22 @@ const Forecasts = () => {
                         id="pnl-color5"
                         onChange={
                           Object.values(topPerformerModels)[4] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[4].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[4].total_pnl
-                                ),
-                                'pnl-color5'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[4].total_pnl
+                              ),
+                              'pnl-color5'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[4] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[4].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[4].total_pnl}%`
                           : null}
                       </h3>
@@ -2324,32 +2295,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[5] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[5]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[5]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[5]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[5] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[5]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[5]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[5]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2362,22 +2331,22 @@ const Forecasts = () => {
                         id="pnl-color6"
                         onChange={
                           Object.values(topPerformerModels)[5] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[5].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[4].total_pnl
-                                ),
-                                'pnl-color6'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[4].total_pnl
+                              ),
+                              'pnl-color6'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[5] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[5].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[5].total_pnl}`
                           : null}
                         {'%'}
@@ -2439,32 +2408,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[6] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[6]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[6]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[6]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[6] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[6]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[6]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[6]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2477,22 +2444,22 @@ const Forecasts = () => {
                         id="pnl-color7"
                         onChange={
                           Object.values(topPerformerModels)[6] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[6].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[4].total_pnl
-                                ),
-                                'pnl-color7'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[4].total_pnl
+                              ),
+                              'pnl-color7'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[6] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[6].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[6].total_pnl}%`
                           : null}
                       </h3>
@@ -2553,32 +2520,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[7] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[7]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[7]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[7]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[7] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[7]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[7]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[7]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2591,22 +2556,22 @@ const Forecasts = () => {
                         id="pnl-color8"
                         onChange={
                           Object.values(topPerformerModels)[7] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[7].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[4].total_pnl
-                                ),
-                                'pnl-color8'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[4].total_pnl
+                              ),
+                              'pnl-color8'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[7] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[7].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[7].total_pnl}%`
                           : null}
                       </h3>
@@ -2667,32 +2632,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[8] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[8]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[8]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[8]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[8] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[8]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[8]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[8]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2705,22 +2668,22 @@ const Forecasts = () => {
                         id="pnl-color9"
                         onChange={
                           Object.values(topPerformerModels)[8] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[8].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[4].total_pnl
-                                ),
-                                'pnl-color9'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[4].total_pnl
+                              ),
+                              'pnl-color9'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[8] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[8].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[8].total_pnl}%`
                           : null}
                       </h3>
@@ -2781,32 +2744,30 @@ const Forecasts = () => {
                             <AiOutlineFieldTime className="model-details-left-body-stats-icon para-margin" />
                             <p>
                               {Object.values(topPerformerModels)[9] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[9]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[9]
-                                        .strategy_name
-                                    ].time_horizon
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[9]
+                                    .strategy_name
+                                ].time_horizon
+                                }`
                                 : null}
                             </p>
                           </div>
                           <div className="model-details-left-body-stats date for-forecast-card-details">
                             <p className="para-margin">
                               {Object.values(topPerformerModels)[9] &&
-                              strategies[
+                                strategies[
                                 Object.values(topPerformerModels)[9]
                                   .strategy_name
-                              ]
-                                ? `${
-                                    strategies[
-                                      Object.values(topPerformerModels)[9]
-                                        .strategy_name
-                                    ].currency
-                                  }`
+                                ]
+                                ? `${strategies[
+                                  Object.values(topPerformerModels)[9]
+                                    .strategy_name
+                                ].currency
+                                }`
                                 : null}
                             </p>
                           </div>
@@ -2819,22 +2780,22 @@ const Forecasts = () => {
                         id="pnl-color10"
                         onChange={
                           Object.values(topPerformerModels)[9] &&
-                          strategies[
+                            strategies[
                             Object.values(topPerformerModels)[9].strategy_name
-                          ]
+                            ]
                             ? forColor(
-                                parseInt(
-                                  Object.values(topPerformerModels)[4].total_pnl
-                                ),
-                                'pnl-color10'
-                              )
+                              parseInt(
+                                Object.values(topPerformerModels)[4].total_pnl
+                              ),
+                              'pnl-color10'
+                            )
                             : null
                         }
                       >
                         {Object.values(topPerformerModels)[9] &&
-                        strategies[
+                          strategies[
                           Object.values(topPerformerModels)[9].strategy_name
-                        ]
+                          ]
                           ? `${Object.values(topPerformerModels)[9].total_pnl}%`
                           : null}
                       </h3>

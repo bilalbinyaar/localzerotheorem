@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react';
-=======
 import React, { Component, useState, useEffect } from 'react';
->>>>>>> 0847999016e05b73592f9794378de610dbaa802a
 import CanvasJSReact from '../../../canvasjs.react';
 import { useStateContext } from '../../../ContextProvider';
 import { ThreeDots } from 'react-loader-spinner';
@@ -32,8 +28,7 @@ function CanvasSplineForcasteCard(props) {
     if (storedItem) {
       // console.log("I am here to die", JSON.parse(storedItem))
       set_cum_pnl(JSON.parse(storedItem));
-    }
-    else {
+    } else {
       fetch(link + `/${props.model_name}`, {
         method: 'GET',
         headers: {
@@ -43,15 +38,14 @@ function CanvasSplineForcasteCard(props) {
       })
         .then((response) => response.json())
         .then(async (data) => {
-          sessionStorage.setItem(props.model_name, JSON.stringify(data))
-          set_cum_pnl(data)
+          sessionStorage.setItem(props.model_name, JSON.stringify(data));
+          set_cum_pnl(data);
         })
         .catch((err) => console.log(err));
     }
   }, []);
 
   useEffect(() => {
-
     if (cummulative_pnl.length != 0) {
       const fetchData = async () => {
         try {
@@ -125,14 +119,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_positive = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_positive_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -148,14 +142,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_positive = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_positive_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -172,14 +166,14 @@ function CanvasSplineForcasteCard(props) {
                       temp_last_data_positive = {
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                            1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       };
                       temp_positive_series.push({
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                            1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       });
@@ -188,14 +182,14 @@ function CanvasSplineForcasteCard(props) {
                     temp_last_data_positive = {
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                        1000
+                          1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     };
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                        1000
+                          1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     });
@@ -216,14 +210,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_negative = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_negative_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -239,14 +233,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_negative = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_negative_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                              1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -263,14 +257,14 @@ function CanvasSplineForcasteCard(props) {
                       temp_last_data_negative = {
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                            1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       };
                       temp_negative_series.push({
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                            1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       });
@@ -279,14 +273,14 @@ function CanvasSplineForcasteCard(props) {
                     temp_last_data_negative = {
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                        1000
+                          1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     };
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                        1000
+                          1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     });
@@ -339,17 +333,14 @@ function CanvasSplineForcasteCard(props) {
               setIsLoaded(true);
             }
             // console.log("Datagrid canvas data -->", cummulative_pnl.length);
-
           }
         } catch (error) {
           console.error('Error occurred:', error);
         }
-
       };
 
       fetchData(); // Call the async function
     }
-
   }, [cummulative_pnl]);
 
   return (

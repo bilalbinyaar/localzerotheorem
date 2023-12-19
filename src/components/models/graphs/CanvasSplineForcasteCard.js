@@ -1,44 +1,71 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+import React, { Component, useState, useEffect } from 'react';
+>>>>>>> 0847999016e05b73592f9794378de610dbaa802a
 import CanvasJSReact from '../../../canvasjs.react';
 import { useStateContext } from '../../../ContextProvider';
 import { ThreeDots } from 'react-loader-spinner';
+import { store } from '../../../store';
 
 function CanvasSplineForcasteCard(props) {
+  const [minValue, setMinValue] = useState(null);
+  const [maxValue, setMaxValue] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { link } = useStateContext();
+  const {
+    negative_canvasjs_graph_cache,
+    Set_negative_canvasjs_graph_cache,
+    link,
+  } = useStateContext();
   const [
     forecastSpline_canvasjs_graph_cache,
     Set_forecastSpline_canvasjs_graph_cache,
   ] = useState([]);
   const [cummulative_pnl, set_cum_pnl] = useState([]);
-  const [options, setOptions] = useState({
-    backgroundColor: 'transparent',
-    theme: 'light2',
-    animationEnabled: true,
-  });
+  const [options, setOptions] = useState({});
+  var CanvasJS = CanvasJSReact.CanvasJS;
   var CanvasJSChart = CanvasJSReact.CanvasJSChart;
   useEffect(() => {
-    try {
-      if (!forecastSpline_canvasjs_graph_cache[props.model_name]) {
-        fetch(link + `/${props.model_name}`, {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
-            'ngrok-skip-browser-warning': 'true',
-          },
+    const storedItem = sessionStorage.getItem(props.model_name);
+    // console.log("Here is testing local storage ", storedItem)
+    if (storedItem) {
+      // console.log("I am here to die", JSON.parse(storedItem))
+      set_cum_pnl(JSON.parse(storedItem));
+    }
+    else {
+      fetch(link + `/${props.model_name}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
+          'ngrok-skip-browser-warning': 'true',
+        },
+      })
+        .then((response) => response.json())
+        .then(async (data) => {
+          sessionStorage.setItem(props.model_name, JSON.stringify(data))
+          set_cum_pnl(data)
         })
-          .then((response) => response.json())
-          .then(async (data) => {
+        .catch((err) => console.log(err));
+    }
+  }, []);
+
+  useEffect(() => {
+
+    if (cummulative_pnl.length != 0) {
+      const fetchData = async () => {
+        try {
+          // console.log("Here is pnl after session ", cummulative_pnl)
+          if (cummulative_pnl) {
             var main_series = [];
             var temp_positive_series = [];
             var temp_negative_series = [];
             var temp_last_data_positive = {};
             var temp_last_data_negative = {};
-
+            var data = cummulative_pnl;
             for (var index = 0; index < data['response'].length; index++) {
-              if (index + 1 === data['response'].length) {
-                if (temp_positive_series.length !== 0) {
+              if (index + 1 == data['response'].length) {
+                if (temp_positive_series.length != 0) {
                   if (main_series.length > 0) {
                     if (JSON.stringify(temp_last_data_negative) !== '{}') {
                       temp_positive_series.unshift(temp_last_data_negative);
@@ -83,7 +110,7 @@ function CanvasSplineForcasteCard(props) {
                 }
               } else {
                 if (parseFloat(data['response'][index].pnl_sum) >= 0) {
-                  if (temp_negative_series.length !== 0) {
+                  if (temp_negative_series.length != 0) {
                     if (main_series.length > 0) {
                       if (JSON.stringify(temp_last_data_positive) !== '{}') {
                         temp_negative_series.unshift(temp_last_data_positive);
@@ -98,14 +125,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_positive = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_positive_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -121,14 +148,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_positive = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_positive_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -145,14 +172,14 @@ function CanvasSplineForcasteCard(props) {
                       temp_last_data_positive = {
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       };
                       temp_positive_series.push({
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       });
@@ -161,20 +188,20 @@ function CanvasSplineForcasteCard(props) {
                     temp_last_data_positive = {
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     };
                     temp_positive_series.push({
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     });
                   }
                 } else {
-                  if (temp_positive_series.length !== 0) {
+                  if (temp_positive_series.length != 0) {
                     if (main_series.length > 0) {
                       if (JSON.stringify(temp_last_data_positive) !== '{}') {
                         temp_positive_series.unshift(temp_last_data_negative);
@@ -189,14 +216,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_negative = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_negative_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -212,14 +239,14 @@ function CanvasSplineForcasteCard(props) {
                         temp_last_data_negative = {
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         };
                         temp_negative_series.push({
                           x: new Date(
                             parseInt(data['response'][index].ledger_timestamp) *
-                              1000
+                            1000
                           ),
                           y: parseFloat(data['response'][index].pnl_sum),
                         });
@@ -236,14 +263,14 @@ function CanvasSplineForcasteCard(props) {
                       temp_last_data_negative = {
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       };
                       temp_negative_series.push({
                         x: new Date(
                           parseInt(data['response'][index].ledger_timestamp) *
-                            1000
+                          1000
                         ),
                         y: parseFloat(data['response'][index].pnl_sum),
                       });
@@ -252,14 +279,14 @@ function CanvasSplineForcasteCard(props) {
                     temp_last_data_negative = {
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     };
                     temp_negative_series.push({
                       x: new Date(
                         parseInt(data['response'][index].ledger_timestamp) *
-                          1000
+                        1000
                       ),
                       y: parseFloat(data['response'][index].pnl_sum),
                     });
@@ -267,63 +294,62 @@ function CanvasSplineForcasteCard(props) {
                 }
               }
             }
+            // console.log("Testing data -->", main_series);
 
-            if (main_series.length !== 0) {
-              set_cum_pnl(main_series);
-              Set_forecastSpline_canvasjs_graph_cache({
-                [props.model_name]: main_series,
+            if (main_series.length != 0) {
+              // localStorage.setItem(props.model_name, JSON.stringify(main_series));
+              // sessionStorage.setItem(props.model_name, JSON.stringify(main_series))
+              // set_cum_pnl(main_series);
+              // console.log("Here is data before saving -->", main_series)
+              // Set_negative_canvasjs_graph_cache({
+              //   [props.model_name]: main_series,
+              // });
+              setOptions({
+                backgroundColor: 'transparent',
+                theme: 'light2',
+                animationEnabled: false,
+                data: main_series,
+                toolTip: {
+                  enabled: true,
+                },
+                axisY: {
+                  gridColor: '#43577533',
+                  gridThickness: 0,
+                  // minimum: -20,
+                  // maximum: 150,
+                  labelFontColor: 'rgb(55, 61, 63)',
+                  tickColor: '#43577533',
+                  tickThickness: 0,
+                  labelFormatter: function () {
+                    return ' ';
+                  },
+                },
+                axisX: {
+                  labelFontColor: 'rgb(55, 61, 63)',
+                  gridThickness: 0,
+                  tickColor: '#43577533',
+                  tickThickness: 0,
+                  lineThickness: 0,
+                  lineColor: '#43577577',
+                  labelFormatter: function () {
+                    return ' ';
+                  },
+                },
               });
               setIsLoaded(true);
             }
-          })
-          .catch((err) => console.log(err));
-      } else {
-        set_cum_pnl(forecastSpline_canvasjs_graph_cache[props.model_name]);
-        setIsLoaded(true);
-      }
-    } catch (error) {
-      console.log('Error occured');
-    }
-    // eslint-disable-next-line
-  }, []);
+            // console.log("Datagrid canvas data -->", cummulative_pnl.length);
 
-  useEffect(() => {
-    try {
-      if (cummulative_pnl.length !== 0) {
-        setOptions({
-          backgroundColor: 'transparent',
-          theme: 'light2',
-          animationEnabled: false,
-          data: cummulative_pnl,
-          toolTip: {
-            enabled: true,
-          },
-          axisY: {
-            gridColor: '#43577533',
-            gridThickness: 0,
-            labelFontColor: 'rgb(55, 61, 63)',
-            tickColor: '#43577533',
-            tickThickness: 0,
-            labelFormatter: function () {
-              return ' ';
-            },
-          },
-          axisX: {
-            labelFontColor: 'rgb(55, 61, 63)',
-            gridThickness: 0,
-            tickColor: '#43577533',
-            tickThickness: 0,
-            lineThickness: 0,
-            lineColor: '#43577577',
-            labelFormatter: function () {
-              return ' ';
-            },
-          },
-        });
-      }
-    } catch (error) {
-      console.log('Error occured');
+          }
+        } catch (error) {
+          console.error('Error occurred:', error);
+        }
+
+      };
+
+      fetchData(); // Call the async function
     }
+
   }, [cummulative_pnl]);
 
   return (

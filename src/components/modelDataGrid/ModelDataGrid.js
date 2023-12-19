@@ -285,7 +285,7 @@ const ModelDataGrid = () => {
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log('Here pnl list -->', pnl_for_each_strategy);
+              // console.log('Here pnl list -->', pnl_for_each_strategy);
               var data_for_strategies = {};
               var model_names = [];
               var coin_names = [];
@@ -453,7 +453,7 @@ const ModelDataGrid = () => {
 
   // To Link Grid Rows to Models Component
   const linkModels = useNavigate();
-  const handleRowClickEvent = (params) => {};
+  const handleRowClickEvent = (params) => { };
   // To Link Grid Rows to Models Component
 
   const columns = [
@@ -943,7 +943,7 @@ const ModelDataGrid = () => {
           row.id === params.row.id
             ? row.favs === true
               ? // eslint-disable-next-line
-                { ...row, ['favs']: false } // eslint-disable-next-line
+              { ...row, ['favs']: false } // eslint-disable-next-line
               : { ...row, ['favs']: true }
             : row
         );
@@ -1032,9 +1032,9 @@ const ModelDataGrid = () => {
                       fontSize: '11px',
 
                       '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
-                        {
-                          color: 'var(--color-day-black)',
-                        },
+                      {
+                        color: 'var(--color-day-black)',
+                      },
                       '& div  >.MuiAutocomplete-option.Mui-focused': {
                         backgroundColor: 'var(--color-day-yellow)',
                         color: '#000000',
@@ -1080,9 +1080,9 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':
-                        {
-                          color: 'var(--color-day-black) !important',
-                        },
+                      {
+                        color: 'var(--color-day-black) !important',
+                      },
 
                       '& div div >.MuiOutlinedInput-root': {
                         backgroundColor:
@@ -1103,16 +1103,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
-                        {
-                          backgroundColor:
-                            'var(--color-dropdown-bg) !important',
-                          color: 'var(--color-day-black) !important',
-                        },
+                      {
+                        backgroundColor:
+                          'var(--color-dropdown-bg) !important',
+                        color: 'var(--color-day-black) !important',
+                      },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                        {
-                          color: 'var(--color-day-yellow) !important',
-                        },
+                      {
+                        color: 'var(--color-day-yellow) !important',
+                      },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
                         color: 'var(--color-day-yellow) !important',
@@ -1163,16 +1163,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
-                        {
-                          borderBottom:
-                            '1px solid var(--color-day-yellow) !important',
-                        },
+                      {
+                        borderBottom:
+                          '1px solid var(--color-day-yellow) !important',
+                      },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
-                        {
-                          borderBottom:
-                            '2px solid var(--color-day-yellow) !important',
-                        },
+                      {
+                        borderBottom:
+                          '2px solid var(--color-day-yellow) !important',
+                      },
 
                       '& #demo-simple-select-standard-label': {
                         color: 'var(--color-day-yellow) !important',
@@ -1183,20 +1183,20 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
-                        {
-                          backgroundColor: 'var(--color-day-yellow) !important',
-                          color: 'black',
-                        },
+                      {
+                        backgroundColor: 'var(--color-day-yellow) !important',
+                        color: 'black',
+                      },
 
                       '& .css-1869usk-MuiFormControl-root': {
                         height: '60px !important',
                       },
 
                       '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
-                        {
-                          color: 'var(--color-day-black) !important',
-                          fontSize: '14px !important',
-                        },
+                      {
+                        color: 'var(--color-day-black) !important',
+                        fontSize: '14px !important',
+                      },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
                         fontSize: '13px !important',
@@ -1241,9 +1241,9 @@ const ModelDataGrid = () => {
                       marginLeft: '0.4rem',
 
                       '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
-                        {
-                          color: 'var(--color-day-black)',
-                        },
+                      {
+                        color: 'var(--color-day-black)',
+                      },
                       '& div  >.MuiAutocomplete-option.Mui-focused': {
                         backgroundColor: 'var(--color-day-yellow)',
                         color: '#000000',
@@ -1289,9 +1289,9 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':
-                        {
-                          color: 'var(--color-day-black) !important',
-                        },
+                      {
+                        color: 'var(--color-day-black) !important',
+                      },
 
                       '& div div >.MuiOutlinedInput-root': {
                         backgroundColor:
@@ -1312,16 +1312,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
-                        {
-                          backgroundColor:
-                            'var(--color-dropdown-bg) !important',
-                          color: 'var(--color-day-black) !important',
-                        },
+                      {
+                        backgroundColor:
+                          'var(--color-dropdown-bg) !important',
+                        color: 'var(--color-day-black) !important',
+                      },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                        {
-                          color: 'var(--color-day-yellow) !important',
-                        },
+                      {
+                        color: 'var(--color-day-yellow) !important',
+                      },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
                         color: 'var(--color-day-yellow) !important',
@@ -1372,16 +1372,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
-                        {
-                          borderBottom:
-                            '1px solid var(--color-day-yellow) !important',
-                        },
+                      {
+                        borderBottom:
+                          '1px solid var(--color-day-yellow) !important',
+                      },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
-                        {
-                          borderBottom:
-                            '2px solid var(--color-day-yellow) !important',
-                        },
+                      {
+                        borderBottom:
+                          '2px solid var(--color-day-yellow) !important',
+                      },
 
                       '& #demo-simple-select-standard-label': {
                         color: 'var(--color-day-yellow) !important',
@@ -1392,20 +1392,20 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
-                        {
-                          backgroundColor: 'var(--color-day-yellow) !important',
-                          color: 'black',
-                        },
+                      {
+                        backgroundColor: 'var(--color-day-yellow) !important',
+                        color: 'black',
+                      },
 
                       '& .css-1869usk-MuiFormControl-root': {
                         height: '60px !important',
                       },
 
                       '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
-                        {
-                          color: 'var(--color-day-black) !important',
-                          fontSize: '14px !important',
-                        },
+                      {
+                        color: 'var(--color-day-black) !important',
+                        fontSize: '14px !important',
+                      },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
                         fontSize: '13px !important',

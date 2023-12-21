@@ -53,17 +53,17 @@
   display: contents;
 }
 
-.general {
+/* .general {
   display: flex;
   align-items: center;
-}
+} */
 
-.general-sep {
+/* .general-sep {
   height: 1px;
   background-color: var(--color-day-yellow);
   width: 100%;
   margin-top: 3rem;
-}
+} */
 
 @media screen and (max-width: 568px) {
   .faq {

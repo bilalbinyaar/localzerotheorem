@@ -21,10 +21,10 @@ form .form-inner .form-group {
   margin-bottom: 25px;
 }
 
-.form-control {
+/* .form-control {
   background-color: var(--color-day-white);
   color: black !important;
-}
+} */
 
 form .form-inner .form-group input:focus {
   box-shadow: 0px 0px 3px var(--primary);
@@ -66,10 +66,10 @@ form .form-inner input[type='auth'] {
   margin-bottom: 10px;
 }
 
-.login video {
+/* .login video {
   position: fixed;
   z-index: -1;
-}
+} */
 
 .register-text {
   margin-top: 0.6rem !important;
@@ -126,7 +126,7 @@ option:nth-child(0) {
   color: #ffc600 !important;
 }
 
-.form-headings {
+/* .form-headings {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -143,7 +143,7 @@ option:nth-child(0) {
 .form-headings .active {
   border-bottom: 2px solid var(--color-day-yellow);
   padding-bottom: 0.8rem;
-}
+} 
 
 .checkbox-div {
   margin-top: 12px;
@@ -157,7 +157,7 @@ option:nth-child(0) {
   font-weight: 400;
   font-size: 14px;
   color: var(--color-day-black);
-}
+} 
 
 .tandc-text {
   display: flex;
@@ -168,7 +168,6 @@ option:nth-child(0) {
 .tanc-text p {
   text-align: center !important;
 }
-
 .reg-interest {
   margin-top: 1.4rem;
   font-weight: 500;
@@ -183,6 +182,7 @@ option:nth-child(0) {
   cursor: pointer;
   color: var(--color-day-yellow);
 }
+*/
 
 .only-mb {
   margin-top: 0 !important;
@@ -278,9 +278,9 @@ option:nth-child(0) {
     width: auto !important;
   }
 
-  .form-headings {
+  /* .form-headings {
     margin-bottom: 0;
-  }
+  } */
 
   form .form-inner h2 {
     font-size: 18px;
@@ -291,9 +291,9 @@ option:nth-child(0) {
     width: 290px;
   }
 
-  .forget-pwd {
+  /* .forget-pwd {
     margin-bottom: 20px;
-  }
+  } 
 
   .checkbox-div {
     margin-bottom: 20px;
@@ -301,7 +301,7 @@ option:nth-child(0) {
 
   .checkbox-div label {
     font-size: 12px;
-  }
+  }*/
 
   .investor-zt-logo {
     padding: 2rem 0 0 0;

@@ -303,7 +303,7 @@ form .form-inner input[type='submit']:hover {
   margin-bottom: 0px !important;
 }
 
-.forget-pwd {
+/* .forget-pwd {
   margin-bottom: 25px;
   width: 100%;
   display: flex;
@@ -312,19 +312,7 @@ form .form-inner input[type='submit']:hover {
 
 .forget-pwd p {
   margin-top: 12px;
-}
-
-.iconSpace {
-  margin-right: 8px;
-  font-size: 20px;
-  color: var(--color-day-yellow);
-}
-
-.error {
-  display: block;
-  color: rgba(255, 0, 0, 0.733);
-  margin-bottom: 10px;
-}
+} */
 
 /* Login css */
 

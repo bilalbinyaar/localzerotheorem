@@ -98,9 +98,9 @@
   justify-content: center;
 }
 
-.currency-search {
+/* .currency-search {
   margin-right: 1.5rem;
-}
+} */
 
 @media screen and (max-width: 1200px) {
   .horizon-left {

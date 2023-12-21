@@ -50,9 +50,9 @@
   margin-top: 3.5rem;
 }
 
-.footer-btn {
+/* .footer-btn {
   margin-bottom: 15px;
-}
+} */
 
 .footer-icons-div {
   display: flex;
@@ -67,13 +67,13 @@
   color: var(--color-day-yellow);
 }
 
-.dis {
+/* .dis {
   margin-left: 15px !important;
-}
+} */
 
-.footer-more {
+/* .footer-more {
   visibility: hidden !important;
-}
+} */
 
 .footer-ann-h h2 {
   background-color: transparent !important;

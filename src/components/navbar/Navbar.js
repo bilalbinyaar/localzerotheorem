@@ -9,10 +9,7 @@ import { useStateContext } from '../../ContextProvider';
 import NavMobile from '../../mobile-components/nav/NavMobile';
 import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
-
 import { auth } from '../../firebase_config';
-import Swal from 'sweetalert2';
-import { getRedirectResult } from 'firebase/auth';
 
 export default function Navbar() {
   const [click, setClick] = useState(false);

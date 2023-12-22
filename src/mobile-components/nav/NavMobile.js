@@ -5,7 +5,6 @@ import logoBlack from '../../assets/logo-black.svg';
 import logoWhite from '../../assets/logo-white.svg';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useStateContext } from '../../ContextProvider';
-import Swal from 'sweetalert2';
 import {
   AiFillHome,
   AiOutlineApi,
@@ -21,8 +20,6 @@ import { BiColumns } from 'react-icons/bi';
 import { FaQuestionCircle, FaRegEdit } from 'react-icons/fa';
 import '../../components/navbar/Navbar.css';
 import { AiOutlineContacts } from 'react-icons/ai';
-import { auth } from '../../firebase_config';
-import { getRedirectResult } from 'firebase/auth';
 
 export default function NavMobile(props) {
   const [click, setClick] = useState(false);
@@ -30,13 +27,7 @@ export default function NavMobile(props) {
   const dispatch = useDispatch();
 
   // Login State
-  const {
-    setAuthCheckLogin,
-
-    theme,
-    setTheme,
-    authCheckLoginInvestor,
-  } = useStateContext();
+  const { theme, setTheme, authCheckLoginInvestor } = useStateContext();
   // Login State
 
   // mobile nav state

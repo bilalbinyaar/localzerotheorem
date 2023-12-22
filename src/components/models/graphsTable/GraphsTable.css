@@ -20,7 +20,7 @@
   text-align: center;
 }
 
-.column-details {
+/* .column-details {
   margin-top: 1.5rem;
 }
 
@@ -29,7 +29,7 @@
   font-weight: 500;
   color: var(--color-black-opcaity);
   width: 100%;
-}
+} */
 
 .for-weight {
   font-weight: 600 !important;
@@ -46,9 +46,9 @@
   align-items: center;
 }
 
-.text-align-right {
+/* .text-align-right {
   text-align: right;
-}
+} */
 
 .text-align-left {
   text-align: left !important;

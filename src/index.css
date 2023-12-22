@@ -299,9 +299,9 @@ form .form-inner input[type='submit']:hover {
   transform: scale(1.1);
 }
 
-.no-margin-bottom {
+/* .no-margin-bottom {
   margin-bottom: 0px !important;
-}
+} */
 
 /* .forget-pwd {
   margin-bottom: 25px;
@@ -964,25 +964,25 @@ a:-webkit-any-link {
   display: none !important;
 }
 
-#tv_chart_container {
+/* #tv_chart_container {
   background-color: yellow !important;
-}
+} */
 
-.container2 {
+/* .container2 {
   width: 77.5%;
   margin: 0 auto;
   height: 400px !important;
   margin-bottom: 7%;
   padding: 4rem 3.4rem;
-}
+} */
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
   .container2 {
     margin-right: 10% !important;
     margin-bottom: 20% !important;
   }
-}
-
+} */
+/* 
 .container3 {
   width: 74%;
   margin: 0 auto;
@@ -996,7 +996,7 @@ a:-webkit-any-link {
     margin-bottom: 7%;
     padding: 4rem 3.4rem;
   }
-}
+} */
 
 /* MATH JAX */
 mjx-container[jax='SVG'] > svg {
@@ -1273,7 +1273,7 @@ pre[class*='language-'] {
 /* API PAGE CSS END */
 
 /* LOGIN/SIGN UP POPUP STYLES */
-.popup {
+/* .popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -1319,7 +1319,7 @@ pre[class*='language-'] {
     right: 15px;
     font-size: 20px;
   }
-}
+} */
 
 /* MAIN WEB LOGIN PAGE */
 .main-web-form-group {
@@ -1343,39 +1343,39 @@ pre[class*='language-'] {
   margin-bottom: 1.4rem;
 }
 
-.kelly-line-charts {
+/* .kelly-line-charts {
   width: 100% !important;
   padding: 2rem 0rem 0rem 0rem !important;
 }
 
 .kelly-line-charts h2 {
   margin-bottom: 2.5rem;
-}
+} */
 
-#canvasjs-react-chart-container-3 {
+/* #canvasjs-react-chart-container-3 {
   width: 100%;
   position: relative;
   height: 300px;
-}
+} */
 
-#canvasjs-react-chart-container-5 {
+/* #canvasjs-react-chart-container-5 {
   width: 100%;
   position: relative;
   height: 300px;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .scattered .container {
     padding: 1rem 0rem 2rem 0rem;
   }
 
-  .kelly-line-charts {
+  /* .kelly-line-charts {
     padding: 1.2rem 0rem 0rem 0rem !important;
-  }
+  } */
 
-  .padding-bottom-kelly {
+  /* .padding-bottom-kelly {
     margin-bottom: 1.2rem;
-  }
+  } */
 }
 
 /* RISK MANAGEMENT PAGE CSS */

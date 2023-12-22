@@ -28,20 +28,20 @@
   margin-right: 0.5rem;
 }
 
-.forecasts-icons {
+/* .forecasts-icons {
   width: 24px;
   height: 24px;
   color: var(--color-forecasts-card-series-index);
-}
+} */
 
-.card-column-one {
+/* .card-column-one {
   display: flex;
   flex-direction: column;
   width: 15%;
   height: 100%;
-}
+} */
 
-.forecasts-index-numbers {
+/* .forecasts-index-numbers {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -54,17 +54,17 @@
   display: flex;
   justify-content: space-between;
   color: var(--color-forecasts-card-series-index);
-}
+} */
 
-.card-column-two {
+/* .card-column-two {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
   height: 100%;
-}
+} */
 
-.forecasts-series {
+/* .forecasts-series {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -77,19 +77,19 @@
   display: flex;
   align-items: center;
   color: var(--color-day-black);
-}
+} */
 
-.dollar-icon {
+/* .dollar-icon {
   color: var(--color-day-green);
   margin-right: 10px;
-}
+} */
 
-.card-column-three {
+/* .card-column-three {
   display: flex;
   flex-direction: column;
   width: 25%;
   height: 100%;
-}
+} */
 
 .forecasts-more {
   display: flex;
@@ -101,20 +101,20 @@
   color: var(--color-day-green) !important;
 }
 
-.card-column-three h3 {
+/* .card-column-three h3 {
   color: var(--color-day-red);
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.more-icon {
+/* .more-icon {
   color: var(--color-day-yellow);
   font-size: 18px;
   margin-left: 5px;
-}
+} */
 
-.forecasts-percentage {
+/* .forecasts-percentage {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -129,13 +129,13 @@
   justify-content: space-between;
   color: var(--color-day-red);
   font-weight: 300;
-}
+} */
 
-.arrow-down-icon {
+/* .arrow-down-icon {
   width: 10px;
   height: 10px;
   margin-right: 2px;
-}
+} */
 
 .announcement-card {
   width: 100%;
@@ -166,16 +166,16 @@
   justify-content: center;
 }
 
-.news-img {
+/* .news-img {
   height: 100px;
   border-radius: 12px;
-}
+} */
 
 .news-textual {
   margin-left: 1rem;
 }
 
-.news-head {
+/* .news-head {
   display: flex;
   align-items: center;
 }
@@ -185,14 +185,14 @@
   margin-left: 3px;
   color: var(--color-forecasts-card-series-index);
   font-weight: 700;
-}
+} */
 
-.news-body p {
+/* .news-body p {
   font-size: 12px;
   margin: 5px 0;
-}
+} */
 
-.news-footer {
+/* .news-footer {
   display: flex;
   align-items: center;
   color: var(--color-forecasts-card-series-index);
@@ -207,7 +207,7 @@
 
 .news-footer-icon {
   margin-right: 3px;
-}
+} */
 
 .title-div h2 {
   padding: 5px 10px;
@@ -243,7 +243,7 @@
   margin-top: 35px;
 }
 
-.drop-down-best {
+/* .drop-down-best {
   padding: 6px;
   margin-left: 0.5rem;
   background-color: var(--color-forecasts-card);
@@ -256,16 +256,16 @@
 
 .drop-down-best h2 {
   font-size: 12px;
-}
+} */
 
-.best-down-icon {
+/* .best-down-icon {
   font-size: 11px;
   margin-left: 5px;
   color: var(--color-day-black);
   font-weight: 500;
-}
+} */
 
-.filter-drop-down {
+/* .filter-drop-down {
   background: var(--forecasts-model-index);
   padding: 0.5rem;
   width: 4.4rem;
@@ -292,7 +292,7 @@
 .filter-drop-down-list p {
   text-align: center;
   margin-top: 0 !important;
-}
+} */
 
 .all-time-div {
   display: flex;
@@ -371,12 +371,12 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 1880px) {
+/* @media screen and (min-width: 1880px) {
   .filter-drop-down {
     width: 4.44rem;
     left: 34.471rem;
   }
-}
+} */
 
 @media screen and (max-width: 1300px) {
   .title-div h2 {
@@ -500,9 +500,9 @@
     width: 100%;
   }
 
-  .drop-down-best {
+  /* .drop-down-best {
     background-color: var(--color-day-yellow);
-  }
+  } */
 
   .bar-for-best {
     margin-top: 25px;
@@ -552,10 +552,10 @@
     font-size: 12px;
   }
 
-  .filter-drop-down {
+  /* .filter-drop-down {
     left: 17rem;
     top: 14.6rem;
-  }
+  } */
 
   .forecast-mob {
     display: flex;
@@ -596,11 +596,11 @@
   }
 }
 
-.for-bg {
+/* .for-bg {
   background-color: var(--color-day-green) !important;
   color: var(--color-day-white) !important;
 }
 
 .for-bg p {
   color: var(--color-day-white) !important;
-}
+} */

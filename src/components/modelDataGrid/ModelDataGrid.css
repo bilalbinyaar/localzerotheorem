@@ -2,9 +2,9 @@
   padding: 0rem 0rem 1rem 0rem;
 }
 
-.graph-data {
+/* .graph-data {
   width: 80px;
-}
+} */
 
 /* SEARCH FILTERS CSS */
 .css-13cymwt-control {
@@ -56,7 +56,7 @@
   display: none;
 }
 
-.horizon-head{
+.horizon-head {
   margin-bottom: 0.4rem;
 }
 
@@ -76,13 +76,13 @@
   color: var(--color-day-yellow);
 }
 
-@media screen and (min-width:1080px) {
+@media screen and (min-width: 1080px) {
   .grid-div-tab {
     display: none;
   }
 }
 
-@media screen and (max-width:1080px) {
+@media screen and (max-width: 1080px) {
   .grid-div-tab {
     display: block;
   }
@@ -93,7 +93,6 @@
 }
 
 @media screen and (max-width: 568px) {
-
   .grid-for-tab {
     display: none;
   }
@@ -169,4 +168,3 @@
   }
 }
 /* SEARCH FILTERS CSS */
-

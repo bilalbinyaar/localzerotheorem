@@ -25,13 +25,13 @@
   padding-left: 0 !important;
 }
 
-.for-green {
+/* .for-green {
   color: var(--color-day-green) !important;
-}
+} */
 
-.for-red {
+/* .for-red {
   color: var(--color-day-red) !important;
-}
+} */
 
 .current-position-body {
   display: flex;
@@ -105,13 +105,13 @@
     margin-top: 8px;
   }
 
-  .for-red {
+  /* .for-red {
     margin-left: 0.1rem;
-  }
-
+  } */
+  /* 
   .for-green {
     margin-left: 0.1rem;
-  }
+  } */
 
   .for-h3-font {
     font-size: 14px;

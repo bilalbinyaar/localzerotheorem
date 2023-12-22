@@ -22,11 +22,11 @@
   width: 29%;
 }
 
-.overall-stats {
+/* .overall-stats {
   background-color: var(--color-forecasts-card);
   padding: 0.8rem;
   border-radius: 4px;
-}
+} */
 
 .pnl-stats-bar {
   background-color: var(--color-forecasts-card);
@@ -63,9 +63,9 @@
 }
 
 /* NEW */
-.overall-stats {
+/* .overall-stats {
   width: 100%;
-}
+} */
 
 .for-flex-col {
   display: flex;
@@ -88,14 +88,14 @@
   color: var(--color-day-green) !important;
 }
 
-.for-overall-stat p {
+/* .for-overall-stat p {
   font-size: 14px;
 }
 
 .for-overall-stat-icon {
   font-size: 14px !important;
   margin-top: 5px !important;
-}
+} */
 
 .divider-div-pnl-stats {
   width: 3px;
@@ -104,14 +104,14 @@
 }
 
 @media screen and (max-width: 568px) {
-  .for-overall-stat p {
+  /* .for-overall-stat p {
     font-size: 12px;
   }
 
   .for-overall-stat-icon {
     font-size: 12px !important;
     margin-top: 3px !important;
-  }
+  } */
   .portfolio-stats {
     padding: 1.2rem 0rem 0rem 0rem;
     flex-direction: column;

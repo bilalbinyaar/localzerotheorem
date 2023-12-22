@@ -100,12 +100,12 @@
   margin-right: 0.2rem;
 }
 
-.indicator-smooth {
+/* .indicator-smooth {
   color: var(--color-day-yellow);
   width: 14px;
   margin-left: 1.4rem;
   margin-right: 0.2rem;
-}
+} */
 
 .percentage-wapper {
   margin-top: 0.8rem;
@@ -156,13 +156,13 @@
   font-weight: 500;
 }
 
-.percentage-wapper-disable {
+/* .percentage-wapper-disable {
   width: 100%;
   background-color: rgba(128, 128, 128, 0.2);
   margin-top: 0.8rem;
   padding: 1.15rem;
   border-radius: 6px;
-}
+} */
 
 .over-view-description {
   text-align: justify;

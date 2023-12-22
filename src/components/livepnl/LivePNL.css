@@ -2,7 +2,7 @@
   padding: 1rem 0rem 2.4rem 0rem;
 }
 
-.live-pnl-stats-div {
+/* .live-pnl-stats-div {
   width: 100%;
   border-top: 1px solid var(--color-stats-bg);
   border-bottom: 1px solid var(--color-stats-bg);
@@ -11,8 +11,8 @@
   align-items: center;
   margin-top: 1.4rem;
   padding: 0.8rem 0rem;
-}
-.live-pnl-stats-div-2 {
+} */
+/* .live-pnl-stats-div-2 {
   width: 100%;
   border-top: 1px solid var(--color-stats-bg);
   border-bottom: 1px solid var(--color-stats-bg);
@@ -22,22 +22,22 @@
   justify-content: center;
   margin-top: 1.4rem;
   padding: 0.8rem 0rem;
-}
-.divider-div-pnl-live {
+} */
+/* .divider-div-pnl-live {
   width: 1px;
   height: 30px;
   background-color: var(--color-stats-bg);
   margin: 0 1rem;
-}
+} */
 
-.strategies-live-stats {
+/* .strategies-live-stats {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-}
+} */
 
-.overall-live {
+/* .overall-live {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,15 +53,15 @@
 
 .overall-live-stats .live-stats {
   color: var(--color-day-red);
-}
+} */
 
-.strategy-live-stats .live-stats {
+/* .strategy-live-stats .live-stats {
   color: var(--color-day-green);
 }
 
 .strategy-live-stats a {
   color: var(--color-day-black);
-}
+} */
 
 .link-icon-div {
   display: flex;
@@ -69,7 +69,7 @@
   cursor: pointer;
 }
 
-.pnl-live-main {
+/* .pnl-live-main {
   width: 17%;
   display: flex;
   justify-content: center;
@@ -89,24 +89,24 @@
   background-color: var(--color-forecasts-card);
   padding: 1rem 1.2rem;
   border-radius: 3px;
-}
+} */
 
-.live-state-ml-web {
+/* .live-state-ml-web {
   margin-left: 0.4rem;
   width: 100%;
 }
 .live-state-ml-web-2 {
   margin-left: 0.4rem;
   width: 20%;
-}
+} */
 
 .for-h3-mb h3 {
   margin-bottom: 0.6rem;
 }
 
-.pnl-live-main h3 {
+/* .pnl-live-main h3 {
   margin-bottom: 0.6rem;
-}
+} */
 
 .strategies-color a {
   color: var(--color-day-black) !important;
@@ -145,67 +145,67 @@
     padding: 0.2rem 0rem 0rem 0rem;
   }
 
-  .live-pnl-stats-div {
+  /* .live-pnl-stats-div {
     flex-direction: column;
     border-top: none;
     border-bottom: none;
     margin-top: 0.4rem;
-  }
-  .live-pnl-stats-div-2 {
+  } */
+  /* .live-pnl-stats-div-2 {
     flex-direction: column;
     border-top: none;
     border-bottom: none;
     margin-top: 0.4rem;
-  }
+  } */
 
-  .overall-live-stats {
+  /* .overall-live-stats {
     width: 100%;
     margin-right: 0;
     margin-bottom: 0.8rem;
-  }
+  } */
 
-  .divider-div-pnl-live {
+  /* .divider-div-pnl-live {
     display: none;
-  }
+  } */
 
-  .strategies-live-stats {
+  /* .strategies-live-stats {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 
-  .strategy-live-stats {
+  /* .strategy-live-stats {
     margin-left: 0;
     margin-bottom: 0.8rem;
     width: 95%;
-  }
+  } */
 
-  .live-state-ml {
+  /* .live-state-ml {
     margin-left: 0.4rem;
-  }
+  } */
 
-  .pnl-live-main {
+  /* .pnl-live-main {
     width: 100%;
     margin-bottom: 0.8rem;
     padding: 1.2rem 1.2rem 0.2rem 1.2rem;
-  }
+  } */
 
-  .pnl-live-main-strategies {
+  /* .pnl-live-main-strategies {
     width: 96%;
     padding: 1.2rem 1.2rem 0.2rem 1.2rem;
-  }
+  } */
 
-  .live-state-ml-web {
+  /* .live-state-ml-web {
     margin-left: 0rem;
-  }
+  } */
 
-  .mb-mobile {
+  /* .mb-mobile {
     margin-bottom: 0.6rem;
   }
 
   .ml-mobile {
     margin-left: 0.3rem;
-  }
+  } */
 
   .live-pnl-table {
     margin-top: 1.2rem;

@@ -2,18 +2,6 @@
   padding: 4rem 0rem;
 }
 
-/* .compare-searches {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
-  display: none;
-} */
-
-/* .visibility-hidden {
-  visibility: hidden;
-  width: 25%;
-} */
-
 .model-compare-search {
   width: 100% !important;
 }
@@ -89,20 +77,9 @@ table {
   margin-bottom: 1.2rem;
 }
 
-/* .horizon-row-comparison {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
-
 .horizon-left-comparison h3 {
   color: var(--color-day-black);
 }
-
-/* .divider-icon-comparison {
-  margin: 0 15px;
-  color: var(--color-day-greydark);
-} */
 
 .hours-list-comparison ul {
   display: flex;
@@ -170,16 +147,6 @@ table {
   color: black;
 }
 
-/* .horizon-right-comparison {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* .currency-search {
-  margin-right: 1.5rem;
-} */
-
 .search-filter-wapper {
   display: flex;
   justify-content: center;
@@ -211,12 +178,6 @@ table {
 .compare-description {
   text-align: justify;
 }
-
-/* @media screen and (min-width: 1330px) {
-  .visibility-hidden {
-    width: 15%;
-  }
-} */
 
 @media screen and (max-width: 1200px) {
   .horizon-left-comparison {
@@ -256,10 +217,6 @@ table {
     flex-direction: column;
   }
 
-  /* .compare-searches {
-    margin-top: 2rem;
-  } */
-
   .to-hide {
     display: none;
   }
@@ -277,10 +234,6 @@ table {
     font-size: 11px;
   }
 
-  /* .visibility-hidden {
-    width: 10%;
-  } */
-
   .horizon-left-comparison {
     padding: 0rem 0rem 0rem 0rem;
     display: flex;
@@ -291,26 +244,6 @@ table {
     width: 25%;
     margin-right: 0.4rem;
   }
-
-  /* .horizon-row-comparison {
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-  } */
-
-  /* .divider-icon-comparison {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-day-yellow);
-    color: var(--color-day-black);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-  }
-
-  .divider-icon-comparison p {
-    margin-top: 0;
-    padding-right: 5px;
-  } */
 
   .dd-ico-comparison {
     width: 12px;

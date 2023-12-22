@@ -16,11 +16,6 @@
   margin-bottom: 1.2rem;
 }
 
-/* .about-top p {
-  text-align: center;
-  font-weight: 600;
-} */
-
 .about-video video {
   height: 100%;
   width: 100%;
@@ -75,12 +70,6 @@
 .mission-text {
   text-align: center !important;
 }
-
-/* .about-separator {
-  display: flex;
-  justify-content: center;
-  margin: 45px 0;
-} */
 
 .sorez-img {
   display: flex;

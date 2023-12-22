@@ -20,25 +20,6 @@
   font-size: 12px;
 }
 
-/* .backtest-btn-page {
-  padding: 0.5rem 0.7rem;
-  border-radius: 4px;
-  width: 10%;
-}
-
-.backtest-btn-page a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.backtest-btn-page p {
-  margin-top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .for-flex-end {
   width: 100%;
   display: none;
@@ -119,14 +100,6 @@
     margin-top: 1rem;
   }
 
-  /* .backtest-btn-page {
-    width: 35%;
-    margin-top: 1.4rem;
-  }
-  .backtest-btn-page {
-    padding: 0.6rem;
-  } */
-
   .backtest-btn-for-mobile {
     display: flex;
   }
@@ -137,11 +110,6 @@
   justify-content: center;
   margin-top: -0.2rem;
 }
-/* .btn-div-backtest-result {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.8rem;
-} */
 
 .btn-contact-backtest {
   width: 100px;

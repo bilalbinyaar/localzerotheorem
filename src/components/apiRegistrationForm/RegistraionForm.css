@@ -51,19 +51,6 @@
   color: var(--color-day-black);
 }
 
-/* .api-heading2 {
-  margin-top: 6%;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  letter-spacing: -0.025em;
-  text-transform: capitalize;
-  color: var(--color-day-black);
-} */
-
 .api-heading3 {
   font-family: 'Inter';
   font-style: normal;

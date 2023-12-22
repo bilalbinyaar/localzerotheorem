@@ -25,14 +25,6 @@
   padding-left: 0 !important;
 }
 
-/* .for-green {
-  color: var(--color-day-green) !important;
-} */
-
-/* .for-red {
-  color: var(--color-day-red) !important;
-} */
-
 .current-position-body {
   display: flex;
   align-items: center;
@@ -104,14 +96,6 @@
   .current-position-body {
     margin-top: 8px;
   }
-
-  /* .for-red {
-    margin-left: 0.1rem;
-  } */
-  /* 
-  .for-green {
-    margin-left: 0.1rem;
-  } */
 
   .for-h3-font {
     font-size: 14px;

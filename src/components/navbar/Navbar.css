@@ -91,20 +91,6 @@
   margin-bottom: 0px !important;
 }
 
-/* .hoverThis {
-  margin-left: 0.6rem;
-  color: var(--primary);
-  font-size: 28px;
-  padding-top: 4px;
-  cursor: pointer;
-} */
-
-/* .welcome-user-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .welcome-user-mobile {
   color: black;
   padding-top: 2rem;
@@ -189,10 +175,6 @@
   .hamburger {
     display: flex;
   }
-
-  /* .welcome-user-div {
-    display: none !important;
-  } */
 
   .nav-logo-div a {
     align-items: center;

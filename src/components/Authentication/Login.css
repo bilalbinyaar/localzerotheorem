@@ -21,11 +21,6 @@ form .form-inner .form-group {
   margin-bottom: 25px;
 }
 
-/* .form-control {
-  background-color: var(--color-day-white);
-  color: black !important;
-} */
-
 form .form-inner .form-group input:focus {
   box-shadow: 0px 0px 3px var(--primary);
 }
@@ -65,11 +60,6 @@ form .form-inner input[type='auth'] {
   color: rgba(255, 0, 0, 0.733);
   margin-bottom: 10px;
 }
-
-/* .login video {
-  position: fixed;
-  z-index: -1;
-} */
 
 .register-text {
   margin-top: 0.6rem !important;
@@ -125,64 +115,6 @@ form .form-inner input[type='auth'] {
 option:nth-child(0) {
   color: #ffc600 !important;
 }
-
-/* .form-headings {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 80%;
-  margin-bottom: 0.8rem;
-}
-
-.form-headings h2 {
-  cursor: pointer;
-  padding-bottom: 0.8rem;
-  color: var(--color-day-black);
-}
-
-.form-headings .active {
-  border-bottom: 2px solid var(--color-day-yellow);
-  padding-bottom: 0.8rem;
-} 
-
-.checkbox-div {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.checkbox-div label {
-  margin-left: 0.4rem;
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--color-day-black);
-} 
-
-.tandc-text {
-  display: flex;
-  justify-content: center !important;
-  align-items: center;
-}
-
-.tanc-text p {
-  text-align: center !important;
-}
-.reg-interest {
-  margin-top: 1.4rem;
-  font-weight: 500;
-  text-decoration: underline;
-  letter-spacing: 0.7px;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-}
-
-.reg-interest:hover {
-  cursor: pointer;
-  color: var(--color-day-yellow);
-}
-*/
 
 .only-mb {
   margin-top: 0 !important;
@@ -278,10 +210,6 @@ option:nth-child(0) {
     width: auto !important;
   }
 
-  /* .form-headings {
-    margin-bottom: 0;
-  } */
-
   form .form-inner h2 {
     font-size: 18px;
   }
@@ -290,18 +218,6 @@ option:nth-child(0) {
     margin-bottom: 20px;
     width: 290px;
   }
-
-  /* .forget-pwd {
-    margin-bottom: 20px;
-  } 
-
-  .checkbox-div {
-    margin-bottom: 20px;
-  }
-
-  .checkbox-div label {
-    font-size: 12px;
-  }*/
 
   .investor-zt-logo {
     padding: 2rem 0 0 0;

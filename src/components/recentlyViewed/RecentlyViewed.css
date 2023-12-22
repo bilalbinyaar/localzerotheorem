@@ -63,11 +63,6 @@
   font-size: 11px;
 }
 
-/* .model-details-right-card-inner-graph-recent {
-  display: flex;
-  justify-content: center;
-} */
-
 .model-details-right-card-inner-body h2 {
   padding-top: 0.5rem;
   font-size: 19px;
@@ -77,21 +72,6 @@
   display: flex;
   width: 100%;
 }
-/* 
-.model-details-left-body-stats-recent {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-  border-radius: 4.5px;
-  background-color: var(--color-stats-bg);
-  padding: 2px 5px;
-} */
-
-/* .model-details-left-body-icon-recent {
-  font-size: 8px;
-} */
 
 .model-details-left-body-recent p {
   margin-top: 0px;

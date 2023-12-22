@@ -20,17 +20,6 @@
   text-align: center;
 }
 
-/* .column-details {
-  margin-top: 1.5rem;
-}
-
-.column-details span {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--color-black-opcaity);
-  width: 100%;
-} */
-
 .for-weight {
   font-weight: 600 !important;
   color: var(--color-day-black) !important;
@@ -45,10 +34,6 @@
   justify-content: center;
   align-items: center;
 }
-
-/* .text-align-right {
-  text-align: right;
-} */
 
 .text-align-left {
   text-align: left !important;

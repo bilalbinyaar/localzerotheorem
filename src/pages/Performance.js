@@ -21,7 +21,7 @@ const Performance = () => {
       <PortfolioDaily />
       <MarketRate />
       <LivePNL />
-      <PerformanceDataGrid />
+      {/* <PerformanceDataGrid /> */}
     </React.Fragment>
   );
 };

@@ -24,7 +24,7 @@ const Home = () => {
         <link rel="canonical" href="https://zerotheorem.com/" />
       </Helmet>
       <Forecasts />
-      <ModelDataGrid />
+      {/* <ModelDataGrid /> */}
       <Overview />
     </React.Fragment>
   );

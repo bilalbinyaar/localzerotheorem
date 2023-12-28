@@ -2,10 +2,10 @@ import React, { useEffect, useState, memo, useRef } from 'react';
 import './ModelDataGrid.css';
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import DataGridGraph from './GridGraph';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import MenuItem from '@mui/material/MenuItem';
@@ -19,7 +19,7 @@ import PaginationItem from '@mui/material/PaginationItem';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+// import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { Tooltip } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { ThreeDots } from 'react-loader-spinner';
@@ -32,8 +32,8 @@ import {
   useGridApiContext,
   useGridSelector,
 } from '@mui/x-data-grid';
-import { database } from '../../firebase_config';
-import { ref, onValue, update } from 'firebase/database';
+// import { database } from '../../firebase_config';
+// import { ref, onValue, update } from 'firebase/database';
 
 export function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -70,9 +70,7 @@ const ModelDataGrid = () => {
   const [Flag, setFlag] = useState(null);
   const [timeH, setTimeH] = useState('All');
   const [isLoaded, setIsLoaded] = useState(false);
-
   const [selectedItem, setSelectedItem] = useState('All');
-
   const [rows_cached, set_rows_cached] = useState([]);
   const [coin_search_selection, set_coin_search_selection] = useState([]);
   const [model_search_selection, set_model_search_selection] = useState([]);
@@ -156,9 +154,9 @@ const ModelDataGrid = () => {
     Set_coin_search_selection_cache,
     model_selection_cache,
     Set_model_search_selection_cache,
-    uid,
-    authCheckLogin,
-    setAuthCheckLogin,
+    // uid,
+    // authCheckLogin,
+    // setAuthCheckLogin,
     link,
   } = useStateContext();
   const [pnl_for_each_strategy, setPnlForEachStrategy] = useState(null);
@@ -212,63 +210,63 @@ const ModelDataGrid = () => {
     }
     // eslint-disable-next-line
   }, [strategies]);
-  const [favs_list, set_favs_list] = useState([]);
-  useEffect(() => {
-    if (authCheckLogin === true) {
-      if (rows.length === 0 && authCheckLogin === true) {
-        setAuthCheckLogin(true);
-      }
-      if (rows.length > 0 && uid != null) {
-        const starCountRef = ref(database, 'user_favs/' + uid);
-        onValue(starCountRef, (snapshot) => {
-          const data = snapshot.val();
+  // const [favs_list, set_favs_list] = useState([]);
+  // useEffect(() => {
+  //   if (authCheckLogin === true) {
+  //     if (rows.length === 0 && authCheckLogin === true) {
+  //       setAuthCheckLogin(true);
+  //     }
+  //     if (rows.length > 0 && uid != null) {
+  //       const starCountRef = ref(database, 'user_favs/' + uid);
+  //       onValue(starCountRef, (snapshot) => {
+  //         const data = snapshot.val();
 
-          var favs_models_list = [];
-          for (let name in data) {
-            favs_models_list.push(name);
-          }
-          if (favs_models_list.length > 0) {
-            set_favs_list(favs_models_list);
-          }
-        });
-      }
-    } else {
-      if (rows.length > 0) {
-        const updatedRows = rows.map((row) =>
-          // eslint-disable-next-line
-          row.favs === true ? { ...row, ['favs']: false } : row
-        );
-        setRows(updatedRows);
-      }
-    }
-    // eslint-disable-next-line
-  }, [authCheckLogin, rows]);
+  //         var favs_models_list = [];
+  //         for (let name in data) {
+  //           favs_models_list.push(name);
+  //         }
+  //         if (favs_models_list.length > 0) {
+  //           set_favs_list(favs_models_list);
+  //         }
+  //       });
+  //     }
+  //   } else {
+  //     if (rows.length > 0) {
+  //       const updatedRows = rows.map((row) =>
+  //         // eslint-disable-next-line
+  //         row.favs === true ? { ...row, ['favs']: false } : row
+  //       );
+  //       setRows(updatedRows);
+  //     }
+  //   }
+  //   // eslint-disable-next-line
+  // }, [authCheckLogin, rows]);
 
-  useEffect(() => {
-    try {
-      if (favs_list.length > 0) {
-        const updatedRows = rows.map((row) =>
-          // eslint-disable-next-line
-          favs_list.includes(row.modelName) ? { ...row, ['favs']: true } : row
-        );
-        var sorted = {};
-        if (Object.keys(updatedRows).length > 10) {
-          sorted = Object.keys(updatedRows)
-            .map((key) => {
-              return { ...updatedRows[key], key };
-            })
-            .sort((a, b) => b.favs - a.favs);
-        }
+  // useEffect(() => {
+  //   try {
+  //     if (favs_list.length > 0) {
+  //       const updatedRows = rows.map((row) =>
+  //         // eslint-disable-next-line
+  //         favs_list.includes(row.modelName) ? { ...row, ['favs']: true } : row
+  //       );
+  //       var sorted = {};
+  //       if (Object.keys(updatedRows).length > 10) {
+  //         sorted = Object.keys(updatedRows)
+  //           .map((key) => {
+  //             return { ...updatedRows[key], key };
+  //           })
+  //           .sort((a, b) => b.favs - a.favs);
+  //       }
 
-        if (Object.keys(sorted).length > 10) {
-          setRows(sorted);
-        }
-      }
-    } catch (error) {
-      console.log('Error occured');
-    }
-    // eslint-disable-next-line
-  }, [favs_list]);
+  //       if (Object.keys(sorted).length > 10) {
+  //         setRows(sorted);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.log('Error occured');
+  //   }
+  //   // eslint-disable-next-line
+  // }, [favs_list]);
 
   useEffect(() => {
     try {
@@ -452,29 +450,28 @@ const ModelDataGrid = () => {
   }, []);
 
   // To Link Grid Rows to Models Component
-  const linkModels = useNavigate();
-  const handleRowClickEvent = (params) => { };
+  // const linkModels = useNavigate();
+  const handleRowClickEvent = (params) => {};
   // To Link Grid Rows to Models Component
 
+  // WEB GRID
   const columns = [
-    {
-      field: 'favs',
-      headerName: '',
-      headerAlign: 'center',
-      width: 8,
-      type: Boolean,
-      sortable: false,
-      renderCell: (cellValues) => {
-        return cellValues.value === true ? (
-          <AiFillStar className="star-filled-icons" />
-        ) : (
-          <AiOutlineStar className="star-icons" />
-        );
-      },
-    },
-
+    // {
+    //   field: 'favs',
+    //   headerName: '',
+    //   headerAlign: 'center',
+    //   width: 8,
+    //   type: Boolean,
+    //   sortable: false,
+    //   renderCell: (cellValues) => {
+    //     return cellValues.value === true ? (
+    //       <AiFillStar className="star-filled-icons" />
+    //     ) : (
+    //       <AiOutlineStar className="star-icons" />
+    //     );
+    //   },
+    // },
     { field: 'id', headerName: '#', headerAlign: 'center', width: 18 },
-
     {
       field: 'modelNameMob',
       width: 120,
@@ -526,12 +523,10 @@ const ModelDataGrid = () => {
       sortable: true,
       headerAlign: 'center',
       flex: 1.55,
-
       cellClassName: (params) => {
         if (params.value == null) {
           return '';
         }
-
         return clsx('super-app', {
           negative: params.value === 'Short',
           positive: params.value === 'Long',
@@ -551,7 +546,6 @@ const ModelDataGrid = () => {
         </strong>
       ),
     },
-
     {
       field: 'forecast_time',
       headerName: 'Forecast Time',
@@ -573,7 +567,6 @@ const ModelDataGrid = () => {
         </strong>
       ),
     },
-
     {
       field: 'nextForecast',
       headerName: 'Next Forecast',
@@ -598,7 +591,6 @@ const ModelDataGrid = () => {
         </strong>
       ),
     },
-
     {
       field: 'avg_daily_pnl',
       headerName: 'Avg Daily PNL',
@@ -620,7 +612,6 @@ const ModelDataGrid = () => {
         </strong>
       ),
     },
-
     {
       field: 'pnl_sum_7',
       headerName: '7d PNL',
@@ -642,7 +633,6 @@ const ModelDataGrid = () => {
         </strong>
       ),
     },
-
     {
       field: 'totalpnl',
       headerName: 'Total PNL',
@@ -656,7 +646,7 @@ const ModelDataGrid = () => {
           <Tooltip
             className="performance-table-tooltip"
             title="The total profit (or loss) generated by the model (aggregate profit minus aggregate loss)
-"
+    "
           >
             <IconButton>
               <BsFillInfoCircleFill />
@@ -664,19 +654,16 @@ const ModelDataGrid = () => {
           </Tooltip>
         </strong>
       ),
-
       cellClassName: (params) => {
         if (params.value == null) {
           return '';
         }
-
         return clsx('super-app', {
           negative: params.value < 0,
           positive: params.value > 0,
         });
       },
     },
-
     {
       field: 'pnlGraph',
       headerName: 'PNL Graph',
@@ -703,22 +690,23 @@ const ModelDataGrid = () => {
     },
   ];
 
+  // TAB GRID
   const columnsTab = [
-    {
-      field: 'favs',
-      headerName: '',
-      headerAlign: 'center',
-      width: 7,
-      type: Boolean,
-      sortable: false,
-      renderCell: (cellValues) => {
-        return cellValues.value === true ? (
-          <AiFillStar className="star-filled-icons" />
-        ) : (
-          <AiOutlineStar className="star-icons" />
-        );
-      },
-    },
+    // {
+    //   field: 'favs',
+    //   headerName: '',
+    //   headerAlign: 'center',
+    //   width: 7,
+    //   type: Boolean,
+    //   sortable: false,
+    //   renderCell: (cellValues) => {
+    //     return cellValues.value === true ? (
+    //       <AiFillStar className="star-filled-icons" />
+    //     ) : (
+    //       <AiOutlineStar className="star-icons" />
+    //     );
+    //   },
+    // },
 
     { field: 'id', headerName: '#', headerAlign: 'center', width: 23 },
 
@@ -814,7 +802,7 @@ const ModelDataGrid = () => {
           <Tooltip
             className="performance-table-tooltip"
             title="The total profit (or loss) generated by the model (aggregate profit minus aggregate loss)
-"
+  "
           >
             <IconButton>
               <BsFillInfoCircleFill />
@@ -936,42 +924,42 @@ const ModelDataGrid = () => {
     setPage(value);
   };
 
-  function handleCellClick(params, event) {
-    if (params.field === 'favs') {
-      if (authCheckLogin === true) {
-        const updatedRows = rows.map((row) =>
-          row.id === params.row.id
-            ? row.favs === true
-              ? // eslint-disable-next-line
-              { ...row, ['favs']: false } // eslint-disable-next-line
-              : { ...row, ['favs']: true }
-            : row
-        );
-        setRows(updatedRows);
-        if (params.row.favs === false) {
-          const updateObj = {};
-          updateObj[params.row.modelName] = true;
-          update(ref(database, 'user_favs/' + uid), updateObj);
-        } else {
-          const updateObj = {};
-          updateObj[params.row.modelName] = null;
-          update(ref(database, 'user_favs/' + uid), updateObj);
-        }
-      } else {
-        Swal.fire({
-          title: 'Kindly login for making model favourite',
-          icon: 'error',
-          timer: 2000,
-          timerProgressBar: true,
-          toast: true,
-          position: 'top-right',
-          showConfirmButton: false,
-        });
-      }
-    } else {
-      linkModels(`/${params.row.modelName.replace(/_/g, '-')}`);
-    }
-  }
+  // function handleCellClick(params, event) {
+  //   if (params.field === 'favs') {
+  //     if (authCheckLogin === true) {
+  //       const updatedRows = rows.map((row) =>
+  //         row.id === params.row.id
+  //           ? row.favs === true
+  //             ? // eslint-disable-next-line
+  //               { ...row, ['favs']: false } // eslint-disable-next-line
+  //             : { ...row, ['favs']: true }
+  //           : row
+  //       );
+  //       setRows(updatedRows);
+  //       if (params.row.favs === false) {
+  //         const updateObj = {};
+  //         updateObj[params.row.modelName] = true;
+  //         update(ref(database, 'user_favs/' + uid), updateObj);
+  //       } else {
+  //         const updateObj = {};
+  //         updateObj[params.row.modelName] = null;
+  //         update(ref(database, 'user_favs/' + uid), updateObj);
+  //       }
+  //     } else {
+  //       Swal.fire({
+  //         title: 'Kindly login for making model favourite',
+  //         icon: 'error',
+  //         timer: 2000,
+  //         timerProgressBar: true,
+  //         toast: true,
+  //         position: 'top-right',
+  //         showConfirmButton: false,
+  //       });
+  //     }
+  //   } else {
+  //     linkModels(`/${params.row.modelName.replace(/_/g, '-')}`);
+  //   }
+  // }
   return (
     <div className="model-grid">
       <div className="container">
@@ -1032,9 +1020,9 @@ const ModelDataGrid = () => {
                       fontSize: '11px',
 
                       '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
-                      {
-                        color: 'var(--color-day-black)',
-                      },
+                        {
+                          color: 'var(--color-day-black)',
+                        },
                       '& div  >.MuiAutocomplete-option.Mui-focused': {
                         backgroundColor: 'var(--color-day-yellow)',
                         color: '#000000',
@@ -1080,9 +1068,9 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':
-                      {
-                        color: 'var(--color-day-black) !important',
-                      },
+                        {
+                          color: 'var(--color-day-black) !important',
+                        },
 
                       '& div div >.MuiOutlinedInput-root': {
                         backgroundColor:
@@ -1103,16 +1091,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
-                      {
-                        backgroundColor:
-                          'var(--color-dropdown-bg) !important',
-                        color: 'var(--color-day-black) !important',
-                      },
+                        {
+                          backgroundColor:
+                            'var(--color-dropdown-bg) !important',
+                          color: 'var(--color-day-black) !important',
+                        },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                      {
-                        color: 'var(--color-day-yellow) !important',
-                      },
+                        {
+                          color: 'var(--color-day-yellow) !important',
+                        },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
                         color: 'var(--color-day-yellow) !important',
@@ -1163,16 +1151,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
-                      {
-                        borderBottom:
-                          '1px solid var(--color-day-yellow) !important',
-                      },
+                        {
+                          borderBottom:
+                            '1px solid var(--color-day-yellow) !important',
+                        },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
-                      {
-                        borderBottom:
-                          '2px solid var(--color-day-yellow) !important',
-                      },
+                        {
+                          borderBottom:
+                            '2px solid var(--color-day-yellow) !important',
+                        },
 
                       '& #demo-simple-select-standard-label': {
                         color: 'var(--color-day-yellow) !important',
@@ -1183,20 +1171,20 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
-                      {
-                        backgroundColor: 'var(--color-day-yellow) !important',
-                        color: 'black',
-                      },
+                        {
+                          backgroundColor: 'var(--color-day-yellow) !important',
+                          color: 'black',
+                        },
 
                       '& .css-1869usk-MuiFormControl-root': {
                         height: '60px !important',
                       },
 
                       '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
-                      {
-                        color: 'var(--color-day-black) !important',
-                        fontSize: '14px !important',
-                      },
+                        {
+                          color: 'var(--color-day-black) !important',
+                          fontSize: '14px !important',
+                        },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
                         fontSize: '13px !important',
@@ -1241,9 +1229,9 @@ const ModelDataGrid = () => {
                       marginLeft: '0.4rem',
 
                       '& div div >.css-194a1fa-MuiSelect-select-MuiInputBase-input':
-                      {
-                        color: 'var(--color-day-black)',
-                      },
+                        {
+                          color: 'var(--color-day-black)',
+                        },
                       '& div  >.MuiAutocomplete-option.Mui-focused': {
                         backgroundColor: 'var(--color-day-yellow)',
                         color: '#000000',
@@ -1289,9 +1277,9 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':
-                      {
-                        color: 'var(--color-day-black) !important',
-                      },
+                        {
+                          color: 'var(--color-day-black) !important',
+                        },
 
                       '& div div >.MuiOutlinedInput-root': {
                         backgroundColor:
@@ -1312,16 +1300,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper':
-                      {
-                        backgroundColor:
-                          'var(--color-dropdown-bg) !important',
-                        color: 'var(--color-day-black) !important',
-                      },
+                        {
+                          backgroundColor:
+                            'var(--color-dropdown-bg) !important',
+                          color: 'var(--color-day-black) !important',
+                        },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused':
-                      {
-                        color: 'var(--color-day-yellow) !important',
-                      },
+                        {
+                          color: 'var(--color-day-yellow) !important',
+                        },
 
                       '& .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root': {
                         color: 'var(--color-day-yellow) !important',
@@ -1372,16 +1360,16 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:before':
-                      {
-                        borderBottom:
-                          '1px solid var(--color-day-yellow) !important',
-                      },
+                        {
+                          borderBottom:
+                            '1px solid var(--color-day-yellow) !important',
+                        },
 
                       '& .css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root:after':
-                      {
-                        borderBottom:
-                          '2px solid var(--color-day-yellow) !important',
-                      },
+                        {
+                          borderBottom:
+                            '2px solid var(--color-day-yellow) !important',
+                        },
 
                       '& #demo-simple-select-standard-label': {
                         color: 'var(--color-day-yellow) !important',
@@ -1392,20 +1380,20 @@ const ModelDataGrid = () => {
                       },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected':
-                      {
-                        backgroundColor: 'var(--color-day-yellow) !important',
-                        color: 'black',
-                      },
+                        {
+                          backgroundColor: 'var(--color-day-yellow) !important',
+                          color: 'black',
+                        },
 
                       '& .css-1869usk-MuiFormControl-root': {
                         height: '60px !important',
                       },
 
                       '& div div >.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input':
-                      {
-                        color: 'var(--color-day-black) !important',
-                        fontSize: '14px !important',
-                      },
+                        {
+                          color: 'var(--color-day-black) !important',
+                          fontSize: '14px !important',
+                        },
 
                       '& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
                         fontSize: '13px !important',
@@ -1454,7 +1442,7 @@ const ModelDataGrid = () => {
                 >
                   <DataGrid
                     onRowClick={handleRowClickEvent}
-                    onCellClick={handleCellClick}
+                    // onCellClick={handleCellClick}
                     sx={{
                       borderColor: 'var(--color-grid-border)',
                       color: 'var(--color-day-black)',
@@ -1757,7 +1745,7 @@ const ModelDataGrid = () => {
                 >
                   <DataGrid
                     onRowClick={handleRowClickEvent}
-                    onCellClick={handleCellClick}
+                    // onCellClick={handleCellClick}
                     sx={{
                       borderColor: 'var(--color-grid-border)',
                       color: 'var(--color-day-black)',
@@ -1833,7 +1821,7 @@ const ModelDataGrid = () => {
                 >
                   <DataGrid
                     onRowClick={handleRowClickEvent}
-                    onCellClick={handleCellClick}
+                    // onCellClick={handleCellClick}
                     sx={{
                       borderColor: 'var(--color-grid-border)',
                       color: 'var(--color-day-black)',

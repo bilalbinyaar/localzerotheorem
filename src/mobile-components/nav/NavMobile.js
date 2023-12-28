@@ -17,7 +17,8 @@ import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
 import { BsFillLayersFill, BsFillInfoCircleFill } from 'react-icons/bs';
 import { BiColumns } from 'react-icons/bi';
-import { FaQuestionCircle, FaRegEdit } from 'react-icons/fa';
+// import { FaQuestionCircle, FaRegEdit } from 'react-icons/fa';
+import { FaRegEdit } from 'react-icons/fa';
 import '../../components/navbar/Navbar.css';
 import { AiOutlineContacts } from 'react-icons/ai';
 
@@ -193,19 +194,19 @@ export default function NavMobile(props) {
                   Compare
                 </CustomLink>
 
-                <CustomLink to="" onClick={toCloseNav}>
+                <CustomLink to="/faqs" onClick={toCloseNav}>
                   <MdOutlineSource className="nav-icons" />
-                  Resources
+                  FAQs
                 </CustomLink>
                 {/* Sub Menu */}
-                <CustomLink
+                {/* <CustomLink
                   className="mobile-submenu"
                   to="/theory"
                   onClick={toCloseNav}
                 >
                   <BsFillLayersFill className="nav-icons nav-icons-mobile" />
                   Theory
-                </CustomLink>
+                </CustomLink> 
                 <CustomLink
                   className="mobile-submenu"
                   to="/faqs"
@@ -213,7 +214,7 @@ export default function NavMobile(props) {
                 >
                   <FaQuestionCircle className="nav-icons nav-icons-mobile" />
                   FAQs
-                </CustomLink>
+                </CustomLink> */}
 
                 <CustomLink to="" onClick={toCloseNav}>
                   <AiOutlineApi className="nav-icons" />

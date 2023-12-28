@@ -202,13 +202,13 @@ export default function Navbar() {
               <CustomLink className="menu-item">
                 Resources
                 <ul className="sub-menu-items">
-                  <CustomLink
+                  {/* <CustomLink
                     className="sub-menu-item"
                     to="/theory"
                     onClick={toCloseNav}
                   >
                     Theory
-                  </CustomLink>
+                  </CustomLink> */}
                   <CustomLink
                     className="sub-menu-item"
                     to="/faqs"

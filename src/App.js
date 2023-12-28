@@ -44,7 +44,7 @@ import HypoInvestigatingAlpha from './services-view/services-pages/hypothesisPag
 import HypoSensitivityAnalysisGeneralCase from './services-view/services-pages/hypothesisPages/HypoSensitivityAnalysisGeneralCase';
 import HypoSenstitivityAnalysisMarketSpecificAlpha from './services-view/services-pages/hypothesisPages/HypoSenstitivityAnalysisMarketSpecificAlpha';
 import HypoSenstitivityAnalysisSingleAlphaCas from './services-view/services-pages/hypothesisPages/HypoSenstitivityAnalysisSingleAlphaCas';
-import HypoAnInitialSolution from './services-view/services-pages/hypothesisPages/HypoAnInitialSolution';
+// import HypoAnInitialSolution from './services-view/services-pages/hypothesisPages/HypoAnInitialSolution';
 import BTCExample from './services-view/services-pages/BTCExample';
 import ServicesDocs from './services-view/services-pages/ServicesDocs';
 import ServicesBacktest from './services-view/services-pages/ServicesBacktest';
@@ -284,10 +284,10 @@ function App() {
             path="/hypothesis-of-senstitivity-analysis-single-alpha-case"
             element={<HypoSenstitivityAnalysisSingleAlphaCas />}
           />
-          <Route
+          {/* <Route
             path="/hypothesis-of-an-initial-solution"
             element={<HypoAnInitialSolution />}
-          />
+          /> */}
           <Route path="/ZT1-SE9H-1" element={<BTCExample />} />
           <Route
             path="/backtest-strategies"

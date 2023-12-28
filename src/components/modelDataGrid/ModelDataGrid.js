@@ -5,7 +5,7 @@ import { DataGrid } from '@mui/x-data-grid';
 // import Swal from 'sweetalert2';
 import DataGridGraph from './GridGraph';
 import clsx from 'clsx';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import MenuItem from '@mui/material/MenuItem';
@@ -450,7 +450,7 @@ const ModelDataGrid = () => {
   }, []);
 
   // To Link Grid Rows to Models Component
-  // const linkModels = useNavigate();
+  const linkModels = useNavigate();
   const handleRowClickEvent = (params) => {};
   // To Link Grid Rows to Models Component
 
@@ -924,42 +924,43 @@ const ModelDataGrid = () => {
     setPage(value);
   };
 
-  // function handleCellClick(params, event) {
-  //   if (params.field === 'favs') {
-  //     if (authCheckLogin === true) {
-  //       const updatedRows = rows.map((row) =>
-  //         row.id === params.row.id
-  //           ? row.favs === true
-  //             ? // eslint-disable-next-line
-  //               { ...row, ['favs']: false } // eslint-disable-next-line
-  //             : { ...row, ['favs']: true }
-  //           : row
-  //       );
-  //       setRows(updatedRows);
-  //       if (params.row.favs === false) {
-  //         const updateObj = {};
-  //         updateObj[params.row.modelName] = true;
-  //         update(ref(database, 'user_favs/' + uid), updateObj);
-  //       } else {
-  //         const updateObj = {};
-  //         updateObj[params.row.modelName] = null;
-  //         update(ref(database, 'user_favs/' + uid), updateObj);
-  //       }
-  //     } else {
-  //       Swal.fire({
-  //         title: 'Kindly login for making model favourite',
-  //         icon: 'error',
-  //         timer: 2000,
-  //         timerProgressBar: true,
-  //         toast: true,
-  //         position: 'top-right',
-  //         showConfirmButton: false,
-  //       });
-  //     }
-  //   } else {
-  //     linkModels(`/${params.row.modelName.replace(/_/g, '-')}`);
-  //   }
-  // }
+  function handleCellClick(params, event) {
+    // if (params.field === 'favs') {
+    //   if (authCheckLogin === true) {
+    //     const updatedRows = rows.map((row) =>
+    //       row.id === params.row.id
+    //         ? row.favs === true
+    //           ? // eslint-disable-next-line
+    //             { ...row, ['favs']: false } // eslint-disable-next-line
+    //           : { ...row, ['favs']: true }
+    //         : row
+    //     );
+    //     setRows(updatedRows);
+    //     if (params.row.favs === false) {
+    //       const updateObj = {};
+    //       updateObj[params.row.modelName] = true;
+    //       update(ref(database, 'user_favs/' + uid), updateObj);
+    //     } else {
+    //       const updateObj = {};
+    //       updateObj[params.row.modelName] = null;
+    //       update(ref(database, 'user_favs/' + uid), updateObj);
+    //     }
+    //   } else {
+    //     Swal.fire({
+    //       title: 'Kindly login for making model favourite',
+    //       icon: 'error',
+    //       timer: 2000,
+    //       timerProgressBar: true,
+    //       toast: true,
+    //       position: 'top-right',
+    //       showConfirmButton: false,
+    //     });
+    //   }
+    // } else {
+    //   linkModels(`/${params.row.modelName.replace(/_/g, '-')}`);
+    // }
+    linkModels(`/${params.row.modelName.replace(/_/g, '-')}`);
+  }
   return (
     <div className="model-grid">
       <div className="container">
@@ -1442,7 +1443,7 @@ const ModelDataGrid = () => {
                 >
                   <DataGrid
                     onRowClick={handleRowClickEvent}
-                    // onCellClick={handleCellClick}
+                    onCellClick={handleCellClick}
                     sx={{
                       borderColor: 'var(--color-grid-border)',
                       color: 'var(--color-day-black)',
@@ -1745,7 +1746,7 @@ const ModelDataGrid = () => {
                 >
                   <DataGrid
                     onRowClick={handleRowClickEvent}
-                    // onCellClick={handleCellClick}
+                    onCellClick={handleCellClick}
                     sx={{
                       borderColor: 'var(--color-grid-border)',
                       color: 'var(--color-day-black)',
@@ -1821,7 +1822,7 @@ const ModelDataGrid = () => {
                 >
                   <DataGrid
                     onRowClick={handleRowClickEvent}
-                    // onCellClick={handleCellClick}
+                    onCellClick={handleCellClick}
                     sx={{
                       borderColor: 'var(--color-grid-border)',
                       color: 'var(--color-day-black)',

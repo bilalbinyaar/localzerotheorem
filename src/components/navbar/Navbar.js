@@ -18,14 +18,13 @@ export default function Navbar() {
 
   // Login State
   const {
-    userEmail,
     setAuthCheckLogin,
 
     theme,
 
     setUid,
     setTheme,
-    authCheckLoginInvestor,
+    // authCheckLoginInvestor,
   } = useStateContext();
 
   useEffect(() => {
@@ -71,11 +70,6 @@ export default function Navbar() {
   // FOR RESPONSIVENESS
   const windowWidth = useRef(window.innerWidth);
   // FOR RESPONSIVENESS
-
-  function toCloseNav() {
-    setToggle(false);
-    setClick(false);
-  }
 
   // useEffect(() => {
   //   getRedirectResult(auth)
@@ -137,150 +131,46 @@ export default function Navbar() {
             )}
           </div>
 
-          {authCheckLoginInvestor === 'True' ? (
-            <ul
-              id="mobile-nav"
-              className={click ? 'nav-menu active' : 'nav-menu'}
-            >
-              {/* <CustomLink to="/" onClick={toCloseNav}>
-                Performance
-              </CustomLink> */}
-              {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
-                Risk Management
-              </CustomLink> */}
-              <CustomLink to="/compare-strategies" className="menu-item">
-                Compare
-              </CustomLink>
-              <CustomLink to="/backtest-strategies" className="menu-item">
-                Backtest
-              </CustomLink>
-
-              <CustomLink to="/api" className="menu-item">
-                API
-              </CustomLink>
-              <CustomLink to="/theory" className="menu-item">
-                Theory
-              </CustomLink>
-            </ul>
-          ) : (
-            <ul
-              id="mobile-nav"
-              className={click ? 'nav-menu active' : 'nav-menu'}
-            >
-              {/* <CustomLink to="/performance" onClick={toCloseNav}>
-                Performance
-              </CustomLink> */}
-              {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
-                Risk Management
-              </CustomLink> */}
-              <CustomLink className="menu-item">
-                Forecasts
-                <ul className="sub-menu-items">
-                  <CustomLink
-                    className="sub-menu-item"
-                    to="/all-models"
-                    onClick={toCloseNav}
-                  >
-                    All Models
-                  </CustomLink>
-                  <CustomLink
-                    className="sub-menu-item"
-                    to="/backtest-models"
-                    onClick={toCloseNav}
-                  >
-                    Backtest
-                  </CustomLink>
-                  <CustomLink
-                    className="sub-menu-item"
-                    to="/compare-models"
-                    onClick={toCloseNav}
-                  >
-                    Compare
-                  </CustomLink>
-                </ul>
-              </CustomLink>
-              <CustomLink className="menu-item">
-                Resources
-                <ul className="sub-menu-items">
-                  {/* <CustomLink
-                    className="sub-menu-item"
-                    to="/theory"
-                    onClick={toCloseNav}
-                  >
-                    Theory
-                  </CustomLink> */}
-                  <CustomLink
-                    className="sub-menu-item"
-                    to="/faqs"
-                    onClick={toCloseNav}
-                  >
-                    FAQs
-                  </CustomLink>
-                </ul>
-              </CustomLink>
-              <CustomLink className="menu-item">
-                API
-                <ul className="sub-menu-items">
-                  <CustomLink
-                    className="sub-menu-item"
-                    to="/api-registration"
-                    onClick={toCloseNav}
-                  >
-                    Registration
-                  </CustomLink>
-                  <CustomLink
-                    className="sub-menu-item"
-                    to="/api"
-                    onClick={toCloseNav}
-                  >
-                    Documentation
-                  </CustomLink>
-                </ul>
-              </CustomLink>
-              <CustomLink to="/about" onClick={toCloseNav}>
-                About
-              </CustomLink>
-              <CustomLink to="/contact" onClick={toCloseNav}>
-                Contact
-              </CustomLink>
-            </ul>
-          )}
-
-          {toggle && (
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              {authCheckLoginInvestor === 'True' ? (
-                <div>
-                  <p className="welcome-user welcome-user-mobile">
-                    Welcome, {userEmail}
-                  </p>
-                </div>
-              ) : (
-                <div className="display-none"></div>
-              )}
-
-              <CustomLink to="/" onClick={toCloseNav}>
-                Forecasts
-              </CustomLink>
-              <CustomLink to="/backtest" onClick={toCloseNav}>
-                Backtest
-              </CustomLink>
-              <CustomLink to="/compare" onClick={toCloseNav}>
-                Compare
-              </CustomLink>
-              <CustomLink to="/theory" onClick={toCloseNav}>
-                Theory
-              </CustomLink>
-              <CustomLink to="/documentation" onClick={toCloseNav}>
-                API
-              </CustomLink>
-              <CustomLink to="/about" onClick={toCloseNav}>
-                About
-              </CustomLink>
-              <CustomLink to="/faqs" onClick={toCloseNav}>
-                FAQs
-              </CustomLink>
-            </ul>
-          )}
+          <ul
+            id="mobile-nav"
+            className={click ? 'nav-menu active' : 'nav-menu'}
+          >
+            <CustomLink className="menu-item">
+              Forecasts
+              <ul className="sub-menu-items">
+                <CustomLink className="sub-menu-item" to="/all-models">
+                  All Models
+                </CustomLink>
+                <CustomLink className="sub-menu-item" to="/backtest-models">
+                  Backtest
+                </CustomLink>
+                <CustomLink className="sub-menu-item" to="/compare-models">
+                  Compare
+                </CustomLink>
+              </ul>
+            </CustomLink>
+            <CustomLink className="menu-item">
+              Resources
+              <ul className="sub-menu-items">
+                <CustomLink className="sub-menu-item" to="/faqs">
+                  FAQs
+                </CustomLink>
+              </ul>
+            </CustomLink>
+            <CustomLink className="menu-item">
+              API
+              <ul className="sub-menu-items">
+                <CustomLink className="sub-menu-item" to="/api-registration">
+                  Registration
+                </CustomLink>
+                <CustomLink className="sub-menu-item" to="/api">
+                  Documentation
+                </CustomLink>
+              </ul>
+            </CustomLink>
+            <CustomLink to="/about">About</CustomLink>
+            <CustomLink to="/contact">Contact</CustomLink>
+          </ul>
 
           <div className="dark-lite">
             {(iamClick && theme === 'dark-theme') || theme === 'dark-theme' ? (

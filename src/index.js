@@ -34,14 +34,20 @@ const CheckView = () => {
     // eslint-disable-next-line
   }, [flag]);
 
+  // return link !== false ? (
+  //   <div>
+  //     {' '}
+  //     {authCheckLoginAdmin === true || authCheckLoginInvestor === 'True' ? (
+  //       <AdminApp />
+  //     ) : (
+  //       <App />
+  //     )}
+  //   </div>
+  // ) : null;
+
   return link !== false ? (
     <div>
-      {' '}
-      {authCheckLoginAdmin === true || authCheckLoginInvestor === 'True' ? (
-        <AdminApp />
-      ) : (
-        <App />
-      )}
+      <AdminApp />
     </div>
   ) : null;
 };

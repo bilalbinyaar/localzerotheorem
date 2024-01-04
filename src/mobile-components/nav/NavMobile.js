@@ -6,18 +6,16 @@ import logoWhite from '../../assets/logo-white.svg';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useStateContext } from '../../ContextProvider';
 import {
-  AiFillHome,
   AiOutlineApi,
   AiOutlineFileDone,
   AiFillWallet,
   AiOutlineAppstore,
 } from 'react-icons/ai';
-import { MdOutlineSource, MdManageAccounts } from 'react-icons/md';
+import { MdOutlineSource } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
-import { BsFillLayersFill, BsFillInfoCircleFill } from 'react-icons/bs';
+import { BsFillInfoCircleFill } from 'react-icons/bs';
 import { BiColumns } from 'react-icons/bi';
-// import { FaQuestionCircle, FaRegEdit } from 'react-icons/fa';
 import { FaRegEdit } from 'react-icons/fa';
 import '../../components/navbar/Navbar.css';
 import { AiOutlineContacts } from 'react-icons/ai';
@@ -28,7 +26,7 @@ export default function NavMobile(props) {
   const dispatch = useDispatch();
 
   // Login State
-  const { theme, setTheme, authCheckLoginInvestor } = useStateContext();
+  const { theme, setTheme } = useStateContext();
   // Login State
 
   // mobile nav state
@@ -66,40 +64,11 @@ export default function NavMobile(props) {
 
   const [iamClick, setiamClick] = useState(false);
   const handleiamClick = () => setiamClick(!iamClick);
-  // Dark Light Mode
 
   function toCloseNav() {
     setToggle(false);
     setClick(false);
   }
-
-  // useEffect(() => {
-  //   getRedirectResult(auth)
-  //     .then((result) => {
-  //       Swal.fire({
-  //         title: 'Login successful',
-  //         icon: 'success',
-  //         timer: 2000,
-  //         timerProgressBar: true,
-  //         toast: true,
-  //         position: 'top-right',
-  //         showConfirmButton: false,
-  //       });
-  //       setAuthCheckLogin(true);
-  //     })
-  //     .catch((error) => {
-  //       Swal.fire({
-  //         title: 'Login not successful',
-  //         icon: 'error',
-  //         timer: 2000,
-  //         timerProgressBar: true,
-  //         toast: true,
-  //         position: 'top-right',
-  //         showConfirmButton: false,
-  //       });
-  //     });
-  //   // eslint-disable-next-line
-  // }, []);
 
   return (
     <div className="header">
@@ -126,128 +95,73 @@ export default function NavMobile(props) {
 
         {toggle && (
           <div>
-            {authCheckLoginInvestor === 'True' ? (
-              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                {/* <CustomLink to="/performance" onClick={toCloseNav}>
-                  <AiFillHome className="nav-icons" />
-                  Performance
-                </CustomLink> */}
-                {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
-                  <MdManageAccounts className="nav-icons" />
-                  Risk Management
-                </CustomLink> */}
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+              <CustomLink to="" onClick={toCloseNav}>
+                <AiFillWallet className="nav-icons" />
+                Forecasts
+              </CustomLink>
+              {/* Sub Menu */}
+              <CustomLink
+                className="mobile-submenu"
+                to="/all-models"
+                onClick={toCloseNav}
+              >
+                <AiOutlineAppstore className="nav-icons nav-icons-mobile" />
+                All Models
+              </CustomLink>
+              <CustomLink
+                className="mobile-submenu"
+                to="/backtest-models"
+                onClick={toCloseNav}
+              >
+                <BsGraphUp className="nav-icons nav-icons-mobile" />
+                Backtest
+              </CustomLink>
+              <CustomLink
+                className="mobile-submenu"
+                to="/compare-models"
+                onClick={toCloseNav}
+              >
+                <BiColumns className="nav-icons nav-icons-mobile" />
+                Compare
+              </CustomLink>
 
-                <CustomLink to="/compare-models" onClick={toCloseNav}>
-                  <BiColumns className="nav-icons nav-icons-mobile" />
-                  Compare
-                </CustomLink>
-                <CustomLink to="/backtest-models" onClick={toCloseNav}>
-                  <BsGraphUp className="nav-icons nav-icons-mobile" />
-                  Backtest
-                </CustomLink>
-                <CustomLink to="/api" onClick={toCloseNav}>
-                  <AiOutlineApi className="nav-icons" />
-                  API
-                </CustomLink>
-                <CustomLink to="/theory" onClick={toCloseNav}>
-                  <BsFillLayersFill className="nav-icons nav-icons-mobile" />
-                  Theory
-                </CustomLink>
-              </ul>
-            ) : (
-              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                {/* <CustomLink to="/performance" onClick={toCloseNav}>
-                  <AiFillHome className="nav-icons" />
-                  Performance
-                </CustomLink> */}
-                {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
-                  <MdManageAccounts className="nav-icons" />
-                  Risk Management
-                </CustomLink> */}
-                <CustomLink to="" onClick={toCloseNav}>
-                  <AiFillWallet className="nav-icons" />
-                  Forecasts
-                </CustomLink>
-                {/* Sub Menu */}
-                <CustomLink
-                  className="mobile-submenu"
-                  to="/all-models"
-                  onClick={toCloseNav}
-                >
-                  <AiOutlineAppstore className="nav-icons nav-icons-mobile" />
-                  All Models
-                </CustomLink>
-                <CustomLink
-                  className="mobile-submenu"
-                  to="/backtest-models"
-                  onClick={toCloseNav}
-                >
-                  <BsGraphUp className="nav-icons nav-icons-mobile" />
-                  Backtest
-                </CustomLink>
-                <CustomLink
-                  className="mobile-submenu"
-                  to="/compare-models"
-                  onClick={toCloseNav}
-                >
-                  <BiColumns className="nav-icons nav-icons-mobile" />
-                  Compare
-                </CustomLink>
+              <CustomLink to="/faqs" onClick={toCloseNav}>
+                <MdOutlineSource className="nav-icons" />
+                FAQs
+              </CustomLink>
+              {/* Sub Menu */}
+              <CustomLink to="" onClick={toCloseNav}>
+                <AiOutlineApi className="nav-icons" />
+                API
+              </CustomLink>
+              {/* Sub Menu */}
+              <CustomLink
+                className="mobile-submenu"
+                to="/api-registration"
+                onClick={toCloseNav}
+              >
+                <FaRegEdit className="nav-icons nav-icons-mobile" />
+                Registration
+              </CustomLink>
+              <CustomLink
+                className="mobile-submenu"
+                to="/api"
+                onClick={toCloseNav}
+              >
+                <AiOutlineFileDone className="nav-icons nav-icons-mobile" />
+                Documentation
+              </CustomLink>
 
-                <CustomLink to="/faqs" onClick={toCloseNav}>
-                  <MdOutlineSource className="nav-icons" />
-                  FAQs
-                </CustomLink>
-                {/* Sub Menu */}
-                {/* <CustomLink
-                  className="mobile-submenu"
-                  to="/theory"
-                  onClick={toCloseNav}
-                >
-                  <BsFillLayersFill className="nav-icons nav-icons-mobile" />
-                  Theory
-                </CustomLink> 
-                <CustomLink
-                  className="mobile-submenu"
-                  to="/faqs"
-                  onClick={toCloseNav}
-                >
-                  <FaQuestionCircle className="nav-icons nav-icons-mobile" />
-                  FAQs
-                </CustomLink> */}
-
-                <CustomLink to="" onClick={toCloseNav}>
-                  <AiOutlineApi className="nav-icons" />
-                  API
-                </CustomLink>
-                {/* Sub Menu */}
-                <CustomLink
-                  className="mobile-submenu"
-                  to="/api-registration"
-                  onClick={toCloseNav}
-                >
-                  <FaRegEdit className="nav-icons nav-icons-mobile" />
-                  Registration
-                </CustomLink>
-                <CustomLink
-                  className="mobile-submenu"
-                  to="/api"
-                  onClick={toCloseNav}
-                >
-                  <AiOutlineFileDone className="nav-icons nav-icons-mobile" />
-                  Documentation
-                </CustomLink>
-
-                <CustomLink to="/about" onClick={toCloseNav}>
-                  <BsFillInfoCircleFill className="nav-icons" />
-                  About
-                </CustomLink>
-                <CustomLink to="/contact" onClick={toCloseNav}>
-                  <AiOutlineContacts className="nav-icons" />
-                  Contact
-                </CustomLink>
-              </ul>
-            )}
+              <CustomLink to="/about" onClick={toCloseNav}>
+                <BsFillInfoCircleFill className="nav-icons" />
+                About
+              </CustomLink>
+              <CustomLink to="/contact" onClick={toCloseNav}>
+                <AiOutlineContacts className="nav-icons" />
+                Contact
+              </CustomLink>
+            </ul>
           </div>
         )}
 

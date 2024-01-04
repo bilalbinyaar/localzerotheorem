@@ -142,12 +142,12 @@ export default function Navbar() {
               id="mobile-nav"
               className={click ? 'nav-menu active' : 'nav-menu'}
             >
-              <CustomLink to="/" onClick={toCloseNav}>
+              {/* <CustomLink to="/" onClick={toCloseNav}>
                 Performance
-              </CustomLink>
-              <CustomLink to="/risk-management" onClick={toCloseNav}>
+              </CustomLink> */}
+              {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
                 Risk Management
-              </CustomLink>
+              </CustomLink> */}
               <CustomLink to="/compare-strategies" className="menu-item">
                 Compare
               </CustomLink>
@@ -167,12 +167,12 @@ export default function Navbar() {
               id="mobile-nav"
               className={click ? 'nav-menu active' : 'nav-menu'}
             >
-              <CustomLink to="/performance" onClick={toCloseNav}>
+              {/* <CustomLink to="/performance" onClick={toCloseNav}>
                 Performance
-              </CustomLink>
-              <CustomLink to="/risk-management" onClick={toCloseNav}>
+              </CustomLink> */}
+              {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
                 Risk Management
-              </CustomLink>
+              </CustomLink> */}
               <CustomLink className="menu-item">
                 Forecasts
                 <ul className="sub-menu-items">

@@ -128,14 +128,14 @@ export default function NavMobile(props) {
           <div>
             {authCheckLoginInvestor === 'True' ? (
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <CustomLink to="/performance" onClick={toCloseNav}>
+                {/* <CustomLink to="/performance" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
                   Performance
-                </CustomLink>
-                <CustomLink to="/risk-management" onClick={toCloseNav}>
+                </CustomLink> */}
+                {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
                   <MdManageAccounts className="nav-icons" />
                   Risk Management
-                </CustomLink>
+                </CustomLink> */}
 
                 <CustomLink to="/compare-models" onClick={toCloseNav}>
                   <BiColumns className="nav-icons nav-icons-mobile" />
@@ -156,14 +156,14 @@ export default function NavMobile(props) {
               </ul>
             ) : (
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <CustomLink to="/performance" onClick={toCloseNav}>
+                {/* <CustomLink to="/performance" onClick={toCloseNav}>
                   <AiFillHome className="nav-icons" />
                   Performance
-                </CustomLink>
-                <CustomLink to="/risk-management" onClick={toCloseNav}>
+                </CustomLink> */}
+                {/* <CustomLink to="/risk-management" onClick={toCloseNav}>
                   <MdManageAccounts className="nav-icons" />
                   Risk Management
-                </CustomLink>
+                </CustomLink> */}
                 <CustomLink to="" onClick={toCloseNav}>
                   <AiFillWallet className="nav-icons" />
                   Forecasts

@@ -35,7 +35,7 @@ import { useStateContext } from './ContextProvider';
 // import BacktestRouteComponentStrategies from './components/backtest/BacktestRouteComponentStrategies';
 // import CompareStrategies from './pages/CompareStrategies';
 // import AccountDetails from './pages/AccountDetails';
-import ServicesEntrance from './services-view/services-pages/ServicesEntrance';
+// import ServicesEntrance from './services-view/services-pages/ServicesEntrance';
 import ServicesAbout from './services-view/services-pages/ServicesAbout';
 import ServicesHypothesis from './services-view/services-pages/ServicesHypothesis';
 import HypoRepresentationofaNewAssetClassviaSubstitution from './services-view/services-pages/hypothesisPages/HypoRepresentationofaNewAssetClassviaSubstitution';
@@ -257,7 +257,7 @@ function App() {
       // </React.Fragment>
       <React.Fragment>
         <Routes basename="/zero-theorem">
-          <Route path="/" element={<ServicesEntrance />} />
+          {/* <Route path="/" element={<ServicesEntrance />} /> */}
           <Route path="/services-about" element={<ServicesAbout />} />
           <Route path="/hypothesis" element={<ServicesHypothesis />} />
           <Route

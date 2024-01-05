@@ -6,12 +6,13 @@ import logoWhite from '../../assets/logo-white.svg';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useStateContext } from '../../ContextProvider';
 import {
+  AiFillHome,
   AiOutlineApi,
   AiOutlineFileDone,
   AiFillWallet,
   AiOutlineAppstore,
 } from 'react-icons/ai';
-import { MdOutlineSource } from 'react-icons/md';
+import { MdOutlineSource, MdManageAccounts } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { set_day_mode, set_night_mode } from '../../store';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
@@ -96,6 +97,15 @@ export default function NavMobile(props) {
         {toggle && (
           <div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+              <CustomLink to="/performance" onClick={toCloseNav}>
+                <AiFillHome className="nav-icons" />
+                Performance
+              </CustomLink>
+              <CustomLink to="/risk-management" onClick={toCloseNav}>
+                <MdManageAccounts className="nav-icons" />
+                Risk Management
+              </CustomLink>
+
               <CustomLink to="" onClick={toCloseNav}>
                 <AiFillWallet className="nav-icons" />
                 Forecasts

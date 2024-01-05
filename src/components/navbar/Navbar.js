@@ -135,6 +135,9 @@ export default function Navbar() {
             id="mobile-nav"
             className={click ? 'nav-menu active' : 'nav-menu'}
           >
+            <CustomLink to="/">Performance</CustomLink>
+            <CustomLink to="/risk-management">Risk Management</CustomLink>
+
             <CustomLink className="menu-item">
               Forecasts
               <ul className="sub-menu-items">

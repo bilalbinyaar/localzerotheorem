@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { ContextProvider } from './ContextProvider';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -14,8 +14,7 @@ import AdminApp from './AdminApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const CheckView = () => {
-  const { authCheckLoginInvestor, authCheckLoginAdmin, link, setLink } =
-    useStateContext();
+  const { link, setLink } = useStateContext();
   const [flag, setFlag] = useState(false);
   useEffect(() => {
     const starCountRef = ref(database, 'backend-api-link');

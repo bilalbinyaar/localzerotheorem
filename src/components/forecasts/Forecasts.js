@@ -61,6 +61,7 @@ const Forecasts = () => {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data);
           // Set_stats_cache(data)
           var model_names = {};
           for (var i = 0; i < data['response'].length; i++) {
@@ -223,6 +224,67 @@ const Forecasts = () => {
     }
     // eslint-disable-next-line
   }, [topPerformerModels]);
+
+  // Testing Local Data VERY IMPORTANT
+  // useEffect(() => {
+  //   fetch('/data.json')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log('Local Data Fetched', data);
+
+  //       var model_names = {};
+  //       for (var i = 0; i < data['response'].length; i++) {
+  //         model_names[data['response'][i].strategy_name] = {
+  //           strategy_name: data['response'][i].strategy_name,
+  //           current_drawdown: data['response'][i].current_drawdown,
+  //           curr_drawdown_duration: data['response'][i].curr_drawdown_duration,
+  //           average_drawdown: data['response'][i].average_drawdown,
+  //           average_drawdown_duration:
+  //             data['response'][i].average_drawdown_duration,
+  //           max_drawdown: data['response'][i].max_drawdown,
+  //           max_drawdown_duration: data['response'][i].max_drawdown_duration,
+  //           r2_score: data['response'][i].r2_score,
+  //           sharpe: data['response'][i].sharpe,
+  //           sortino: data['response'][i].sortino,
+  //           total_pnl: data['response'][i].total_pnl,
+  //           total_positive_pnl: data['response'][i].total_positive_pnl,
+  //           total_negative_pnl: data['response'][i].total_negative_pnl,
+  //           total_wins: data['response'][i].total_wins,
+  //           total_losses: data['response'][i].total_losses,
+  //           consective_wins: data['response'][i].consective_wins,
+  //           consective_losses: data['response'][i].consective_losses,
+  //           win_percentage: data['response'][i].win_percentage,
+  //           loss_percentage: data['response'][i].loss_percentage,
+  //           pnl_sum_1: data['response'][i].pnl_sum_1,
+  //           pnl_sum_7: data['response'][i].pnl_sum_7,
+  //           pnl_sum_15: data['response'][i].pnl_sum_15,
+  //           pnl_sum_30: data['response'][i].pnl_sum_30,
+  //           pnl_sum_45: data['response'][i].pnl_sum_45,
+  //           pnl_sum_60: data['response'][i].pnl_sum_60,
+  //           average_daily_pnl: data['response'][i].average_daily_pnl,
+  //           win_loss_ratio: data['response'][i].win_loss_ratio,
+
+  //           rank: data['response'][i].rank,
+  //           alpha: data['response'][i].alpha,
+  //           beta: data['response'][i].beta,
+  //         };
+  //       }
+  //       if (JSON.stringify(model_names) !== '{}') {
+  //         const sorted = Object.keys(model_names)
+  //           .map((key) => {
+  //             return { ...model_names[key], key };
+  //           })
+  //           .sort((a, b) => b.total_pnl - a.total_pnl);
+  //         setTopPerformersModels(sorted);
+
+  //         sessionStorage.setItem('stats', JSON.stringify(model_names));
+  //         sessionStorage.setItem('sorted_stats', JSON.stringify(sorted));
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+
+  //   // eslint-disable-next-line
+  // }, []);
 
   // MUI DROP DOWN
   const [days, setDays] = React.useState('All');

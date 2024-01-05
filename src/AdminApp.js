@@ -33,11 +33,10 @@ import RiskManagement from './pages/RiskManagement';
 import BacktestRouteComponentModels from './components/backtest/BacktestRouteComponentModels';
 import BacktestRouteComponentStrategies from './components/backtest/BacktestRouteComponentStrategies';
 import CompareStrategies from './pages/CompareStrategies';
-import AccountDetails from './pages/AccountDetails';
+// import AccountDetails from './pages/AccountDetails';
 
 function App() {
-  const { loading, authCheckLoginInvestor, authCheckLoginAdmin } =
-    useStateContext();
+  const { loading } = useStateContext();
 
   // SCROLL TO TOP
   const location = useLocation();
